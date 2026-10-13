@@ -1,175 +1,194 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RUDRA MOVIES - Preparing Download</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>RUDRA MOVIES - Download</title>
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(ellipse at top, #292100 0%, #101010 45%, #050505 100%);
-  color: white;
-  font-family: Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        radial-gradient(ellipse at top, #292100 0%, #101010 45%, #050505 100%);
+    }
 
-.card {
-  width: 100%;
-  max-width: 640px;
-  padding: 45px 20px;
-  text-align: center;
-  background: rgba(15,15,15,.96);
-  border: 1px solid #49401b;
-  border-radius: 35px;
-  box-shadow: 0 15px 50px #000;
-}
+    .card {
+      width: 100%;
+      max-width: 620px;
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(15, 15, 15, 0.96);
+      border: 1px solid #49401b;
+      border-radius: 35px;
+      box-shadow: 0 15px 50px #000;
+    }
 
-.circle {
-  width: 210px;
-  height: 210px;
-  margin: 0 auto 45px;
-  border-radius: 50%;
-  border: 6px solid #e9c928;
-  box-shadow: 0 0 18px #e9c92835,
-              inset 0 0 15px #e9c92820;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(#202020, #080808);
-}
+    .circle {
+      width: 210px;
+      height: 210px;
+      max-width: 70vw;
+      max-height: 70vw;
+      margin: 0 auto 40px;
+      border: 6px solid #e9c928;
+      border-radius: 50%;
+      box-shadow: 0 0 18px #e9c92835,
+                  inset 0 0 15px #e9c92820;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(#202020, #080808);
+    }
 
-#count {
-  font-size: 68px;
-  font-weight: bold;
-  color: #ffdf32;
-}
+    #count {
+      font-size: 68px;
+      font-weight: bold;
+      color: #ffdf32;
+    }
 
-h1 {
-  color: #ffdf32;
-  font-size: 30px;
-  letter-spacing: 3px;
-  margin-bottom: 35px;
-}
+    h1 {
+      color: #ffdf32;
+      font-size: 28px;
+      letter-spacing: 3px;
+      margin-bottom: 35px;
+    }
 
-h2 {
-  font-size: 30px;
-  margin-bottom: 35px;
-}
+    h2 {
+      font-size: 27px;
+      margin-bottom: 30px;
+    }
 
-.status {
-  font-size: 23px;
-  color: #d5b947;
-  margin-bottom: 35px;
-}
+    .status {
+      font-size: 21px;
+      line-height: 1.6;
+      color: #d5b947;
+      overflow-wrap: anywhere;
+    }
 
-.brand {
-  display: inline-block;
-  color: #ffdf32;
-  background: #29230d;
-  border: 1px solid #66571b;
-  border-radius: 35px;
-  padding: 16px 30px;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .note {
+      margin-top: 35px;
+      color: #888;
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-.note {
-  color: #888;
-  font-size: 12px;
-  margin-top: 28px;
-}
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 24px;
+      color: #111;
+      background: #ffdf32;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
 
-@media (max-width: 400px) {
-  .circle { width: 170px; height: 170px; }
-  h1 { font-size: 25px; }
-  h2 { font-size: 24px; }
-}
-</style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-<main class="card">
+  <main class="card">
+    <div class="circle">
+      <span id="count">5</span>
+    </div>
 
-  <div class="circle">
-    <span id="count">5</span>
-  </div>
+    <h1>RUDRA MOVIES</h1>
+    <h2 id="heading">Preparing Your Download</h2>
 
-  <h1>RUDRA MOVIES</h1>
+    <p class="status" id="status" aria-live="polite">
+      Checking your download link...
+    </p>
 
-  <h2>Preparing Your Download</h2>
+    <p class="note" id="note">
+      Please wait while your link is checked.
+    </p>
 
-  <div class="status" id="status">
-    Redirecting in 5 seconds...
-  </div>
+    <a id="back" class="button hidden" href="/">
+      Go Back
+    </a>
+  </main>
 
-  <a class="brand" id="continue" href="#">
-    ⚡ RUDRA MOVIES
-  </a>
+  <script>
+    const countElement = document.getElementById("count");
+    const heading = document.getElementById("heading");
+    const status = document.getElementById("status");
+    const note = document.getElementById("note");
+    const back = document.getElementById("back");
 
-  <p class="note">
-    You will be redirected to your selected link.
-  </p>
-
-</main>
-
-<script>
-const params = new URLSearchParams(location.search);
-const target = params.get("url");
-
-// Only allow Arolinks destinations.
-let destination = null;
-
-try {
-  const parsed = new URL(target);
-  if (
-    parsed.protocol === "https:" &&
-    (parsed.hostname === "arolinks.com" ||
-     parsed.hostname.endsWith(".arolinks.com"))
-  ) {
-    destination = parsed.href;
-  }
-} catch (e) {}
-
-const countElement = document.getElementById("count");
-const statusElement = document.getElementById("status");
-const continueButton = document.getElementById("continue");
-
-if (destination) {
-  continueButton.href = destination;
-
-  let seconds = 5;
-  countElement.textContent = seconds;
-
-  const timer = setInterval(() => {
-    seconds--;
-    countElement.textContent = seconds;
-
-    if (seconds > 0) {
-      statusElement.textContent =
-        "Redirecting in " + seconds + " seconds...";
-    } else {
-      clearInterval(timer);
-      countElement.textContent = "0";
-      statusElement.textContent = "Opening your link...";
-
-      location.replace(destination);
+    function showError(message) {
+      countElement.textContent = "!";
+      heading.textContent = "Download Link";
+      status.textContent = message;
+      note.textContent =
+        "Please open a valid link supplied by your link provider.";
+      back.classList.remove("hidden");
     }
-  }, 1000);
 
-} else {
-  countElement.textContent = "!";
-  statusElement.textContent = "A valid Arolinks URL is required.";
-  continueButton.style.display = "none";
-}
-</script>
+    function getDestination() {
+      const params = new URLSearchParams(window.location.search);
+      const value = params.get("url");
+
+      if (!value) return null;
+
+      try {
+        const destination = new URL(value);
+
+        if (destination.protocol !== "https:") return null;
+
+        const host = destination.hostname.toLowerCase();
+        const validHost =
+          host === "arolinks.com" ||
+          host.endsWith(".arolinks.com");
+
+        if (!validHost) return null;
+
+        return destination.href;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    const destination = getDestination();
+
+    if (!destination) {
+      showError("A valid Arolinks URL is required.");
+    } else {
+      let seconds = 5;
+      countElement.textContent = seconds;
+      status.textContent = "Your download link is ready.";
+      note.textContent =
+        "Redirecting in " + seconds + " seconds...";
+
+      const timer = setInterval(function () {
+        seconds--;
+        countElement.textContent = seconds;
+        note.textContent =
+          "Redirecting in " + seconds + " seconds...";
+
+        if (seconds <= 0) {
+          clearInterval(timer);
+          heading.textContent = "Redirecting...";
+          status.textContent = "Opening your selected link.";
+          note.textContent = "Please wait...";
+          window.location.replace(destination);
+        }
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
