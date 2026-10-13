@@ -141,7 +141,7 @@
 
     function getDestination() {
       const params = new URLSearchParams(window.location.search);
-      const value = params.get("url");
+      const value = params.get("redirect");
 
       if (!value) return null;
 
