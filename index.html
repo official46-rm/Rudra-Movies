@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUDRA MOVIES - Preparing Download</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #292100 0%, #101010 45%, #050505 100%);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px;
+  padding: 45px 20px;
+  text-align: center;
+  background: rgba(15,15,15,.96);
+  border: 1px solid #49401b;
+  border-radius: 35px;
+  box-shadow: 0 15px 50px #000;
+}
+
+.circle {
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 45px;
+  border-radius: 50%;
+  border: 6px solid #e9c928;
+  box-shadow: 0 0 18px #e9c92835,
+              inset 0 0 15px #e9c92820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#202020, #080808);
+}
+
+#count {
+  font-size: 68px;
+  font-weight: bold;
+  color: #ffdf32;
+}
+
+h1 {
+  color: #ffdf32;
+  font-size: 30px;
+  letter-spacing: 3px;
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.status {
+  font-size: 23px;
+  color: #d5b947;
+  margin-bottom: 35px;
+}
+
+.brand {
+  display: inline-block;
+  color: #ffdf32;
+  background: #29230d;
+  border: 1px solid #66571b;
+  border-radius: 35px;
+  padding: 16px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.note {
+  color: #888;
+  font-size: 12px;
+  margin-top: 28px;
+}
+
+@media (max-width: 400px) {
+  .circle { width: 170px; height: 170px; }
+  h1 { font-size: 25px; }
+  h2 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+<main class="card">
+
+  <div class="circle">
+    <span id="count">5</span>
+  </div>
+
+  <h1>RUDRA MOVIES</h1>
+
+  <h2>Preparing Your Download</h2>
+
+  <div class="status" id="status">
+    Redirecting in 5 seconds...
+  </div>
+
+  <a class="brand" id="continue" href="#">
+    ⚡ RUDRA MOVIES
+  </a>
+
+  <p class="note">
+    You will be redirected to your selected link.
+  </p>
+
+</main>
+
+<script>
+const params = new URLSearchParams(location.search);
+const target = params.get("url");
+
+// Only allow Arolinks destinations.
+let destination = null;
+
+try {
+  const parsed = new URL(target);
+  if (
+    parsed.protocol === "https:" &&
+    (parsed.hostname === "arolinks.com" ||
+     parsed.hostname.endsWith(".arolinks.com"))
+  ) {
+    destination = parsed.href;
+  }
+} catch (e) {}
+
+const countElement = document.getElementById("count");
+const statusElement = document.getElementById("status");
+const continueButton = document.getElementById("continue");
+
+if (destination) {
+  continueButton.href = destination;
+
+  let seconds = 5;
+  countElement.textContent = seconds;
+
+  const timer = setInterval(() => {
+    seconds--;
+    countElement.textContent = seconds;
+
+    if (seconds > 0) {
+      statusElement.textContent =
+        "Redirecting in " + seconds + " seconds...";
+    } else {
+      clearInterval(timer);
+      countElement.textContent = "0";
+      statusElement.textContent = "Opening your link...";
+
+      location.replace(destination);
+    }
+  }, 1000);
+
+} else {
+  countElement.textContent = "!";
+  statusElement.textContent = "A valid Arolinks URL is required.";
+  continueButton.style.display = "none";
+}
+</script>
+</body>
+</html>
