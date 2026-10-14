@@ -1,151 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10182e">
-  <title>RUDRA MOVIES — Preparing Your Download</title>
-  <style>
-    :root { --cyan:#51dcff; --blue:#258ff4; --purple:#8b3dff; --ink:#10182e; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; min-height:100%; }
-    body {
-      min-height:100vh; padding:28px 14px;
-      display:flex; align-items:center; justify-content:center;
-      color:#f7f9ff; font-family:Arial,Helvetica,sans-serif;
-      background:
-        radial-gradient(ellipse at 8% 18%, rgba(0,196,255,.55), transparent 34%),
-        radial-gradient(ellipse at 94% 22%, rgba(255,45,154,.34), transparent 34%),
-        radial-gradient(ellipse at 78% 88%, rgba(126,44,255,.58), transparent 36%),
-        linear-gradient(145deg,#071a2c 0%,#1b2542 52%,#11142d 100%);
-    }
-    .card {
-      width:min(100%, 510px); text-align:center; padding:34px 24px 28px;
-      border:1px solid rgba(255,255,255,.35); border-radius:34px;
-      background:linear-gradient(145deg,rgba(44,151,226,.23),rgba(30,32,64,.78) 52%,rgba(125,54,220,.28));
-      box-shadow:0 24px 70px rgba(0,0,0,.35), inset 0 1px 1px rgba(255,255,255,.22);
-      backdrop-filter:blur(18px);
-    }
-    .logo-wrap {
-      width:112px;height:112px;margin:0 auto 22px;padding:8px;border-radius:50%;
-      display:grid;place-items:center;background:#05070d;
-      border:4px solid rgba(96,208,255,.62);
-      box-shadow:0 0 24px rgba(52,184,255,.22);
-      overflow:hidden;
-    }
-    .logo { width:100%;height:100%;object-fit:contain;border-radius:50%; }
-    .brand { margin:0 0 17px;font-size:clamp(23px,6vw,30px);font-weight:900;letter-spacing:.6px; }
-    .status {
-      display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border-radius:999px;
-      color:#74dfff;border:1px solid rgba(77,206,255,.48);
-      background:rgba(36,157,223,.12);font-size:12px;font-weight:800;letter-spacing:.7px;
-    }
-    .dot { width:9px;height:9px;border-radius:50%;background:#3de0b2;box-shadow:0 0 10px #3de0b2; }
-    .timer {
-      width:184px;height:184px;margin:34px auto 30px;border-radius:50%;padding:9px;
-      background:conic-gradient(from -30deg,var(--cyan),var(--blue),var(--purple),var(--cyan));
-      box-shadow:0 0 0 5px rgba(75,196,255,.12),0 0 30px rgba(52,175,255,.16);
-    }
-    .timer-inner {
-      width:100%;height:100%;border-radius:50%;display:grid;place-items:center;
-      background:radial-gradient(circle at 35% 25%,#20c9df,#087ab5 70%,#10375c);
-      border:5px solid rgba(7,25,51,.88);font-size:56px;font-weight:900;
-      text-shadow:0 3px 8px rgba(0,0,0,.28);
-    }
-    h2 { margin:0 0 10px;font-size:21px;font-weight:900; }
-    .subtitle { margin:0 0 27px;color:#c7d3e9;font-size:16px;line-height:1.5; }
-    .btn {
-      width:100%;min-height:60px;display:flex;align-items:center;justify-content:center;gap:10px;
-      padding:16px 18px;border-radius:22px;text-decoration:none;font-size:16px;font-weight:900;
-      letter-spacing:.35px;transition:transform .15s ease,filter .15s ease;cursor:pointer;
-    }
-    .btn:active { transform:scale(.985); }
-    .primary {
-      color:white;border:1px solid rgba(255,255,255,.22);
-      background:linear-gradient(100deg,#087fa9,#286bd9 58%,#7141e8);
-      box-shadow:0 10px 24px rgba(22,106,218,.24);
-    }
-    .secondary {
-      margin-top:14px;color:#fff;border:1px solid rgba(255,255,255,.43);
-      background:linear-gradient(100deg,rgba(255,255,255,.08),rgba(179,82,255,.28));
-    }
-    .footer { margin:27px 0 0;color:#aab5ce;font-size:12px;font-weight:800;letter-spacing:1.3px; }
-    .small-note { margin-top:12px;color:#9eabc6;font-size:11px;line-height:1.5; }
-    @media (max-width:380px) {
-      .card { padding:28px 17px 24px;border-radius:28px; }
-      .timer { width:160px;height:160px; }
-      .btn { font-size:14px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10152d">
+<title>RM Movies - Preparing Your Download</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  font-family:Arial,sans-serif;
+  color:white;
+  background:
+    radial-gradient(circle at 15% 15%,#0879a5,transparent 40%),
+    radial-gradient(circle at 90% 80%,#792de4,transparent 40%),
+    linear-gradient(135deg,#10152d,#17152c,#080d20);
+}
+.card{
+  width:100%;
+  max-width:390px;
+  padding:30px 20px 24px;
+  text-align:center;
+  border:1px solid #ffffff35;
+  border-radius:24px;
+  background:#ffffff12;
+  backdrop-filter:blur(18px);
+  box-shadow:0 15px 45px #0006;
+}
+.logo{
+  width:66px;height:66px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  font-weight:900;
+  color:#ffd66b;
+  background:#080d20;
+  border:2px solid #20cfff;
+  box-shadow:0 0 22px #00cfff55;
+}
+h2{font-size:21px;letter-spacing:2px}
+.subtitle{
+  margin:12px 0 24px;
+  font-size:12px;
+  color:#b9d9f5;
+}
+.status{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:20px;
+  background:#00c78120;
+  color:#58ffbb;
+  font-size:10px;
+  margin-bottom:25px;
+}
+.timer{
+  width:112px;height:112px;
+  border:5px solid #21cfff;
+  border-radius:50%;
+  margin:0 auto 24px;
+  display:grid;
+  place-items:center;
+  font-size:44px;
+  font-weight:bold;
+  background:linear-gradient(145deg,#0879be,#12d9ed);
+  box-shadow:0 0 25px #00cfff55;
+}
+h4{font-size:12px;margin-bottom:10px}
+.description{
+  color:#bdc9df;
+  font-size:12px;
+  line-height:1.7;
+  margin-bottom:22px;
+}
+button,.channel{
+  width:100%;
+  min-height:46px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border:0;
+  border-radius:11px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:12px;
+  margin-top:10px;
+  cursor:pointer;
+}
+#continueBtn{
+  color:white;
+  background:linear-gradient(90deg,#058edb,#563cff);
+}
+#continueBtn:disabled{
+  opacity:.7;cursor:wait;
+}
+.channel{
+  color:white;
+  border:1px solid #ffffff35;
+  background:#ffffff12;
+}
+.footer{
+  margin-top:23px;
+  color:#a6b1cb;
+  font-size:10px;
+  letter-spacing:1px;
+}
+  .logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 18px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+</style>
 </head>
+
 <body>
-  <main class="card">
-    <div class="logo-wrap">
-      <!-- Upload your logo image to this same GitHub folder as logo.png -->
-      <img class="logo" src="RudraMovies.png" alt="Rudra Movies logo"
-           onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:25px;font-weight:900;color:#ffd45a&quot;>RM</span>';">
-    </div>
-    <h1 class="brand">RUDRA MOVIES</h1>
-    <div class="status"><span class="dot"></span> LINK PREPARATION</div>
+<main class="card">
 
-    <div class="timer" aria-label="Countdown">
-      <div class="timer-inner" id="countdown">5</div>
-    </div>
+  <div class="logo">
+  <img src="RudraMovies.png" alt="RUDRA MOVIES Logo">
+  </div>
 
-    <h2>PREPARING YOUR DOWNLOAD</h2>
-    <p class="subtitle" id="message">Your download link is being prepared…</p>
+  <h2>RM MOVIES</h2>
+  <p class="subtitle">YOUR MOVIE DOWNLOAD DESTINATION</p>
 
-    <a class="btn primary" id="continueBtn" href="#" rel="nofollow">
-      <span>➜</span> CONTINUE TO DOWNLOAD
-    </a>
-    <a class="btn secondary" href="https://t.me/RudraMoviez" target="_blank" rel="noopener noreferrer">
-      ✦ &nbsp; RM MOVIES MAIN CHANNEL &nbsp; ✦
-    </a>
+  <div class="status">● LINK PREPARATION</div>
 
-    <p class="footer">⚡ RUDRA MOVIES</p>
-    <p class="small-note">Tap “Continue to Download” if you are not redirected automatically.</p>
-  </main>
+  <div class="timer" id="timer">3</div>
 
-  <script>
-    (() => {
-      const params = new URLSearchParams(window.location.search);
-      const raw = params.get('url') || params.get('redirect') || '';
-      const button = document.getElementById('continueBtn');
-      const countEl = document.getElementById('countdown');
-      const message = document.getElementById('message');
-      let destination = '';
+  <h4 id="heading">PREPARING YOUR DOWNLOAD</h4>
 
-      try {
-        const candidate = new URL(raw, window.location.href);
-        // Only allow HTTPS destinations; avoids unsafe javascript: redirects.
-        if (raw && candidate.protocol === 'https:') destination = candidate.href;
-      } catch (_) {}
+  <p class="description" id="message">
+    Please wait while your download link is being prepared.
+    You can continue when the countdown finishes.
+  </p>
 
-      if (destination) {
-        button.href = destination;
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          window.location.href = destination;
-        });
-        let seconds = 5;
-        const timer = window.setInterval(() => {
-          seconds -= 1;
-          countEl.textContent = String(Math.max(seconds, 0));
-          if (seconds <= 0) {
-            window.clearInterval(timer);
-            message.textContent = 'Opening your download link…';
-            window.location.href = destination;
-          }
-        }, 1000);
-      } else {
-        countEl.textContent = '!';
-        message.textContent = 'Download link missing or invalid. Open the page using your full link.';
-        button.removeAttribute('href');
-        button.style.opacity = '.55';
-        button.style.cursor = 'not-allowed';
-        button.addEventListener('click', event => event.preventDefault());
-      }
-    })();
-  </script>
+  <button id="continueBtn" disabled>
+    Please wait... (3)
+  </button>
+
+  <a class="channel"
+     href="https://t.me/RudraMoviez"
+     target="_blank" rel="noopener">
+    ➤ JOIN RM MOVIES CHANNEL
+  </a>
+
+  <div class="footer">✦ RM MOVIES • OFFICIAL PAGE ✦</div>
+</main>
+
+<script>
+const params = new URLSearchParams(location.search);
+const destination = params.get("url");
+
+let seconds = 3;
+
+const timer = document.getElementById("timer");
+const btn = document.getElementById("continueBtn");
+const heading = document.getElementById("heading");
+const message = document.getElementById("message");
+
+function validUrl(value) {
+  try {
+    const u = new URL(value);
+    return u.protocol === "https:" || u.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+const countdown = setInterval(() => {
+  seconds--;
+  timer.textContent = seconds;
+
+  if (seconds <= 0) {
+    clearInterval(countdown);
+    timer.textContent = "✓";
+    heading.textContent = "YOUR LINK IS READY";
+    message.textContent =
+      "Click the button below to continue to your destination.";
+
+    btn.disabled = false;
+    btn.textContent = "➤  PROCEED TO DOWNLOAD";
+  } else {
+    btn.textContent = `Please wait... (${seconds})`;
+  }
+}, 1000);
+
+btn.addEventListener("click", () => {
+  if (btn.disabled) return;
+
+  if (!destination || !validUrl(destination)) {
+    message.textContent =
+      "Download link is not configured. Please contact the channel admin.";
+    return;
+  }
+
+  location.href = destination;
+});
+</script>
 </body>
 </html>
