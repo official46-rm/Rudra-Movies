@@ -2,130 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#101327">
-  <meta name="description" content="Secure link verification page">
-  <title>Secure Link Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10182e">
+  <title>RUDRA MOVIES — Preparing Your Download</title>
   <style>
-    :root{--bg:#0b1020;--cyan:#45e4d0;--blue:#6487ff;--pink:#c66bff;--white:#f7f8ff;--muted:#b8bfd7}
-    *{box-sizing:border-box}
-    html{min-height:100%;background:var(--bg)}
-    body{margin:0;min-height:100vh;min-height:100svh;padding:22px 14px;display:grid;place-items:center;overflow-x:hidden;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--white);background:radial-gradient(ellipse at 8% 18%,#087f91 0,transparent 36%),radial-gradient(ellipse at 92% 18%,#77295f 0,transparent 35%),radial-gradient(ellipse at 80% 92%,#4530a6 0,transparent 34%),linear-gradient(145deg,#101a32,#101025 58%,#15152d)}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:radial-gradient(#d8e5ff 0.7px,transparent .7px);background-size:18px 18px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
-    .wrap{width:100%;display:flex;justify-content:center;position:relative;z-index:1}
-    .panel{width:min(100%,560px);padding:30px clamp(20px,5vw,38px) 25px;text-align:center;border:1px solid rgba(205,221,255,.34);border-radius:34px;background:linear-gradient(145deg,rgba(27,91,126,.72),rgba(31,34,68,.86) 48%,rgba(80,38,115,.78));box-shadow:0 25px 80px #0008,inset 0 1px 0 #ffffff35;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);position:relative;overflow:hidden}
-    .panel:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(130deg,#73f5ebaa,transparent 35%,#c66bff88);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-    .logo{width:94px;height:94px;margin:2px auto 17px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#2c4568,#080b18 68%);border:3px solid #b3e6ff8c;box-shadow:0 0 0 7px #ffffff08,0 0 32px #55d9ff24;overflow:hidden}
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .logo-fallback{font-size:30px;font-weight:900;letter-spacing:-2px;color:var(--cyan);text-shadow:0 0 18px #45e4d080}
-    .brand{font-size:clamp(19px,5vw,25px);font-weight:900;letter-spacing:.055em;margin:0 0 15px;overflow-wrap:anywhere}
-    .badge{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 14px;border:1px solid #45e4d05c;border-radius:999px;background:#0cdbc014;color:#a8fff2;font-size:11px;font-weight:850;letter-spacing:.08em}
-    .dot{width:8px;height:8px;border-radius:50%;background:#48edb4;box-shadow:0 0 12px #48edb4;flex:none}
-    .timer-area{margin:37px auto 26px;width:190px;max-width:60vw;aspect-ratio:1;position:relative;display:grid;place-items:center}
-    .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from -90deg,var(--cyan) var(--progress,100%),#ffffff18 0);padding:7px;box-shadow:0 0 30px #35d9f72c;transform:rotate(0deg)}
-    .ring:before{content:"";display:block;width:100%;height:100%;border-radius:50%;background:#121a30;border:1px solid #b6f5ff55}
-    .ring:after{content:"";position:absolute;inset:-9px;border:1px dashed #78e8ff70;border-radius:50%;animation:spin 18s linear infinite}
-    .timer-core{position:absolute;inset:16px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 25%,#2bbbc9,#1763a5 58%,#202552);box-shadow:inset 0 0 25px #001b4077,0 0 22px #4ce4ff28}
-    #count{font-size:clamp(54px,14vw,70px);font-weight:900;line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 3px 15px #00152e88}
-    .seconds{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#e1fbff;margin-top:8px}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    h1{margin:0 0 8px;font-size:clamp(20px,5vw,25px);font-weight:900;letter-spacing:.035em}
-    .status{margin:0;color:#e1e7fa;font-size:16px;font-weight:600;line-height:1.6}
-    .note{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6;overflow-wrap:anywhere}
-    .actions{display:grid;gap:12px;margin-top:27px}
-    .btn{min-height:55px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:17px;text-decoration:none;font-size:15px;font-weight:850;line-height:1.35;color:#061326;background:linear-gradient(105deg,#4be6d1,#3c9df4 55%,#7e65ff);box-shadow:0 10px 28px #317be93d;border:1px solid #c5ffff50;transition:transform .18s,filter .18s}
-    .btn:active{transform:scale(.985)}.btn:hover{filter:brightness(1.08)}
-    .btn.alt{color:#f5f0ff;background:linear-gradient(110deg,#ffffff13,#ffffff09);border:1px solid #d6d9ff61;box-shadow:0 8px 22px #0002}
-    .hidden{display:none!important}
-    .foot{margin-top:24px;padding-top:17px;border-top:1px solid #ffffff20;color:#aab4d0;font-size:11px;letter-spacing:.09em;font-weight:800;line-height:1.7}
-    .foot strong{color:#d4fff9}
-    @media(max-width:390px){body{padding:13px 10px}.panel{padding:25px 17px 20px;border-radius:27px}.logo{width:82px;height:82px}.timer-area{width:165px;margin:30px auto 23px}.actions{margin-top:22px}.btn{min-height:51px;border-radius:14px;font-size:14px}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    :root { --cyan:#51dcff; --blue:#258ff4; --purple:#8b3dff; --ink:#10182e; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; min-height:100%; }
+    body {
+      min-height:100vh; padding:28px 14px;
+      display:flex; align-items:center; justify-content:center;
+      color:#f7f9ff; font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(ellipse at 8% 18%, rgba(0,196,255,.55), transparent 34%),
+        radial-gradient(ellipse at 94% 22%, rgba(255,45,154,.34), transparent 34%),
+        radial-gradient(ellipse at 78% 88%, rgba(126,44,255,.58), transparent 36%),
+        linear-gradient(145deg,#071a2c 0%,#1b2542 52%,#11142d 100%);
+    }
+    .card {
+      width:min(100%, 510px); text-align:center; padding:34px 24px 28px;
+      border:1px solid rgba(255,255,255,.35); border-radius:34px;
+      background:linear-gradient(145deg,rgba(44,151,226,.23),rgba(30,32,64,.78) 52%,rgba(125,54,220,.28));
+      box-shadow:0 24px 70px rgba(0,0,0,.35), inset 0 1px 1px rgba(255,255,255,.22);
+      backdrop-filter:blur(18px);
+    }
+    .logo-wrap {
+      width:112px;height:112px;margin:0 auto 22px;padding:8px;border-radius:50%;
+      display:grid;place-items:center;background:#05070d;
+      border:4px solid rgba(96,208,255,.62);
+      box-shadow:0 0 24px rgba(52,184,255,.22);
+      overflow:hidden;
+    }
+    .logo { width:100%;height:100%;object-fit:contain;border-radius:50%; }
+    .brand { margin:0 0 17px;font-size:clamp(23px,6vw,30px);font-weight:900;letter-spacing:.6px; }
+    .status {
+      display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border-radius:999px;
+      color:#74dfff;border:1px solid rgba(77,206,255,.48);
+      background:rgba(36,157,223,.12);font-size:12px;font-weight:800;letter-spacing:.7px;
+    }
+    .dot { width:9px;height:9px;border-radius:50%;background:#3de0b2;box-shadow:0 0 10px #3de0b2; }
+    .timer {
+      width:184px;height:184px;margin:34px auto 30px;border-radius:50%;padding:9px;
+      background:conic-gradient(from -30deg,var(--cyan),var(--blue),var(--purple),var(--cyan));
+      box-shadow:0 0 0 5px rgba(75,196,255,.12),0 0 30px rgba(52,175,255,.16);
+    }
+    .timer-inner {
+      width:100%;height:100%;border-radius:50%;display:grid;place-items:center;
+      background:radial-gradient(circle at 35% 25%,#20c9df,#087ab5 70%,#10375c);
+      border:5px solid rgba(7,25,51,.88);font-size:56px;font-weight:900;
+      text-shadow:0 3px 8px rgba(0,0,0,.28);
+    }
+    h2 { margin:0 0 10px;font-size:21px;font-weight:900; }
+    .subtitle { margin:0 0 27px;color:#c7d3e9;font-size:16px;line-height:1.5; }
+    .btn {
+      width:100%;min-height:60px;display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:16px 18px;border-radius:22px;text-decoration:none;font-size:16px;font-weight:900;
+      letter-spacing:.35px;transition:transform .15s ease,filter .15s ease;cursor:pointer;
+    }
+    .btn:active { transform:scale(.985); }
+    .primary {
+      color:white;border:1px solid rgba(255,255,255,.22);
+      background:linear-gradient(100deg,#087fa9,#286bd9 58%,#7141e8);
+      box-shadow:0 10px 24px rgba(22,106,218,.24);
+    }
+    .secondary {
+      margin-top:14px;color:#fff;border:1px solid rgba(255,255,255,.43);
+      background:linear-gradient(100deg,rgba(255,255,255,.08),rgba(179,82,255,.28));
+    }
+    .footer { margin:27px 0 0;color:#aab5ce;font-size:12px;font-weight:800;letter-spacing:1.3px; }
+    .small-note { margin-top:12px;color:#9eabc6;font-size:11px;line-height:1.5; }
+    @media (max-width:380px) {
+      .card { padding:28px 17px 24px;border-radius:28px; }
+      .timer { width:160px;height:160px; }
+      .btn { font-size:14px; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="panel" aria-labelledby="brandName">
-      <div class="logo" aria-label="Your logo">
-        <!-- Optional: replace logo.png with your own logo file in the same folder. -->
-        <img src="RudraMovies.png" alt="Rudra Movies" onerror="this.remove();document.getElementById('logoFallback').classList.remove('hidden')">
-        <span id="logoFallback" class="logo-fallback hidden">SL</span>
-      </div>
-      <p class="brand" id="brandName">Rudra Moviez</p>
-      <div class="badge"><span class="dot"></span> LINK CHECK IN PROGRESS</div>
+  <main class="card">
+    <div class="logo-wrap">
+      <!-- Upload your logo image to this same GitHub folder as logo.png -->
+      <img class="logo" src="RudraMovies.png" alt="Rudra Movies logo"
+           onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:25px;font-weight:900;color:#ffd45a&quot;>RM</span>';">
+    </div>
+    <h1 class="brand">RUDRA MOVIES</h1>
+    <div class="status"><span class="dot"></span> LINK PREPARATION</div>
 
-      <div class="timer-area" aria-hidden="true">
-        <div class="ring" id="ring" style="--progress:100%"></div>
-        <div class="timer-core"><span id="count">5</span><span class="seconds">Seconds</span></div>
-      </div>
+    <div class="timer" aria-label="Countdown">
+      <div class="timer-inner" id="countdown">5</div>
+    </div>
 
-      <h1 id="heading">SECURITY VERIFICATION</h1>
-      <p class="status" id="status" aria-live="polite">Preparing your destination...</p>
-      <p class="note" id="note">Please wait while the link is checked.</p>
+    <h2>PREPARING YOUR DOWNLOAD</h2>
+    <p class="subtitle" id="message">Your download link is being prepared…</p>
 
-      <div class="actions">
-        <a class="btn hidden" id="proceed" href="#">Continue to Destination <span aria-hidden="true">→</span></a>
-        <a class="btn alt" id="channel" href="https://t.me/RudraMoviez" target="_blank" rel="noopener noreferrer">✦ Visit Telegram Channel</a>
-      </div>
-      <div class="foot">✦ <strong>SECURE ACCESS</strong><br>Thank you for your patience</div>
-    </section>
+    <a class="btn primary" id="continueBtn" href="#" rel="nofollow">
+      <span>➜</span> CONTINUE TO DOWNLOAD
+    </a>
+    <a class="btn secondary" href="https://t.me/RudraMoviez" target="_blank" rel="noopener noreferrer">
+      ✦ &nbsp; RM MOVIES MAIN CHANNEL &nbsp; ✦
+    </a>
+
+    <p class="footer">⚡ RUDRA MOVIES</p>
+    <p class="small-note">Tap “Continue to Download” if you are not redirected automatically.</p>
   </main>
 
   <script>
     (() => {
-      'use strict';
-      // Set the redirect target in the URL, for example: ?url=https%3A%2F%2Fexample.com
-      // Only HTTPS destinations are accepted. Change the allowed host list below if needed.
-      const params = new URLSearchParams(location.search);
-      const raw = params.get('url') || params.get('redirect');
-      const countEl = document.getElementById('count');
-      const ring = document.getElementById('ring');
-      const heading = document.getElementById('heading');
-      const status = document.getElementById('status');
-      const note = document.getElementById('note');
-      const proceed = document.getElementById('proceed');
-      const total = 5;
-      let destination = null;
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get('url') || params.get('redirect') || '';
+      const button = document.getElementById('continueBtn');
+      const countEl = document.getElementById('countdown');
+      const message = document.getElementById('message');
+      let destination = '';
 
       try {
-        if (raw) {
-          const candidate = new URL(raw);
-          if (candidate.protocol === 'https:' && !candidate.username && !candidate.password) {
-            // Optional allowlist: enter your intended destination domains here.
-            const allowedHosts = []; // Example: ['example.com', 'downloads.example.com']
-            if (allowedHosts.length === 0 || allowedHosts.some(host => candidate.hostname === host || candidate.hostname.endsWith('.' + host))) {
-              destination = candidate.href;
-            }
+        const candidate = new URL(raw, window.location.href);
+        // Only allow HTTPS destinations; avoids unsafe javascript: redirects.
+        if (raw && candidate.protocol === 'https:') destination = candidate.href;
+      } catch (_) {}
+
+      if (destination) {
+        button.href = destination;
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.location.href = destination;
+        });
+        let seconds = 5;
+        const timer = window.setInterval(() => {
+          seconds -= 1;
+          countEl.textContent = String(Math.max(seconds, 0));
+          if (seconds <= 0) {
+            window.clearInterval(timer);
+            message.textContent = 'Opening your download link…';
+            window.location.href = destination;
           }
-        }
-      } catch (_) { destination = null; }
-
-      if (!destination) {
-        countEl.textContent = '✓';
-        ring.style.setProperty('--progress', '100%');
-        status.textContent = 'Verification page is ready.';
-        note.textContent = 'Add a valid HTTPS destination using ?url=YOUR_ENCODED_URL to enable redirect.';
-        heading.textContent = 'SECURITY VERIFICATION';
-        return;
+        }, 1000);
+      } else {
+        countEl.textContent = '!';
+        message.textContent = 'Download link missing or invalid. Open the page using your full link.';
+        button.removeAttribute('href');
+        button.style.opacity = '.55';
+        button.style.cursor = 'not-allowed';
+        button.addEventListener('click', event => event.preventDefault());
       }
-
-      let remaining = total;
-      const tick = () => {
-        countEl.textContent = String(remaining);
-        ring.style.setProperty('--progress', ((remaining / total) * 100) + '%');
-        note.textContent = remaining > 0 ? `Continuing in ${remaining} second${remaining === 1 ? '' : 's'}...` : 'Your destination is ready.';
-        if (remaining <= 0) {
-          proceed.classList.remove('hidden');
-          proceed.href = destination;
-          status.textContent = 'Your link is ready to open.';
-          note.textContent = 'Tap the button if you are not redirected automatically.';
-          // Keep manual control: no automatic redirect. The button opens the validated HTTPS URL.
-          return;
-        }
-        remaining -= 1;
-        window.setTimeout(tick, 1000);
-      };
-      tick();
     })();
   </script>
 </body>
