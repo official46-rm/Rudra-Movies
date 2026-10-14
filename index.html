@@ -1,257 +1,1128 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#202632">
-  <title>ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ - Security Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b16">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Rudra Movies download link verification page.">
+  <title>ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ — Security Verification</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      color-scheme: dark;
+      --bg: #070b16;
+      --panel: rgba(12, 19, 36, .94);
+      --panel-border: rgba(72, 130, 190, .32);
+      --cyan: #55e8ff;
+      --blue: #5598ff;
+      --text: #f2f7ff;
+      --muted: #9baac2;
+      --ring-track: rgba(85, 232, 255, .13);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; background: var(--bg); }
+
     body {
-      margin: 0;
       min-height: 100vh;
-      padding: 24px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
+      min-height: 100svh;
+      margin: 0;
+      padding: clamp(16px, 4vw, 36px);
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Arial, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(ellipse at top left, #302900 0%, transparent 48%),
-        radial-gradient(ellipse at bottom right, #29220a 0%, transparent 48%),
-        #080808;
+        radial-gradient(ellipse at 12% 8%, rgba(16, 105, 153, .23), transparent 42%),
+        radial-gradient(ellipse at 92% 92%, rgba(81, 39, 153, .22), transparent 44%),
+        linear-gradient(145deg, #080d19 0%, #050711 60%, #0a0b1b 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(rgba(100, 160, 220, .035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(100, 160, 220, .035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .page {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
     }
 
     .card {
-      width: 100%;
-      max-width: 650px;
-      min-height: 600px;
-      padding: 45px 22px;
+      width: min(100%, 570px);
+      min-width: 0;
+      padding: clamp(26px, 6vw, 48px) clamp(20px, 6vw, 48px) 26px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       text-align: center;
-      background: rgba(17, 17, 17, 0.97);
-      border: 1px solid #4b421d;
-      border-radius: 52px;
-      box-shadow: 0 20px 65px #0009;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: clamp(24px, 5vw, 36px);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .42),
+                  0 0 50px rgba(0, 174, 255, .06),
+                  inset 0 1px 0 rgba(255, 255, 255, .035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
-    .circle {
-      width: 238px;
-      height: 238px;
-      max-width: 65vw;
-      max-height: 65vw;
-      border-radius: 50%;
-      padding: 13px;
-      margin-bottom: 54px;
-      background: conic-gradient(
-        from 30deg,
-        #fff064,
-        #e8c900,
-        #3b3514,
-        #b79b00,
-        #ffdf32
-      );
-      box-shadow: 0 0 20px #f5d51b20;
-    }
-
-    .inner-circle {
-      width: 100%;
-      height: 100%;
-      display: flex;
+    .eyebrow {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border: 2px solid #302b18;
+      gap: 8px;
+      margin: 0 0 24px;
+      padding: 8px 12px;
+      border: 1px solid rgba(85, 232, 255, .19);
+      border-radius: 999px;
+      background: rgba(30, 112, 148, .10);
+      color: #b8f5ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
       border-radius: 50%;
-      background: radial-gradient(circle, #191919, #080808);
-      box-shadow: inset 0 0 20px #000;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(85, 232, 255, .8);
+    }
+
+    .timer-wrap {
+      width: clamp(154px, 43vw, 206px);
+      aspect-ratio: 1;
+      margin: 0 0 clamp(25px, 5vw, 34px);
+      padding: 8px;
+      border-radius: 50%;
+      background: conic-gradient(from -45deg, var(--cyan), var(--blue) 30%, #26345f 58%, #0e2944 75%, var(--cyan));
+      box-shadow: 0 0 35px rgba(0, 210, 255, .13);
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Advanced HUD countdown: segmented progress ring, orbiting light and number flip. */
+    .timer-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(85, 232, 255, .14);
+      border-radius: 50%;
+      box-shadow: 0 0 24px rgba(0, 210, 255, .05);
+      pointer-events: none;
+    }
+
+    .timer-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from -90deg,
+        var(--cyan) 0 var(--progress, 100%),
+        rgba(85, 232, 255, .07) var(--progress, 100%) 100%
+      );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      filter: drop-shadow(0 0 6px rgba(85, 232, 255, .75));
+      transition: background .55s cubic-bezier(.2, .7, .2, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: -15px;
+      border-radius: 50%;
+      border: 1px dashed rgba(85, 232, 255, .16);
+      animation: orbit-spin 12s linear infinite;
+      pointer-events: none;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(85, 232, 255, .9);
+    }
+
+    .orbit::before { top: 14%; left: 12%; }
+    .orbit::after { right: 8%; bottom: 20%; width: 4px; height: 4px; }
+
+    .timer-inner {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-inner::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(85, 232, 255, .09);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .timer-wrap.tick .timer-inner {
+      animation: timer-pulse .42s ease-out;
     }
 
     #count {
-      font-size: 72px;
-      font-weight: 900;
-      color: #ffdf32;
+      display: inline-block;
+      transform-origin: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-wrap.tick #count {
+      animation: count-flip .42s cubic-bezier(.2, .75, .25, 1);
+    }
+
+    @keyframes orbit-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes timer-pulse {
+      0% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5); }
+      45% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5), 0 0 25px rgba(85, 232, 255, .22); }
+      100% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5); }
+    }
+
+    @keyframes count-flip {
+      0% { transform: translateY(9px) rotateX(-55deg) scale(.78); opacity: 0; filter: blur(3px); }
+      65% { transform: translateY(-2px) rotateX(8deg) scale(1.06); opacity: 1; filter: blur(0); }
+      100% { transform: translateY(0) rotateX(0) scale(1); opacity: 1; filter: blur(0); }
+    }
+
+    .timer-inner {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(110, 181, 225, .18);
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, #122a40 0%, #091322 56%, #060b15 100%);
+      box-shadow: inset 0 0 28px rgba(0, 0, 0, .5);
+    }
+
+    .timer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #count {
+      color: var(--cyan);
+      font-size: clamp(54px, 13vw, 76px);
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 22px rgba(85, 232, 255, .26);
+    }
+
+    .timer-label {
+      color: #8eaac4;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
     }
 
     h1 {
-      margin: 0 0 35px;
-      color: #ffdf32;
-      font-size: clamp(24px, 6vw, 36px);
+      max-width: 100%;
+      margin: 0 0 13px;
+      color: var(--cyan);
+      font-size: clamp(23px, 6vw, 32px);
       font-weight: 900;
-      letter-spacing: 3px;
+      line-height: 1.2;
+      letter-spacing: .08em;
       overflow-wrap: anywhere;
+      text-shadow: 0 0 22px rgba(85, 232, 255, .12);
     }
 
     h2 {
-      margin: 0 0 34px;
-      font-size: clamp(25px, 6vw, 36px);
-      line-height: 1.25;
-    }
-
-    #status {
-      margin: 0;
-      color: #d4b94c;
-      font-size: clamp(19px, 5vw, 27px);
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    #note {
-      margin: 28px 0 0;
-      color: #999;
-      font-size: 14px;
-      line-height: 1.7;
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: clamp(21px, 5.4vw, 27px);
+      font-weight: 750;
+      line-height: 1.3;
+      letter-spacing: -.025em;
       overflow-wrap: anywhere;
     }
 
+    #status {
+      max-width: 390px;
+      margin: 0;
+      color: #a8c7e4;
+      font-size: clamp(15px, 4vw, 17px);
+      font-weight: 600;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    #note {
+      max-width: 390px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
     .button {
+      width: min(100%, 330px);
+      min-height: 52px;
+      padding: 14px 20px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 40px;
-      padding: 17px 27px;
-      border: 1px solid #62551c;
-      border-radius: 50px;
-      color: #ffdf32;
-      background: #28230f;
+      border: 1px solid rgba(85, 232, 255, .35);
+      border-radius: 16px;
+      color: #06121c;
+      background: linear-gradient(110deg, #69efff, #65aaff);
       text-decoration: none;
-      font-size: 21px;
-      font-weight: 800;
-      box-shadow: 0 0 18px #0005;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+      box-shadow: 0 8px 28px rgba(35, 168, 255, .16);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .hidden {
-      display: none;
+    .button:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 10px 32px rgba(35, 168, 255, .24);
+      transform: translateY(-1px);
     }
 
-    @media (max-width: 400px) {
+    .button:active { transform: translateY(0); }
+
+    .button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .button.secondary {
+      color: #d7e8ff;
+      background: rgba(19, 32, 54, .8);
+      border-color: rgba(115, 156, 210, .3);
+      box-shadow: none;
+    }
+
+    .hidden { display: none !important; }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 28px 0 17px;
+      background: linear-gradient(90deg, transparent, rgba(91, 144, 193, .25), transparent);
+    }
+
+    .trust-note {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      color: #7f92ad;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .trust-note svg { flex: 0 0 auto; }
+
+    #_hm_cr {
+      max-width: 100%;
+      margin-top: 15px;
+      color: #8292a9;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    #_hm_cr a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    #_hm_cr a:hover { text-decoration: underline; }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 14px 12px calc(14px + var(--safe-bottom));
+        align-items: start;
+      }
+
+      .page { min-height: calc(100svh - 28px - var(--safe-bottom)); align-items: center; }
+
       .card {
-        min-height: 530px;
-        padding: 35px 16px;
-        border-radius: 38px;
+        padding: 25px 18px 20px;
+        border-radius: 25px;
       }
 
-      .circle {
-        margin-bottom: 42px;
+      .eyebrow {
+        margin-bottom: 21px;
+        font-size: 10px;
       }
 
-      h1 {
-        letter-spacing: 2px;
-        margin-bottom: 28px;
+      .timer-wrap {
+        width: clamp(142px, 42vw, 170px);
+        margin-bottom: 25px;
+      }
+
+      h1 { letter-spacing: .055em; }
+      .divider { margin-top: 23px; }
+      .button { min-height: 50px; border-radius: 14px; }
+    }
+
+    @media (max-height: 700px) and (min-width: 421px) {
+      body { padding-block: 18px; }
+      .card { padding-block: 26px 20px; }
+      .eyebrow { margin-bottom: 17px; }
+      .timer-wrap { width: 145px; margin-bottom: 22px; }
+      .divider { margin-top: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="card">
-
-    <div class="circle">
-      <div class="inner-circle">
-        <span id="count">5</span>
+  <main class="page">
+    <section class="card" id="mainCard" aria-labelledby="pageTitle">
+      <div class="timer-wrap" id="timerWrap" style="--progress: 100%" aria-hidden="true">
+        <span class="orbit"></span>
+        <div class="timer-inner">
+          <div class="timer-content">
+            <span id="count">5</span>
+            <span class="timer-label">Seconds</span>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <h1>ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
+      <h1 id="pageTitle">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
+      <h2 id="heading">Your Link Is Almost Ready</h2>
 
-    <h2 id="heading">Security Verification</h2>
+      <p id="status" aria-live="polite" aria-atomic="true">Checking your download link...</p>
+      <p id="note">Please wait while we prepare your download.</p>
 
-    <p id="status" aria-live="polite">
-      Checking your download link...
-    </p>
+      <div class="actions">
+        <a id="download" class="button hidden" href="#">
+          <span aria-hidden="true">⚡</span> Open Download
+        </a>
+        <a id="back" class="button secondary hidden" href="/">Go Back</a>
+      </div>
 
-    <p id="note">
-      Please wait while we prepare your download.
-    </p>
-
-    <a id="download" class="button hidden" href="#">
-      ⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ
-    </a>
-
-    <a id="back" class="button hidden" href="/">
-      Go Back
-    </a>
-
+      <div class="divider" aria-hidden="true"></div>
+      <div class="trust-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3 19 6v5c0 4.7-3 8.1-7 10-4-1.9-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Preparing your download link
+      </div>
+    </section>
   </main>
 
   <script>
-    const countElement = document.getElementById("count");
-    const heading = document.getElementById("heading");
-    const status = document.getElementById("status");
-    const note = document.getElementById("note");
-    const download = document.getElementById("download");
-    const back = document.getElementById("back");
+    (() => {
+      "use strict";
 
-    function showError(message) {
-      countElement.textContent = "!";
-      heading.textContent = "Download Link";
-      status.textContent = message;
-      note.textContent = "Please open a valid link supplied by your provider.";
-      back.classList.remove("hidden");
-    }
+      const TELEGRAM_URL = "https://t.me/Hari_Moviez";
+      const COPYRIGHT_TEXT = "© 2026 Maintained by hari_Moviez";
 
-    function getDestination() {
-      const params = new URLSearchParams(location.search);
+      const card = document.getElementById("mainCard");
+      const countElement = document.getElementById("count");
+      const timerWrap = document.getElementById("timerWrap");
+      const heading = document.getElementById("heading");
+      const status = document.getElementById("status");
+      const note = document.getElementById("note");
+      const download = document.getElementById("download");
+      const back = document.getElementById("back");
 
-      // Support both existing parameter names.
-      const value = params.get("redirect") || params.get("url");
+      // Keep the existing Telegram credit footer without polling the DOM.
+      const footer = document.createElement("div");
+      footer.id = "_hm_cr";
+      const footerLink = document.createElement("a");
+      footerLink.href = TELEGRAM_URL;
+      footerLink.target = "_blank";
+      footerLink.rel = "noopener noreferrer";
+      footerLink.textContent = COPYRIGHT_TEXT;
+      footer.appendChild(footerLink);
+      card.appendChild(footer);
 
-      if (!value) return null;
+      function showError(message) {
+        countElement.textContent = "!";
+        heading.textContent = "Download Link";
+        status.textContent = message;
+        note.textContent = "Please open a valid link supplied by your provider.";
+        back.classList.remove("hidden");
+        download.classList.add("hidden");
+      }
 
-      try {
-        const destination = new URL(value);
+      function getDestination() {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("redirect") || params.get("url");
 
-        if (destination.protocol !== "https:") return null;
+        if (!value) return null;
 
-        const host = destination.hostname.toLowerCase();
+        try {
+          const destination = new URL(value);
+          const host = destination.hostname.toLowerCase();
 
-        if (
-          host !== "arolinks.com" &&
-          !host.endsWith(".arolinks.com")
-        ) {
+          if (destination.protocol !== "https:") return null;
+          if (destination.username || destination.password) return null;
+          if (host !== "arolinks.com" && !host.endsWith(".arolinks.com")) return null;
+
+          return destination.href;
+        } catch {
           return null;
         }
+      }
 
-        return destination.href;
-      } catch {
-        return null;
+      const destination = getDestination();
+
+      if (!destination) {
+        showError("A valid Arolinks URL is required.");
+      } else {
+        const totalSeconds = 7;
+        let seconds = totalSeconds;
+        countElement.textContent = String(seconds);
+        status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
+        note.textContent = "Your download is being prepared.";
+        timerWrap.style.setProperty("--progress", "100%");
+
+        const timer = window.setInterval(() => {
+          seconds -= 1;
+          countElement.textContent = String(Math.max(seconds, 0));
+          timerWrap.style.setProperty(
+            "--progress",
+            `${Math.max(seconds, 0) / totalSeconds * 100}%`
+          );
+
+          // Restart the small tick animation for each countdown number.
+          timerWrap.classList.remove("tick");
+          void timerWrap.offsetWidth;
+          if (seconds > 0) timerWrap.classList.add("tick");
+
+          note.textContent = seconds > 0
+            ? `Redirecting in ${seconds} second${seconds === 1 ? "" : "s"}...`
+            : "Opening your link...";
+
+          if (seconds <= 0) {
+            window.clearInterval(timer);
+            heading.textContent = "Redirecting...";
+            status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
+            window.location.replace(destination);
+          }
+        }, 1000);
+      }
+    })();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b16">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Rudra Movies download link verification page.">
+  <title>ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ — Security Verification</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b16;
+      --panel: rgba(12, 19, 36, .94);
+      --panel-border: rgba(72, 130, 190, .32);
+      --cyan: #55e8ff;
+      --blue: #5598ff;
+      --text: #f2f7ff;
+      --muted: #9baac2;
+      --ring-track: rgba(85, 232, 255, .13);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; background: var(--bg); }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      padding: clamp(16px, 4vw, 36px);
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% 8%, rgba(16, 105, 153, .23), transparent 42%),
+        radial-gradient(ellipse at 92% 92%, rgba(81, 39, 153, .22), transparent 44%),
+        linear-gradient(145deg, #080d19 0%, #050711 60%, #0a0b1b 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(rgba(100, 160, 220, .035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(100, 160, 220, .035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .page {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      width: min(100%, 570px);
+      min-width: 0;
+      padding: clamp(26px, 6vw, 48px) clamp(20px, 6vw, 48px) 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: clamp(24px, 5vw, 36px);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .42),
+                  0 0 50px rgba(0, 174, 255, .06),
+                  inset 0 1px 0 rgba(255, 255, 255, .035);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 24px;
+      padding: 8px 12px;
+      border: 1px solid rgba(85, 232, 255, .19);
+      border-radius: 999px;
+      background: rgba(30, 112, 148, .10);
+      color: #b8f5ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(85, 232, 255, .8);
+    }
+
+    .timer-wrap {
+      width: clamp(154px, 43vw, 206px);
+      aspect-ratio: 1;
+      margin: 0 0 clamp(25px, 5vw, 34px);
+      padding: 8px;
+      border-radius: 50%;
+      background: conic-gradient(from -45deg, var(--cyan), var(--blue) 30%, #26345f 58%, #0e2944 75%, var(--cyan));
+      box-shadow: 0 0 35px rgba(0, 210, 255, .13);
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Advanced HUD countdown: segmented progress ring, orbiting light and number flip. */
+    .timer-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(85, 232, 255, .14);
+      border-radius: 50%;
+      box-shadow: 0 0 24px rgba(0, 210, 255, .05);
+      pointer-events: none;
+    }
+
+    .timer-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from -90deg,
+        var(--cyan) 0 var(--progress, 100%),
+        rgba(85, 232, 255, .07) var(--progress, 100%) 100%
+      );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      filter: drop-shadow(0 0 6px rgba(85, 232, 255, .75));
+      transition: background .55s cubic-bezier(.2, .7, .2, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: -15px;
+      border-radius: 50%;
+      border: 1px dashed rgba(85, 232, 255, .16);
+      animation: orbit-spin 12s linear infinite;
+      pointer-events: none;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(85, 232, 255, .9);
+    }
+
+    .orbit::before { top: 14%; left: 12%; }
+    .orbit::after { right: 8%; bottom: 20%; width: 4px; height: 4px; }
+
+    .timer-inner {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-inner::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(85, 232, 255, .09);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .timer-wrap.tick .timer-inner {
+      animation: timer-pulse .42s ease-out;
+    }
+
+    #count {
+      display: inline-block;
+      transform-origin: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-wrap.tick #count {
+      animation: count-flip .42s cubic-bezier(.2, .75, .25, 1);
+    }
+
+    @keyframes orbit-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes timer-pulse {
+      0% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5); }
+      45% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5), 0 0 25px rgba(85, 232, 255, .22); }
+      100% { box-shadow: inset 0 0 28px rgba(0, 0, 0, .5); }
+    }
+
+    @keyframes count-flip {
+      0% { transform: translateY(9px) rotateX(-55deg) scale(.78); opacity: 0; filter: blur(3px); }
+      65% { transform: translateY(-2px) rotateX(8deg) scale(1.06); opacity: 1; filter: blur(0); }
+      100% { transform: translateY(0) rotateX(0) scale(1); opacity: 1; filter: blur(0); }
+    }
+
+    .timer-inner {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(110, 181, 225, .18);
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, #122a40 0%, #091322 56%, #060b15 100%);
+      box-shadow: inset 0 0 28px rgba(0, 0, 0, .5);
+    }
+
+    .timer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #count {
+      color: var(--cyan);
+      font-size: clamp(54px, 13vw, 76px);
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 22px rgba(85, 232, 255, .26);
+    }
+
+    .timer-label {
+      color: #8eaac4;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 100%;
+      margin: 0 0 13px;
+      color: var(--cyan);
+      font-size: clamp(23px, 6vw, 32px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: .08em;
+      overflow-wrap: anywhere;
+      text-shadow: 0 0 22px rgba(85, 232, 255, .12);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: clamp(21px, 5.4vw, 27px);
+      font-weight: 750;
+      line-height: 1.3;
+      letter-spacing: -.025em;
+      overflow-wrap: anywhere;
+    }
+
+    #status {
+      max-width: 390px;
+      margin: 0;
+      color: #a8c7e4;
+      font-size: clamp(15px, 4vw, 17px);
+      font-weight: 600;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    #note {
+      max-width: 390px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      width: min(100%, 330px);
+      min-height: 52px;
+      padding: 14px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid rgba(85, 232, 255, .35);
+      border-radius: 16px;
+      color: #06121c;
+      background: linear-gradient(110deg, #69efff, #65aaff);
+      text-decoration: none;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+      box-shadow: 0 8px 28px rgba(35, 168, 255, .16);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 10px 32px rgba(35, 168, 255, .24);
+      transform: translateY(-1px);
+    }
+
+    .button:active { transform: translateY(0); }
+
+    .button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .button.secondary {
+      color: #d7e8ff;
+      background: rgba(19, 32, 54, .8);
+      border-color: rgba(115, 156, 210, .3);
+      box-shadow: none;
+    }
+
+    .hidden { display: none !important; }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 28px 0 17px;
+      background: linear-gradient(90deg, transparent, rgba(91, 144, 193, .25), transparent);
+    }
+
+    .trust-note {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      color: #7f92ad;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .trust-note svg { flex: 0 0 auto; }
+
+    #_hm_cr {
+      max-width: 100%;
+      margin-top: 15px;
+      color: #8292a9;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    #_hm_cr a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    #_hm_cr a:hover { text-decoration: underline; }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 14px 12px calc(14px + var(--safe-bottom));
+        align-items: start;
+      }
+
+      .page { min-height: calc(100svh - 28px - var(--safe-bottom)); align-items: center; }
+
+      .card {
+        padding: 25px 18px 20px;
+        border-radius: 25px;
+      }
+
+      .eyebrow {
+        margin-bottom: 21px;
+        font-size: 10px;
+      }
+
+      .timer-wrap {
+        width: clamp(142px, 42vw, 170px);
+        margin-bottom: 25px;
+      }
+
+      h1 { letter-spacing: .055em; }
+      .divider { margin-top: 23px; }
+      .button { min-height: 50px; border-radius: 14px; }
+    }
+
+    @media (max-height: 700px) and (min-width: 421px) {
+      body { padding-block: 18px; }
+      .card { padding-block: 26px 20px; }
+      .eyebrow { margin-bottom: 17px; }
+      .timer-wrap { width: 145px; margin-bottom: 22px; }
+      .divider { margin-top: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
     }
+  </style>
+</head>
 
-    const destination = getDestination();
+<body>
+  <main class="page">
+    <section class="card" id="mainCard" aria-labelledby="pageTitle">
+      <div class="timer-wrap" id="timerWrap" style="--progress: 100%" aria-hidden="true">
+        <span class="orbit"></span>
+        <div class="timer-inner">
+          <div class="timer-content">
+            <span id="count">5</span>
+            <span class="timer-label">Seconds</span>
+          </div>
+        </div>
+      </div>
 
-    if (!destination) {
-      showError("A valid Arolinks URL is required.");
-    } else {
-      let seconds = 5;
+      <h1 id="pageTitle">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
+      <h2 id="heading">Your Link Is Almost Ready</h2>
 
-      countElement.textContent = seconds;
-      status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
-      note.textContent = "Your download is being prepared.";
+      <p id="status" aria-live="polite" aria-atomic="true">Checking your download link...</p>
+      <p id="note">Please wait while we prepare your download.</p>
 
-      const timer = setInterval(() => {
-        seconds--;
-        countElement.textContent = seconds;
-        note.textContent = "Redirecting in " + seconds + " seconds...";
+      <div class="actions">
+        <a id="download" class="button hidden" href="#">
+          <span aria-hidden="true">⚡</span> Open Download
+        </a>
+        <a id="back" class="button secondary hidden" href="/">Go Back</a>
+      </div>
 
-        if (seconds <= 0) {
-          clearInterval(timer);
-          heading.textContent = "Redirecting...";
-          status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
-          note.textContent = "Please wait...";
+      <div class="divider" aria-hidden="true"></div>
+      <div class="trust-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3 19 6v5c0 4.7-3 8.1-7 10-4-1.9-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Preparing your download link
+      </div>
+    </section>
+  </main>
 
-          window.location.replace(destination);
+  <script>
+    (() => {
+      "use strict";
+
+      const TELEGRAM_URL = "https://t.me/Hari_Moviez";
+      const COPYRIGHT_TEXT = "© 2026 Maintained by hari_Moviez";
+
+      const card = document.getElementById("mainCard");
+      const countElement = document.getElementById("count");
+      const timerWrap = document.getElementById("timerWrap");
+      const heading = document.getElementById("heading");
+      const status = document.getElementById("status");
+      const note = document.getElementById("note");
+      const download = document.getElementById("download");
+      const back = document.getElementById("back");
+
+      // Keep the existing Telegram credit footer without polling the DOM.
+      const footer = document.createElement("div");
+      footer.id = "_hm_cr";
+      const footerLink = document.createElement("a");
+      footerLink.href = TELEGRAM_URL;
+      footerLink.target = "_blank";
+      footerLink.rel = "noopener noreferrer";
+      footerLink.textContent = COPYRIGHT_TEXT;
+      footer.appendChild(footerLink);
+      card.appendChild(footer);
+
+      function showError(message) {
+        countElement.textContent = "!";
+        heading.textContent = "Download Link";
+        status.textContent = message;
+        note.textContent = "Please open a valid link supplied by your provider.";
+        back.classList.remove("hidden");
+        download.classList.add("hidden");
+      }
+
+      function getDestination() {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("redirect") || params.get("url");
+
+        if (!value) return null;
+
+        try {
+          const destination = new URL(value);
+          const host = destination.hostname.toLowerCase();
+
+          if (destination.protocol !== "https:") return null;
+          if (destination.username || destination.password) return null;
+          if (host !== "arolinks.com" && !host.endsWith(".arolinks.com")) return null;
+
+          return destination.href;
+        } catch {
+          return null;
         }
-      }, 1000);
-    }
+      }
+
+      const destination = getDestination();
+
+      if (!destination) {
+        showError("A valid Arolinks URL is required.");
+      } else {
+        const totalSeconds = 7;
+        let seconds = totalSeconds;
+        countElement.textContent = String(seconds);
+        status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
+        note.textContent = "Your download is being prepared.";
+        timerWrap.style.setProperty("--progress", "100%");
+
+        const timer = window.setInterval(() => {
+          seconds -= 1;
+          countElement.textContent = String(Math.max(seconds, 0));
+          timerWrap.style.setProperty(
+            "--progress",
+            `${Math.max(seconds, 0) / totalSeconds * 100}%`
+          );
+
+          // Restart the small tick animation for each countdown number.
+          timerWrap.classList.remove("tick");
+          void timerWrap.offsetWidth;
+          if (seconds > 0) timerWrap.classList.add("tick");
+
+          note.textContent = seconds > 0
+            ? `Redirecting in ${seconds} second${seconds === 1 ? "" : "s"}...`
+            : "Opening your link...";
+
+          if (seconds <= 0) {
+            window.clearInterval(timer);
+            heading.textContent = "Redirecting...";
+            status.textContent = "⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ";
+            window.location.replace(destination);
+          }
+        }, 1000);
+      }
+    })();
   </script>
 </body>
 </html>
