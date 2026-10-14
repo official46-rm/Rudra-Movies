@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rudra Movies - Secured Link</title>
+  <title>ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇs - ᴜʟᴛʀᴀ sᴇᴄᴜʀᴇ ʟɪɴᴋ</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,321 +12,391 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     body {
-      background: radial-gradient(circle at top, #0f172a, #020617 90%);
+      background: #030712;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
-      padding: 20px;
-    }
-    .card {
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 28px;
-      padding: 32px 24px;
-      width: 100%;
-      max-width: 370px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.1);
+      padding: 16px;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    /* ನಿಮ್ಮ ಲೋಗೋ (rudra.png) */
-    .logo-container {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #f43f5e);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    /* ಬ್ಯಾಕ್‌ಗ್ರೌಂಡ್ ನಿಯಾನ್ ಬ್ಲರ್ ಎಫೆಕ್ಟ್ */
+    .bg-glow-1 {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.28), transparent 70%);
+      top: 10%;
+      left: 10%;
+      filter: blur(50px);
+      z-index: 0;
     }
-    .logo-container img {
+    .bg-glow-2 {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.25), transparent 70%);
+      bottom: 10%;
+      right: 10%;
+      filter: blur(60px);
+      z-index: 0;
+    }
+
+    /* ಪ್ರೀಮಿಯಂ ಗ್ಲಾಸ್ ಕಾರ್ಡ್ */
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 30px;
+      padding: 30px 22px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.15);
+    }
+
+    /* ರುದ್ರಾ ಲೋಗೋ */
+    .logo-wrapper {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 12px;
+    }
+    .logo-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00f2fe, #4facfe, #f093fb, #f5576c);
+      animation: spin 6s linear infinite;
+      filter: blur(4px);
+    }
+    .logo-img {
+      position: relative;
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
       background: #020617;
+      border: 2px solid rgba(255, 255, 255, 0.8);
       display: block;
+      z-index: 1;
     }
 
-    .title {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
+    .brand-title {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #38bdf8, #c084fc);
+      background: linear-gradient(90deg, #38bdf8, #e879f9, #38bdf8);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    .badge {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 5px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.5px;
+      animation: shine 4s linear infinite;
     }
 
-    /* ಅನಿಮೇಷನ್ ಟೈಮರ್ ಕಂಟೈನರ್ */
-    .timer-wrapper {
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 5px 14px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+    }
+    .security-badge span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    /* ಟೆಕ್ ಕೌಂಟ್‌ಡೌನ್ ಏರಿಯಾ */
+    .timer-container {
       position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 30px auto 25px;
+      width: 180px;
+      height: 180px;
+      margin: 28px auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* 1. ಹೊರಗಿನ ತಿರುಗುವ ಡ್ಯಾಶ್ಡ್ ರಿಂಗ್ */
-    .outer-spin-ring {
+    /* 1. ಹೊರಗಿನ ತಿರುಗುವ ಡ್ಯಾಶ್ಡ್ ಸರ್ಕಲ್ */
+    .outer-circle {
+      position: absolute;
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      border: 2px dashed rgba(56, 189, 248, 0.35);
+      animation: spin 10s linear infinite;
+    }
+
+    /* 2. ಒಳಗಿನ ತಿರುಗುವ ಡಾಟ್ ಸರ್ಕಲ್ */
+    .inner-circle {
       position: absolute;
       width: 154px;
       height: 154px;
       border-radius: 50%;
-      border: 2px dashed rgba(56, 189, 248, 0.35);
-      animation: spinClockwise 12s linear infinite;
+      border: 2px dotted rgba(232, 121, 249, 0.5);
+      animation: spinReverse 7s linear infinite;
     }
 
-    /* 2. ಒಳಗಿನ ತಿರುಗುವ ಡಾಟ್ ರಿಂಗ್ */
-    .mid-spin-ring {
+    /* 3. ತಿರುಗುವ ನಿಯಾನ್ ಆರೋ ಮಾರ್ಕ್ಸ್ (Dual Orbit Arrows) */
+    .orbit-arrows {
       position: absolute;
-      width: 138px;
-      height: 138px;
-      border-radius: 50%;
-      border: 2px dotted rgba(192, 132, 252, 0.45);
-      animation: spinCounterClockwise 8s linear infinite;
-    }
-
-    /* 3. ಸುತ್ತಲೂ ತಿರುಗುವ 2 ಆರೋ ಮಾರ್ಕ್‌ಗಳು */
-    .arrow-orbit-1 {
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      animation: spinClockwise 3s linear infinite;
+      width: 176px;
+      height: 176px;
+      animation: spin 3.2s linear infinite;
       pointer-events: none;
     }
-    .arrow-orbit-1::before {
-      content: '▲';
+    .arrow-top {
       position: absolute;
-      top: -7px;
+      top: -8px;
       left: calc(50% - 7px);
-      font-size: 14px;
-      color: #38bdf8;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 12px solid #00f2fe;
       transform: rotate(90deg);
-      text-shadow: 0 0 10px #38bdf8;
+      filter: drop-shadow(0 0 8px #00f2fe);
     }
-
-    .arrow-orbit-2 {
+    .arrow-bottom {
       position: absolute;
-      width: 160px;
-      height: 160px;
-      animation: spinClockwise 3s linear infinite;
-      pointer-events: none;
-    }
-    .arrow-orbit-2::before {
-      content: '▲';
-      position: absolute;
-      bottom: -7px;
+      bottom: -8px;
       left: calc(50% - 7px);
-      font-size: 14px;
-      color: #c084fc;
-      transform: rotate(270deg);
-      text-shadow: 0 0 10px #c084fc;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 12px solid #f093fb;
+      transform: rotate(-90deg);
+      filter: drop-shadow(0 0 8px #f093fb);
     }
 
-    /* SVG ಪ್ರೋಗ್ರೆಸ್ ಬಾರ್ (ತುಂಬುವ ಕಲರ್) */
+    /* SVG ಪ್ರೋಗ್ರೆಸ್ ಸರ್ಕಲ್ */
     .progress-svg {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       transform: rotate(-90deg);
       z-index: 2;
     }
     .progress-bg {
       fill: none;
-      stroke: rgba(255, 255, 255, 0.08);
-      stroke-width: 8;
+      stroke: rgba(255, 255, 255, 0.05);
+      stroke-width: 9;
     }
     .progress-bar {
       fill: none;
-      stroke: url(#gradient);
-      stroke-width: 8;
+      stroke: url(#neonGradient);
+      stroke-width: 9;
       stroke-linecap: round;
-      stroke-dasharray: 326.72; /* 2 * PI * 52 */
-      stroke-dashoffset: 326.72;
+      stroke-dasharray: 351.85; /* 2 * PI * 56 */
+      stroke-dashoffset: 351.85;
       transition: stroke-dashoffset 1s linear;
+      filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.7));
     }
 
-    .timer-text {
+    /* ಟೈಮರ್ ಸಂಖ್ಯೆ */
+    .timer-number {
       position: absolute;
-      font-size: 38px;
-      font-weight: 800;
+      font-size: 42px;
+      font-weight: 900;
       color: #fff;
-      text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.9), 0 0 10px rgba(255, 255, 255, 0.6);
       z-index: 3;
     }
 
-    /* ತಿರುಗುವ ಕೀಫ್ರೇಮ್ಸ್ */
-    @keyframes spinClockwise {
+    /* ಕೀಫ್ರೇಮ್ಸ್ */
+    @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    @keyframes spinCounterClockwise {
+    @keyframes spinReverse {
       from { transform: rotate(360deg); }
       to { transform: rotate(0deg); }
     }
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
 
-    .status {
-      font-size: 12px;
+    /* ಸ್ಟೇಟಸ್ ಟೆಕ್ಸ್ಟ್ */
+    .status-badge {
+      font-size: 11px;
       text-transform: uppercase;
       color: #94a3b8;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
+      font-weight: 600;
     }
-    .sub-status {
+    .status-highlight {
       font-size: 13px;
       color: #38bdf8;
-      margin-top: 5px;
-      margin-bottom: 25px;
-      font-weight: 500;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-bottom: 24px;
     }
 
+    /* ಬಟನ್‌ಗಳು */
     .btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       width: 100%;
       padding: 14px;
-      border-radius: 14px;
+      border-radius: 16px;
       text-decoration: none;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 12px;
       transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
     }
     .btn-disabled {
-      background: #1e293b;
+      background: rgba(30, 41, 59, 0.7);
       color: #64748b;
       cursor: not-allowed;
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #0284c7, #2563eb);
+    .btn-ready {
+      background: linear-gradient(135deg, #0284c7, #6366f1);
       color: #fff;
-      box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
-      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 25px rgba(2, 132, 199, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: btnPulse 1.4s infinite;
+      cursor: pointer;
     }
-    .btn-channel {
-      background: linear-gradient(90deg, #38bdf8 0%, #818cf8 100%);
+    .btn-telegram {
+      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
       color: #fff;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 5px 20px rgba(6, 182, 212, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
-    .btn-channel:hover {
+    .btn-telegram:hover {
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-      100% { transform: scale(1); }
+    @keyframes btnPulse {
+      0% { transform: scale(1); box-shadow: 0 0 20px rgba(2, 132, 199, 0.5); }
+      50% { transform: scale(1.02); box-shadow: 0 0 32px rgba(2, 132, 199, 0.9); }
+      100% { transform: scale(1); box-shadow: 0 0 20px rgba(2, 132, 199, 0.5); }
     }
   </style>
 </head>
 <body>
 
+  <!-- ನಿಯಾನ್ ಬ್ಯಾಕ್‌ಗ್ರೌಂಡ್ ಗ್ಲೋ -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
   <div class="card">
-    <!-- ನಿಮ್ಮ ಲೋಗೋ (GitHub ನಲ್ಲಿರೋ rudra.png) -->
-    <div class="logo-container">
-      <img src="RudraMovies.png" alt="Rudra Movies Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/75/0284c7/ffffff?text=RM';">
+    <!-- ನಿಮ್ಮ ರುದ್ರಾ ಲೋಗೋ (GitHub ನಲ್ಲಿರೋ rudra.png) -->
+    <div class="logo-wrapper">
+      <img src="RudraMovie.png" alt="Rudra Movies Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/82/0284c7/ffffff?text=RM';">
     </div>
 
-    <div class="title">RUDRA MOVIES</div>
-    <div class="badge">🔒 SECURED & VERIFIED LINK</div>
+    <div class="brand-title">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇs</div>
+    <div class="security-badge">
+      <span></span> ʜɪɢʜ sᴇᴄᴜʀᴇᴅ ʟɪɴᴋ
+    </div>
 
-    <!-- ತಿರುಗುವ ರಿಂಗ್ಸ್ ಮತ್ತು ಪ್ರೋಗ್ರೆಸ್ ಬಾರ್ -->
-    <div class="timer-wrapper">
-      <div class="outer-spin-ring"></div>
-      <div class="mid-spin-ring"></div>
-      
-      <!-- ರೌಂಡ್ ಹೊಡೆಯುವ 2 ಆರೋ ಮಾರ್ಕ್‌ಗಳು -->
-      <div class="arrow-orbit-1"></div>
-      <div class="arrow-orbit-2"></div>
+    <!-- ಸೈಬರ್‌ಪಂಕ್ ಕೌಂಟ್‌ಡೌನ್ ಅನಿಮೇಷನ್ -->
+    <div class="timer-container">
+      <div class="outer-circle"></div>
+      <div class="inner-circle"></div>
 
-      <!-- ಕಲರ್ ತುಂಬುವ SVG ವೃತ್ತ -->
+      <!-- ವೃತ್ತದ ಸುತ್ತಲೂ ತಿರುಗುವ ನಿಯಾನ್ ಆರೋಗಳು -->
+      <div class="orbit-arrows">
+        <div class="arrow-top"></div>
+        <div class="arrow-bottom"></div>
+      </div>
+
+      <!-- ಗ್ರೇಡಿಯಂಟ್ ಸರ್ಕಲ್ ಫಿಲ್ (SVG) -->
       <svg class="progress-svg">
         <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" />
-            <stop offset="50%" stop-color="#818cf8" />
-            <stop offset="100%" stop-color="#ec4899" />
+          <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f2fe" />
+            <stop offset="50%" stop-color="#4facfe" />
+            <stop offset="100%" stop-color="#f093fb" />
           </linearGradient>
         </defs>
-        <circle class="progress-bg" cx="60" cy="60" r="52"></circle>
-        <circle class="progress-bar" id="progress-circle" cx="60" cy="60" r="52"></circle>
+        <circle class="progress-bg" cx="65" cy="65" r="56"></circle>
+        <circle class="progress-bar" id="progress-bar" cx="65" cy="65" r="56"></circle>
       </svg>
 
-      <div class="timer-text" id="timer">5</div>
+      <div class="timer-number" id="timer">5</div>
     </div>
 
-    <div class="status">Security Verification</div>
-    <div class="sub-status" id="status-text">Scanning Link... Please Wait</div>
+    <div class="status-badge">ʟɪɴᴋ sᴛᴀᴛᴜs</div>
+    <div class="status-highlight" id="status-msg">Encrypting & Verifying File...</div>
 
-    <!-- ರೀಡೈರೆಕ್ಟ್ ಬಟನ್ -->
-    <a id="proceed-btn" class="btn btn-disabled" href="#">Please Wait...</a>
+    <!-- ಗೆಟ್ ಲಿಂಕ್ ಬಟನ್ -->
+    <a id="action-btn" class="btn btn-disabled" href="#">ᴡᴀɪᴛ 5 sᴇᴄᴏɴᴅs...</a>
 
-    <!-- ಟೆಲಿಗ್ರಾಂ ಚಾನೆಲ್ ಬಟನ್ (ನಿಮ್ಮ ಚಾನೆಲ್ ಲಿಂಕ್ ಹಾಕಿ) -->
-    <a href="https://t.me/RudraMoviez" target="_blank" class="btn btn-channel">⚡ JOIN MAIN CHANNEL ⚡</a>
+    <!-- ಟೆಲಿಗ್ರಾಂ ಚಾನೆಲ್ ಬಟನ್ -->
+    <a href="https://t.me/RudraMovies" target="_blank" class="btn btn-telegram">
+      ⚡ ᴊᴏɪɴ ᴏғғɪᴄɪᴀʟ ᴄʜᴀɴɴᴇʟ ⚡
+    </a>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const targetUrl = params.get('redirect');
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetRedirect = urlParams.get('redirect');
 
-    const totalTime = 5;
-    let timeLeft = totalTime;
+    const totalSeconds = 5;
+    let currentSeconds = totalSeconds;
 
-    const timerElem = document.getElementById('timer');
-    const statusText = document.getElementById('status-text');
-    const proceedBtn = document.getElementById('proceed-btn');
-    const progressCircle = document.getElementById('progress-circle');
+    const timerText = document.getElementById('timer');
+    const statusMsg = document.getElementById('status-msg');
+    const actionBtn = document.getElementById('action-btn');
+    const progressBar = document.getElementById('progress-bar');
 
-    const circleCircumference = 2 * Math.PI * 52; // ಸುಮಾರು 326.72
+    const totalLength = 2 * Math.PI * 56; // 351.85
 
-    const countdown = setInterval(() => {
-      timeLeft--;
+    const interval = setInterval(() => {
+      currentSeconds--;
 
-      // ಸರ್ಕಲ್ ಕಲರ್ ಫಿಲ್ ಲೆಕ್ಕಾಚಾರ
-      const progressPercent = (totalTime - timeLeft) / totalTime;
-      const offset = circleCircumference - (circleCircumference * progressPercent);
-      progressCircle.style.strokeDashoffset = offset;
+      // ಕೌಂಟ್‌ಡೌನ್ ಆದಂತೆ ಸರ್ಕಲ್ ಪೂರ್ತಿ ತುಂಬಿಕೊಳ್ಳುವುದು
+      const percentage = (totalSeconds - currentSeconds) / totalSeconds;
+      progressBar.style.strokeDashoffset = totalLength - (totalLength * percentage);
 
-      if (timeLeft > 0) {
-        timerElem.innerText = timeLeft;
-        if (timeLeft <= 2) {
-          statusText.innerText = "Finalizing Verification...";
+      if (currentSeconds > 0) {
+        timerText.innerText = currentSeconds;
+        actionBtn.innerText = `WAIT ${currentSeconds} SECONDS...`;
+        if (currentSeconds <= 2) {
+          statusMsg.innerText = "ᴀʟᴍᴏsᴛ ʀᴇᴀᴅʏ... ɢᴇɴᴇʀᴀᴛɪɴɢ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ";
         }
       } else {
-        clearInterval(countdown);
-        timerElem.innerText = "✓";
-        statusText.innerText = "Link Verified Successfully!";
-        progressCircle.style.strokeDashoffset = 0;
+        clearInterval(interval);
+        timerText.innerText = "✓";
+        progressBar.style.strokeDashoffset = 0;
+        statusMsg.innerText = "ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴄᴏᴍᴘʟᴇᴛᴇ! ʟɪɴᴋ ʀᴇᴀᴅʏ ";
 
-        if (targetUrl) {
-          proceedBtn.href = targetUrl;
-          proceedBtn.innerText = "GET LINK ➜";
-          proceedBtn.classList.remove('btn-disabled');
-          proceedBtn.classList.add('btn-primary');
+        if (targetRedirect) {
+          actionBtn.href = targetRedirect;
+          actionBtn.innerText = "ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ➜";
+          actionBtn.classList.remove('btn-disabled');
+          actionBtn.classList.add('btn-ready');
 
-          // 1 ಸೆಕೆಂಡ್ ನಂತರ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ಲಿಂಕ್ ಓಪನ್ ಆಗಲು ಕೆಳಗಿನ ಲೈನ್ ಅನ್‌ಕಮೆಂಟ್ ಮಾಡಬಹುದು:
-          // setTimeout(() => { window.location.href = targetUrl; }, 800);
+          // ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ರೀಡೈರೆಕ್ಟ್ ಆಗಬೇಕಿದ್ದರೆ ಕೆಳಗಿನ ಲೈನ್ ಅನ್‌ಕಮೆಂಟ್ ಮಾಡಿ:
+          // setTimeout(() => { window.location.href = targetRedirect; }, 600);
         } else {
-          proceedBtn.innerText = "No Destination URL Found";
+          actionBtn.innerText = "DIRECT LINK NOT FOUND";
         }
       }
     }, 1000);
