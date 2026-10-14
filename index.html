@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RUDRA MOVIES - Secure Link</title>
-  
-  <!-- ಸೂಪರ್ ರೆಟ್ರೋ & ಸೈಬರ್ ಗೇಮಿಂಗ್ ಫಾಂಟ್‌ಗಳು -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@600;700;800&family=Orbitron:wght@800&display=swap" rel="stylesheet">
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     body {
       background: #030712;
@@ -24,7 +20,6 @@
       align-items: center;
       color: #fff;
       padding: 16px;
-      font-family: 'Rajdhani', sans-serif;
       position: relative;
       overflow-x: hidden;
     }
@@ -32,8 +27,8 @@
     /* ನಿಯಾನ್ ಬ್ಯಾಕ್‌ಗ್ರೌಂಡ್ ಗ್ಲೋ */
     .bg-glow-1 {
       position: absolute;
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       background: radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%);
       top: 15%;
       left: 10%;
@@ -42,8 +37,8 @@
     }
     .bg-glow-2 {
       position: absolute;
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       background: radial-gradient(circle, rgba(236, 72, 153, 0.22), transparent 70%);
       bottom: 15%;
       right: 10%;
@@ -55,24 +50,24 @@
     .card {
       position: relative;
       z-index: 1;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 28px;
       padding: 28px 20px;
       width: 100%;
       max-width: 350px;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(6, 182, 212, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(6, 182, 212, 0.15);
     }
 
     /* ಲೋಗೋ */
     .logo-wrapper {
       position: relative;
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 12px;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 10px;
     }
     .logo-wrapper::before {
       content: '';
@@ -94,31 +89,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       z-index: 1;
     }
 
-    /* 🔥 ಚಿಕ್ಕದಾದ & ಮಸ್ತ್ ಆಗಿರೋ ಹೆಡ್ಡಿಂಗ್ ಫಾಂಟ್ 🔥 */
-        .brand-title {
-      font-size: 19px;
+    /* ನಾರ್ಮಲ್ & ಕ್ಲೀನ್ ಹೆಡ್ಡಿಂಗ್ */
+    .brand-title {
+      font-size: 20px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #38bdf8, #f472b6, #38bdf8);
+      background: linear-gradient(90deg, #38bdf8, #c084fc, #38bdf8);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 4s linear infinite;
-      margin-top: 6px;
+      margin-top: 4px;
     }
-
 
     .security-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 6px;
       font-size: 10px;
       font-weight: 700;
       color: #38bdf8;
@@ -140,8 +134,8 @@
     /* ಟೈಮರ್ ಕಂಟೈನರ್ */
     .timer-container {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 170px;
+      height: 170px;
       margin: 22px auto 16px;
       display: flex;
       align-items: center;
@@ -151,8 +145,8 @@
     /* ಹೊರಗಿನ ತಿರುಗುವ ಡ್ಯಾಶ್ಡ್ ಸರ್ಕಲ್ */
     .outer-circle {
       position: absolute;
-      width: 156px;
-      height: 156px;
+      width: 168px;
+      height: 168px;
       border-radius: 50%;
       border: 1.5px dashed rgba(56, 189, 248, 0.35);
       animation: spin 10s linear infinite;
@@ -161,8 +155,8 @@
     /* ಒಳಗಿನ ತಿರುಗುವ ಡಾಟ್ ಸರ್ಕಲ್ */
     .inner-circle {
       position: absolute;
-      width: 138px;
-      height: 138px;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
       border: 1.5px dotted rgba(232, 121, 249, 0.45);
       animation: spinReverse 7s linear infinite;
@@ -171,8 +165,8 @@
     /* ತಿರುಗುವ ನಿಯಾನ್ ಆರೋಗಳು */
     .orbit-arrows {
       position: absolute;
-      width: 156px;
-      height: 156px;
+      width: 168px;
+      height: 168px;
       animation: spin 3.2s linear infinite;
       pointer-events: none;
     }
@@ -201,36 +195,58 @@
       filter: drop-shadow(0 0 6px #f093fb);
     }
 
-    /* SVG ಪ್ರೋಗ್ರೆಸ್ ಬಾರ್ */
-    .progress-svg {
-      width: 115px;
-      height: 115px;
-      transform: rotate(-90deg);
+    /* 🔥 3D ವಾಟರ್ ವೇವ್ (Liquid Wave Circle) 🔥 */
+    .liquid-circle {
+      position: relative;
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      background: #091224;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       z-index: 2;
     }
-    .progress-bg {
-      fill: none;
-      stroke: rgba(255, 255, 255, 0.05);
-      stroke-width: 8;
+
+    .liquid-wave {
+      position: absolute;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.75) 0%, rgba(37, 99, 235, 0.95) 100%);
+      border-radius: 40%;
+      bottom: -170%; /* ಪ್ರಾರಂಭದಲ್ಲಿ ಕೆಳಗೆ ಇರುತ್ತದೆ */
+      animation: waveRotate 6s linear infinite;
+      transition: bottom 1s linear;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.8);
     }
-    .progress-bar {
-      fill: none;
-      stroke: url(#neonGradient);
-      stroke-width: 8;
-      stroke-linecap: round;
-      stroke-dasharray: 314.16;
-      stroke-dashoffset: 314.16;
-      transition: stroke-dashoffset 1s linear;
-      filter: drop-shadow(0 0 7px rgba(0, 242, 254, 0.6));
+
+    .liquid-wave-behind {
+      position: absolute;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(236, 72, 153, 0.35);
+      border-radius: 43%;
+      bottom: -165%;
+      animation: waveRotate 4s linear infinite;
+      transition: bottom 1s linear;
+    }
+
+    @keyframes waveRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .timer-number {
-      position: absolute;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 34px;
+      position: relative;
+      font-size: 38px;
       font-weight: 800;
       color: #fff;
-      text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
       z-index: 3;
     }
 
@@ -248,7 +264,7 @@
 
     /* ಸ್ಟೇಟಸ್ ಟೆಕ್ಸ್ಟ್ */
     .status-badge {
-      font-size: 10px;
+      font-size: 11px;
       text-transform: uppercase;
       color: #94a3b8;
       letter-spacing: 2px;
@@ -312,14 +328,14 @@
       <img src="RudraMovies.png" alt="RM" class="logo-img" onerror="this.outerHTML='<div class=\'logo-img\'>RM</div>';">
     </div>
 
-    <!-- 🔥 ಚಿಕ್ಕದಾದ & ಸ್ಟೈಲಿಶ್ ಹೆಡ್ಡಿಂಗ್ 🔥 -->
+    <!-- ನಾರ್ಮಲ್ ಹೆಡ್ಡಿಂಗ್ -->
     <div class="brand-title">RUDRA MOVIES</div>
     
     <div class="security-badge">
       <span></span> HIGH SECURED LINK
     </div>
 
-    <!-- ಅನಿಮೇಷನ್ ಕೌಂಟ್‌ಡೌನ್ -->
+    <!-- 3D ವಾಟರ್ ವೇವ್ ಕೌಂಟ್‌ಡೌನ್ -->
     <div class="timer-container">
       <div class="outer-circle"></div>
       <div class="inner-circle"></div>
@@ -329,19 +345,12 @@
         <div class="arrow-bottom"></div>
       </div>
 
-      <svg class="progress-svg">
-        <defs>
-          <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00f2fe" />
-            <stop offset="50%" stop-color="#4facfe" />
-            <stop offset="100%" stop-color="#f093fb" />
-          </linearGradient>
-        </defs>
-        <circle class="progress-bg" cx="57.5" cy="57.5" r="50"></circle>
-        <circle class="progress-bar" id="progress-bar" cx="57.5" cy="57.5" r="50"></circle>
-      </svg>
-
-      <div class="timer-number" id="timer">5</div>
+      <!-- ನೀರು ತುಂಬುವ ವೃತ್ತ -->
+      <div class="liquid-circle">
+        <div class="liquid-wave-behind" id="wave-behind"></div>
+        <div class="liquid-wave" id="wave-front"></div>
+        <div class="timer-number" id="timer">5</div>
+      </div>
     </div>
 
     <div class="status-badge">LINK STATUS</div>
@@ -366,15 +375,27 @@
     const timerText = document.getElementById('timer');
     const statusMsg = document.getElementById('status-msg');
     const actionBtn = document.getElementById('action-btn');
-    const progressBar = document.getElementById('progress-bar');
+    const waveFront = document.getElementById('wave-front');
+    const waveBehind = document.getElementById('wave-behind');
 
-    const totalLength = 2 * Math.PI * 50;
+    // ವಾಟರ್ ಲೆವೆಲ್ ಹಂತಗಳು (-170% ಅಂದರೆ ಖಾಲಿ, -40% ಅಂದರೆ 100% ಪೂರ್ತಿ)
+    const waveLevels = {
+      5: { front: '-170%', behind: '-165%' },
+      4: { front: '-140%', behind: '-135%' },
+      3: { front: '-110%', behind: '-105%' },
+      2: { front: '-80%', behind: '-75%' },
+      1: { front: '-55%', behind: '-50%' },
+      0: { front: '-35%', behind: '-30%' }
+    };
 
     const interval = setInterval(() => {
       currentSeconds--;
 
-      const percentage = (totalSeconds - currentSeconds) / totalSeconds;
-      progressBar.style.strokeDashoffset = totalLength - (totalLength * percentage);
+      // ವಾಟರ್ ಅಲೆ ಮೇಲಕ್ಕೆ ತುಂಬಿಕೊಳ್ಳುವುದು
+      if (waveLevels[currentSeconds]) {
+        waveFront.style.bottom = waveLevels[currentSeconds].front;
+        waveBehind.style.bottom = waveLevels[currentSeconds].behind;
+      }
 
       if (currentSeconds > 0) {
         timerText.innerText = currentSeconds;
@@ -385,7 +406,6 @@
       } else {
         clearInterval(interval);
         timerText.innerText = "✓";
-        progressBar.style.strokeDashoffset = 0;
         statusMsg.innerText = "VERIFICATION COMPLETE! LINK READY";
 
         if (targetRedirect) {
