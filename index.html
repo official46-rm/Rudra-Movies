@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101528">
 <title>RUDRA MOVIES | RM DEVELOPER</title>
 
 <style>
@@ -14,48 +15,56 @@
 }
 
 :root {
-  --purple: #9b5cff;
-  --pink: #ff4fa3;
-  --gold: #ffd978;
-  --dark: #100b1c;
+  --green: #5dffd0;
+  --purple: #a879ff;
+  --gold: #ffd77a;
+  --pink: #ff77bc;
+  --text: #f8f7ff;
 }
 
 body {
   min-height: 100vh;
-  padding: 25px 15px;
+  padding: 30px 14px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
-  color: white;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
   background:
-    radial-gradient(circle at 10% 10%, #9b5cff55, transparent 35%),
-    radial-gradient(circle at 90% 90%, #ff4fa344, transparent 35%),
-    linear-gradient(140deg, #100b1c, #261538, #120d20);
+    radial-gradient(ellipse at 5% 15%, #087d9250, transparent 38%),
+    radial-gradient(ellipse at 95% 80%, #873aff45, transparent 38%),
+    linear-gradient(145deg, #0b1222, #171b35 55%, #111021);
 }
 
 .card {
   width: 100%;
-  max-width: 480px;
-  padding: 32px 23px;
+  max-width: 460px;
+  padding: 29px 20px 24px;
   text-align: center;
-  border-radius: 32px;
-  border: 1px solid #ffffff35;
-  background: #ffffff0b;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 0 45px #9b5cff25;
-  animation: enter 0.8s ease;
+  border-radius: 31px;
+  border: 1px solid #ffffff32;
+  background: linear-gradient(
+    145deg,
+    #ffffff12,
+    #5dffd00b,
+    #a879ff20
+  );
+  box-shadow: 0 20px 60px #0008, 0 0 35px #a879ff18;
+  backdrop-filter: blur(20px);
+  animation: appear .7s ease;
 }
 
 .logo {
-  width: 125px;
-  height: 125px;
-  margin: 0 auto 22px;
-  overflow: hidden;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 17px;
   border-radius: 50%;
-  border: 3px solid var(--gold);
-  background: linear-gradient(135deg, var(--purple), var(--pink));
-  box-shadow: 0 0 28px #ff4fa355;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--green);
+  background: linear-gradient(135deg, #132e40, #633b8e);
+  box-shadow: 0 0 22px #5dffd038;
 }
 
 .logo img {
@@ -65,169 +74,252 @@ body {
 }
 
 h1 {
-  font-size: clamp(25px, 7vw, 35px);
-  font-weight: 900;
-  line-height: 1.3;
-  background: linear-gradient(90deg, var(--gold), var(--pink), #c6a0ff);
-  color: var(--gold);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
-.tagline {
-  margin-top: 10px;
-  color: #d9c9f3;
-  font-size: 14px;
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  margin-bottom: 27px;
+  border: 1px solid #5dffd05c;
+  border-radius: 30px;
+  background: #5dffd00c;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+
+.ring {
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: conic-gradient(
+    var(--green),
+    #24a9ff,
+    var(--purple),
+    var(--pink),
+    var(--green)
+  );
+  box-shadow: 0 0 24px #24a9ff20;
+}
+
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #244866, #10172e 72%);
+  border: 3px solid #ffffff25;
+}
+
+.ring::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed #5dffd080;
+  animation: rotate 12s linear infinite;
+}
+
+#timer {
+  position: relative;
+  z-index: 1;
+  font-size: 45px;
+  font-weight: 800;
+  text-shadow: 0 0 16px #5dffd050;
+}
+
+h2 {
+  font-size: 18px;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 13px;
   line-height: 1.6;
-}
-
-.line {
-  height: 2px;
-  width: 75%;
-  margin: 23px auto;
-  background: linear-gradient(90deg, transparent, var(--pink), var(--gold), transparent);
-}
-
-.pill {
-  display: inline-block;
-  padding: 9px 16px;
-  margin-bottom: 20px;
-  border: 1px solid #ffd97870;
-  border-radius: 25px;
-  color: var(--gold);
-  background: #ffffff09;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-.welcome {
-  font-size: 21px;
-  margin-bottom: 10px;
-}
-
-.description {
-  color: #c8b8dc;
-  font-size: 14px;
-  line-height: 1.7;
+  color: #c8d1e9;
   margin-bottom: 24px;
 }
 
-.telegram {
-  display: block;
+.continue {
   width: 100%;
-  padding: 17px 12px;
-  margin-top: 13px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.telegram:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px #00000035;
-}
-
-.join {
+  min-height: 52px;
+  border: 0;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  background: linear-gradient(100deg, #13c9bb, #288cff, #9662ff);
   color: white;
-  background: linear-gradient(100deg, #229ed9, #3978ff);
-  box-shadow: 0 5px 20px #229ed944;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 7px 22px #288cff30;
+  transition: transform .2s;
+}
+
+.continue:hover {
+  transform: translateY(-2px);
+}
+
+.continue:focus-visible,
+.channel:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
 }
 
 .channel {
-  color: #23142d;
-  background: linear-gradient(100deg, var(--gold), var(--pink));
-}
-
-.note {
-  margin-top: 18px;
-  color: #bba9d0;
-  font-size: 11px;
-  line-height: 1.6;
-}
-
-.footer {
-  margin-top: 25px;
+  display: block;
+  padding: 15px 8px;
+  margin-top: 12px;
+  border-radius: 15px;
+  border: 1px solid #a879ff60;
+  background: linear-gradient(100deg, #ffffff08, #a879ff20);
   color: var(--gold);
   font-size: 13px;
   font-weight: bold;
-  letter-spacing: 2px;
+  text-decoration: none;
 }
 
-.footer small {
+.footer {
+  margin-top: 23px;
+  color: #b5c0dc;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.footer span {
   display: block;
-  margin-top: 8px;
-  color: #bba9d0;
+  margin-top: 7px;
+  color: var(--gold);
   font-size: 10px;
   letter-spacing: 1px;
 }
 
-@keyframes enter {
-  from { opacity: 0; transform: translateY(18px); }
+#continueBtn[hidden] {
+  display: none;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 360px) {
-  .card { padding: 26px 16px; }
-  .logo { width: 105px; height: 105px; }
+  .card { padding: 24px 15px; }
+  h1 { font-size: 22px; }
+  .ring { width: 132px; height: 132px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
 
 <body>
-
 <main class="card">
 
-  <!-- YOUR LOGO -->
+  <!-- Place RUDRA MOVIES.png beside index.html -->
   <div class="logo">
-    <img src="RUDRA MOVIES.png" alt="Rudra Movies Logo">
+    <img src="RudraMovies.png" alt="Rudra Movies Logo">
   </div>
 
   <h1>RUDRA MOVIES</h1>
 
-  <p class="tagline">
-    YOUR ENTERTAINMENT SPACE ✨
+  <div class="status">
+    <span class="dot"></span>
+    LINK COUNTDOWN DEMO
+  </div>
+
+  <div class="ring">
+    <span id="timer" aria-live="polite">5</span>
+  </div>
+
+  <h2 id="heading">YOUR LINK IS GETTING READY</h2>
+  <p class="subtitle" id="subtitle">
+    Please wait a few seconds before continuing.
   </p>
 
-  <div class="line"></div>
-
-  <div class="pill">✦ OFFICIAL COMMUNITY ✦</div>
-
-  <h2 class="welcome">Welcome, Everyone! 🥳</h2>
-
-  <p class="description">
-    Welcome to RUDRA MOVIES.
-    Join our Telegram community and stay connected
-    with our latest updates.
-  </p>
-
-  <!-- REPLACE THESE WITH YOUR REAL TELEGRAM LINKS -->
-  <a class="telegram join"
-     href="https://t.me/YOUR_USERNAME"
-     target="_blank"
-     rel="noopener noreferrer">
-     ✈ JOIN TELEGRAM
+  <!-- Button appears after the countdown -->
+  <a
+    id="continueBtn"
+    class="continue"
+    href="https://example.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    hidden
+  >
+    PROCEED TO DESTINATION →
   </a>
 
-  <a class="telegram channel"
-     href="https://t.me/YOUR_CHANNEL"
-     target="_blank"
-     rel="noopener noreferrer">
-     ★ VISIT OUR CHANNEL
+  <a
+    class="channel"
+    href="https://t.me/RudraMovies4"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    ➤ &nbsp; ⚡ RUDRA MOVIES TELEGRAM ✨
   </a>
-
-  <p class="note">
-    Telegram buttons open the links configured by the site owner.
-  </p>
 
   <div class="footer">
     ⚡ RM DEVELOPER
-    <small>CREATED WITH STYLE &amp; PASSION</small>
+    <span>UNIQUE DESIGN • YOUR BRAND</span>
   </div>
 
 </main>
+
+<script>
+(() => {
+  const timer = document.getElementById("timer");
+  const heading = document.getElementById("heading");
+  const subtitle = document.getElementById("subtitle");
+  const button = document.getElementById("continueBtn");
+
+  let seconds = 5;
+
+  const countdown = setInterval(() => {
+    seconds--;
+    timer.textContent = seconds;
+
+    if (seconds <= 0) {
+      clearInterval(countdown);
+      timer.textContent = "✓";
+      heading.textContent = "YOUR LINK IS READY";
+      subtitle.textContent = "Tap below to continue.";
+      button.hidden = false;
+    }
+  }, 1000);
+})();
+</script>
 
 </body>
 </html>
