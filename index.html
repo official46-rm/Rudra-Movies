@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101528">
-<title>RUDRA MOVIES | RM DEVELOPER</title>
+<meta name="theme-color" content="#080d1b">
+<title>RUDRA MOVIES | Secure Link</title>
 
 <style>
 * {
@@ -15,311 +15,430 @@
 }
 
 :root {
-  --green: #5dffd0;
-  --purple: #a879ff;
-  --gold: #ffd77a;
-  --pink: #ff77bc;
-  --text: #f8f7ff;
+  --cyan: #00eaff;
+  --purple: #a855f7;
+  --bg: #080d1b;
+  --muted: #91a0ba;
 }
 
 body {
   min-height: 100vh;
-  padding: 30px 14px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 22px 14px;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
+  color: #fff;
   background:
-    radial-gradient(ellipse at 5% 15%, #087d9250, transparent 38%),
-    radial-gradient(ellipse at 95% 80%, #873aff45, transparent 38%),
-    linear-gradient(145deg, #0b1222, #171b35 55%, #111021);
+    radial-gradient(ellipse at 15% 10%, #152c53 0, transparent 42%),
+    radial-gradient(ellipse at 90% 90%, #281344 0, transparent 40%),
+    var(--bg);
+  overflow-x: hidden;
 }
 
 .card {
+  position: relative;
   width: 100%;
-  max-width: 460px;
-  padding: 29px 20px 24px;
+  max-width: 370px;
+  padding: 30px 23px 25px;
   text-align: center;
-  border-radius: 31px;
-  border: 1px solid #ffffff32;
+  overflow: hidden;
+  border: 1px solid rgba(0, 234, 255, .24);
+  border-radius: 25px;
   background: linear-gradient(
-    145deg,
-    #ffffff12,
-    #5dffd00b,
-    #a879ff20
+    150deg,
+    rgba(20, 31, 57, .97),
+    rgba(11, 14, 31, .98)
   );
-  box-shadow: 0 20px 60px #0008, 0 0 35px #a879ff18;
-  backdrop-filter: blur(20px);
-  animation: appear .7s ease;
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, .5),
+    0 0 35px rgba(0, 234, 255, .07);
+  animation: appear .65s ease-out;
 }
 
-.logo {
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.logo-img {
   width: 88px;
   height: 88px;
-  margin: 0 auto 17px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--green);
-  background: linear-gradient(135deg, #132e40, #633b8e);
-  box-shadow: 0 0 22px #5dffd038;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-h1 {
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: .7px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 12px;
-  margin-bottom: 27px;
-  border: 1px solid #5dffd05c;
-  border-radius: 30px;
-  background: #5dffd00c;
-  color: var(--green);
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 10px var(--green);
-}
-
-.ring {
-  width: 148px;
-  height: 148px;
-  margin: 0 auto 25px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  position: relative;
-  background: conic-gradient(
-    var(--green),
-    #24a9ff,
-    var(--purple),
-    var(--pink),
-    var(--green)
-  );
-  box-shadow: 0 0 24px #24a9ff20;
-}
-
-.ring::before {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 25%, #244866, #10172e 72%);
-  border: 3px solid #ffffff25;
-}
-
-.ring::after {
-  content: "";
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 1px dashed #5dffd080;
-  animation: rotate 12s linear infinite;
-}
-
-#timer {
-  position: relative;
-  z-index: 1;
-  font-size: 45px;
-  font-weight: 800;
-  text-shadow: 0 0 16px #5dffd050;
-}
-
-h2 {
-  font-size: 18px;
-  letter-spacing: .5px;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #c8d1e9;
-  margin-bottom: 24px;
-}
-
-.continue {
-  width: 100%;
-  min-height: 52px;
-  border: 0;
-  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 10px;
-  background: linear-gradient(100deg, #13c9bb, #288cff, #9662ff);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 7px 22px #288cff30;
-  transition: transform .2s;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  background: #111a30;
+  color: var(--cyan);
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 0 22px rgba(0, 234, 255, .22);
 }
 
-.continue:hover {
-  transform: translateY(-2px);
+.brand-title {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, var(--cyan), #c5a4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.continue:focus-visible,
-.channel:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 4px;
-}
-
-.channel {
-  display: block;
-  padding: 15px 8px;
-  margin-top: 12px;
-  border-radius: 15px;
-  border: 1px solid #a879ff60;
-  background: linear-gradient(100deg, #ffffff08, #a879ff20);
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.footer {
-  margin-top: 23px;
-  color: #b5c0dc;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-}
-
-.footer span {
-  display: block;
+.subtitle {
   margin-top: 7px;
-  color: var(--gold);
+  color: var(--muted);
   font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 19px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 234, 255, .22);
+  border-radius: 30px;
+  background: rgba(0, 234, 255, .06);
+  color: #b9faff;
+  font-size: 10px;
+  font-weight: 800;
   letter-spacing: 1px;
 }
 
-#continueBtn[hidden] {
-  display: none;
+.security-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 9px var(--cyan);
+  animation: blink 1.3s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .35; }
+}
+
+.timer-container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 25px auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-circle,
+.inner-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.outer-circle {
+  inset: 0;
+  border: 1px solid rgba(0, 234, 255, .2);
+  animation: rotate 9s linear infinite;
+}
+
+.outer-circle::before,
+.outer-circle::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.outer-circle::before {
+  top: 12px;
+  left: 20px;
+}
+
+.outer-circle::after {
+  bottom: 13px;
+  right: 17px;
+  background: var(--purple);
+  box-shadow: 0 0 10px var(--purple);
+}
+
+.inner-circle {
+  inset: 10px;
+  border: 1px dashed rgba(168, 85, 247, .35);
 }
 
 @keyframes rotate {
   to { transform: rotate(360deg); }
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.progress-svg {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.progress-bg,
+.progress-bar {
+  fill: none;
+  stroke-width: 4;
+  cx: 58;
+  cy: 58;
+  r: 51;
+}
+
+.progress-bg {
+  stroke: rgba(255, 255, 255, .08);
+}
+
+.progress-bar {
+  stroke: var(--cyan);
+  stroke-linecap: round;
+  stroke-dasharray: 320.44;
+  stroke-dashoffset: 320.44;
+  filter: drop-shadow(0 0 5px var(--cyan));
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-number {
+  font-size: 38px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 18px rgba(0, 234, 255, .45);
+}
+
+.status-badge {
+  color: #8b9ab7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.status-highlight {
+  min-height: 18px;
+  margin-top: 9px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 13px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .7px;
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+
+.btn-ready {
+  color: #06131b;
+  background: linear-gradient(100deg, var(--cyan), #7df7ff);
+  box-shadow: 0 5px 22px rgba(0, 234, 255, .2);
+}
+
+.btn-ready:hover,
+.btn-telegram:hover {
+  transform: translateY(-2px);
+}
+
+.btn-disabled {
+  color: #8190a9;
+  background: #1a2235;
+  border: 1px solid #303b53;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-telegram {
+  margin-top: 11px;
+  color: white;
+  background: linear-gradient(100deg, #7255ee, #a044ef);
+  box-shadow: 0 5px 20px rgba(140, 70, 245, .18);
+}
+
+.footer {
+  margin-top: 22px;
+  color: #697792;
+  font-size: 9px;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 360px) {
-  .card { padding: 24px 15px; }
-  h1 { font-size: 22px; }
-  .ring { width: 132px; height: 132px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+  .card { padding: 25px 17px 21px; }
+  .brand-title { font-size: 22px; }
 }
 </style>
 </head>
 
 <body>
-<main class="card">
+  <main class="card">
 
-  <!-- Place RUDRA MOVIES.png beside index.html -->
-  <div class="logo">
-    <img src="RudraMovies.png" alt="Rudra Movies Logo">
-  </div>
+    <div class="logo-wrapper">
+      <img
+        src="RudraMovies.png"
+        alt="Rudra Movies Logo"
+        class="logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      >
+      <div class="logo-img" style="display:none;">RM</div>
+    </div>
 
-  <h1>RUDRA MOVIES</h1>
+    <div class="brand-title">RUDRA MOVIES</div>
+    <div class="subtitle">YOUR ENTERTAINMENT DESTINATION</div>
 
-  <div class="status">
-    <span class="dot"></span>
-    LINK COUNTDOWN DEMO
-  </div>
+    <div class="security-badge">
+      <span></span> LINK REDIRECT
+    </div>
 
-  <div class="ring">
-    <span id="timer" aria-live="polite">5</span>
-  </div>
+    <div class="timer-container">
+      <div class="outer-circle"></div>
+      <div class="inner-circle"></div>
 
-  <h2 id="heading">YOUR LINK IS GETTING READY</h2>
-  <p class="subtitle" id="subtitle">
-    Please wait a few seconds before continuing.
-  </p>
+      <svg class="progress-svg" viewBox="0 0 116 116" aria-hidden="true">
+        <defs>
+          <linearGradient id="neonGradient">
+            <stop offset="0%" stop-color="#00eaff"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <circle class="progress-bg" cx="58" cy="58" r="51"/>
+        <circle
+          class="progress-bar"
+          id="progress-bar"
+          cx="58"
+          cy="58"
+          r="51"
+          stroke="url(#neonGradient)"
+        />
+      </svg>
 
-  <!-- Button appears after the countdown -->
-  <a
-    id="continueBtn"
-    class="continue"
-    href="https://example.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    hidden
-  >
-    PROCEED TO DESTINATION →
-  </a>
+      <div class="timer-number" id="timer" aria-live="polite">5</div>
+    </div>
 
-  <a
-    class="channel"
-    href="https://t.me/RudraMovies4"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    ➤ &nbsp; ⚡ RUDRA MOVIES TELEGRAM ✨
-  </a>
+    <div class="status-badge">LINK STATUS</div>
+    <div class="status-highlight" id="status-msg">
+      PREPARING YOUR LINK...
+    </div>
 
-  <div class="footer">
-    ⚡ RM DEVELOPER
-    <span>UNIQUE DESIGN • YOUR BRAND</span>
-  </div>
+    <a
+      id="action-btn"
+      class="btn btn-disabled"
+      href="#"
+      aria-disabled="true"
+    >PLEASE WAIT (5s)</a>
 
-</main>
+    <a
+      href="https://t.me/RudraMoviez"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-telegram"
+    >⚡ JOIN OFFICIAL CHANNEL ⚡</a>
+
+    <div class="footer">RUDRA MOVIES &bull; LINK PORTAL</div>
+  </main>
 
 <script>
 (() => {
-  const timer = document.getElementById("timer");
-  const heading = document.getElementById("heading");
-  const subtitle = document.getElementById("subtitle");
-  const button = document.getElementById("continueBtn");
+  const totalSeconds = 5;
+  let currentSeconds = totalSeconds;
 
-  let seconds = 5;
+  const params = new URLSearchParams(window.location.search);
+  const rawRedirect = params.get("redirect");
 
-  const countdown = setInterval(() => {
-    seconds--;
-    timer.textContent = seconds;
+  const timerText = document.getElementById("timer");
+  const statusMsg = document.getElementById("status-msg");
+  const actionBtn = document.getElementById("action-btn");
+  const progressBar = document.getElementById("progress-bar");
 
-    if (seconds <= 0) {
-      clearInterval(countdown);
-      timer.textContent = "✓";
-      heading.textContent = "YOUR LINK IS READY";
-      subtitle.textContent = "Tap below to continue.";
-      button.hidden = false;
+  const circumference = 2 * Math.PI * 51;
+  progressBar.style.strokeDasharray = circumference;
+  progressBar.style.strokeDashoffset = circumference;
+
+  // Accept only regular HTTP or HTTPS destination URLs.
+  let targetRedirect = null;
+
+  if (rawRedirect) {
+    try {
+      const parsed = new URL(rawRedirect);
+
+      if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+        targetRedirect = parsed.href;
+      }
+    } catch (error) {
+      targetRedirect = null;
+    }
+  }
+
+  function finishCountdown() {
+    timerText.textContent = "✓";
+    progressBar.style.strokeDashoffset = 0;
+
+    if (targetRedirect) {
+      statusMsg.textContent = "LINK READY! CONTINUE BELOW";
+      actionBtn.href = targetRedirect;
+      actionBtn.textContent = "CONTINUE NOW ➜";
+      actionBtn.classList.remove("btn-disabled");
+      actionBtn.classList.add("btn-ready");
+      actionBtn.removeAttribute("aria-disabled");
+    } else {
+      statusMsg.textContent = "NO VALID REDIRECT LINK FOUND";
+      actionBtn.textContent = "LINK NOT AVAILABLE";
+      actionBtn.classList.add("btn-disabled");
+    }
+  }
+
+  const interval = setInterval(() => {
+    currentSeconds--;
+
+    const progress = (totalSeconds - currentSeconds) / totalSeconds;
+    progressBar.style.strokeDashoffset =
+      circumference * (1 - progress);
+
+    if (currentSeconds > 0) {
+      timerText.textContent = currentSeconds;
+      actionBtn.textContent = `PLEASE WAIT (${currentSeconds}s)`;
+
+      if (currentSeconds <= 2) {
+        statusMsg.textContent = "FINALIZING YOUR LINK...";
+      }
+    } else {
+      clearInterval(interval);
+      finishCountdown();
     }
   }, 1000);
 })();
 </script>
-
 </body>
 </html>
