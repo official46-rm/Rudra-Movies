@@ -1,223 +1,444 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d1d">
-<title>RUDRA MOVIES | Link Portal</title>
+<meta name="theme-color" content="#080d1b">
+<title>RUDRA MOVIES | Secure Link</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
- min-height:100vh;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
- font-family:Arial,sans-serif;
- color:#fff;
- background:
- radial-gradient(ellipse at 10% 15%,#12386a 0,transparent 40%),
- radial-gradient(ellipse at 90% 90%,#461568 0,transparent 40%),
- #060a15;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card{
- width:100%;
- max-width:500px;
- text-align:center;
- padding:35px 24px;
- border:1px solid #16475e;
- border-radius:28px;
- background:linear-gradient(145deg,#151e38,#0b1022);
- box-shadow:0 0 45px #00dfff12;
- position:relative;
- overflow:hidden;
+:root {
+  --cyan: #00eaff;
+  --purple: #a855f7;
+  --bg: #080d1b;
+  --muted: #91a0ba;
 }
 
-.card:before{
- content:"";
- position:absolute;
- top:0;left:0;
- width:100%;height:3px;
- background:linear-gradient(90deg,#00eaff,#8755ff,#ff43c8);
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 22px 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 15% 10%, #152c53 0, transparent 42%),
+    radial-gradient(ellipse at 90% 90%, #281344 0, transparent 40%),
+    var(--bg);
+  overflow-x: hidden;
 }
 
-.logo{
- width:115px;height:115px;
- object-fit:contain;
- border-radius:50%;
- border:3px solid #00eaff;
- background:#fff;
- padding:5px;
- box-shadow:0 0 25px #00eaff40;
- margin-bottom:22px;
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 370px;
+  padding: 30px 23px 25px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(0, 234, 255, .24);
+  border-radius: 25px;
+  background: linear-gradient(
+    150deg,
+    rgba(20, 31, 57, .97),
+    rgba(11, 14, 31, .98)
+  );
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, .5),
+    0 0 35px rgba(0, 234, 255, .07);
+  animation: appear .65s ease-out;
 }
 
-h1{
- font-size:clamp(27px,7vw,38px);
- letter-spacing:2px;
- background:linear-gradient(90deg,#a3f7ff,#00dcff,#bb8aff);
- -webkit-background-clip:text;
- background-clip:text;
- color:transparent;
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
 }
 
-.subtitle{
- color:#98a8c6;
- font-size:11px;
- letter-spacing:3px;
- line-height:1.8;
- margin:13px 0 28px;
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.tag{
- display:inline-block;
- padding:12px 22px;
- border:1px solid #20566d;
- border-radius:30px;
- color:#a0f5ff;
- font-size:12px;
- letter-spacing:2px;
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
 }
 
-.timer{
- --progress:100%;
- width:165px;height:165px;
- border-radius:50%;
- margin:35px auto 26px;
- display:grid;
- place-items:center;
- position:relative;
- background:conic-gradient(#00eaff var(--progress),#29334c 0);
- box-shadow:0 0 28px #00eaff20;
+.logo-img {
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  background: #111a30;
+  color: var(--cyan);
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 0 22px rgba(0, 234, 255, .22);
 }
 
-.timer:before{
- content:"";
- position:absolute;
- inset:10px;
- border-radius:50%;
- background:#10182d;
+.brand-title {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, var(--cyan), #c5a4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-#count{
- position:relative;
- font-size:58px;
- font-weight:800;
+.subtitle {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
-.label{
- color:#91a0bd;
- font-size:12px;
- letter-spacing:3px;
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 19px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 234, 255, .22);
+  border-radius: 30px;
+  background: rgba(0, 234, 255, .06);
+  color: #b9faff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-.status{
- margin:14px 0 27px;
- color:#00eaff;
- font-size:14px;
- font-weight:bold;
+.security-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 9px var(--cyan);
+  animation: blink 1.3s infinite;
 }
 
-.wait{
- padding:20px 10px;
- border:1px solid #35415a;
- border-radius:16px;
- background:#1b2438;
- color:#aab6ce;
- font-size:13px;
- font-weight:bold;
+@keyframes blink {
+  50% { opacity: .35; }
 }
 
-.button{
- display:block;
- padding:20px 10px;
- margin-top:18px;
- border-radius:15px;
- text-decoration:none;
- color:white;
- font-size:14px;
- font-weight:bold;
- letter-spacing:1px;
- background:linear-gradient(100deg,#6949f5,#b33be9);
- box-shadow:0 8px 28px #8739ed30;
- transition:transform .2s;
+.timer-container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 25px auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button:active{transform:scale(.97)}
-
-.footer{
- margin-top:32px;
- color:#71809b;
- font-size:11px;
- letter-spacing:2px;
+.outer-circle,
+.inner-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
+.outer-circle {
+  inset: 0;
+  border: 1px solid rgba(0, 234, 255, .2);
+  animation: rotate 9s linear infinite;
+}
+
+.outer-circle::before,
+.outer-circle::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.outer-circle::before {
+  top: 12px;
+  left: 20px;
+}
+
+.outer-circle::after {
+  bottom: 13px;
+  right: 17px;
+  background: var(--purple);
+  box-shadow: 0 0 10px var(--purple);
+}
+
+.inner-circle {
+  inset: 10px;
+  border: 1px dashed rgba(168, 85, 247, .35);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.progress-svg {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.progress-bg,
+.progress-bar {
+  fill: none;
+  stroke-width: 4;
+  cx: 58;
+  cy: 58;
+  r: 51;
+}
+
+.progress-bg {
+  stroke: rgba(255, 255, 255, .08);
+}
+
+.progress-bar {
+  stroke: var(--cyan);
+  stroke-linecap: round;
+  stroke-dasharray: 320.44;
+  stroke-dashoffset: 320.44;
+  filter: drop-shadow(0 0 5px var(--cyan));
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-number {
+  font-size: 38px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 18px rgba(0, 234, 255, .45);
+}
+
+.status-badge {
+  color: #8b9ab7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.status-highlight {
+  min-height: 18px;
+  margin-top: 9px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 13px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .7px;
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+
+.btn-ready {
+  color: #06131b;
+  background: linear-gradient(100deg, var(--cyan), #7df7ff);
+  box-shadow: 0 5px 22px rgba(0, 234, 255, .2);
+}
+
+.btn-ready:hover,
+.btn-telegram:hover {
+  transform: translateY(-2px);
+}
+
+.btn-disabled {
+  color: #8190a9;
+  background: #1a2235;
+  border: 1px solid #303b53;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-telegram {
+  margin-top: 11px;
+  color: white;
+  background: linear-gradient(100deg, #7255ee, #a044ef);
+  box-shadow: 0 5px 20px rgba(140, 70, 245, .18);
+}
+
+.footer {
+  margin-top: 22px;
+  color: #697792;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 360px) {
+  .card { padding: 25px 17px 21px; }
+  .brand-title { font-size: 22px; }
+}
 </style>
 </head>
 
 <body>
-<main class="card">
+  <main class="card">
 
-<img class="logo" src="RudraMovies.png"
-     alt="Rudra Movies Logo">
+    <div class="logo-wrapper">
+      <img
+        src="RudraMovies.png"
+        alt="Rudra Movies Logo"
+        class="logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      >
+      <div class="logo-img" style="display:none;">RM</div>
+    </div>
 
-<h1>RUDRA MOVIES</h1>
-<p class="subtitle">YOUR ENTERTAINMENT DESTINATION</p>
+    <div class="brand-title">RUDRA MOVIES</div>
+    <div class="subtitle">YOUR ENTERTAINMENT DESTINATION</div>
 
-<div class="tag">● &nbsp; LINK REDIRECT</div>
+    <div class="security-badge">
+      <span></span> LINK REDIRECT
+    </div>
 
-<div class="timer" id="timer">
- <span id="count">5</span>
-</div>
+    <div class="timer-container">
+      <div class="outer-circle"></div>
+      <div class="inner-circle"></div>
 
-<div class="label">LINK STATUS</div>
-<p class="status" id="status">PREPARING YOUR LINK...</p>
+      <svg class="progress-svg" viewBox="0 0 116 116" aria-hidden="true">
+        <defs>
+          <linearGradient id="neonGradient">
+            <stop offset="0%" stop-color="#00eaff"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <circle class="progress-bg" cx="58" cy="58" r="51"/>
+        <circle
+          class="progress-bar"
+          id="progress-bar"
+          cx="58"
+          cy="58"
+          r="51"
+          stroke="url(#neonGradient)"
+        />
+      </svg>
 
-<div class="wait" id="wait">PLEASE WAIT (5s)</div>
+      <div class="timer-number" id="timer" aria-live="polite">5</div>
+    </div>
 
-<a class="button"
-   href="https://t.me/+AYGNnSIln8BkYjNl"
-   target="_blank"
-   rel="noopener noreferrer">
- ⚡ JOIN OFFICIAL CHANNEL ⚡
-</a>
+    <div class="status-badge">LINK STATUS</div>
+    <div class="status-highlight" id="status-msg">
+      PREPARING YOUR LINK...
+    </div>
 
-<div class="footer">RUDRA MOVIES · LINK PORTAL</div>
+    <a
+      id="action-btn"
+      class="btn btn-disabled"
+      href="#"
+      aria-disabled="true"
+    >PLEASE WAIT (5s)</a>
 
-</main>
+    <a
+      href="https://t.me/RudraMoviez"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-telegram"
+    >⚡ JOIN OFFICIAL CHANNEL ⚡</a>
+
+    <div class="footer">RUDRA MOVIES &bull; LINK PORTAL</div>
+  </main>
 
 <script>
-const total = 5;
-let remaining = total;
+(() => {
+  const totalSeconds = 5;
+  let currentSeconds = totalSeconds;
 
-const count = document.getElementById("count");
-const wait = document.getElementById("wait");
-const status = document.getElementById("status");
-const timer = document.getElementById("timer");
+  const params = new URLSearchParams(window.location.search);
+  const rawRedirect = params.get("redirect");
 
-function tick(){
- count.textContent = remaining;
+  const timerText = document.getElementById("timer");
+  const statusMsg = document.getElementById("status-msg");
+  const actionBtn = document.getElementById("action-btn");
+  const progressBar = document.getElementById("progress-bar");
 
- timer.style.setProperty(
-   "--progress",
-   (remaining / total * 100) + "%"
- );
+  const circumference = 2 * Math.PI * 51;
+  progressBar.style.strokeDasharray = circumference;
+  progressBar.style.strokeDashoffset = circumference;
 
- if(remaining > 0){
-   wait.textContent = `PLEASE WAIT (${remaining}s)`;
-   remaining--;
-   setTimeout(tick, 1000);
- }else{
-   status.textContent = "YOUR LINK IS READY";
-   wait.textContent = "LINK READY";
- }
-}
+  // Accept only regular HTTP or HTTPS destination URLs.
+  let targetRedirect = null;
 
-tick();
+  if (rawRedirect) {
+    try {
+      const parsed = new URL(rawRedirect);
+
+      if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+        targetRedirect = parsed.href;
+      }
+    } catch (error) {
+      targetRedirect = null;
+    }
+  }
+
+  function finishCountdown() {
+    timerText.textContent = "✓";
+    progressBar.style.strokeDashoffset = 0;
+
+    if (targetRedirect) {
+      statusMsg.textContent = "LINK READY! CONTINUE BELOW";
+      actionBtn.href = targetRedirect;
+      actionBtn.textContent = "CONTINUE NOW ➜";
+      actionBtn.classList.remove("btn-disabled");
+      actionBtn.classList.add("btn-ready");
+      actionBtn.removeAttribute("aria-disabled");
+    } else {
+      statusMsg.textContent = "NO VALID REDIRECT LINK FOUND";
+      actionBtn.textContent = "LINK NOT AVAILABLE";
+      actionBtn.classList.add("btn-disabled");
+    }
+  }
+
+  const interval = setInterval(() => {
+    currentSeconds--;
+
+    const progress = (totalSeconds - currentSeconds) / totalSeconds;
+    progressBar.style.strokeDashoffset =
+      circumference * (1 - progress);
+
+    if (currentSeconds > 0) {
+      timerText.textContent = currentSeconds;
+      actionBtn.textContent = `PLEASE WAIT (${currentSeconds}s)`;
+
+      if (currentSeconds <= 2) {
+        statusMsg.textContent = "FINALIZING YOUR LINK...";
+      }
+    } else {
+      clearInterval(interval);
+      finishCountdown();
+    }
+  }, 1000);
+})();
 </script>
-
 </body>
 </html>
