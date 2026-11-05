@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,346 +7,368 @@
 <title>Rudra Movies</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:18px;
+ overflow:hidden;
+ font-family:Arial,sans-serif;
+ font-variant-caps:all-small-caps;
+ color:white;
+ background:
+ radial-gradient(circle at 15% 15%,#087fba55,transparent 40%),
+ radial-gradient(circle at 90% 85%,#8424d955,transparent 40%),
+ linear-gradient(145deg,#070c1b,#151b35,#090e20);
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  font-variant-caps: all-small-caps;
-  background:
-    radial-gradient(circle at 10% 15%,#087caa55,transparent 40%),
-    radial-gradient(circle at 90% 85%,#8125c855,transparent 40%),
-    linear-gradient(145deg,#080e1e,#151a32,#0b1020);
-  color: white;
+/* BACKGROUND */
+
+.glow{
+ position:fixed;
+ width:230px;
+ height:230px;
+ border-radius:50%;
+ filter:blur(100px);
+ opacity:.55;
+ pointer-events:none;
 }
 
-/* BACKGROUND GLOW */
+.glow.one{background:#00aaff;top:0;left:-100px}
+.glow.two{background:#9c35ff;bottom:0;right:-100px}
 
-.glow {
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: .5;
-  pointer-events: none;
+.bubbles{
+ position:fixed;
+ inset:0;
+ overflow:hidden;
+ pointer-events:none;
 }
 
-.glow.one {
-  background: #00aaff;
-  top: 5%;
-  left: -100px;
+.bubbles span{
+ position:absolute;
+ bottom:-70px;
+ width:25px;
+ height:25px;
+ border-radius:50%;
+ border:1px solid #ffffff55;
+ background:#ffffff12;
+ animation:float 13s linear infinite;
 }
 
-.glow.two {
-  background: #a52cff;
-  bottom: 5%;
-  right: -100px;
+.bubbles span:nth-child(1){left:10%}
+.bubbles span:nth-child(2){left:35%;width:40px;height:40px;animation-duration:16s}
+.bubbles span:nth-child(3){left:65%;animation-duration:11s}
+.bubbles span:nth-child(4){left:90%;animation-duration:15s}
+
+@keyframes float{
+ 0%{transform:translateY(0);opacity:0}
+ 20%{opacity:.8}
+ 100%{transform:translateY(-110vh);opacity:0}
 }
 
-/* FLOATING BUBBLES */
+/* CARD */
 
-.bubbles {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.bubbles span {
-  position: absolute;
-  bottom: -70px;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ffffff50;
-  border-radius: 50%;
-  background: #ffffff12;
-  animation: float 12s linear infinite;
-}
-
-.bubbles span:nth-child(1){left:10%;animation-duration:11s}
-.bubbles span:nth-child(2){left:35%;width:35px;height:35px;animation-duration:15s}
-.bubbles span:nth-child(3){left:65%;animation-duration:10s}
-.bubbles span:nth-child(4){left:90%;width:28px;height:28px;animation-duration:14s}
-
-@keyframes float {
-  0% {transform:translateY(0);opacity:0}
-  20% {opacity:.8}
-  100% {transform:translateY(-110vh);opacity:0}
-}
-
-/* COMPACT CARD */
-
-.card {
-  width: 90%;
-  max-width: 350px;
-  padding: 24px 19px;
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  border-radius: 30px;
-  background: linear-gradient(
-    145deg,
-    #1684bb42,
-    #192442dc,
-    #762cae38
-  );
-  border: 1px solid #b5dcff55;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  box-shadow:
-    0 15px 45px #0009,
-    inset 0 0 25px #ffffff0b,
-    0 0 25px #378cff25;
+.card{
+ width:90%;
+ max-width:350px;
+ padding:24px 19px;
+ position:relative;
+ z-index:2;
+ text-align:center;
+ border-radius:30px;
+ background:linear-gradient(145deg,
+ rgba(23,119,185,.30),
+ rgba(20,27,55,.88),
+ rgba(111,42,167,.27));
+ border:1px solid #b8dfff65;
+ backdrop-filter:blur(25px);
+ -webkit-backdrop-filter:blur(25px);
+ box-shadow:
+ 0 20px 55px #0009,
+ inset 0 0 25px #ffffff10,
+ 0 0 30px #448cff25;
 }
 
 /* LOGO */
 
-.logo-wrapper {
-  margin-bottom: 16px;
+.logo-wrapper{margin-bottom:16px}
+
+.logo-img{
+ width:76px;
+ height:76px;
+ object-fit:cover;
+ border-radius:50%;
+ border:2px solid #b5edff;
+ background:#111a32;
+ box-shadow:0 0 20px #16caff80;
 }
 
-.logo-img {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #a7eaff;
-  background: #111a32;
-  box-shadow: 0 0 20px #16caff70;
-}
-
-.brand-title {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #f1f7ff;
-  text-shadow: 0 2px 12px #0008;
+.brand-title{
+ font-size:25px;
+ font-weight:900;
+ letter-spacing:2px;
+ color:#f4f8ff;
+ text-shadow:0 2px 15px #0008;
 }
 
 /* BADGE */
 
-.security-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 12px;
-  padding: 8px 13px;
-  border-radius: 30px;
-  background: #00bfff18;
-  border: 1px solid #40bfff65;
-  color: #73d9ff;
-  font-size: 13px;
+.security-badge{
+ display:inline-flex;
+ align-items:center;
+ gap:7px;
+ margin-top:12px;
+ padding:8px 14px;
+ border-radius:30px;
+ background:#00caff18;
+ border:1px solid #40cfff70;
+ color:#80e4ff;
+ font-size:13px;
 }
 
-.security-badge span {
-  width: 8px;
-  height: 8px;
-  background: #28e6b1;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #28e6b1;
+.security-badge span{
+ width:8px;
+ height:8px;
+ border-radius:50%;
+ background:#28e8b4;
+ box-shadow:0 0 12px #28e8b4;
 }
 
-/* ROUND COUNTDOWN */
+/* 3D SPHERE */
 
-.timer-container {
-  width: 155px;
-  height: 155px;
-  margin: 28px auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+.timer-container{
+ width:165px;
+ height:165px;
+ margin:30px auto;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ perspective:700px;
 }
 
-/* OUTER RING */
+/* OUTER ORBIT */
 
-.outer-ring {
-  position: absolute;
-  inset: 0;
-  border: 2px dashed #65cfff90;
-  border-radius: 50%;
-  animation: rotate 15s linear infinite;
+.orbit{
+ position:absolute;
+ inset:0;
+ border-radius:50%;
+ border:2px dashed #65d9ff90;
+ animation:rotate 12s linear infinite;
 }
 
-@keyframes rotate {
-  to {transform:rotate(360deg)}
+.orbit-two{
+ position:absolute;
+ inset:7px;
+ border-radius:50%;
+ border:2px solid #9a6bff70;
+ border-left-color:transparent;
+ border-bottom-color:transparent;
+ animation:rotateReverse 5s linear infinite;
 }
 
-/* INNER BUBBLE */
-
-.inner-ring {
-  position: absolute;
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #122747;
-  border: 4px solid #5ccaff;
-  box-shadow:
-    0 0 0 5px #329cff25,
-    0 0 25px #23aaff60,
-    inset 0 0 20px #0008;
+@keyframes rotate{
+ to{transform:rotate(360deg)}
 }
 
-/* WATER FLOW */
-
-.water {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: linear-gradient(
-    180deg,#62efff,#169dff,#5147e8
-  );
-  transition: height 1s ease;
+@keyframes rotateReverse{
+ to{transform:rotate(-360deg)}
 }
 
-.water::before {
-  content: "";
-  position: absolute;
-  top: -11px;
-  left: -50%;
-  width: 200%;
-  height: 22px;
-  background: #e3ffffa0;
-  border-radius: 50%;
-  animation: wave 3s linear infinite;
+/* SPHERE */
+
+.sphere{
+ position:relative;
+ width:135px;
+ height:135px;
+ border-radius:50%;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at 30% 20%,
+ #ffffff55,transparent 28%),
+ linear-gradient(145deg,#193e68,#10223f);
+ border:4px solid #78dfff;
+ box-shadow:
+ inset -12px -15px 25px #00102eaa,
+ inset 8px 8px 20px #ffffff20,
+ 0 0 0 5px #399eff25,
+ 0 0 30px #1aafff80,
+ 0 10px 25px #0009;
+ transform:rotateX(8deg);
 }
 
-.water::after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 25%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ffffffa0;
-  box-shadow: 30px 20px 0 #ffffff65;
-  animation: bubble 2s infinite;
+/* SPHERE GLASS SHINE */
+
+.sphere::before{
+ content:"";
+ position:absolute;
+ width:65px;
+ height:23px;
+ top:13px;
+ left:20px;
+ border-radius:50%;
+ background:linear-gradient(90deg,#ffffff90,#ffffff05);
+ transform:rotate(-25deg);
+ filter:blur(2px);
+ z-index:3;
+ pointer-events:none;
 }
 
-@keyframes wave {
-  to {transform:rotate(360deg)}
+/* LIQUID */
+
+.water{
+ position:absolute;
+ bottom:0;
+ left:0;
+ width:100%;
+ height:0%;
+ background:linear-gradient(
+  180deg,#51eaff,#159af8,#4a46e9
+ );
+ transition:height 1s ease;
+ box-shadow:inset 0 5px 12px #ffffff35;
 }
 
-@keyframes bubble {
-  0%,100% {transform:translateY(8px);opacity:.3}
-  50% {transform:translateY(-10px);opacity:1}
+.water::before{
+ content:"";
+ position:absolute;
+ top:-11px;
+ left:-50%;
+ width:200%;
+ height:23px;
+ border-radius:45%;
+ background:#d9ffffa0;
+ animation:wave 3s linear infinite;
+}
+
+.water::after{
+ content:"";
+ position:absolute;
+ top:20px;
+ left:25%;
+ width:9px;
+ height:9px;
+ border-radius:50%;
+ background:#ffffffb0;
+ box-shadow:
+ 30px 20px 0 #ffffff70,
+ 65px 8px 0 #ffffff55;
+ animation:rise 2s ease-in-out infinite;
+}
+
+@keyframes wave{
+ from{transform:rotate(0deg)}
+ to{transform:rotate(360deg)}
+}
+
+@keyframes rise{
+ 0%,100%{transform:translateY(8px);opacity:.3}
+ 50%{transform:translateY(-12px);opacity:1}
+}
+
+/* TIMER */
+
+.timer-number{
+ position:absolute;
+ inset:0;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ z-index:4;
+ font-size:52px;
+ font-weight:900;
+ color:white;
+ text-shadow:0 3px 15px #001b45;
 }
 
 /* PROGRESS */
 
-.progress-svg {
-  position: absolute;
-  width: 155px;
-  height: 155px;
-  transform: rotate(-90deg);
-  z-index: 3;
-  pointer-events: none;
+.progress-svg{
+ position:absolute;
+ width:165px;
+ height:165px;
+ transform:rotate(-90deg);
+ z-index:5;
+ pointer-events:none;
 }
 
-.progress-svg circle {
-  fill: none;
-  cx: 77.5;
-  cy: 77.5;
-  r: 73;
-  stroke-width: 3.5;
+.progress-svg circle{
+ fill:none;
+ cx:82.5;
+ cy:82.5;
+ r:79;
+ stroke-width:3.5;
 }
 
-.progress-bg {
-  stroke: #ffffff25;
-}
+.progress-bg{stroke:#ffffff25}
 
-.progress-bar {
-  stroke: #64dfff;
-  stroke-linecap: round;
-  stroke-dasharray: 458.67;
-  stroke-dashoffset: 458.67;
-  transition: stroke-dashoffset 1s linear;
-}
-
-/* NUMBER */
-
-.timer-number {
-  position: relative;
-  z-index: 4;
-  font-size: 51px;
-  font-weight: 900;
-  color: white;
-  text-shadow: 0 3px 15px #001c45;
+.progress-bar{
+ stroke:#64eaff;
+ stroke-linecap:round;
+ stroke-dasharray:496.37;
+ stroke-dashoffset:496.37;
+ transition:stroke-dashoffset 1s linear;
 }
 
 /* STATUS */
 
-.status-badge {
-  font-size: 19px;
-  font-weight: 900;
-  color: #f0f5ff;
+.status-badge{
+ font-size:19px;
+ font-weight:900;
+ color:#f3f8ff;
 }
 
-.status-highlight {
-  margin: 8px 0 20px;
-  font-size: 16px;
-  color: #bdcce5;
+.status-highlight{
+ margin:8px 0 20px;
+ font-size:16px;
+ color:#c3d5ee;
 }
 
 /* BUTTONS */
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 52px;
-  margin-top: 11px;
-  border-radius: 18px;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: bold;
-  transition: .3s;
+.btn{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ width:100%;
+ min-height:52px;
+ margin-top:11px;
+ border-radius:18px;
+ text-decoration:none;
+ font-size:17px;
+ font-weight:bold;
+ transition:.3s;
 }
 
-.btn-disabled {
-  background: linear-gradient(110deg,#167ebd,#4059c9);
-  color: #d5e7ff;
-  opacity: .75;
-  pointer-events: none;
+.btn-disabled{
+ color:#d5e7ff;
+ background:linear-gradient(110deg,#167ebd,#4059c9);
+ opacity:.75;
+ pointer-events:none;
 }
 
-.btn-ready {
-  color: white;
-  background: linear-gradient(110deg,#087edb,#2478fa,#7544ec);
-  box-shadow: 0 5px 20px #358aff55;
+.btn-ready{
+ color:white;
+ background:linear-gradient(110deg,#087edb,#2478fa,#7544ec);
+ box-shadow:0 5px 22px #358aff60;
 }
 
-.btn-telegram {
-  color: white;
-  background: #ffffff12;
-  border: 1px solid #ffffff45;
+.btn-telegram{
+ color:white;
+ background:#ffffff12;
+ border:1px solid #ffffff50;
 }
 
-.btn:active {
-  transform: scale(.96);
-}
+.btn:active{transform:scale(.96)}
 
-.footer {
-  margin-top: 20px;
-  color: #a9bddb;
-  font-size: 13px;
-  letter-spacing: 1px;
+.footer{
+ margin-top:20px;
+ color:#a9bddb;
+ font-size:13px;
+ letter-spacing:1px;
 }
 </style>
 </head>
@@ -356,77 +379,67 @@ body {
 <div class="glow two"></div>
 
 <div class="bubbles">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
+ <span></span><span></span>
+ <span></span><span></span>
 </div>
 
 <div class="card">
 
-  <div class="logo-wrapper">
-    <img
-      src="RudraMovies.png"
-      alt="Rudra Movies Logo"
-      class="logo-img"
-      onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-size:24px;font-weight:bold&quot;>RM</div>'"
-    >
+ <div class="logo-wrapper">
+  <img
+   src="RudraMovies.png"
+   alt="Rudra Movies Logo"
+   class="logo-img"
+   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-size:24px;font-weight:bold&quot;>RM</div>'">
+ </div>
+
+ <div class="brand-title">RUDRA MOVIES</div>
+
+ <div class="security-badge">
+  <span></span> LINK PREPARATION
+ </div>
+
+ <!-- 3D ROUND COUNTDOWN -->
+
+ <div class="timer-container">
+
+  <div class="orbit"></div>
+  <div class="orbit-two"></div>
+
+  <div class="sphere">
+   <div class="water" id="water"></div>
   </div>
 
-  <div class="brand-title">
-    RUDRA MOVIES
-  </div>
+  <svg class="progress-svg" viewBox="0 0 165 165">
+   <circle class="progress-bg" cx="82.5" cy="82.5" r="79"/>
+   <circle class="progress-bar" id="progress-bar"
+    cx="82.5" cy="82.5" r="79"/>
+  </svg>
 
-  <div class="security-badge">
-    <span></span>
-    LINK PREPARATION
-  </div>
+  <div class="timer-number" id="timer">5</div>
 
-  <div class="timer-container">
+ </div>
 
-    <div class="outer-ring"></div>
+ <div class="status-badge">DOWNLOAD STATUS</div>
 
-    <div class="inner-ring">
-      <div class="water" id="water"></div>
-    </div>
+ <div class="status-highlight" id="status-msg">
+  PREPARING YOUR DOWNLOAD LINK...
+ </div>
 
-    <svg class="progress-svg" viewBox="0 0 155 155">
-      <circle class="progress-bg"
-        cx="77.5" cy="77.5" r="73"/>
+ <a id="action-btn" class="btn btn-disabled" href="#">
+  PLEASE WAIT...
+ </a>
 
-      <circle class="progress-bar"
-        id="progress-bar"
-        cx="77.5" cy="77.5" r="73"/>
-    </svg>
+ <a href="https://t.me/RudraMoviez"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="btn btn-telegram">
+  ➤ ⚡ JOIN OFFICIAL CHANNEL ✨
+ </a>
 
-    <div class="timer-number" id="timer">5</div>
-
-  </div>
-
-  <div class="status-badge">
-    DOWNLOAD STATUS
-  </div>
-
-  <div class="status-highlight" id="status-msg">
-    PREPARING YOUR DOWNLOAD LINK...
-  </div>
-
-  <a id="action-btn"
-     class="btn btn-disabled"
-     href="#">
-    PLEASE WAIT...
-  </a>
-
-  <a href="https://t.me/RudraMoviez"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="btn btn-telegram">
-    ➤ ⚡ JOIN OFFICIAL CHANNEL ✨
-  </a>
-
-  <div class="footer">
-    ⚡ RUDRA MOVIES EXPERIENCE
-  </div>
+ <div class="footer">
+  ⚡ RUDRA MOVIES EXPERIENCE
+ </div>
 
 </div>
 
@@ -436,15 +449,14 @@ const rawRedirect = params.get("redirect");
 
 let targetRedirect = null;
 
-try {
-  if (rawRedirect) {
-    const parsed = new URL(rawRedirect);
-
-    if (parsed.protocol === "https:") {
-      targetRedirect = parsed.href;
-    }
+try{
+ if(rawRedirect){
+  const parsed = new URL(rawRedirect);
+  if(parsed.protocol === "https:"){
+   targetRedirect = parsed.href;
   }
-} catch (e) {}
+ }
+}catch(e){}
 
 const totalSeconds = 5;
 let seconds = totalSeconds;
@@ -455,57 +467,58 @@ const status = document.getElementById("status-msg");
 const button = document.getElementById("action-btn");
 const progress = document.getElementById("progress-bar");
 
-const circumference = 2 * Math.PI * 73;
+const circumference = 2 * Math.PI * 79;
 
 progress.style.strokeDasharray = circumference;
 progress.style.strokeDashoffset = circumference;
 
-const interval = setInterval(() => {
+const interval = setInterval(()=>{
 
-  seconds--;
+ seconds--;
 
-  const percentage = (totalSeconds - seconds) / totalSeconds;
+ const percentage =
+  (totalSeconds - seconds) / totalSeconds;
 
-  water.style.height = (percentage * 85) + "%";
+ water.style.height = (percentage * 85) + "%";
 
-  progress.style.strokeDashoffset =
-    circumference - circumference * percentage;
+ progress.style.strokeDashoffset =
+  circumference - circumference * percentage;
 
-  if (seconds > 0) {
+ if(seconds > 0){
 
-    timer.textContent = seconds;
-    button.textContent = `PLEASE WAIT (${seconds}s)`;
+  timer.textContent = seconds;
+  button.textContent = `PLEASE WAIT (${seconds}s)`;
 
-    if (seconds <= 2) {
-      status.textContent = "ALMOST READY...";
-    }
-
-  } else {
-
-    clearInterval(interval);
-
-    timer.textContent = "✓";
-    water.style.height = "100%";
-
-    if (targetRedirect) {
-
-      status.textContent = "YOUR LINK IS READY!";
-
-      button.href = targetRedirect;
-      button.textContent = "CONTINUE TO LINK ➜";
-
-      button.classList.remove("btn-disabled");
-      button.classList.add("btn-ready");
-
-    } else {
-
-      status.textContent = "LINK NOT AVAILABLE";
-      button.textContent = "DIRECT LINK NOT FOUND";
-
-    }
+  if(seconds <= 2){
+   status.textContent = "ALMOST READY...";
   }
 
-}, 1000);
+ }else{
+
+  clearInterval(interval);
+
+  timer.textContent = "✓";
+  water.style.height = "100%";
+
+  if(targetRedirect){
+
+   status.textContent = "YOUR LINK IS READY!";
+
+   button.href = targetRedirect;
+   button.textContent = "CONTINUE TO LINK ➜";
+
+   button.classList.remove("btn-disabled");
+   button.classList.add("btn-ready");
+
+  }else{
+
+   status.textContent = "LINK NOT AVAILABLE";
+   button.textContent = "DIRECT LINK NOT FOUND";
+
+  }
+ }
+
+},1000);
 </script>
 
 </body>
