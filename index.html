@@ -4,30 +4,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rudra Movies</title>
+<meta name="theme-color" content="#080e1e">
+<title>RUDRA MOVIES</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
 
 body{
  min-height:100vh;
  display:flex;
  justify-content:center;
  align-items:center;
- padding:18px;
+ padding:15px;
  overflow:hidden;
  font-family:Arial,sans-serif;
  font-variant-caps:all-small-caps;
  color:white;
  background:
- radial-gradient(circle at 15% 15%,#087fba55,transparent 40%),
- radial-gradient(circle at 90% 85%,#8424d955,transparent 40%),
- linear-gradient(145deg,#070c1b,#151b35,#090e20);
+ radial-gradient(ellipse at 5% 15%,#00a9b955,transparent 38%),
+ radial-gradient(ellipse at 95% 85%,#a02cff55,transparent 40%),
+ linear-gradient(145deg,#080e1e,#111a34,#090d20);
 }
 
-/* BACKGROUND */
+/* BACKGROUND LIGHTS */
 
-.glow{
+.light{
  position:fixed;
  width:230px;
  height:230px;
@@ -37,8 +42,26 @@ body{
  pointer-events:none;
 }
 
-.glow.one{background:#00aaff;top:0;left:-100px}
-.glow.two{background:#9c35ff;bottom:0;right:-100px}
+.light.blue{
+ background:#00c8ff;
+ top:5%;
+ left:-120px;
+}
+
+.light.purple{
+ background:#9b35ff;
+ bottom:5%;
+ right:-120px;
+}
+
+.light.cyan{
+ background:#00ffca;
+ top:45%;
+ right:10%;
+ opacity:.13;
+}
+
+/* FLOATING BUBBLES */
 
 .bubbles{
  position:fixed;
@@ -49,19 +72,20 @@ body{
 
 .bubbles span{
  position:absolute;
- bottom:-70px;
- width:25px;
- height:25px;
+ bottom:-80px;
+ width:22px;
+ height:22px;
+ border:1px solid #b9faff65;
  border-radius:50%;
- border:1px solid #ffffff55;
- background:#ffffff12;
- animation:float 13s linear infinite;
+ background:#ffffff10;
+ box-shadow:inset 2px 2px 7px #ffffff40;
+ animation:float 12s linear infinite;
 }
 
 .bubbles span:nth-child(1){left:10%}
-.bubbles span:nth-child(2){left:35%;width:40px;height:40px;animation-duration:16s}
-.bubbles span:nth-child(3){left:65%;animation-duration:11s}
-.bubbles span:nth-child(4){left:90%;animation-duration:15s}
+.bubbles span:nth-child(2){left:32%;width:35px;height:35px;animation-duration:16s}
+.bubbles span:nth-child(3){left:65%;animation-duration:10s}
+.bubbles span:nth-child(4){left:90%;width:30px;height:30px;animation-duration:14s}
 
 @keyframes float{
  0%{transform:translateY(0);opacity:0}
@@ -69,164 +93,176 @@ body{
  100%{transform:translateY(-110vh);opacity:0}
 }
 
-/* CARD */
+/* GLASS CARD */
 
 .card{
- width:90%;
+ width:100%;
  max-width:350px;
- padding:24px 19px;
+ padding:25px 20px 22px;
  position:relative;
  z-index:2;
  text-align:center;
  border-radius:30px;
- background:linear-gradient(145deg,
- rgba(23,119,185,.30),
- rgba(20,27,55,.88),
- rgba(111,42,167,.27));
- border:1px solid #b8dfff65;
+ background:linear-gradient(
+  145deg,
+  rgba(0,157,190,.25),
+  rgba(19,29,57,.91),
+  rgba(116,39,157,.30)
+ );
+ border:1px solid #c4efff65;
  backdrop-filter:blur(25px);
  -webkit-backdrop-filter:blur(25px);
  box-shadow:
  0 20px 55px #0009,
  inset 0 0 25px #ffffff10,
- 0 0 30px #448cff25;
+ 0 0 25px #00cfff20;
 }
 
 /* LOGO */
 
-.logo-wrapper{margin-bottom:16px}
+.logo-wrapper{
+ margin-bottom:15px;
+ display:flex;
+ justify-content:center;
+}
 
 .logo-img{
- width:76px;
- height:76px;
+ width:78px;
+ height:78px;
  object-fit:cover;
  border-radius:50%;
- border:2px solid #b5edff;
- background:#111a32;
- box-shadow:0 0 20px #16caff80;
+ border:2px solid #a5f5ff;
+ background:#101c37;
+ box-shadow:
+ 0 0 12px #00dcff90,
+ 0 0 28px #00aaff55;
 }
 
 .brand-title{
- font-size:25px;
+ font-size:26px;
  font-weight:900;
  letter-spacing:2px;
- color:#f4f8ff;
- text-shadow:0 2px 15px #0008;
+ color:#f4fbff;
+ text-shadow:0 2px 15px #0009;
 }
 
-/* BADGE */
+/* STATUS BADGE */
 
 .security-badge{
  display:inline-flex;
  align-items:center;
- gap:7px;
- margin-top:12px;
- padding:8px 14px;
+ gap:8px;
+ margin-top:13px;
+ padding:8px 15px;
  border-radius:30px;
- background:#00caff18;
- border:1px solid #40cfff70;
- color:#80e4ff;
- font-size:13px;
+ background:#00d9cf15;
+ border:1px solid #35dcd879;
+ color:#8af7ed;
+ font-size:14px;
 }
 
 .security-badge span{
  width:8px;
  height:8px;
  border-radius:50%;
- background:#28e8b4;
- box-shadow:0 0 12px #28e8b4;
+ background:#35edb4;
+ box-shadow:0 0 12px #35edb4;
 }
 
-/* 3D SPHERE */
+/* 3D COUNTDOWN */
 
 .timer-container{
- width:165px;
- height:165px;
- margin:30px auto;
+ width:170px;
+ height:170px;
+ margin:29px auto 27px;
  position:relative;
  display:flex;
  align-items:center;
  justify-content:center;
- perspective:700px;
+ perspective:800px;
 }
 
-/* OUTER ORBIT */
+/* OUTER DOTTED RING */
 
-.orbit{
+.outer-ring{
  position:absolute;
  inset:0;
+ border:2px dashed #66eaff90;
  border-radius:50%;
- border:2px dashed #65d9ff90;
- animation:rotate 12s linear infinite;
+ animation:rotate 15s linear infinite;
 }
 
-.orbit-two{
+/* SECOND RING */
+
+.second-ring{
  position:absolute;
- inset:7px;
+ inset:8px;
  border-radius:50%;
- border:2px solid #9a6bff70;
- border-left-color:transparent;
- border-bottom-color:transparent;
- animation:rotateReverse 5s linear infinite;
+ border:2px solid #a17aff85;
+ border-top-color:transparent;
+ border-right-color:#39e5ff;
+ animation:reverse 5s linear infinite;
 }
 
 @keyframes rotate{
  to{transform:rotate(360deg)}
 }
 
-@keyframes rotateReverse{
+@keyframes reverse{
  to{transform:rotate(-360deg)}
 }
 
-/* SPHERE */
+/* 3D GLASS SPHERE */
 
 .sphere{
+ width:140px;
+ height:140px;
  position:relative;
- width:135px;
- height:135px;
- border-radius:50%;
  overflow:hidden;
+ border-radius:50%;
+ border:4px solid #75edff;
  background:
- radial-gradient(ellipse at 30% 20%,
- #ffffff55,transparent 28%),
- linear-gradient(145deg,#193e68,#10223f);
- border:4px solid #78dfff;
+ radial-gradient(ellipse at 30% 20%,#ffffff55,transparent 30%),
+ linear-gradient(145deg,#174768,#111d3d);
  box-shadow:
- inset -12px -15px 25px #00102eaa,
+ inset -13px -16px 25px #00102fba,
  inset 8px 8px 20px #ffffff20,
- 0 0 0 5px #399eff25,
- 0 0 30px #1aafff80,
+ 0 0 0 5px #2ce5ff25,
+ 0 0 25px #00cfff80,
  0 10px 25px #0009;
  transform:rotateX(8deg);
 }
 
-/* SPHERE GLASS SHINE */
+/* GLASS REFLECTION */
 
 .sphere::before{
  content:"";
  position:absolute;
  width:65px;
- height:23px;
- top:13px;
- left:20px;
+ height:22px;
+ top:12px;
+ left:19px;
  border-radius:50%;
- background:linear-gradient(90deg,#ffffff90,#ffffff05);
- transform:rotate(-25deg);
+ background:linear-gradient(90deg,#ffffffa0,#ffffff05);
  filter:blur(2px);
- z-index:3;
+ transform:rotate(-25deg);
+ z-index:4;
  pointer-events:none;
 }
 
-/* LIQUID */
+/* LIQUID WATER */
 
 .water{
  position:absolute;
- bottom:0;
  left:0;
+ bottom:0;
  width:100%;
  height:0%;
  background:linear-gradient(
-  180deg,#51eaff,#159af8,#4a46e9
+  180deg,
+  #59fff0,
+  #05bce8,
+  #4265ed
  );
  transition:height 1s ease;
  box-shadow:inset 0 5px 12px #ffffff35;
@@ -235,12 +271,12 @@ body{
 .water::before{
  content:"";
  position:absolute;
- top:-11px;
+ top:-12px;
  left:-50%;
  width:200%;
- height:23px;
+ height:25px;
  border-radius:45%;
- background:#d9ffffa0;
+ background:#e2ffffa0;
  animation:wave 3s linear infinite;
 }
 
@@ -249,14 +285,14 @@ body{
  position:absolute;
  top:20px;
  left:25%;
- width:9px;
- height:9px;
+ width:10px;
+ height:10px;
  border-radius:50%;
  background:#ffffffb0;
  box-shadow:
  30px 20px 0 #ffffff70,
- 65px 8px 0 #ffffff55;
- animation:rise 2s ease-in-out infinite;
+ 65px 8px 0 #ffffff50;
+ animation:bubbleRise 2s ease-in-out infinite;
 }
 
 @keyframes wave{
@@ -264,12 +300,12 @@ body{
  to{transform:rotate(360deg)}
 }
 
-@keyframes rise{
+@keyframes bubbleRise{
  0%,100%{transform:translateY(8px);opacity:.3}
  50%{transform:translateY(-12px);opacity:1}
 }
 
-/* TIMER */
+/* TIMER TEXT */
 
 .timer-number{
  position:absolute;
@@ -277,54 +313,58 @@ body{
  display:flex;
  justify-content:center;
  align-items:center;
- z-index:4;
- font-size:52px;
+ z-index:5;
+ font-size:55px;
  font-weight:900;
  color:white;
  text-shadow:0 3px 15px #001b45;
 }
 
-/* PROGRESS */
+/* PROGRESS RING */
 
 .progress-svg{
  position:absolute;
- width:165px;
- height:165px;
+ width:170px;
+ height:170px;
  transform:rotate(-90deg);
- z-index:5;
+ z-index:6;
  pointer-events:none;
 }
 
-.progress-svg circle{
+.progress-bg,
+.progress-bar{
  fill:none;
- cx:82.5;
- cy:82.5;
- r:79;
+ cx:85;
+ cy:85;
+ r:81;
  stroke-width:3.5;
 }
 
-.progress-bg{stroke:#ffffff25}
+.progress-bg{
+ stroke:#ffffff25;
+}
 
 .progress-bar{
- stroke:#64eaff;
+ stroke:#6df5ff;
  stroke-linecap:round;
- stroke-dasharray:496.37;
- stroke-dashoffset:496.37;
+ stroke-dasharray:508.94;
+ stroke-dashoffset:508.94;
  transition:stroke-dashoffset 1s linear;
+ filter:drop-shadow(0 0 4px #35eaff);
 }
 
-/* STATUS */
+/* TEXT STATUS */
 
-.status-badge{
- font-size:19px;
+.status-title{
+ font-size:20px;
  font-weight:900;
- color:#f3f8ff;
+ color:#f1faff;
 }
 
-.status-highlight{
+.status-message{
  margin:8px 0 20px;
  font-size:16px;
- color:#c3d5ee;
+ color:#c0d5e9;
 }
 
 /* BUTTONS */
@@ -334,9 +374,9 @@ body{
  justify-content:center;
  align-items:center;
  width:100%;
- min-height:52px;
+ min-height:51px;
  margin-top:11px;
- border-radius:18px;
+ border-radius:17px;
  text-decoration:none;
  font-size:17px;
  font-weight:bold;
@@ -344,93 +384,125 @@ body{
 }
 
 .btn-disabled{
- color:#d5e7ff;
- background:linear-gradient(110deg,#167ebd,#4059c9);
- opacity:.75;
+ color:#d8f4ff;
+ background:linear-gradient(110deg,#087da9,#394caa);
+ opacity:.8;
  pointer-events:none;
 }
 
 .btn-ready{
  color:white;
- background:linear-gradient(110deg,#087edb,#2478fa,#7544ec);
- box-shadow:0 5px 22px #358aff60;
+ background:linear-gradient(
+  110deg,
+  #00a9c8,
+  #237cf0,
+  #7746e9
+ );
+ box-shadow:0 5px 25px #00cfff55;
 }
 
 .btn-telegram{
  color:white;
- background:#ffffff12;
- border:1px solid #ffffff50;
+ background:linear-gradient(110deg,#ffffff10,#a24bdc35);
+ border:1px solid #b9dfff65;
 }
 
-.btn:active{transform:scale(.96)}
+.btn:active{
+ transform:scale(.96);
+}
 
 .footer{
  margin-top:20px;
- color:#a9bddb;
+ color:#a9c8dc;
  font-size:13px;
- letter-spacing:1px;
+ letter-spacing:1.5px;
+}
+
+@media(max-width:360px){
+ .card{padding:22px 16px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="glow one"></div>
-<div class="glow two"></div>
+<div class="light blue"></div>
+<div class="light purple"></div>
+<div class="light cyan"></div>
 
 <div class="bubbles">
- <span></span><span></span>
- <span></span><span></span>
+ <span></span>
+ <span></span>
+ <span></span>
+ <span></span>
 </div>
 
 <div class="card">
+
+ <!-- RUDRA MOVIES LOGO -->
 
  <div class="logo-wrapper">
   <img
    src="RudraMovies.png"
    alt="Rudra Movies Logo"
    class="logo-img"
-   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-size:24px;font-weight:bold&quot;>RM</div>'">
+   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-size:24px;font-weight:bold&quot;>RM</div>'"
+  >
  </div>
 
- <div class="brand-title">RUDRA MOVIES</div>
+ <div class="brand-title">
+  RUDRA MOVIES
+ </div>
 
  <div class="security-badge">
-  <span></span> LINK PREPARATION
+  <span></span>
+  LINK PREPARATION
  </div>
 
- <!-- 3D ROUND COUNTDOWN -->
+ <!-- 3D CIRCLE -->
 
  <div class="timer-container">
 
-  <div class="orbit"></div>
-  <div class="orbit-two"></div>
+  <div class="outer-ring"></div>
+  <div class="second-ring"></div>
 
   <div class="sphere">
    <div class="water" id="water"></div>
   </div>
 
-  <svg class="progress-svg" viewBox="0 0 165 165">
-   <circle class="progress-bg" cx="82.5" cy="82.5" r="79"/>
-   <circle class="progress-bar" id="progress-bar"
-    cx="82.5" cy="82.5" r="79"/>
+  <svg class="progress-svg" viewBox="0 0 170 170">
+   <circle class="progress-bg"
+    cx="85" cy="85" r="81"/>
+
+   <circle class="progress-bar"
+    id="progress-bar"
+    cx="85" cy="85" r="81"/>
   </svg>
 
   <div class="timer-number" id="timer">5</div>
 
  </div>
 
- <div class="status-badge">DOWNLOAD STATUS</div>
+ <div class="status-title">
+  DOWNLOAD STATUS
+ </div>
 
- <div class="status-highlight" id="status-msg">
+ <div class="status-message" id="status-msg">
   PREPARING YOUR DOWNLOAD LINK...
  </div>
 
- <a id="action-btn" class="btn btn-disabled" href="#">
+ <!-- REDIRECT BUTTON -->
+
+ <a id="action-btn"
+    class="btn btn-disabled"
+    href="#">
   PLEASE WAIT...
  </a>
 
- <a href="https://t.me/RudraMoviez"
+ <!-- TELEGRAM BUTTON -->
+
+ <a
+  href="https://t.me/RudraMoviez"
   target="_blank"
   rel="noopener noreferrer"
   class="btn btn-telegram">
@@ -438,13 +510,19 @@ body{
  </a>
 
  <div class="footer">
-  ⚡ RUDRA MOVIES EXPERIENCE
+  ✦ RUDRA MOVIES EXPERIENCE ✦
  </div>
 
 </div>
 
 <script>
-const params = new URLSearchParams(location.search);
+
+/* READ REDIRECT URL */
+
+const params = new URLSearchParams(
+ window.location.search
+);
+
 const rawRedirect = params.get("redirect");
 
 let targetRedirect = null;
@@ -452,11 +530,14 @@ let targetRedirect = null;
 try{
  if(rawRedirect){
   const parsed = new URL(rawRedirect);
+
   if(parsed.protocol === "https:"){
    targetRedirect = parsed.href;
   }
  }
 }catch(e){}
+
+/* COUNTDOWN */
 
 const totalSeconds = 5;
 let seconds = totalSeconds;
@@ -467,7 +548,7 @@ const status = document.getElementById("status-msg");
 const button = document.getElementById("action-btn");
 const progress = document.getElementById("progress-bar");
 
-const circumference = 2 * Math.PI * 79;
+const circumference = 2 * Math.PI * 81;
 
 progress.style.strokeDasharray = circumference;
 progress.style.strokeDashoffset = circumference;
@@ -479,7 +560,11 @@ const interval = setInterval(()=>{
  const percentage =
   (totalSeconds - seconds) / totalSeconds;
 
+ /* WATER FILL */
+
  water.style.height = (percentage * 85) + "%";
+
+ /* CIRCULAR RING */
 
  progress.style.strokeDashoffset =
   circumference - circumference * percentage;
@@ -487,7 +572,9 @@ const interval = setInterval(()=>{
  if(seconds > 0){
 
   timer.textContent = seconds;
-  button.textContent = `PLEASE WAIT (${seconds}s)`;
+
+  button.textContent =
+   `PLEASE WAIT (${seconds}s)`;
 
   if(seconds <= 2){
    status.textContent = "ALMOST READY...";
@@ -502,23 +589,30 @@ const interval = setInterval(()=>{
 
   if(targetRedirect){
 
-   status.textContent = "YOUR LINK IS READY!";
+   status.textContent =
+    "YOUR LINK IS READY!";
 
    button.href = targetRedirect;
-   button.textContent = "CONTINUE TO LINK ➜";
+
+   button.textContent =
+    "CONTINUE TO DESTINATION ➜";
 
    button.classList.remove("btn-disabled");
    button.classList.add("btn-ready");
 
   }else{
 
-   status.textContent = "LINK NOT AVAILABLE";
-   button.textContent = "DIRECT LINK NOT FOUND";
+   status.textContent =
+    "LINK NOT AVAILABLE";
+
+   button.textContent =
+    "DIRECT LINK NOT FOUND";
 
   }
  }
 
 },1000);
+
 </script>
 
 </body>
