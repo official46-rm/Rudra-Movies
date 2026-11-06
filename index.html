@@ -4,8 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PREPARING YOUR DOWNLOAD...</title>
+<title>PREPARING YOUR DOWNLOAD LINK...</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -19,104 +18,126 @@
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 25px 15px;
-    background:
-        radial-gradient(ellipse at 50% 40%, #102b48 0%, transparent 55%),
-        linear-gradient(145deg, #030b19, #0b1c30, #030b19);
-    color: white;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
+    color: #fff;
+
+    background:
+      radial-gradient(circle at 15% 20%, #087bbd 0%, transparent 35%),
+      radial-gradient(circle at 90% 80%, #8124b8 0%, transparent 38%),
+      radial-gradient(circle at 80% 10%, #c12b8d 0%, transparent 30%),
+      linear-gradient(135deg, #061326, #10152c, #080d20);
+}
+
+/* BACKGROUND GLOW */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .35;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    background: #00c8ff;
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    background: #a020ff;
+    right: -100px;
+    bottom: 10%;
 }
 
 /* MAIN CARD */
 
 .card {
     width: 100%;
-    max-width: 545px;
-    padding: 40px 34px;
+    max-width: 355px;
+    padding: 22px 20px 19px;
     text-align: center;
-    border-radius: 34px;
-    background: linear-gradient(145deg, #112941, #081629);
-    border: 1px solid rgba(65, 218, 255, .27);
+    position: relative;
+    overflow: hidden;
+    border-radius: 19px;
+
+    background: rgba(15, 31, 54, .78);
+    border: 1px solid rgba(130, 205, 255, .32);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
     box-shadow:
-        0 0 35px rgba(0, 190, 255, .09),
-        0 25px 65px rgba(0, 0, 0, .4);
+      0 15px 50px rgba(0,0,0,.4),
+      0 0 30px rgba(0,180,255,.10);
 }
 
-/* ROUND LOGO */
+/* TOP LOGO */
 
 .logo-box {
-    width: 132px;
-    height: 132px;
-    margin: 0 auto 20px;
-    padding: 5px;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 9px;
     border-radius: 50%;
-    background: #07182a;
-    border: 3px solid #40ddff;
-    box-shadow:
-        0 0 13px #20d9ff,
-        0 0 30px rgba(0, 195, 255, .35);
+    padding: 3px;
+    background: #071629;
+    border: 2px solid #35dfff;
+    box-shadow: 0 0 15px rgba(0,210,255,.6);
     overflow: hidden;
 }
 
 .logo {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     border-radius: 50%;
-    display: block;
 }
 
 .brand {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(22px, 5vw, 34px);
+    font-size: 16px;
     font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #d8fbff, #46ddff, #a18cff);
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg,#fff,#48e1ff,#b18aff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .tagline {
-    margin-top: 9px;
-    color: #91aabe;
-    font-size: 12px;
-    letter-spacing: 3px;
-}
-
-.divider {
-    width: 105px;
-    height: 3px;
-    margin: 28px auto;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #32e2ff, #a17cff);
-    box-shadow: 0 0 12px #34dfff;
-}
-
-.heading {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
+    margin-top: 4px;
+    font-size: 7px;
     letter-spacing: 2px;
-    color: #e1faff;
+    color: #9ab4ca;
 }
 
-.description {
-    margin-top: 12px;
-    margin-bottom: 34px;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    color: #9aafc2;
+.secure-badge {
+    display: inline-block;
+    margin-top: 11px;
+    padding: 5px 10px;
+    border: 1px solid rgba(48,224,255,.35);
+    border-radius: 20px;
+    background: rgba(0,190,255,.09);
+    color: #64eaff;
+    font-size: 7px;
+    letter-spacing: 1px;
 }
 
-/* PREMIUM COUNTDOWN CIRCLE */
+/* COUNTDOWN AREA */
 
 .timer-wrap {
-    width: 300px;
-    height: 300px;
-    max-width: 85vw;
-    max-height: 85vw;
-    margin: 0 auto 32px;
+    width: 112px;
+    height: 112px;
+    margin: 19px auto 13px;
     position: relative;
     display: flex;
     align-items: center;
@@ -124,86 +145,73 @@ body {
     border-radius: 50%;
 }
 
-/* OUTER DOTTED RING */
+/* OUTER RING */
 
-.timer-wrap::before {
-    content: "";
+.outer-ring {
     position: absolute;
-    inset: 2px;
-    border: 3px dashed rgba(65, 222, 255, .75);
+    inset: 0;
     border-radius: 50%;
-    animation: orbit 18s linear infinite;
-    filter: drop-shadow(0 0 5px #31dfff);
+    border: 1px solid rgba(65,210,255,.25);
 }
 
-@keyframes orbit {
+.dotted-ring {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px dashed rgba(55,218,255,.75);
+    animation: rotate 12s linear infinite;
+}
+
+@keyframes rotate {
     to { transform: rotate(360deg); }
 }
 
-/* OUTER GLOW */
-
-.timer-wrap::after {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border: 2px solid rgba(45, 212, 255, .28);
-    border-radius: 50%;
-    box-shadow:
-        0 0 18px rgba(0, 202, 255, .17),
-        inset 0 0 15px rgba(0, 202, 255, .12);
-}
-
-/* SVG PROGRESS RING */
+/* SVG PROGRESS */
 
 .progress-svg {
     position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
+    inset: 0;
     transform: rotate(-90deg);
-    z-index: 2;
     overflow: visible;
 }
 
 .progress-bg,
-.progress-bar {
+.progress {
     fill: none;
     stroke-width: 3;
 }
 
 .progress-bg {
-    stroke: rgba(65, 220, 255, .18);
+    stroke: rgba(70,210,255,.16);
 }
 
-.progress-bar {
-    stroke: #47e6ff;
+.progress {
+    stroke: #3ee5ff;
     stroke-linecap: round;
-    stroke-dasharray: 490.1;
+    stroke-dasharray: 301.59;
     stroke-dashoffset: 0;
-    filter: drop-shadow(0 0 7px #27dfff);
+    filter: drop-shadow(0 0 5px #24dfff);
     transition: stroke-dashoffset 1s linear;
 }
 
-/* INNER WATER CIRCLE */
+/* INNER CIRCLE */
 
 .circle {
-    width: 230px;
-    height: 230px;
-    max-width: 65vw;
-    max-height: 65vw;
+    width: 91px;
+    height: 91px;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    background: #07192d;
-    border: 3px solid #42e1ff;
+    background: #07192c;
+    border: 2px solid #32dfff;
     box-shadow:
-        0 0 20px rgba(0, 207, 255, .4),
-        0 0 45px rgba(0, 175, 255, .16),
-        inset 0 0 22px rgba(0, 0, 0, .65);
-    z-index: 1;
+      0 0 15px rgba(0,205,255,.35),
+      inset 0 0 15px rgba(0,0,0,.4);
 }
 
-/* WATER */
+/* LIQUID WATER */
 
 .water {
     position: absolute;
@@ -212,171 +220,148 @@ body {
     width: 200%;
     height: 0%;
     background: linear-gradient(
-        180deg,
-        #68efff 0%,
-        #20c8f4 35%,
-        #078bd8 68%,
-        #174cb8 100%
+      180deg,
+      #52eaff,
+      #0da9e9 55%,
+      #1760c4
     );
     transition: height 1s linear;
 }
 
-/* WATER WAVES */
-
 .wave {
     position: absolute;
     width: 200%;
-    height: 30px;
-    top: -15px;
+    height: 18px;
+    top: -10px;
     left: 0;
     border-radius: 40%;
-    background: rgba(133, 243, 255, .9);
-    animation: waveMove 4s linear infinite;
+    background: rgba(123,238,255,.8);
+    animation: wave 4s linear infinite;
 }
 
 .wave.two {
     left: -50%;
-    top: -11px;
-    opacity: .4;
+    opacity: .35;
     animation-duration: 6s;
 }
 
-@keyframes waveMove {
-    from { transform: rotate(0deg); }
+@keyframes wave {
     to { transform: rotate(360deg); }
 }
 
-/* LIGHT REFLECTION */
-
-.circle::after {
-    content: "";
-    position: absolute;
-    top: -15%;
-    left: 15%;
-    width: 100%;
-    height: 65%;
-    transform: rotate(35deg);
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,.20),
-        transparent
-    );
-    pointer-events: none;
-}
-
-/* TIMER TEXT */
+/* TIMER NUMBER */
 
 .timer-content {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-shadow: 0 2px 10px rgba(0, 20, 40, .7);
+    text-shadow: 0 2px 7px #00101e;
 }
 
 #timer {
     font-family: 'Orbitron', sans-serif;
-    font-size: 72px;
+    font-size: 34px;
     font-weight: 800;
-    color: #fff;
+    line-height: 1;
 }
 
 .seconds {
-    margin-top: 4px;
-    font-size: 13px;
-    letter-spacing: 5px;
-    color: #fff;
+    margin-top: 5px;
+    font-size: 7px;
+    letter-spacing: 2.5px;
 }
 
-/* STATUS */
+/* TEXT */
 
-.status {
-    display: inline-block;
-    padding: 13px 28px;
-    border: 1px solid rgba(58, 220, 255, .45);
-    border-radius: 35px;
-    background: rgba(0, 190, 255, .06);
-    color: #7beaff;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+.heading {
+    margin-top: 14px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.status-text {
+    margin-top: 5px;
+    font-size: 8px;
+    color: #9bb1c6;
+    letter-spacing: .7px;
+}
+
+/* STATUS BAR */
+
+.status-bar {
+    margin-top: 13px;
+    padding: 9px;
+    border-radius: 7px;
+    border: 1px solid rgba(55,210,255,.23);
+    background: rgba(0,160,255,.12);
+    color: #72e5ff;
+    font-size: 8px;
+    letter-spacing: 1px;
 }
 
 /* DOWNLOAD BUTTON */
 
-.action-btn {
+.download-btn {
     display: block;
     width: 100%;
-    padding: 19px 12px;
-    border-radius: 17px;
+    margin-top: 10px;
+    padding: 11px 8px;
+    border-radius: 8px;
     text-decoration: none;
-    color: #061527;
-    background: linear-gradient(100deg, #42eaff, #8c9aff);
     font-family: 'Orbitron', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    box-shadow: 0 0 22px rgba(0, 205, 255, .22);
-    opacity: .5;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    color: white;
+    background: linear-gradient(100deg,#087fc3,#2169d2);
+    border: 1px solid rgba(100,220,255,.25);
+    opacity: .6;
     pointer-events: none;
     transition: .3s;
 }
 
-.action-btn.ready {
+.download-btn.ready {
     opacity: 1;
     pointer-events: auto;
+    background: linear-gradient(100deg,#08b8ed,#665be9);
+    box-shadow: 0 0 17px rgba(0,180,255,.28);
 }
 
-.action-btn.ready:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba(0, 210, 255, .5);
+.download-btn.ready:hover {
+    transform: translateY(-2px);
+}
+
+/* TELEGRAM BUTTON */
+
+.telegram {
+    display: block;
+    margin-top: 9px;
+    padding: 10px;
+    text-decoration: none;
+    color: #e9f7ff;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 8px;
+    font-size: 8px;
+    letter-spacing: .8px;
 }
 
 .footer {
-    margin-top: 30px;
-    color: #718ca5;
-    font-size: 11px;
-    letter-spacing: 3px;
-}
-
-.telegram {
-    display: inline-block;
-    margin-top: 22px;
-    color: #77e4ff;
-    font-size: 12px;
+    margin-top: 12px;
+    color: #8298b0;
+    font-size: 6px;
     letter-spacing: 1.5px;
-    text-decoration: none;
 }
 
-@media (max-width: 420px) {
+@media(max-width:380px) {
     .card {
-        padding: 30px 20px;
-    }
-
-    .logo-box {
-        width: 105px;
-        height: 105px;
-    }
-
-    .timer-wrap {
-        width: 260px;
-        height: 260px;
-    }
-
-    .circle {
-        width: 200px;
-        height: 200px;
-    }
-
-    #timer {
-        font-size: 60px;
-    }
-
-    .heading {
-        font-size: 15px;
+        max-width: 330px;
+        padding: 20px 16px;
     }
 }
 </style>
@@ -387,46 +372,33 @@ body {
 <div class="card">
 
     <div class="logo-box">
-        <img src="RudraMovies.png"
-             class="logo"
-             alt="Rudra Movies Logo">
+        <img src="RudraMovies.png" class="logo" alt="Rudra Movies">
     </div>
 
     <div class="brand">RUDRA MOVIES</div>
 
     <div class="tagline">
-        YOUR CINEMATIC DESTINATION
+        PROVIDE THOUSANDS OF MOVIES
     </div>
 
-    <div class="divider"></div>
-
-    <div class="heading">
-        LINK PREPARATION
-    </div>
-
-    <div class="description">
-        PLEASE WAIT WHILE WE PREPARE YOUR LINK
+    <div class="secure-badge">
+        ✦ LINK PREPARATION ✦
     </div>
 
     <!-- COUNTDOWN CIRCLE -->
 
     <div class="timer-wrap">
 
-        <svg class="progress-svg" viewBox="0 0 190 190">
-            <circle
-                class="progress-bg"
-                cx="95"
-                cy="95"
-                r="78"
-            />
+        <div class="outer-ring"></div>
+        <div class="dotted-ring"></div>
 
-            <circle
-                class="progress-bar"
-                id="progressBar"
-                cx="95"
-                cy="95"
-                r="78"
-            />
+        <svg class="progress-svg" viewBox="0 0 112 112">
+            <circle class="progress-bg"
+                cx="56" cy="56" r="48"/>
+
+            <circle class="progress"
+                id="progress"
+                cx="56" cy="56" r="48"/>
         </svg>
 
         <div class="circle">
@@ -442,38 +414,44 @@ body {
             </div>
 
         </div>
-
     </div>
 
-    <div class="status" id="status">
-        PREPARING YOUR LINK...
+    <div class="heading">
+        LINK PREPARATION
     </div>
 
-    <a href="#"
-       class="action-btn"
-       id="actionBtn">
-        PLEASE WAIT...
+    <div class="status-text" id="statusText">
+        Preparing your download link...
+    </div>
+
+    <div class="status-bar" id="statusBar">
+        ◉ PREPARING YOUR LINK...
+    </div>
+
+    <a href="#" class="download-btn" id="downloadBtn">
+        ➤ PLEASE WAIT...
     </a>
-
-    <div class="footer">
-        FAST • SIMPLE • CINEMATIC
-    </div>
 
     <a href="https://t.me/RudraMoviez"
        class="telegram"
        target="_blank"
        rel="noopener noreferrer">
-        JOIN OUR TELEGRAM CHANNEL
+        ➤ JOIN OUR TELEGRAM CHANNEL
     </a>
+
+    <div class="footer">
+        RUDRA MOVIES • FAST • SIMPLE • CINEMATIC
+    </div>
 
 </div>
 
 <script>
 const timer = document.getElementById("timer");
 const water = document.getElementById("water");
-const progress = document.getElementById("progressBar");
-const status = document.getElementById("status");
-const button = document.getElementById("actionBtn");
+const progress = document.getElementById("progress");
+const statusText = document.getElementById("statusText");
+const statusBar = document.getElementById("statusBar");
+const downloadBtn = document.getElementById("downloadBtn");
 
 const params = new URLSearchParams(window.location.search);
 const redirect = params.get("redirect");
@@ -482,65 +460,68 @@ let safeLink = null;
 
 if (redirect) {
     try {
-        const parsedURL = new URL(redirect);
+        const parsed = new URL(redirect);
 
-        if (parsedURL.protocol === "https:") {
-            safeLink = parsedURL.href;
+        if (parsed.protocol === "https:") {
+            safeLink = parsed.href;
         }
     } catch (error) {
         safeLink = null;
     }
 }
 
-let count = 5;
-
-const circumference = 2 * Math.PI * 78;
+let seconds = 5;
+const circumference = 2 * Math.PI * 48;
 
 progress.style.strokeDasharray = circumference;
 progress.style.strokeDashoffset = 0;
 
-function countdown() {
+function updateCountdown() {
 
-    timer.textContent = count;
+    timer.textContent = seconds;
 
-    const percentage = (5 - count) / 5;
+    const completed = (5 - seconds) / 5;
 
-    water.style.height = (percentage * 100) + "%";
+    water.style.height = (completed * 100) + "%";
 
     progress.style.strokeDashoffset =
-        circumference * percentage;
+        circumference * completed;
 
-    if (count > 0) {
-        count--;
-        setTimeout(countdown, 1000);
+    if (seconds > 0) {
+        seconds--;
+        setTimeout(updateCountdown, 1000);
     } else {
-        finishPreparation();
+        finishCountdown();
     }
 }
 
-function finishPreparation() {
+function finishCountdown() {
 
     timer.textContent = "✓";
     water.style.height = "100%";
 
     if (safeLink) {
 
-        status.textContent = "YOUR LINK IS READY";
+        statusText.textContent = "Your download link is ready.";
 
-        button.textContent = "DOWNLOAD NOW";
-        button.href = safeLink;
-        button.classList.add("ready");
+        statusBar.textContent = "✓ YOUR LINK IS READY";
+
+        downloadBtn.textContent = "➤ PROCEED TO DESTINATION →";
+        downloadBtn.href = safeLink;
+        downloadBtn.classList.add("ready");
 
     } else {
 
-        status.textContent = "DIRECT LINK NOT FOUND";
+        statusText.textContent = "No valid download destination was provided.";
 
-        button.textContent = "LINK UNAVAILABLE";
-        button.removeAttribute("href");
+        statusBar.textContent = "LINK NOT AVAILABLE";
+
+        downloadBtn.textContent = "LINK UNAVAILABLE";
+        downloadBtn.removeAttribute("href");
     }
 }
 
-countdown();
+updateCountdown();
 </script>
 
 </body>
