@@ -39,21 +39,26 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
-        /* Header Logo Block */
+        /* RUDRA MOVIES LOGO */
         .logo-box {
             width: 75px;
             height: 75px;
             background-color: #000;
             border-radius: 50%;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.3);
             margin-bottom: 20px;
+            box-shadow: 0 0 16px rgba(255, 70, 190, 0.28);
         }
-        .error-code { color: #fff; font-size: 14px; font-weight: bold; }
-        .error-text { color: #888; font-size: 8px; }
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
         /* Titles and Typography */
         .main-title {
@@ -84,45 +89,194 @@
             border-radius: 50%;
         }
 
-        /* Animated SVG Progress Circle */
+        /* 3D Pink Liquid Timer */
         .timer-container {
             position: relative;
             width: 140px;
             height: 140px;
             margin-bottom: 30px;
+            perspective: 600px;
+            filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.35));
         }
 
         .timer-svg {
             transform: rotate(-90deg);
             width: 140px;
             height: 140px;
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            overflow: visible;
         }
 
         .track-ring {
             fill: #0c1d33;
-            stroke: rgba(255, 255, 255, 0.05);
-            stroke-width: 6;
+            stroke: rgba(255, 255, 255, 0.08);
+            stroke-width: 7;
         }
 
         .progress-ring {
             fill: none;
             stroke: url(#gradientRing);
-            stroke-width: 6;
+            stroke-width: 7;
             stroke-linecap: round;
-            /* Circumference calculated via 2 * pi * r (2 * 3.14159 * 62) */
-            stroke-dasharray: 389.55; 
-            stroke-dashoffset: 0;
-            transition: stroke-dashoffset 1s linear;
+            stroke-dasharray: 389.55;
+            stroke-dashoffset: 389.55;
+            filter: drop-shadow(0 0 5px rgba(255, 76, 190, 0.85));
+        }
+
+        /* Raised metallic bezel */
+        .timer-bezel {
+            position: absolute;
+            width: 112px;
+            height: 112px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px;
+            border-radius: 50%;
+            z-index: 2;
+            background: linear-gradient(
+                145deg,
+                #fff4fc 0%,
+                #ff9cdb 13%,
+                #e52b9e 32%,
+                #64134e 54%,
+                #b52b88 78%,
+                #ffe8f8 100%
+            );
+            box-shadow:
+                0 9px 17px rgba(0, 0, 0, 0.62),
+                inset 0 2px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -5px 9px rgba(30, 0, 22, 0.85),
+                0 0 20px rgba(255, 65, 177, 0.34);
+        }
+
+        .timer-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            isolation: isolate;
+            background: radial-gradient(circle at 35% 22%, #542448, #160b24 76%);
+            border: 1px solid rgba(255, 218, 245, 0.55);
+            box-shadow:
+                inset 0 5px 12px rgba(0, 0, 0, 0.72),
+                inset 0 -3px 9px rgba(255, 91, 190, 0.18);
+        }
+
+        /* Water rises inside the glass circle */
+        .water-level {
+            position: absolute;
+            left: -20%;
+            bottom: 0;
+            width: 140%;
+            height: 0%;
+            overflow: hidden;
+            z-index: 1;
+            background: linear-gradient(
+                180deg,
+                #ffd8f1 0%,
+                #ff83d0 17%,
+                #f02ca9 48%,
+                #b91583 78%,
+                #64105f 100%
+            );
+            transition: height 0.08s linear;
+            box-shadow: inset 0 5px 12px rgba(255, 255, 255, 0.25);
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 22px;
+            top: -12px;
+            left: -50%;
+            border-radius: 43%;
+            background: rgba(255, 238, 250, 0.82);
+            animation: waveMove 3.5s linear infinite;
+        }
+
+        .wave.wave-two {
+            top: -9px;
+            left: -45%;
+            height: 19px;
+            background: rgba(255, 103, 195, 0.78);
+            animation: waveMove 5s linear infinite reverse;
+        }
+
+        @keyframes waveMove {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .water-shine {
+            position: absolute;
+            width: 38px;
+            height: 140%;
+            top: -20%;
+            left: 10%;
+            transform: rotate(28deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.24), transparent);
+            animation: shineMove 3s ease-in-out infinite;
+        }
+
+        @keyframes shineMove {
+            0%, 100% { left: 5%; opacity: 0.2; }
+            50% { left: 75%; opacity: 0.85; }
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -12px;
+            width: 5px;
+            height: 5px;
+            border: 1px solid rgba(255, 240, 252, 0.9);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: bubbleRise 3s linear infinite;
+        }
+        .bubble.b2 { left: 25%; animation-delay: .7s; width: 4px; height: 4px; }
+        .bubble.b3 { left: 65%; animation-delay: 1.4s; width: 6px; height: 6px; }
+        .bubble.b4 { left: 80%; animation-delay: 2s; width: 3px; height: 3px; }
+
+        @keyframes bubbleRise {
+            0% { transform: translateY(0) scale(.6); opacity: 0; }
+            20% { opacity: .9; }
+            100% { transform: translateY(-105px) scale(1.2); opacity: 0; }
+        }
+
+        /* Transparent glass reflection over the liquid */
+        .timer-inner::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            border-top: 2px solid rgba(255, 255, 255, 0.42);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,.13) 0%,
+                transparent 34%,
+                transparent 70%,
+                rgba(255,255,255,.07) 100%
+            );
+            pointer-events: none;
+            z-index: 5;
         }
 
         .timer-number {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #ffffff;
-            font-size: 46px;
+            font-size: 42px;
             font-weight: bold;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 0 10px rgba(255,255,255,.25);
+            z-index: 7;
         }
 
         /* Status Information Block */
@@ -198,10 +352,9 @@
 <body>
 
     <div class="card-container">
-        <!-- Error Logo Placeholder -->
+        <!-- RUDRA MOVIES LOGO: keep RudraMovies.png beside this HTML file -->
         <div class="logo-box">
-            <span class="error-code">404</span>
-            <span class="error-text">NOT FOUND</span>
+            <img src="RudraMovies.png" alt="Rudra Movies Logo">
         </div>
 
         <!-- Headings -->
@@ -210,19 +363,34 @@
             <span class="dot"></span> SECURED & VERIFIED LINK
         </div>
 
-        <!-- Interactive SVG Timer Display -->
+        <!-- Pink 3D glass liquid timer -->
         <div class="timer-container">
-            <svg class="timer-svg">
+            <svg class="timer-svg" viewBox="0 0 140 140">
                 <defs>
                     <linearGradient id="gradientRing" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00d2ff" />
-                        <stop offset="100%" stop-color="#0066ff" />
+                        <stop offset="0%" stop-color="#ffd2ef" />
+                        <stop offset="48%" stop-color="#ff4fba" />
+                        <stop offset="100%" stop-color="#a90070" />
                     </linearGradient>
                 </defs>
                 <circle class="track-ring" cx="70" cy="70" r="62"></circle>
                 <circle class="progress-ring" id="progressCircle" cx="70" cy="70" r="62"></circle>
             </svg>
-            <div class="timer-number" id="countdownText">5</div>
+
+            <div class="timer-bezel">
+                <div class="timer-inner">
+                    <div class="water-level" id="waterLevel">
+                        <div class="wave"></div>
+                        <div class="wave wave-two"></div>
+                        <div class="water-shine"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble b2"></div>
+                        <div class="bubble b3"></div>
+                        <div class="bubble b4"></div>
+                    </div>
+                    <div class="timer-number" id="countdownText">5</div>
+                </div>
+            </div>
         </div>
 
         <!-- Content Status Elements -->
@@ -237,7 +405,7 @@
             <span id="btnText">VERIFYING...</span>
         </button>
 
-        <a href="https://t.me" target="_blank" class="btn btn-channel">
+        <a href="https://t.me/RudraMoviez" target="_blank" rel="noopener" class="btn btn-channel">
             <span>➤</span> ⚡ RUDRA MAIN CHANNEL ✨
         </a>
 
@@ -246,24 +414,28 @@
 
     <!-- Active Timer Operations Logic -->
     <script>
-        let timeLeft = 5; // Set the total count down seconds here
+        let timeLeft = 5;
         const totalDuration = timeLeft;
         const countdownText = document.getElementById('countdownText');
         const progressCircle = document.getElementById('progressCircle');
+        const waterLevel = document.getElementById('waterLevel');
         const statusHeader = document.getElementById('statusHeader');
         const statusMessage = document.getElementById('statusMessage');
         const actionBtn = document.getElementById('actionBtn');
         const btnText = document.getElementById('btnText');
         const btnSpinner = document.getElementById('btnSpinner');
 
-        const maxOffset = 389.55; // Total length of circle track
+        const maxOffset = 389.55;
+        progressCircle.style.strokeDasharray = maxOffset;
+        progressCircle.style.strokeDashoffset = maxOffset;
 
         const interval = setInterval(() => {
             timeLeft--;
 
-            // Adjust visual progress overlay
-            const offset = maxOffset - ((timeLeft / totalDuration) * maxOffset);
+            const progress = (totalDuration - timeLeft) / totalDuration;
+            const offset = maxOffset * (1 - progress);
             progressCircle.style.strokeDashoffset = offset;
+            waterLevel.style.height = (progress * 100) + "%";
 
             if (timeLeft >= 0) {
                 countdownText.textContent = timeLeft;
@@ -272,16 +444,14 @@
             if (timeLeft <= 0) {
                 clearInterval(interval);
 
-                // Update layout styles to indicate successful complete state
                 statusHeader.textContent = "VERIFICATION COMPLETE";
                 statusMessage.textContent = "Click button below to access your file.";
                 btnText.textContent = "GET LINK NOW";
                 btnSpinner.style.display = "none";
                 actionBtn.style.background = "linear-gradient(90deg, #00b482, #007a58)";
 
-                // Setup click link destination action on dynamic complete event
                 actionBtn.onclick = function() {
-                    window.location.href = "https://your-download-link.com"; 
+                    window.location.href = "https://your-download-link.com";
                 };
             }
         }, 1000);
