@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparing Your Download Link...</title>
+    <title>Security Verification</title>
     <style>
-        /* Global CSS Reset & Layout Configuration */
+        /* Base Setup */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -19,107 +18,78 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Replicates the complex purple & deep blue dark gradient mesh */
-            background: radial-gradient(circle at 80% 20%, #4a154b 0%, #101726 60%, #0d2040 100%);
-            padding: 16px;
-            overflow-x: hidden;
+            background: radial-gradient(circle at 10% 20%, rgb(4, 21, 45) 0%, rgb(18, 52, 86) 40%, rgb(88, 30, 77) 100%);
+            padding: 20px;
         }
 
-        /* Centralized Card Wrapper */
+        /* Glassmorphism Container Card */
         .card-container {
             width: 100%;
-            max-width: 360px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 28px;
-            padding: 40px 24px;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            max-width: 400px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* Top Header Image Placeholder Component */
+        /* Header Logo Block */
         .logo-box {
-            width: 72px;
-            height: 72px;
-            background-color: #000000;
+            width: 75px;
+            height: 75px;
+            background-color: #000;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            margin-bottom: 24px;
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
         }
-        
-        .logo-box-header {
-            color: #858585;
-            font-size: 6px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-bottom: 2px;
-        }
+        .error-code { color: #fff; font-size: 14px; font-weight: bold; }
+        .error-text { color: #888; font-size: 8px; }
 
-        .error-code { 
-            color: #ffffff; 
-            font-size: 15px; 
-            font-weight: 700; 
-            letter-spacing: 0.5px;
-            line-height: 1.1;
-        }
-        
-        .error-text { 
-            color: #858585; 
-            font-size: 7px; 
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-top: 2px;
-        }
-
-        /* Text Headings & Verification Status Badge */
+        /* Titles and Typography */
         .main-title {
             color: #ffffff;
-            font-size: 18px;
-            letter-spacing: 0.8px;
+            font-size: 22px;
+            letter-spacing: 1px;
             font-weight: 700;
             margin-bottom: 12px;
-            text-transform: uppercase;
         }
 
         .badge {
-            background-color: rgba(0, 168, 120, 0.15);
-            color: #12ffb3;
-            font-size: 9.5px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            padding: 5px 14px 6px 14px;
+            background-color: rgba(0, 180, 130, 0.15);
+            color: #00ffb7;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 6px 14px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 255, 170, 0.25);
+            border: 1px solid rgba(0, 255, 180, 0.3);
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 34px;
+            margin-bottom: 30px;
         }
-        
         .badge .dot {
             width: 6px;
             height: 6px;
-            background-color: #12ffb3;
+            background-color: #00ffb7;
             border-radius: 50%;
-            box-shadow: 0 0 8px #12ffb3;
         }
 
-        /* SVG Countdown Graphics Core Container */
+        /* Animated SVG Progress Circle */
         .timer-container {
             position: relative;
             width: 140px;
             height: 140px;
-            margin-bottom: 34px;
+            margin-bottom: 30px;
         }
 
         .timer-svg {
@@ -129,88 +99,62 @@
         }
 
         .track-ring {
-            fill: #0c1a2d;
-            stroke: rgba(255, 255, 255, 0.04);
-            stroke-width: 5;
+            fill: #0c1d33;
+            stroke: rgba(255, 255, 255, 0.05);
+            stroke-width: 6;
         }
 
         .progress-ring {
             fill: none;
-            stroke: url(#cyanBlueGradient);
-            stroke-width: 5;
+            stroke: url(#gradientRing);
+            stroke-width: 6;
             stroke-linecap: round;
-            stroke-dasharray: 386.42; 
+            /* Circumference calculated via 2 * pi * r (2 * 3.14159 * 62) */
+            stroke-dasharray: 389.55; 
             stroke-dashoffset: 0;
-            transition: stroke-dashoffset 1s linear;
-        }
-
-        /* Neon Glow Filter Layer for Visual Effect Match */
-        .glow-ring {
-            fill: none;
-            stroke: #00bfff;
-            stroke-width: 5;
-            stroke-linecap: round;
-            stroke-dasharray: 386.42;
-            stroke-dashoffset: 0;
-            opacity: 0.3;
-            filter: blur(4px);
-            transform: rotate(-90deg);
-            transform-origin: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 140px;
-            height: 140px;
-            pointer-events: none;
             transition: stroke-dashoffset 1s linear;
         }
 
         .timer-number {
             position: absolute;
-            top: 48%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #ffffff;
-            font-size: 52px;
-            font-weight: 600;
+            font-size: 46px;
+            font-weight: bold;
         }
 
-        /* Text Notifications Container */
+        /* Status Information Block */
         .status-container {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        
         .status-title {
             color: #ffffff;
-            font-size: 13.5px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
+            font-size: 15px;
+            letter-spacing: 1px;
             margin-bottom: 6px;
-            text-transform: uppercase;
         }
-        
         .status-subtitle {
-            color: #a4b3c6;
-            font-size: 13px;
-            font-weight: 400;
+            color: #b0c4de;
+            font-size: 14px;
         }
 
-        /* Action Form Buttons Infrastructure */
+        /* Standard Buttons Styling */
         .btn {
             width: 100%;
             padding: 15px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.6px;
-            border-radius: 14px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
-            margin-bottom: 14px;
+            margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transition: transform 0.15s ease, opacity 0.2s ease, background 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.3s ease;
             text-decoration: none;
         }
 
@@ -218,97 +162,129 @@
             transform: scale(0.98);
         }
 
-        /* Primary Blue Verification Action Element */
         .btn-verifying {
-            background: linear-gradient(90deg, #096199 0%, #20337c 100%);
+            background: linear-gradient(90deg, #005c97, #363795);
             color: #ffffff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            box-shadow: 0 4px 12px rgba(9, 97, 153, 0.2);
         }
 
-        /* Secondary Transparent Outlined Custom Action Element */
         .btn-channel {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.05);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            margin-bottom: 24px;
-        }
-        
-        .btn-channel:hover {
-            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Loading Indicator CSS Spin Sequence */
+        /* Simple Loading Animation */
         .spinner {
-            width: 14px;
-            height: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            border-top-color: #ffffff;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
             border-radius: 50%;
-            animation: spin 0.8s infinite linear;
+            animation: spin 1s infinite linear;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Footer Copyright Text Layout */
         .footer-text {
-            color: #61738c;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
+            color: #7b8fa7;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="card-container">
-        <!-- Top Image / System Info Placement Block -->
-        <div class="RudraMovies.png">
-            <span class="logo-box-header">FREE IMAGE HOST</span>
+        <!-- Error Logo Placeholder -->
+        <div class="logo-box">
             <span class="error-code">404</span>
             <span class="error-text">NOT FOUND</span>
         </div>
 
-        
-        <h1 class="main-title">RUDRA MOVIEZ</h1>
+        <!-- Headings -->
+        <h1 class="main-title">RUDRA MOVIES</h1>
         <div class="badge">
             <span class="dot"></span> SECURED & VERIFIED LINK
         </div>
 
-        <!-- System SVG Radial Progress Visualizer Component -->
+        <!-- Interactive SVG Timer Display -->
         <div class="timer-container">
             <svg class="timer-svg">
                 <defs>
-                    <linearGradient id="cyanBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00e5ff" />
-                        <stop offset="50%" stop-color="#00a2ff" />
-                        <stop offset="100%" stop-color="#0055ff" />
+                    <linearGradient id="gradientRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00d2ff" />
+                        <stop offset="100%" stop-color="#0066ff" />
                     </linearGradient>
                 </defs>
-                <circle class="track-ring" cx="70" cy="70" r="61.5"></circle>
-                <circle class="progress-ring" id="progressCircle" cx="70" cy="70" r="61.5"></circle>
+                <circle class="track-ring" cx="70" cy="70" r="62"></circle>
+                <circle class="progress-ring" id="progressCircle" cx="70" cy="70" r="62"></circle>
             </svg>
-            <svg class="glow-ring"><circle cx="70" cy="70" r="61.5" id="glowCircle"></circle></svg>
-            
-            <div class="timer-number" id="countdownText">2</div>
+            <div class="timer-number" id="countdownText">5</div>
         </div>
 
-        <!-- Current Verification Process Logs Notification Message -->
+        <!-- Content Status Elements -->
         <div class="status-container">
             <h2 class="status-title" id="statusHeader">SECURITY VERIFICATION</h2>
             <p class="status-subtitle" id="statusMessage">Redirecting in progress...</p>
         </div>
 
-        <!-- Navigation Link Button Execution Group -->
+        <!-- Buttons Stack -->
         <button class="btn btn-verifying" id="actionBtn">
             <span class="spinner" id="btnSpinner"></span>
             <span id="btnText">VERIFYING...</span>
         </button>
 
-        <a href="https://t.me/RudraMoviez" target="_blank" class="btn btn-channel">
-            <span style="color: #38b6ff; font-size: 10px; margin-right: -2px;">➤</span> ⚡ RUDRA MAIN CHANNEL ✨
+        <a href="https://t.me" target="_blank" class="btn btn-channel">
+            <span>➤</span> ⚡ RUDRA MAIN CHANNEL ✨
         </a>
 
+        <div class="footer-text">⚡ RUDRA MOVIES SECURITY</div>
+    </div>
+
+    <!-- Active Timer Operations Logic -->
+    <script>
+        let timeLeft = 5; // Set the total count down seconds here
+        const totalDuration = timeLeft;
+        const countdownText = document.getElementById('countdownText');
+        const progressCircle = document.getElementById('progressCircle');
+        const statusHeader = document.getElementById('statusHeader');
+        const statusMessage = document.getElementById('statusMessage');
+        const actionBtn = document.getElementById('actionBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+
+        const maxOffset = 389.55; // Total length of circle track
+
+        const interval = setInterval(() => {
+            timeLeft--;
+
+            // Adjust visual progress overlay
+            const offset = maxOffset - ((timeLeft / totalDuration) * maxOffset);
+            progressCircle.style.strokeDashoffset = offset;
+
+            if (timeLeft >= 0) {
+                countdownText.textContent = timeLeft;
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+
+                // Update layout styles to indicate successful complete state
+                statusHeader.textContent = "VERIFICATION COMPLETE";
+                statusMessage.textContent = "Click button below to access your file.";
+                btnText.textContent = "GET LINK NOW";
+                btnSpinner.style.display = "none";
+                actionBtn.style.background = "linear-gradient(90deg, #00b482, #007a58)";
+
+                // Setup click link destination action on dynamic complete event
+                actionBtn.onclick = function() {
+                    window.location.href = "https://your-download-link.com"; 
+                };
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
