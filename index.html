@@ -1,202 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b18">
-<title>RUDRA MOVIES | Link Preparation</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--cyan:#35eaff;--blue:#168bff;--purple:#895cff;--pink:#ed55db}
-body{
- min-height:100vh;display:flex;align-items:center;justify-content:center;
- padding:18px;overflow-x:hidden;font-family:Arial,Helvetica,sans-serif;color:#fff;
- background:radial-gradient(ellipse at 15% 20%,#102e53 0%,transparent 42%),
- radial-gradient(ellipse at 85% 80%,#29134b 0%,transparent 42%),
- linear-gradient(135deg,#030812,#080d1b 55%,#090817)
-}
-body:before,body:after{content:"";position:fixed;width:230px;height:230px;border-radius:50%;filter:blur(100px);opacity:.17;pointer-events:none}
-body:before{background:#00cfff;top:5%;left:-100px}
-body:after{background:#a12dff;bottom:0;right:-100px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparing Your Download Link...</title>
+    <style>
+        /* Global CSS Reset & Layout Configuration */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-/* Original rectangular glass card layout is retained */
-.card{
- position:relative;width:100%;max-width:390px;padding:29px 23px 25px;text-align:center;overflow:hidden;
- border:1px solid rgba(120,210,255,.19);border-radius:25px;
- background:linear-gradient(145deg,rgba(21,36,59,.94),rgba(8,13,28,.97));
- box-shadow:0 25px 80px rgba(0,0,0,.55),inset 0 1px 1px rgba(255,255,255,.08),0 0 35px rgba(0,174,255,.08)
-}
-.card:before{content:"";position:absolute;width:220px;height:220px;top:-150px;left:50%;transform:translateX(-50%);background:#14cfff;filter:blur(100px);opacity:.17;pointer-events:none}
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Replicates the complex purple & deep blue dark gradient mesh */
+            background: radial-gradient(circle at 80% 20%, #4a154b 0%, #101726 60%, #0d2040 100%);
+            padding: 16px;
+            overflow-x: hidden;
+        }
 
-/* Round logo */
-.logo-area{position:relative;z-index:2;margin-bottom:20px}
-.logo-frame{
- width:94px;height:94px;margin:0 auto 12px;padding:3px;border-radius:50%;
- background:linear-gradient(145deg,#e9fdff,#35dfff 35%,#775bff 72%,#ed55db);
- box-shadow:0 0 18px rgba(38,214,255,.3),0 8px 22px rgba(0,0,0,.4);
-}
-.logo{width:100%;height:100%;display:block;object-fit:cover;border-radius:50%;border:2px solid #101d35;background:#0b1427}
-.brand{font-size:23px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,#fff,#71eaff,#b78cff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand-sub{margin-top:5px;font-size:9px;letter-spacing:3px;color:#849bb9}
-.heading{position:relative;z-index:2;margin-top:25px;font-size:17px;letter-spacing:2px;font-weight:800}
-.description{position:relative;z-index:2;margin-top:9px;color:#91a9c5;font-size:10px;letter-spacing:1.5px}
+        /* Centralized Card Wrapper */
+        .card-container {
+            width: 100%;
+            max-width: 360px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 40px 24px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
 
-/* Compact 3D countdown */
-.timer-wrap{position:relative;width:148px;height:148px;margin:27px auto 24px;display:flex;align-items:center;justify-content:center;perspective:500px}
-.dotted-ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(91,211,255,.3);animation:rotateRing 18s linear infinite}
-@keyframes rotateRing{to{transform:rotate(360deg)}}
-.outer-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible;z-index:4;filter:drop-shadow(0 3px 3px rgba(0,0,0,.55))}
-.ring-bg{fill:none;stroke:rgba(255,255,255,.10);stroke-width:8}
-.ring-shadow{fill:none;stroke:rgba(0,0,0,.45);stroke-width:12}
-.ring-fill{fill:none;stroke:url(#ringGradient);stroke-width:8;stroke-linecap:round;stroke-dasharray:408.4;stroke-dashoffset:408.4;filter:drop-shadow(0 0 5px rgba(35,220,255,.75))}
-.ring-dot{position:absolute;width:11px;height:11px;top:4px;left:50%;margin-left:-5.5px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#54f4ff 45%,#168bff 75%);box-shadow:0 0 7px #fff,0 0 16px #25dfff,0 0 25px #168bff;z-index:7;transform-origin:5.5px 70px}
-.timer-bezel{
- position:absolute;width:116px;height:116px;border-radius:50%;padding:5px;z-index:2;
- background:linear-gradient(145deg,#e8ffff 0%,#3edfff 12%,#1265a8 35%,#07152a 58%,#697cff 82%,#e8faff 100%);
- box-shadow:0 8px 17px rgba(0,0,0,.65),inset 0 2px 3px rgba(255,255,255,.8),inset 0 -5px 9px rgba(0,0,0,.8),0 0 20px rgba(28,190,255,.2);
- transform:translateY(-1px)
-}
-.water-circle{
- position:relative;width:100%;height:100%;overflow:hidden;border-radius:50%;isolation:isolate;
- background:radial-gradient(circle at 35% 25%,#1b456b,#071526 75%);
- border:1px solid rgba(150,235,255,.5);
- box-shadow:inset 0 5px 10px rgba(0,0,0,.65),inset 0 -3px 8px rgba(90,210,255,.15)
-}
-.water-level{
- position:absolute;left:-20%;bottom:0;width:140%;height:0%;overflow:hidden;
- background:linear-gradient(180deg,#8ff7ff 0%,#27d8ff 17%,#1595f5 48%,#1253c5 78%,#102b85 100%);
- transition:height .08s linear;z-index:1;
- box-shadow:inset 0 5px 12px rgba(255,255,255,.22)
-}
-.wave{position:absolute;width:200%;height:23px;top:-12px;left:-50%;border-radius:43%;background:rgba(210,253,255,.78);animation:waveMove 3.5s linear infinite}
-.wave.two{top:-9px;left:-45%;height:20px;background:rgba(24,174,255,.8);animation-duration:5s;animation-direction:reverse}
-@keyframes waveMove{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.water-shine{position:absolute;width:38px;height:140%;top:-20%;left:12%;transform:rotate(28deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shineMove 3s ease-in-out infinite}
-@keyframes shineMove{0%,100%{left:5%;opacity:.2}50%{left:75%;opacity:.8}}
-.bubble{position:absolute;bottom:-12px;width:5px;height:5px;border:1px solid rgba(224,255,255,.85);border-radius:50%;background:rgba(255,255,255,.2);animation:bubbleRise 3s linear infinite}
-.bubble:nth-of-type(4){left:25%;animation-delay:.7s;width:4px;height:4px}
-.bubble:nth-of-type(5){left:65%;animation-delay:1.4s;width:6px;height:6px}
-.bubble:nth-of-type(6){left:80%;animation-delay:2s;width:3px;height:3px}
-@keyframes bubbleRise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:.9}100%{transform:translateY(-110px) scale(1.2);opacity:0}}
-.water-circle:after{content:"";position:absolute;inset:5px;border-radius:50%;border-top:2px solid rgba(255,255,255,.27);border-left:1px solid rgba(255,255,255,.14);pointer-events:none;z-index:5}
-.timer-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:7;font-size:32px;font-weight:900;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.65),0 0 12px rgba(255,255,255,.18)}
-.status{position:relative;z-index:2;margin-bottom:20px;color:#a9c5dc;font-size:11px;letter-spacing:1px}
-.status span{color:#42eaff}
-.buttons{position:relative;z-index:2;display:flex;flex-direction:column;gap:12px}
-.btn{display:flex;justify-content:center;align-items:center;width:100%;min-height:47px;border:0;border-radius:12px;font-size:12px;font-weight:800;letter-spacing:1px;text-decoration:none;transition:.25s ease}
-.continue-btn{color:#06101d;background:linear-gradient(100deg,#43eaff,#438dff,#a06bff);box-shadow:0 5px 20px rgba(36,169,255,.2);opacity:.45;pointer-events:none}
-.continue-btn.active{opacity:1;pointer-events:auto}
-.continue-btn.active:active{transform:scale(.97)}
-.telegram-btn{color:#d9f8ff;background:rgba(30,157,225,.1);border:1px solid rgba(48,190,255,.3)}
-.telegram-btn:active{background:rgba(30,157,225,.22)}
-.footer{position:relative;z-index:2;margin-top:21px;color:#62758f;font-size:9px;letter-spacing:1.5px}
-</style>
+        /* Top Header Image Placeholder Component */
+        .logo-box {
+            width: 72px;
+            height: 72px;
+            background-color: #000000;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 24px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-box-header {
+            color: #858585;
+            font-size: 6px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+        }
+
+        .error-code { 
+            color: #ffffff; 
+            font-size: 15px; 
+            font-weight: 700; 
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+        
+        .error-text { 
+            color: #858585; 
+            font-size: 7px; 
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
+        }
+
+        /* Text Headings & Verification Status Badge */
+        .main-title {
+            color: #ffffff;
+            font-size: 18px;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background-color: rgba(0, 168, 120, 0.15);
+            color: #12ffb3;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            padding: 5px 14px 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 170, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 34px;
+        }
+        
+        .badge .dot {
+            width: 6px;
+            height: 6px;
+            background-color: #12ffb3;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #12ffb3;
+        }
+
+        /* SVG Countdown Graphics Core Container */
+        .timer-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 34px;
+        }
+
+        .timer-svg {
+            transform: rotate(-90deg);
+            width: 140px;
+            height: 140px;
+        }
+
+        .track-ring {
+            fill: #0c1a2d;
+            stroke: rgba(255, 255, 255, 0.04);
+            stroke-width: 5;
+        }
+
+        .progress-ring {
+            fill: none;
+            stroke: url(#cyanBlueGradient);
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-dasharray: 386.42; 
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        /* Neon Glow Filter Layer for Visual Effect Match */
+        .glow-ring {
+            fill: none;
+            stroke: #00bfff;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-dasharray: 386.42;
+            stroke-dashoffset: 0;
+            opacity: 0.3;
+            filter: blur(4px);
+            transform: rotate(-90deg);
+            transform-origin: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 140px;
+            height: 140px;
+            pointer-events: none;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .timer-number {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 52px;
+            font-weight: 600;
+        }
+
+        /* Text Notifications Container */
+        .status-container {
+            margin-bottom: 30px;
+        }
+        
+        .status-title {
+            color: #ffffff;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        
+        .status-subtitle {
+            color: #a4b3c6;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        /* Action Form Buttons Infrastructure */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.15s ease, opacity 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Primary Blue Verification Action Element */
+        .btn-verifying {
+            background: linear-gradient(90deg, #096199 0%, #20337c 100%);
+            color: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(9, 97, 153, 0.2);
+        }
+
+        /* Secondary Transparent Outlined Custom Action Element */
+        .btn-channel {
+            background: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 24px;
+        }
+        
+        .btn-channel:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Loading Indicator CSS Spin Sequence */
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 0.8s infinite linear;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer Copyright Text Layout */
+        .footer-text {
+            color: #61738c;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-<div class="card">
- <div class="logo-area">
-  <div class="logo-frame">
-   <img src="RudraMovies.png" class="logo" alt="Rudra Movies Logo">
-  </div>
-  <div class="brand">RUDRA MOVIES</div>
-  <div class="brand-sub">YOUR ENTERTAINMENT DESTINATION</div>
- </div>
 
- <div class="heading">LINK PREPARATION</div>
- <div class="description">PREPARING YOUR DOWNLOAD LINK...</div>
+    <div class="card-container">
+        <!-- Top Image / System Info Placement Block -->
+        <div class="RudraMovies.png">
+            <span class="logo-box-header">FREE IMAGE HOST</span>
+            <span class="error-code">404</span>
+            <span class="error-text">NOT FOUND</span>
+        </div>
 
- <div class="timer-wrap">
-  <div class="dotted-ring"></div>
-  <svg class="outer-ring" viewBox="0 0 142 142" aria-hidden="true">
-   <defs>
-    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-     <stop offset="0%" stop-color="#38efff"/>
-     <stop offset="40%" stop-color="#168bff"/>
-     <stop offset="75%" stop-color="#895cff"/>
-     <stop offset="100%" stop-color="#ed55db"/>
-    </linearGradient>
-   </defs>
-   <circle class="ring-shadow" cx="71" cy="71" r="65"/>
-   <circle class="ring-bg" cx="71" cy="71" r="65"/>
-   <circle class="ring-fill" id="ringFill" cx="71" cy="71" r="65"/>
-  </svg>
-  <div class="ring-dot" id="ringDot"></div>
+        
+        <h1 class="main-title">RUDRA MOVIEZ</h1>
+        <div class="badge">
+            <span class="dot"></span> SECURED & VERIFIED LINK
+        </div>
 
-  <div class="timer-bezel">
-   <div class="water-circle">
-    <div class="water-level" id="waterLevel">
-     <div class="wave"></div>
-     <div class="wave two"></div>
-     <div class="water-shine"></div>
-     <div class="bubble"></div>
-     <div class="bubble"></div>
-     <div class="bubble"></div>
-     <div class="bubble"></div>
-    </div>
-    <div class="timer-text" id="timer">5</div>
-   </div>
-  </div>
- </div>
+        <!-- System SVG Radial Progress Visualizer Component -->
+        <div class="timer-container">
+            <svg class="timer-svg">
+                <defs>
+                    <linearGradient id="cyanBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00e5ff" />
+                        <stop offset="50%" stop-color="#00a2ff" />
+                        <stop offset="100%" stop-color="#0055ff" />
+                    </linearGradient>
+                </defs>
+                <circle class="track-ring" cx="70" cy="70" r="61.5"></circle>
+                <circle class="progress-ring" id="progressCircle" cx="70" cy="70" r="61.5"></circle>
+            </svg>
+            <svg class="glow-ring"><circle cx="70" cy="70" r="61.5" id="glowCircle"></circle></svg>
+            
+            <div class="timer-number" id="countdownText">2</div>
+        </div>
 
- <div class="status" id="status">PLEASE WAIT <span>•</span> 5 SECONDS</div>
+        <!-- Current Verification Process Logs Notification Message -->
+        <div class="status-container">
+            <h2 class="status-title" id="statusHeader">SECURITY VERIFICATION</h2>
+            <p class="status-subtitle" id="statusMessage">Redirecting in progress...</p>
+        </div>
 
- <div class="buttons">
-  <a href="#" class="btn continue-btn" id="continueBtn"><span id="buttonText">PLEASE WAIT...</span></a>
-  <a href="https://t.me/RudraMoviez" class="btn telegram-btn" target="_blank" rel="noopener">✈ JOIN TELEGRAM CHANNEL</a>
- </div>
- <div class="footer">© RUDRA MOVIES • ALL RIGHTS RESERVED</div>
-</div>
+        <!-- Navigation Link Button Execution Group -->
+        <button class="btn btn-verifying" id="actionBtn">
+            <span class="spinner" id="btnSpinner"></span>
+            <span id="btnText">VERIFYING...</span>
+        </button>
 
-<script>
-const TOTAL_TIME=5;
-const timer=document.getElementById("timer");
-const waterLevel=document.getElementById("waterLevel");
-const ringFill=document.getElementById("ringFill");
-const ringDot=document.getElementById("ringDot");
-const status=document.getElementById("status");
-const continueBtn=document.getElementById("continueBtn");
-const buttonText=document.getElementById("buttonText");
-const circumference=2*Math.PI*65;
-ringFill.style.strokeDasharray=circumference;
-ringFill.style.strokeDashoffset=circumference;
+        <a href="https://t.me/RudraMoviez" target="_blank" class="btn btn-channel">
+            <span style="color: #38b6ff; font-size: 10px; margin-right: -2px;">➤</span> ⚡ RUDRA MAIN CHANNEL ✨
+        </a>
 
-const params=new URLSearchParams(window.location.search);
-const redirectValue=params.get("redirect");
-let redirectUrl=null;
-try{
- if(redirectValue){
-  const parsed=new URL(redirectValue);
-  if(parsed.protocol==="https:") redirectUrl=parsed.href;
- }
-}catch(error){redirectUrl=null}
-
-const startTime=performance.now();
-let lastSecond=TOTAL_TIME;
-function animate(now){
- const elapsed=(now-startTime)/1000;
- const progress=Math.min(elapsed/TOTAL_TIME,1);
- waterLevel.style.height=(progress*100)+"%";
- ringFill.style.strokeDashoffset=circumference*(1-progress);
- ringDot.style.transform=`rotate(${progress*360}deg)`;
- const remaining=Math.max(0,Math.ceil(TOTAL_TIME-elapsed));
- if(remaining!==lastSecond){timer.textContent=remaining;lastSecond=remaining}
- if(progress<1) requestAnimationFrame(animate);
- else finishCountdown();
-}
-function finishCountdown(){
- timer.textContent="✓";
- status.innerHTML="<span>LINK READY</span>";
- if(redirectUrl){
-  buttonText.textContent="➜ CONTINUE TO LINK";
-  continueBtn.href=redirectUrl;
-  continueBtn.classList.add("active");
- }else{
-  buttonText.textContent="DIRECT LINK NOT FOUND";
-  continueBtn.removeAttribute("href");
-  continueBtn.classList.remove("active");
- }
-}
-requestAnimationFrame(animate);
-</script>
-</body>
-</html>
