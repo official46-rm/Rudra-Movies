@@ -4,149 +4,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080e1e">
-<title>RUDRA MOVIES</title>
+<meta name="theme-color" content="#10152b">
+
+<title>PREPARING YOUR DOWNLOAD LINK...</title>
 
 <style>
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
  min-height:100vh;
  display:flex;
  justify-content:center;
  align-items:center;
- padding:15px;
+ padding:18px;
  overflow:hidden;
  font-family:Arial,sans-serif;
  font-variant-caps:all-small-caps;
  color:white;
  background:
- radial-gradient(ellipse at 5% 15%,#00a9b955,transparent 38%),
- radial-gradient(ellipse at 95% 85%,#a02cff55,transparent 40%),
- linear-gradient(145deg,#080e1e,#111a34,#090d20);
+ radial-gradient(circle at 5% 15%,#008fc5 0%,transparent 35%),
+ radial-gradient(circle at 95% 85%,#8528e9 0%,transparent 38%),
+ linear-gradient(145deg,#101b32,#191a36,#101326);
 }
 
-/* BACKGROUND LIGHTS */
+/* BACKGROUND GLOW */
 
-.light{
+body:before,body:after{
+ content:"";
  position:fixed;
  width:230px;
  height:230px;
  border-radius:50%;
  filter:blur(100px);
- opacity:.55;
+ opacity:.35;
  pointer-events:none;
 }
 
-.light.blue{
+body:before{
  background:#00c8ff;
- top:5%;
- left:-120px;
+ top:0;left:-100px;
 }
 
-.light.purple{
- background:#9b35ff;
- bottom:5%;
- right:-120px;
+body:after{
+ background:#a52dff;
+ bottom:0;right:-100px;
 }
 
-.light.cyan{
- background:#00ffca;
- top:45%;
- right:10%;
- opacity:.13;
-}
-
-/* FLOATING BUBBLES */
-
-.bubbles{
- position:fixed;
- inset:0;
- overflow:hidden;
- pointer-events:none;
-}
-
-.bubbles span{
- position:absolute;
- bottom:-80px;
- width:22px;
- height:22px;
- border:1px solid #b9faff65;
- border-radius:50%;
- background:#ffffff10;
- box-shadow:inset 2px 2px 7px #ffffff40;
- animation:float 12s linear infinite;
-}
-
-.bubbles span:nth-child(1){left:10%}
-.bubbles span:nth-child(2){left:32%;width:35px;height:35px;animation-duration:16s}
-.bubbles span:nth-child(3){left:65%;animation-duration:10s}
-.bubbles span:nth-child(4){left:90%;width:30px;height:30px;animation-duration:14s}
-
-@keyframes float{
- 0%{transform:translateY(0);opacity:0}
- 20%{opacity:.8}
- 100%{transform:translateY(-110vh);opacity:0}
-}
-
-/* GLASS CARD */
+/* CARD */
 
 .card{
  width:100%;
  max-width:350px;
- padding:25px 20px 22px;
+ padding:24px 19px;
+ text-align:center;
  position:relative;
  z-index:2;
- text-align:center;
  border-radius:30px;
  background:linear-gradient(
   145deg,
-  rgba(0,157,190,.25),
-  rgba(19,29,57,.91),
-  rgba(116,39,157,.30)
+  rgba(18,130,195,.36),
+  rgba(24,31,61,.85),
+  rgba(117,35,163,.35)
  );
- border:1px solid #c4efff65;
- backdrop-filter:blur(25px);
- -webkit-backdrop-filter:blur(25px);
+ border:1px solid #b6dfff75;
+ backdrop-filter:blur(24px);
+ -webkit-backdrop-filter:blur(24px);
  box-shadow:
- 0 20px 55px #0009,
+ 0 20px 55px #0008,
  inset 0 0 25px #ffffff10,
- 0 0 25px #00cfff20;
+ 0 0 25px #469aff25;
 }
 
 /* LOGO */
 
 .logo-wrapper{
- margin-bottom:15px;
  display:flex;
  justify-content:center;
+ margin-bottom:13px;
 }
 
 .logo-img{
  width:78px;
  height:78px;
- object-fit:cover;
  border-radius:50%;
- border:2px solid #a5f5ff;
- background:#101c37;
+ object-fit:cover;
+ background:#101b32;
+ border:3px solid #80ddff;
  box-shadow:
- 0 0 12px #00dcff90,
- 0 0 28px #00aaff55;
+ 0 0 12px #00cfff90,
+ 0 0 25px #478cff70;
 }
 
 .brand-title{
- font-size:26px;
+ font-size:25px;
  font-weight:900;
  letter-spacing:2px;
- color:#f4fbff;
- text-shadow:0 2px 15px #0009;
+ color:#f5f8ff;
+ text-shadow:0 2px 12px #0008;
 }
 
-/* STATUS BADGE */
+/* SMALL TOP TEXT */
+
+.top-caption{
+ font-size:11px;
+ letter-spacing:2px;
+ color:#9bc9e9;
+ margin-top:6px;
+}
+
+/* BADGE */
 
 .security-badge{
  display:inline-flex;
@@ -155,52 +121,49 @@ body{
  margin-top:13px;
  padding:8px 15px;
  border-radius:30px;
- background:#00d9cf15;
- border:1px solid #35dcd879;
- color:#8af7ed;
- font-size:14px;
+ background:#14b9ff18;
+ border:1px solid #42caff70;
+ color:#71d8ff;
+ font-size:13px;
 }
 
 .security-badge span{
  width:8px;
  height:8px;
  border-radius:50%;
- background:#35edb4;
- box-shadow:0 0 12px #35edb4;
+ background:#32e9b4;
+ box-shadow:0 0 10px #32e9b4;
 }
 
-/* 3D COUNTDOWN */
+/* ROUND COUNTDOWN */
 
 .timer-container{
  width:170px;
  height:170px;
- margin:29px auto 27px;
+ margin:28px auto;
  position:relative;
  display:flex;
- align-items:center;
  justify-content:center;
- perspective:800px;
+ align-items:center;
 }
 
-/* OUTER DOTTED RING */
+/* DOTTED RING */
 
 .outer-ring{
  position:absolute;
  inset:0;
- border:2px dashed #66eaff90;
  border-radius:50%;
- animation:rotate 15s linear infinite;
+ border:2px dashed #50cfff85;
+ animation:rotate 16s linear infinite;
 }
-
-/* SECOND RING */
 
 .second-ring{
  position:absolute;
  inset:8px;
  border-radius:50%;
- border:2px solid #a17aff85;
- border-top-color:transparent;
- border-right-color:#39e5ff;
+ border:3px solid #4caaff;
+ border-left-color:transparent;
+ border-bottom-color:#ad55ff;
  animation:reverse 5s linear infinite;
 }
 
@@ -212,75 +175,47 @@ body{
  to{transform:rotate(-360deg)}
 }
 
-/* 3D GLASS SPHERE */
+/* LIQUID CIRCLE */
 
-.sphere{
- width:140px;
- height:140px;
- position:relative;
- overflow:hidden;
- border-radius:50%;
- border:4px solid #75edff;
- background:
- radial-gradient(ellipse at 30% 20%,#ffffff55,transparent 30%),
- linear-gradient(145deg,#174768,#111d3d);
- box-shadow:
- inset -13px -16px 25px #00102fba,
- inset 8px 8px 20px #ffffff20,
- 0 0 0 5px #2ce5ff25,
- 0 0 25px #00cfff80,
- 0 10px 25px #0009;
- transform:rotateX(8deg);
-}
-
-/* GLASS REFLECTION */
-
-.sphere::before{
- content:"";
+.inner-circle{
  position:absolute;
- width:65px;
- height:22px;
- top:12px;
- left:19px;
+ width:138px;
+ height:138px;
  border-radius:50%;
- background:linear-gradient(90deg,#ffffffa0,#ffffff05);
- filter:blur(2px);
- transform:rotate(-25deg);
- z-index:4;
- pointer-events:none;
+ overflow:hidden;
+ background:linear-gradient(145deg,#172d4c,#111c39);
+ border:5px solid #76d9ff;
+ box-shadow:
+ inset 0 0 20px #0009,
+ 0 0 0 5px #348cff25,
+ 0 0 25px #20baff70;
 }
-
-/* LIQUID WATER */
 
 .water{
  position:absolute;
- left:0;
  bottom:0;
+ left:0;
  width:100%;
  height:0%;
  background:linear-gradient(
-  180deg,
-  #59fff0,
-  #05bce8,
-  #4265ed
+  180deg,#39dfff,#1198ec,#5347e5
  );
  transition:height 1s ease;
- box-shadow:inset 0 5px 12px #ffffff35;
 }
 
-.water::before{
+.water:before{
  content:"";
  position:absolute;
  top:-12px;
  left:-50%;
  width:200%;
- height:25px;
- border-radius:45%;
- background:#e2ffffa0;
+ height:24px;
+ border-radius:50%;
+ background:#e6ffffa0;
  animation:wave 3s linear infinite;
 }
 
-.water::after{
+.water:after{
  content:"";
  position:absolute;
  top:20px;
@@ -288,36 +223,19 @@ body{
  width:10px;
  height:10px;
  border-radius:50%;
- background:#ffffffb0;
- box-shadow:
- 30px 20px 0 #ffffff70,
+ background:#ffffffa0;
+ box-shadow:30px 20px 0 #ffffff70,
  65px 8px 0 #ffffff50;
- animation:bubbleRise 2s ease-in-out infinite;
+ animation:rise 2s infinite;
 }
 
 @keyframes wave{
- from{transform:rotate(0deg)}
  to{transform:rotate(360deg)}
 }
 
-@keyframes bubbleRise{
+@keyframes rise{
  0%,100%{transform:translateY(8px);opacity:.3}
  50%{transform:translateY(-12px);opacity:1}
-}
-
-/* TIMER TEXT */
-
-.timer-number{
- position:absolute;
- inset:0;
- display:flex;
- justify-content:center;
- align-items:center;
- z-index:5;
- font-size:55px;
- font-weight:900;
- color:white;
- text-shadow:0 3px 15px #001b45;
 }
 
 /* PROGRESS RING */
@@ -327,56 +245,68 @@ body{
  width:170px;
  height:170px;
  transform:rotate(-90deg);
- z-index:6;
+ z-index:3;
  pointer-events:none;
 }
 
-.progress-bg,
-.progress-bar{
+.progress-svg circle{
  fill:none;
  cx:85;
  cy:85;
  r:81;
- stroke-width:3.5;
+ stroke-width:4;
 }
 
-.progress-bg{
- stroke:#ffffff25;
-}
+.progress-bg{stroke:#ffffff25}
 
 .progress-bar{
- stroke:#6df5ff;
+ stroke:#68eaff;
  stroke-linecap:round;
  stroke-dasharray:508.94;
  stroke-dashoffset:508.94;
  transition:stroke-dashoffset 1s linear;
- filter:drop-shadow(0 0 4px #35eaff);
+ filter:drop-shadow(0 0 4px #36dfff);
 }
 
-/* TEXT STATUS */
+/* NUMBER */
+
+.timer-number{
+ position:absolute;
+ inset:0;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ z-index:4;
+ font-size:53px;
+ font-weight:900;
+ color:white;
+ text-shadow:0 3px 15px #001b45;
+}
+
+/* STATUS */
 
 .status-title{
- font-size:20px;
+ font-size:19px;
  font-weight:900;
- color:#f1faff;
+ color:#f4f7ff;
 }
 
 .status-message{
  margin:8px 0 20px;
  font-size:16px;
- color:#c0d5e9;
+ color:#c2d3e8;
 }
 
 /* BUTTONS */
 
 .btn{
+ width:100%;
+ min-height:52px;
  display:flex;
  justify-content:center;
  align-items:center;
- width:100%;
- min-height:51px;
- margin-top:11px;
- border-radius:17px;
+ margin-top:12px;
+ border-radius:18px;
  text-decoration:none;
  font-size:17px;
  font-weight:bold;
@@ -384,74 +314,56 @@ body{
 }
 
 .btn-disabled{
- color:#d8f4ff;
- background:linear-gradient(110deg,#087da9,#394caa);
+ background:linear-gradient(110deg,#137eae,#4054b9);
+ color:#dceaff;
  opacity:.8;
  pointer-events:none;
 }
 
 .btn-ready{
+ background:linear-gradient(110deg,#087fce,#287df4,#8144e8);
  color:white;
- background:linear-gradient(
-  110deg,
-  #00a9c8,
-  #237cf0,
-  #7746e9
- );
- box-shadow:0 5px 25px #00cfff55;
+ box-shadow:0 6px 23px #338dff70;
 }
 
 .btn-telegram{
+ background:linear-gradient(110deg,#ffffff12,#9e4bdc35);
+ border:1px solid #c2ddff70;
  color:white;
- background:linear-gradient(110deg,#ffffff10,#a24bdc35);
- border:1px solid #b9dfff65;
 }
 
-.btn:active{
- transform:scale(.96);
-}
+.btn:active{transform:scale(.96)}
 
 .footer{
- margin-top:20px;
- color:#a9c8dc;
+ margin-top:19px;
+ color:#a7c0dc;
  font-size:13px;
  letter-spacing:1.5px;
-}
-
-@media(max-width:360px){
- .card{padding:22px 16px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="light blue"></div>
-<div class="light purple"></div>
-<div class="light cyan"></div>
-
-<div class="bubbles">
- <span></span>
- <span></span>
- <span></span>
- <span></span>
-</div>
-
 <div class="card">
 
- <!-- RUDRA MOVIES LOGO -->
+ <!-- ORIGINAL LOGO -->
 
  <div class="logo-wrapper">
   <img
    src="RudraMovies.png"
-   alt="Rudra Movies Logo"
+   alt="Rudra Movies"
    class="logo-img"
-   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-size:24px;font-weight:bold&quot;>RM</div>'"
+   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-weight:bold;font-size:24px&quot;>RM</div>'"
   >
  </div>
 
- <div class="brand-title">
-  RUDRA MOVIES
+ <!-- BRAND TITLE -->
+
+ <div class="brand-title">RUDRA MOVIES</div>
+
+ <div class="top-caption">
+  PREPARING YOUR DOWNLOAD LINK
  </div>
 
  <div class="security-badge">
@@ -459,14 +371,14 @@ body{
   LINK PREPARATION
  </div>
 
- <!-- 3D CIRCLE -->
+ <!-- COUNTDOWN -->
 
  <div class="timer-container">
 
   <div class="outer-ring"></div>
   <div class="second-ring"></div>
 
-  <div class="sphere">
+  <div class="inner-circle">
    <div class="water" id="water"></div>
   </div>
 
@@ -488,10 +400,10 @@ body{
  </div>
 
  <div class="status-message" id="status-msg">
-  PREPARING YOUR DOWNLOAD LINK...
+  PREPARING YOUR LINK...
  </div>
 
- <!-- REDIRECT BUTTON -->
+ <!-- REDIRECT -->
 
  <a id="action-btn"
     class="btn btn-disabled"
@@ -499,30 +411,24 @@ body{
   PLEASE WAIT...
  </a>
 
- <!-- TELEGRAM BUTTON -->
+ <!-- TELEGRAM -->
 
- <a
-  href="https://t.me/RudraMoviez"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="btn btn-telegram">
+ <a href="https://t.me/RudraMoviez"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn btn-telegram">
   ➤ ⚡ JOIN OFFICIAL CHANNEL ✨
  </a>
 
  <div class="footer">
-  ✦ RUDRA MOVIES EXPERIENCE ✦
+  ⚡ RUDRA MOVIES EXPERIENCE
  </div>
 
 </div>
 
 <script>
 
-/* READ REDIRECT URL */
-
-const params = new URLSearchParams(
- window.location.search
-);
-
+const params = new URLSearchParams(location.search);
 const rawRedirect = params.get("redirect");
 
 let targetRedirect = null;
@@ -536,8 +442,6 @@ try{
   }
  }
 }catch(e){}
-
-/* COUNTDOWN */
 
 const totalSeconds = 5;
 let seconds = totalSeconds;
@@ -558,55 +462,43 @@ const interval = setInterval(()=>{
  seconds--;
 
  const percentage =
-  (totalSeconds - seconds) / totalSeconds;
+  (totalSeconds-seconds)/totalSeconds;
 
- /* WATER FILL */
-
- water.style.height = (percentage * 85) + "%";
-
- /* CIRCULAR RING */
+ water.style.height = (percentage*85)+"%";
 
  progress.style.strokeDashoffset =
-  circumference - circumference * percentage;
+  circumference-(circumference*percentage);
 
- if(seconds > 0){
+ if(seconds>0){
 
-  timer.textContent = seconds;
+  timer.textContent=seconds;
+  button.textContent=`PLEASE WAIT (${seconds}s)`;
 
-  button.textContent =
-   `PLEASE WAIT (${seconds}s)`;
-
-  if(seconds <= 2){
-   status.textContent = "ALMOST READY...";
+  if(seconds<=2){
+   status.textContent="ALMOST READY...";
   }
 
  }else{
 
   clearInterval(interval);
 
-  timer.textContent = "✓";
-  water.style.height = "100%";
+  timer.textContent="✓";
+  water.style.height="100%";
 
   if(targetRedirect){
 
-   status.textContent =
-    "YOUR LINK IS READY!";
+   status.textContent="YOUR LINK IS READY!";
 
-   button.href = targetRedirect;
-
-   button.textContent =
-    "CONTINUE TO DESTINATION ➜";
+   button.href=targetRedirect;
+   button.textContent="CONTINUE TO DESTINATION ➜";
 
    button.classList.remove("btn-disabled");
    button.classList.add("btn-ready");
 
   }else{
 
-   status.textContent =
-    "LINK NOT AVAILABLE";
-
-   button.textContent =
-    "DIRECT LINK NOT FOUND";
+   status.textContent="LINK NOT AVAILABLE";
+   button.textContent="DIRECT LINK NOT FOUND";
 
   }
  }
