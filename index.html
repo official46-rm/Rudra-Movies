@@ -4,342 +4,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10152b">
 
 <title>PREPARING YOUR DOWNLOAD LINK...</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
- min-height:100vh;
- display:flex;
- justify-content:center;
- align-items:center;
- padding:18px;
- overflow:hidden;
- font-family:Arial,sans-serif;
- font-variant-caps:all-small-caps;
- color:white;
- background:
- radial-gradient(circle at 5% 15%,#008fc5 0%,transparent 35%),
- radial-gradient(circle at 95% 85%,#8528e9 0%,transparent 38%),
- linear-gradient(145deg,#101b32,#191a36,#101326);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* BACKGROUND GLOW */
-
-body:before,body:after{
- content:"";
- position:fixed;
- width:230px;
- height:230px;
- border-radius:50%;
- filter:blur(100px);
- opacity:.35;
- pointer-events:none;
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 50% 35%, #142e49 0%, transparent 42%),
+        linear-gradient(145deg, #050b17, #091629 55%, #050914);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-body:before{
- background:#00c8ff;
- top:0;left:-100px;
+.card {
+    width: 100%;
+    max-width: 355px;
+    padding: 27px 22px 25px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(66, 220, 255, .25);
+    border-radius: 25px;
+    background: linear-gradient(
+        145deg,
+        rgba(17, 37, 59, .97),
+        rgba(7, 17, 34, .98)
+    );
+    box-shadow:
+        0 0 35px rgba(0, 190, 255, .10),
+        0 20px 60px rgba(0, 0, 0, .45);
 }
 
-body:after{
- background:#a52dff;
- bottom:0;right:-100px;
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 9px;
+    filter: drop-shadow(0 0 12px rgba(0, 210, 255, .4));
 }
 
-/* CARD */
-
-.card{
- width:100%;
- max-width:350px;
- padding:24px 19px;
- text-align:center;
- position:relative;
- z-index:2;
- border-radius:30px;
- background:linear-gradient(
-  145deg,
-  rgba(18,130,195,.36),
-  rgba(24,31,61,.85),
-  rgba(117,35,163,.35)
- );
- border:1px solid #b6dfff75;
- backdrop-filter:blur(24px);
- -webkit-backdrop-filter:blur(24px);
- box-shadow:
- 0 20px 55px #0008,
- inset 0 0 25px #ffffff10,
- 0 0 25px #469aff25;
+.brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #fff, #4de5ff, #a48aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* LOGO */
-
-.logo-wrapper{
- display:flex;
- justify-content:center;
- margin-bottom:13px;
+.subtitle {
+    margin-top: 7px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #83a9c4;
+    font-weight: 600;
 }
 
-.logo-img{
- width:78px;
- height:78px;
- border-radius:50%;
- object-fit:cover;
- background:#101b32;
- border:3px solid #80ddff;
- box-shadow:
- 0 0 12px #00cfff90,
- 0 0 25px #478cff70;
+.divider {
+    width: 65px;
+    height: 2px;
+    margin: 18px auto;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00d9ff, #8d68ff);
+    box-shadow: 0 0 12px #00d9ff;
 }
 
-.brand-title{
- font-size:25px;
- font-weight:900;
- letter-spacing:2px;
- color:#f5f8ff;
- text-shadow:0 2px 12px #0008;
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #d9f8ff;
+    margin-bottom: 7px;
 }
 
-/* SMALL TOP TEXT */
-
-.top-caption{
- font-size:11px;
- letter-spacing:2px;
- color:#9bc9e9;
- margin-top:6px;
+.description {
+    color: #8199b1;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 23px;
 }
 
-/* BADGE */
+/* COUNTDOWN CIRCLE */
 
-.security-badge{
- display:inline-flex;
- align-items:center;
- gap:8px;
- margin-top:13px;
- padding:8px 15px;
- border-radius:30px;
- background:#14b9ff18;
- border:1px solid #42caff70;
- color:#71d8ff;
- font-size:13px;
+.timer-wrap {
+    width: 166px;
+    height: 166px;
+    margin: 0 auto 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.security-badge span{
- width:8px;
- height:8px;
- border-radius:50%;
- background:#32e9b4;
- box-shadow:0 0 10px #32e9b4;
+.outer-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 211, 255, .2);
+    box-shadow:
+        0 0 18px rgba(0, 211, 255, .17),
+        inset 0 0 18px rgba(0, 211, 255, .08);
 }
 
-/* ROUND COUNTDOWN */
-
-.timer-container{
- width:170px;
- height:170px;
- margin:28px auto;
- position:relative;
- display:flex;
- justify-content:center;
- align-items:center;
+.orbit {
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 2px dashed rgba(86, 220, 255, .65);
+    animation: rotate 12s linear infinite;
 }
 
-/* DOTTED RING */
-
-.outer-ring{
- position:absolute;
- inset:0;
- border-radius:50%;
- border:2px dashed #50cfff85;
- animation:rotate 16s linear infinite;
+@keyframes rotate {
+    to { transform: rotate(360deg); }
 }
 
-.second-ring{
- position:absolute;
- inset:8px;
- border-radius:50%;
- border:3px solid #4caaff;
- border-left-color:transparent;
- border-bottom-color:#ad55ff;
- animation:reverse 5s linear infinite;
+.inner-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #091a2e;
+    border: 2px solid rgba(75, 221, 255, .65);
+    box-shadow:
+        0 0 22px rgba(0, 204, 255, .28),
+        inset 0 0 20px rgba(0, 0, 0, .7);
 }
 
-@keyframes rotate{
- to{transform:rotate(360deg)}
+.water {
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+    width: 200%;
+    height: 0%;
+    background: linear-gradient(
+        180deg,
+        rgba(105, 236, 255, .85),
+        #087bca 60%,
+        #1746a6
+    );
+    transition: height 1s linear;
+    box-shadow: 0 -5px 18px rgba(0, 220, 255, .5);
 }
 
-@keyframes reverse{
- to{transform:rotate(-360deg)}
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 22px;
+    top: -13px;
+    left: 0;
+    border-radius: 40%;
+    background: rgba(103, 234, 255, .85);
+    animation: wave 4s linear infinite;
 }
 
-/* LIQUID CIRCLE */
-
-.inner-circle{
- position:absolute;
- width:138px;
- height:138px;
- border-radius:50%;
- overflow:hidden;
- background:linear-gradient(145deg,#172d4c,#111c39);
- border:5px solid #76d9ff;
- box-shadow:
- inset 0 0 20px #0009,
- 0 0 0 5px #348cff25,
- 0 0 25px #20baff70;
+.wave.two {
+    top: -9px;
+    left: -50%;
+    opacity: .45;
+    animation-duration: 6s;
 }
 
-.water{
- position:absolute;
- bottom:0;
- left:0;
- width:100%;
- height:0%;
- background:linear-gradient(
-  180deg,#39dfff,#1198ec,#5347e5
- );
- transition:height 1s ease;
+@keyframes wave {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.water:before{
- content:"";
- position:absolute;
- top:-12px;
- left:-50%;
- width:200%;
- height:24px;
- border-radius:50%;
- background:#e6ffffa0;
- animation:wave 3s linear infinite;
+.timer-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 0 2px 8px #00101d;
 }
 
-.water:after{
- content:"";
- position:absolute;
- top:20px;
- left:25%;
- width:10px;
- height:10px;
- border-radius:50%;
- background:#ffffffa0;
- box-shadow:30px 20px 0 #ffffff70,
- 65px 8px 0 #ffffff50;
- animation:rise 2s infinite;
+#timer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 43px;
+    font-weight: 800;
+    color: #fff;
 }
 
-@keyframes wave{
- to{transform:rotate(360deg)}
+.seconds {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #d4f7ff;
+    margin-top: 2px;
 }
 
-@keyframes rise{
- 0%,100%{transform:translateY(8px);opacity:.3}
- 50%{transform:translateY(-12px);opacity:1}
+.status {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 220, 255, .3);
+    background: rgba(0, 190, 255, .08);
+    color: #70eaff;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 19px;
 }
 
-/* PROGRESS RING */
-
-.progress-svg{
- position:absolute;
- width:170px;
- height:170px;
- transform:rotate(-90deg);
- z-index:3;
- pointer-events:none;
+.action-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 10px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #03101c;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background: linear-gradient(100deg, #51eaff, #8a9aff);
+    box-shadow: 0 0 20px rgba(0, 210, 255, .23);
+    transition: .3s;
+    opacity: .55;
+    pointer-events: none;
 }
 
-.progress-svg circle{
- fill:none;
- cx:85;
- cy:85;
- r:81;
- stroke-width:4;
+.action-btn.ready {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.progress-bg{stroke:#ffffff25}
-
-.progress-bar{
- stroke:#68eaff;
- stroke-linecap:round;
- stroke-dasharray:508.94;
- stroke-dashoffset:508.94;
- transition:stroke-dashoffset 1s linear;
- filter:drop-shadow(0 0 4px #36dfff);
+.action-btn.ready:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(0, 210, 255, .5);
 }
 
-/* NUMBER */
-
-.timer-number{
- position:absolute;
- inset:0;
- display:flex;
- justify-content:center;
- align-items:center;
- z-index:4;
- font-size:53px;
- font-weight:900;
- color:white;
- text-shadow:0 3px 15px #001b45;
+.footer {
+    margin-top: 19px;
+    color: #627e98;
+    font-size: 8px;
+    letter-spacing: 1.5px;
 }
 
-/* STATUS */
-
-.status-title{
- font-size:19px;
- font-weight:900;
- color:#f4f7ff;
+.telegram {
+    display: inline-block;
+    margin-top: 12px;
+    color: #69dfff;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-decoration: none;
 }
 
-.status-message{
- margin:8px 0 20px;
- font-size:16px;
- color:#c2d3e8;
-}
-
-/* BUTTONS */
-
-.btn{
- width:100%;
- min-height:52px;
- display:flex;
- justify-content:center;
- align-items:center;
- margin-top:12px;
- border-radius:18px;
- text-decoration:none;
- font-size:17px;
- font-weight:bold;
- transition:.3s;
-}
-
-.btn-disabled{
- background:linear-gradient(110deg,#137eae,#4054b9);
- color:#dceaff;
- opacity:.8;
- pointer-events:none;
-}
-
-.btn-ready{
- background:linear-gradient(110deg,#087fce,#287df4,#8144e8);
- color:white;
- box-shadow:0 6px 23px #338dff70;
-}
-
-.btn-telegram{
- background:linear-gradient(110deg,#ffffff12,#9e4bdc35);
- border:1px solid #c2ddff70;
- color:white;
-}
-
-.btn:active{transform:scale(.96)}
-
-.footer{
- margin-top:19px;
- color:#a7c0dc;
- font-size:13px;
- letter-spacing:1.5px;
-}
 </style>
 </head>
 
@@ -347,163 +274,127 @@ body:after{
 
 <div class="card">
 
- <!-- ORIGINAL LOGO -->
+    <!-- BRAND LOGO -->
+    <img src="RudraMovies.png" class="logo" alt="Rudra Movies Logo">
 
- <div class="logo-wrapper">
-  <img
-   src="RudraMovies.png"
-   alt="Rudra Movies"
-   class="logo-img"
-   onerror="this.outerHTML='<div class=&quot;logo-img&quot; style=&quot;display:grid;place-items:center;font-weight:bold;font-size:24px&quot;>RM</div>'"
-  >
- </div>
+    <div class="brand">RUDRA MOVIES</div>
 
- <!-- BRAND TITLE -->
+    <div class="subtitle">YOUR CINEMATIC DESTINATION</div>
 
- <div class="brand-title">RUDRA MOVIES</div>
+    <div class="divider"></div>
 
- <div class="top-caption">
-  PREPARING YOUR DOWNLOAD LINK
- </div>
+    <div class="section-title">LINK PREPARATION</div>
 
- <div class="security-badge">
-  <span></span>
-  LINK PREPARATION
- </div>
+    <div class="description">
+        PLEASE WAIT WHILE WE PREPARE YOUR LINK
+    </div>
 
- <!-- COUNTDOWN -->
+    <!-- COUNTDOWN -->
+    <div class="timer-wrap">
 
- <div class="timer-container">
+        <div class="outer-ring"></div>
+        <div class="orbit"></div>
 
-  <div class="outer-ring"></div>
-  <div class="second-ring"></div>
+        <div class="inner-circle">
 
-  <div class="inner-circle">
-   <div class="water" id="water"></div>
-  </div>
+            <div class="water" id="water">
+                <div class="wave"></div>
+                <div class="wave two"></div>
+            </div>
 
-  <svg class="progress-svg" viewBox="0 0 170 170">
-   <circle class="progress-bg"
-    cx="85" cy="85" r="81"/>
+            <div class="timer-content">
+                <div id="timer">5</div>
+                <div class="seconds">SECONDS</div>
+            </div>
 
-   <circle class="progress-bar"
-    id="progress-bar"
-    cx="85" cy="85" r="81"/>
-  </svg>
+        </div>
+    </div>
 
-  <div class="timer-number" id="timer">5</div>
+    <div class="status" id="status">
+        PREPARING YOUR LINK...
+    </div>
 
- </div>
+    <a href="#" id="actionBtn" class="action-btn">
+        PLEASE WAIT...
+    </a>
 
- <div class="status-title">
-  DOWNLOAD STATUS
- </div>
+    <div class="footer">
+        FAST • SIMPLE • CINEMATIC
+    </div>
 
- <div class="status-message" id="status-msg">
-  PREPARING YOUR LINK...
- </div>
-
- <!-- REDIRECT -->
-
- <a id="action-btn"
-    class="btn btn-disabled"
-    href="#">
-  PLEASE WAIT...
- </a>
-
- <!-- TELEGRAM -->
-
- <a href="https://t.me/RudraMoviez"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-telegram">
-  ➤ ⚡ JOIN OFFICIAL CHANNEL ✨
- </a>
-
- <div class="footer">
-  ⚡ RUDRA MOVIES EXPERIENCE
- </div>
+    <a class="telegram"
+       href="https://t.me/RudraMoviez"
+       target="_blank"
+       rel="noopener noreferrer">
+       JOIN OUR TELEGRAM CHANNEL
+    </a>
 
 </div>
 
 <script>
 
-const params = new URLSearchParams(location.search);
-const rawRedirect = params.get("redirect");
+const timerElement = document.getElementById("timer");
+const water = document.getElementById("water");
+const status = document.getElementById("status");
+const actionBtn = document.getElementById("actionBtn");
+
+const params = new URLSearchParams(window.location.search);
+const redirectValue = params.get("redirect");
 
 let targetRedirect = null;
 
-try{
- if(rawRedirect){
-  const parsed = new URL(rawRedirect);
+if (redirectValue) {
+    try {
+        const parsed = new URL(redirectValue);
 
-  if(parsed.protocol === "https:"){
-   targetRedirect = parsed.href;
-  }
- }
-}catch(e){}
+        if (parsed.protocol === "https:") {
+            targetRedirect = parsed.href;
+        }
+    } catch (error) {
+        targetRedirect = null;
+    }
+}
 
-const totalSeconds = 5;
-let seconds = totalSeconds;
+let currentSeconds = 5;
 
-const timer = document.getElementById("timer");
-const water = document.getElementById("water");
-const status = document.getElementById("status-msg");
-const button = document.getElementById("action-btn");
-const progress = document.getElementById("progress-bar");
+function updateTimer() {
 
-const circumference = 2 * Math.PI * 81;
+    timerElement.innerText = currentSeconds;
 
-progress.style.strokeDasharray = circumference;
-progress.style.strokeDashoffset = circumference;
+    const progress = ((5 - currentSeconds) / 5) * 100;
+    water.style.height = progress + "%";
 
-const interval = setInterval(()=>{
+    if (currentSeconds > 0) {
+        currentSeconds--;
+        setTimeout(updateTimer, 1000);
+    } else {
+        finishPreparation();
+    }
+}
 
- seconds--;
+function finishPreparation() {
 
- const percentage =
-  (totalSeconds-seconds)/totalSeconds;
+    timerElement.innerText = "✓";
+    water.style.height = "100%";
 
- water.style.height = (percentage*85)+"%";
+    if (targetRedirect) {
 
- progress.style.strokeDashoffset =
-  circumference-(circumference*percentage);
+        status.innerText = "YOUR LINK IS READY";
 
- if(seconds>0){
+        actionBtn.innerText = "DOWNLOAD NOW";
+        actionBtn.href = targetRedirect;
+        actionBtn.classList.add("ready");
 
-  timer.textContent=seconds;
-  button.textContent=`PLEASE WAIT (${seconds}s)`;
+    } else {
 
-  if(seconds<=2){
-   status.textContent="ALMOST READY...";
-  }
+        status.innerText = "DIRECT LINK NOT FOUND";
 
- }else{
+        actionBtn.innerText = "LINK UNAVAILABLE";
+        actionBtn.removeAttribute("href");
+    }
+}
 
-  clearInterval(interval);
-
-  timer.textContent="✓";
-  water.style.height="100%";
-
-  if(targetRedirect){
-
-   status.textContent="YOUR LINK IS READY!";
-
-   button.href=targetRedirect;
-   button.textContent="CONTINUE TO DESTINATION ➜";
-
-   button.classList.remove("btn-disabled");
-   button.classList.add("btn-ready");
-
-  }else{
-
-   status.textContent="LINK NOT AVAILABLE";
-   button.textContent="DIRECT LINK NOT FOUND";
-
-  }
- }
-
-},1000);
+updateTimer();
 
 </script>
 
