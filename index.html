@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PREPARING YOUR DOWNLOAD LINK...</title>
+
+<title>PREPARING YOUR DOWNLOAD...</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -20,41 +21,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 18px;
+    padding: 25px 15px;
     background:
-        radial-gradient(ellipse at 50% 40%, #142e50 0%, transparent 55%),
-        linear-gradient(135deg, #030814, #0a192c, #030814);
-    font-family: 'Poppins', sans-serif;
+        radial-gradient(ellipse at 50% 40%, #102b48 0%, transparent 55%),
+        linear-gradient(145deg, #030b19, #0b1c30, #030b19);
     color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* MAIN CARD */
 
 .card {
     width: 100%;
-    max-width: 340px;
-    padding: 25px 22px;
+    max-width: 545px;
+    padding: 40px 34px;
     text-align: center;
-    border-radius: 25px;
-    background: linear-gradient(145deg, #122840, #071323);
-    border: 1px solid rgba(60, 220, 255, .28);
+    border-radius: 34px;
+    background: linear-gradient(145deg, #112941, #081629);
+    border: 1px solid rgba(65, 218, 255, .27);
     box-shadow:
-        0 0 35px rgba(0, 195, 255, .13),
-        0 20px 55px rgba(0, 0, 0, .5);
+        0 0 35px rgba(0, 190, 255, .09),
+        0 25px 65px rgba(0, 0, 0, .4);
 }
 
 /* ROUND LOGO */
 
 .logo-box {
-    width: 82px;
-    height: 82px;
-    margin: 0 auto 12px;
-    padding: 4px;
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 20px;
+    padding: 5px;
     border-radius: 50%;
-    border: 2px solid #42dfff;
+    background: #07182a;
+    border: 3px solid #40ddff;
     box-shadow:
-        0 0 12px rgba(0, 215, 255, .6),
-        0 0 28px rgba(0, 150, 255, .25);
+        0 0 13px #20d9ff,
+        0 0 30px rgba(0, 195, 255, .35);
     overflow: hidden;
 }
 
@@ -63,135 +65,203 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
 }
 
 .brand {
     font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
+    font-size: clamp(22px, 5vw, 34px);
     font-weight: 800;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #ffffff, #53eaff, #a58bff);
+    background: linear-gradient(90deg, #d8fbff, #46ddff, #a18cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .tagline {
-    margin-top: 6px;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #8caec7;
+    margin-top: 9px;
+    color: #91aabe;
+    font-size: 12px;
+    letter-spacing: 3px;
 }
 
-.line {
-    width: 65px;
-    height: 2px;
-    margin: 18px auto;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #28dfff, #967aff);
-    box-shadow: 0 0 10px #28dfff;
+.divider {
+    width: 105px;
+    height: 3px;
+    margin: 28px auto;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #32e2ff, #a17cff);
+    box-shadow: 0 0 12px #34dfff;
 }
 
 .heading {
     font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 2px;
-    color: #e4faff;
+    color: #e1faff;
 }
 
 .description {
-    margin-top: 8px;
-    margin-bottom: 24px;
-    font-size: 9px;
-    letter-spacing: 1px;
-    color: #91a9bd;
+    margin-top: 12px;
+    margin-bottom: 34px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #9aafc2;
 }
 
-/* PERFECT ROUND COUNTDOWN */
+/* PREMIUM COUNTDOWN CIRCLE */
 
 .timer-wrap {
-    width: 170px;
-    height: 170px;
-    margin: 0 auto 22px;
+    width: 300px;
+    height: 300px;
+    max-width: 85vw;
+    max-height: 85vw;
+    margin: 0 auto 32px;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     border-radius: 50%;
 }
 
-.ring {
+/* OUTER DOTTED RING */
+
+.timer-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: 3px dashed rgba(65, 222, 255, .75);
+    border-radius: 50%;
+    animation: orbit 18s linear infinite;
+    filter: drop-shadow(0 0 5px #31dfff);
+}
+
+@keyframes orbit {
+    to { transform: rotate(360deg); }
+}
+
+/* OUTER GLOW */
+
+.timer-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 2px solid rgba(45, 212, 255, .28);
+    border-radius: 50%;
+    box-shadow:
+        0 0 18px rgba(0, 202, 255, .17),
+        inset 0 0 15px rgba(0, 202, 255, .12);
+}
+
+/* SVG PROGRESS RING */
+
+.progress-svg {
     position: absolute;
     inset: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(57, 220, 255, .35);
-    box-shadow:
-        0 0 15px rgba(0, 207, 255, .35),
-        inset 0 0 15px rgba(0, 207, 255, .1);
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 2;
+    overflow: visible;
 }
 
-.orbit {
-    position: absolute;
-    inset: -7px;
-    border-radius: 50%;
-    border: 2px dashed rgba(78, 223, 255, .7);
-    animation: spin 12s linear infinite;
+.progress-bg,
+.progress-bar {
+    fill: none;
+    stroke-width: 3;
 }
 
-@keyframes spin {
-    100% { transform: rotate(360deg); }
+.progress-bg {
+    stroke: rgba(65, 220, 255, .18);
 }
+
+.progress-bar {
+    stroke: #47e6ff;
+    stroke-linecap: round;
+    stroke-dasharray: 490.1;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 7px #27dfff);
+    transition: stroke-dashoffset 1s linear;
+}
+
+/* INNER WATER CIRCLE */
 
 .circle {
-    width: 142px;
-    height: 142px;
+    width: 230px;
+    height: 230px;
+    max-width: 65vw;
+    max-height: 65vw;
     border-radius: 50%;
-    overflow: hidden;
     position: relative;
-    background: #06182c;
-    border: 2px solid #42dfff;
+    overflow: hidden;
+    background: #07192d;
+    border: 3px solid #42e1ff;
     box-shadow:
-        0 0 20px rgba(0, 200, 255, .4),
-        inset 0 0 20px rgba(0, 0, 0, .8);
+        0 0 20px rgba(0, 207, 255, .4),
+        0 0 45px rgba(0, 175, 255, .16),
+        inset 0 0 22px rgba(0, 0, 0, .65);
+    z-index: 1;
 }
 
-/* WATER FILL */
+/* WATER */
 
 .water {
     position: absolute;
-    width: 200%;
-    height: 0%;
     left: -50%;
     bottom: 0;
+    width: 200%;
+    height: 0%;
     background: linear-gradient(
         180deg,
-        #6ef0ff,
-        #13a9e9 45%,
-        #164fba
+        #68efff 0%,
+        #20c8f4 35%,
+        #078bd8 68%,
+        #174cb8 100%
     );
     transition: height 1s linear;
 }
 
+/* WATER WAVES */
+
 .wave {
     position: absolute;
     width: 200%;
-    height: 24px;
-    top: -13px;
+    height: 30px;
+    top: -15px;
     left: 0;
     border-radius: 40%;
-    background: rgba(115, 240, 255, .9);
-    animation: wave 3.5s linear infinite;
+    background: rgba(133, 243, 255, .9);
+    animation: waveMove 4s linear infinite;
 }
 
-.wave.second {
+.wave.two {
     left: -50%;
-    top: -9px;
-    opacity: .45;
-    animation-duration: 5s;
+    top: -11px;
+    opacity: .4;
+    animation-duration: 6s;
 }
 
-@keyframes wave {
+@keyframes waveMove {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+/* LIGHT REFLECTION */
+
+.circle::after {
+    content: "";
+    position: absolute;
+    top: -15%;
+    left: 15%;
+    width: 100%;
+    height: 65%;
+    transform: rotate(35deg);
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.20),
+        transparent
+    );
+    pointer-events: none;
 }
 
 /* TIMER TEXT */
@@ -204,35 +274,35 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-shadow: 0 2px 10px rgba(0, 20, 40, .7);
 }
 
 #timer {
     font-family: 'Orbitron', sans-serif;
-    font-size: 44px;
+    font-size: 72px;
     font-weight: 800;
-    color: white;
-    text-shadow: 0 2px 10px #00101e;
+    color: #fff;
 }
 
 .seconds {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: white;
-    text-shadow: 0 2px 8px #00101e;
+    margin-top: 4px;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #fff;
 }
 
 /* STATUS */
 
 .status {
     display: inline-block;
-    padding: 8px 17px;
-    border-radius: 30px;
-    background: rgba(0, 200, 255, .08);
-    border: 1px solid rgba(55, 220, 255, .4);
-    color: #6deaff;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    margin-bottom: 19px;
+    padding: 13px 28px;
+    border: 1px solid rgba(58, 220, 255, .45);
+    border-radius: 35px;
+    background: rgba(0, 190, 255, .06);
+    color: #7beaff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
 /* DOWNLOAD BUTTON */
@@ -240,19 +310,19 @@ body {
 .action-btn {
     display: block;
     width: 100%;
-    padding: 14px;
-    border-radius: 12px;
+    padding: 19px 12px;
+    border-radius: 17px;
     text-decoration: none;
-    background: linear-gradient(100deg, #42e7ff, #8b9dff);
-    color: #061323;
+    color: #061527;
+    background: linear-gradient(100deg, #42eaff, #8c9aff);
     font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 22px rgba(0, 205, 255, .22);
     opacity: .5;
     pointer-events: none;
     transition: .3s;
-    box-shadow: 0 0 15px rgba(0, 210, 255, .2);
 }
 
 .action-btn.ready {
@@ -261,24 +331,53 @@ body {
 }
 
 .action-btn.ready:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(0, 210, 255, .5);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 210, 255, .5);
 }
 
 .footer {
-    margin-top: 19px;
-    color: #68849e;
-    font-size: 8px;
-    letter-spacing: 1.5px;
+    margin-top: 30px;
+    color: #718ca5;
+    font-size: 11px;
+    letter-spacing: 3px;
 }
 
 .telegram {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 22px;
+    color: #77e4ff;
+    font-size: 12px;
+    letter-spacing: 1.5px;
     text-decoration: none;
-    color: #69ddff;
-    font-size: 9px;
-    letter-spacing: 1px;
+}
+
+@media (max-width: 420px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    .logo-box {
+        width: 105px;
+        height: 105px;
+    }
+
+    .timer-wrap {
+        width: 260px;
+        height: 260px;
+    }
+
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    #timer {
+        font-size: 60px;
+    }
+
+    .heading {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
@@ -288,30 +387,53 @@ body {
 <div class="card">
 
     <div class="logo-box">
-        <img src="RudraMovies.png" class="logo" alt="Rudra Movies">
+        <img src="RudraMovies.png"
+             class="logo"
+             alt="Rudra Movies Logo">
     </div>
 
     <div class="brand">RUDRA MOVIES</div>
-    <div class="tagline">YOUR CINEMATIC DESTINATION</div>
 
-    <div class="line"></div>
+    <div class="tagline">
+        YOUR CINEMATIC DESTINATION
+    </div>
 
-    <div class="heading">LINK PREPARATION</div>
+    <div class="divider"></div>
+
+    <div class="heading">
+        LINK PREPARATION
+    </div>
 
     <div class="description">
         PLEASE WAIT WHILE WE PREPARE YOUR LINK
     </div>
 
+    <!-- COUNTDOWN CIRCLE -->
+
     <div class="timer-wrap">
 
-        <div class="ring"></div>
-        <div class="orbit"></div>
+        <svg class="progress-svg" viewBox="0 0 190 190">
+            <circle
+                class="progress-bg"
+                cx="95"
+                cy="95"
+                r="78"
+            />
+
+            <circle
+                class="progress-bar"
+                id="progressBar"
+                cx="95"
+                cy="95"
+                r="78"
+            />
+        </svg>
 
         <div class="circle">
 
             <div class="water" id="water">
                 <div class="wave"></div>
-                <div class="wave second"></div>
+                <div class="wave two"></div>
             </div>
 
             <div class="timer-content">
@@ -320,13 +442,16 @@ body {
             </div>
 
         </div>
+
     </div>
 
     <div class="status" id="status">
         PREPARING YOUR LINK...
     </div>
 
-    <a href="#" class="action-btn" id="actionBtn">
+    <a href="#"
+       class="action-btn"
+       id="actionBtn">
         PLEASE WAIT...
     </a>
 
@@ -346,6 +471,7 @@ body {
 <script>
 const timer = document.getElementById("timer");
 const water = document.getElementById("water");
+const progress = document.getElementById("progressBar");
 const status = document.getElementById("status");
 const button = document.getElementById("actionBtn");
 
@@ -356,43 +482,59 @@ let safeLink = null;
 
 if (redirect) {
     try {
-        const url = new URL(redirect);
+        const parsedURL = new URL(redirect);
 
-        if (url.protocol === "https:") {
-            safeLink = url.href;
+        if (parsedURL.protocol === "https:") {
+            safeLink = parsedURL.href;
         }
     } catch (error) {
         safeLink = null;
     }
 }
 
-let seconds = 5;
+let count = 5;
+
+const circumference = 2 * Math.PI * 78;
+
+progress.style.strokeDasharray = circumference;
+progress.style.strokeDashoffset = 0;
 
 function countdown() {
-    timer.textContent = seconds;
 
-    const fill = ((5 - seconds) / 5) * 100;
-    water.style.height = fill + "%";
+    timer.textContent = count;
 
-    if (seconds > 0) {
-        seconds--;
+    const percentage = (5 - count) / 5;
+
+    water.style.height = (percentage * 100) + "%";
+
+    progress.style.strokeDashoffset =
+        circumference * percentage;
+
+    if (count > 0) {
+        count--;
         setTimeout(countdown, 1000);
     } else {
-        complete();
+        finishPreparation();
     }
 }
 
-function complete() {
+function finishPreparation() {
+
     timer.textContent = "✓";
     water.style.height = "100%";
 
     if (safeLink) {
+
         status.textContent = "YOUR LINK IS READY";
+
         button.textContent = "DOWNLOAD NOW";
         button.href = safeLink;
         button.classList.add("ready");
+
     } else {
+
         status.textContent = "DIRECT LINK NOT FOUND";
+
         button.textContent = "LINK UNAVAILABLE";
         button.removeAttribute("href");
     }
