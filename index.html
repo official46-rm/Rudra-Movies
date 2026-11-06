@@ -1,190 +1,804 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b1d">
-<title>RUDRA MOVIES | PREPARING YOUR DOWNLOAD LINK...</title>
+<meta name="theme-color" content="#071426">
+
+<title>RUDRA MOVIES | PREPARING YOUR LINK...</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--cyan:#37e4ff;--blue:#168df5;--purple:#9d45ed;--pink:#ef4bd0}
-body{
- min-height:100svh;display:flex;align-items:center;justify-content:center;
- padding:26px 14px;color:#fff;font-family:Poppins,Arial,sans-serif;overflow-x:hidden;
- background:
-  radial-gradient(ellipse at 12% 24%,rgba(0,176,255,.58),transparent 34%),
-  radial-gradient(ellipse at 91% 34%,rgba(231,47,193,.43),transparent 34%),
-  radial-gradient(ellipse at 78% 92%,rgba(121,37,230,.50),transparent 35%),
-  linear-gradient(145deg,#07172c 0%,#10132b 52%,#09091b 100%);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body:before,body:after{content:"";position:fixed;width:230px;height:230px;border-radius:50%;filter:blur(85px);opacity:.38;pointer-events:none;z-index:-1}
-body:before{left:-125px;top:14%;background:#00bfff}
-body:after{right:-120px;bottom:7%;background:#df31db}
-.page{width:min(100%,390px);display:flex;justify-content:center}
-.panel{
- width:100%;position:relative;overflow:hidden;text-align:center;
- padding:27px 19px 18px;border-radius:22px;
- background:linear-gradient(135deg,rgba(63,147,198,.34),rgba(39,43,88,.52) 48%,rgba(161,48,166,.35));
- border:1px solid rgba(190,219,255,.46);
- box-shadow:0 18px 55px rgba(0,0,0,.46),0 0 28px rgba(35,191,255,.18),0 0 32px rgba(224,54,208,.14),inset 0 1px 0 rgba(255,255,255,.22);
- backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)
+
+:root {
+    --cyan: #42eaff;
+    --blue: #238cff;
+    --purple: #984cff;
+    --pink: #ed54d5;
 }
-.panel:before{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,transparent,#a9f5ff,#f6a8ef,transparent)}
-.logo{
- width:49px;height:49px;margin:0 auto 9px;border-radius:50%;display:grid;place-items:center;
- background:radial-gradient(circle at 35% 25%,#252b42,#050711 72%);
- border:1px solid rgba(255,255,255,.45);box-shadow:0 0 12px rgba(50,220,255,.2),inset 0 0 12px rgba(255,255,255,.08);
- font:800 8px Orbitron,sans-serif;line-height:1.35;letter-spacing:.4px;color:#f5fbff;text-align:center
+
+body {
+    min-height: 100vh;
+    padding: 24px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        radial-gradient(ellipse at 10% 20%,
+            rgba(0,190,255,.48), transparent 35%),
+        radial-gradient(ellipse at 95% 75%,
+            rgba(220,45,220,.38), transparent 36%),
+        radial-gradient(ellipse at 75% 5%,
+            rgba(90,65,190,.25), transparent 35%),
+        linear-gradient(145deg,
+            #071426 0%, #11182d 55%, #090d20 100%);
 }
-.logo span{display:block;color:#8eefff;font-size:7px}
-.brand{font:800 16px Orbitron,sans-serif;letter-spacing:1.35px;color:#f4fbff;text-shadow:0 0 12px rgba(74,218,255,.32)}
-.tagline{margin-top:5px;font-size:8px;letter-spacing:1.25px;color:#b8d6e9}
-.verified{
- display:inline-flex;align-items:center;gap:6px;margin:11px auto 0;padding:5px 11px;border-radius:20px;
- color:#9ff5ef;background:rgba(22,190,181,.12);border:1px solid rgba(65,231,213,.36);
- font-size:7px;letter-spacing:1px;text-transform:uppercase
+
+/* BACKGROUND GLOW */
+
+.glow {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    filter: blur(85px);
+    opacity: .35;
+    pointer-events: none;
+    z-index: -1;
 }
-.verified .dot{width:5px;height:5px;border-radius:50%;background:#42f4d6;box-shadow:0 0 8px #42f4d6}
-.timer-wrap{width:112px;height:112px;position:relative;margin:22px auto 17px;display:grid;place-items:center}
-.dots{position:absolute;inset:0;border-radius:50%;border:1.5px dotted rgba(116,222,255,.76);animation:spin 15s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ring{position:absolute;inset:5px;border-radius:50%;border:2px solid rgba(80,187,255,.23);box-shadow:0 0 12px rgba(36,178,255,.13)}
-svg.progress{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
-.track,.bar{fill:none;stroke-width:3.2}
-.track{stroke:rgba(116,204,255,.12)}
-.bar{stroke:url(#grad);stroke-linecap:round;stroke-dasharray:326.73;stroke-dashoffset:0;filter:drop-shadow(0 0 4px rgba(43,217,255,.8));transition:stroke-dashoffset 1s linear}
-.core{
- position:relative;width:87px;height:87px;border-radius:50%;overflow:hidden;display:grid;place-items:center;
- background:radial-gradient(circle at 33% 22%,#66778a 0%,#31445b 34%,#15233b 72%,#080f20 100%);
- border:2px solid rgba(137,215,255,.72);
- box-shadow:0 0 0 4px rgba(49,157,226,.12),0 0 17px rgba(34,194,255,.28),inset 0 5px 12px rgba(255,255,255,.17),inset 0 -10px 16px rgba(0,0,0,.6)
+
+.glow.cyan {
+    top: 8%;
+    left: -110px;
+    background: #00d9ff;
 }
-.core:after{content:"";position:absolute;left:10px;top:6px;width:64px;height:33px;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.22),transparent);pointer-events:none;z-index:3}
-.water{position:absolute;left:-50%;bottom:0;width:200%;height:0;background:linear-gradient(180deg,#a5ffb4 0%,#35e878 18%,#08b957 52%,#087b48 100%);box-shadow:inset 0 7px 12px rgba(230,255,231,.48),inset 0 -10px 15px rgba(0,47,30,.42),0 -3px 12px rgba(63,255,135,.28);transition:none}
-.wave{position:absolute;top:-9px;left:0;width:200%;height:17px;border-radius:42%;background:linear-gradient(180deg,rgba(224,255,224,.96),rgba(111,255,156,.82) 48%,rgba(22,202,94,.42));box-shadow:0 0 10px rgba(101,255,145,.65);animation:wave 3.2s linear infinite}
-.wave.alt{left:-55%;top:-5px;opacity:.42;animation-duration:5.1s;filter:blur(1px)}
-@keyframes wave{to{transform:rotate(360deg)}}
-.number{position:relative;z-index:2;font:800 31px Orbitron,sans-serif;text-shadow:0 2px 8px #000}
-.sec{position:relative;z-index:2;font-size:6px;letter-spacing:2px;margin-top:-22px;color:#e2f7ff}
-.section-title{font:700 9px Orbitron,sans-serif;letter-spacing:1px;color:#f2f7ff;margin-top:1px}
-.status-copy{font-size:8px;color:#b6c5da;margin-top:5px;min-height:14px}
-.action{
- width:100%;min-height:35px;margin-top:15px;border-radius:10px;border:1px solid rgba(113,207,255,.34);
- display:flex;align-items:center;justify-content:center;gap:7px;
- background:linear-gradient(100deg,#087fb9,#236fd0 52%,#7543b9);
- color:#eafaff;text-decoration:none;font:600 8px Poppins,sans-serif;letter-spacing:.8px;
- box-shadow:0 5px 16px rgba(0,0,0,.23),inset 0 1px rgba(255,255,255,.17);
+
+.glow.pink {
+    right: -110px;
+    bottom: 8%;
+    background: #ec36d0;
 }
-.action.wait{opacity:.8}
-.action.ready{background:linear-gradient(100deg,#00a9d5,#287ce5 52%,#9a42c8);box-shadow:0 0 17px rgba(25,191,255,.26);cursor:pointer}
-.action.secondary{margin-top:8px;background:rgba(65,82,119,.43);border-color:rgba(189,207,255,.25);font-size:8px}
-.action:active{transform:scale(.99)}
-.small-note{margin-top:10px;color:#a9b4ce;font-size:7px;letter-spacing:.65px}
-.footer{margin-top:12px;color:#a9b5d0;font-size:7px;letter-spacing:1.1px}
-.footer b{color:#e7d6ff;font-weight:600}
-@media(max-width:360px){.panel{padding:23px 15px 16px}.timer-wrap{margin:18px auto 14px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* MAIN CARD */
+
+.card {
+    width: 100%;
+    max-width: 390px;
+    position: relative;
+    overflow: hidden;
+    padding: 26px 20px 20px;
+    text-align: center;
+    border-radius: 25px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(42,80,112,.45),
+            rgba(22,31,57,.90) 48%,
+            rgba(86,35,100,.40));
+
+    border: 1px solid rgba(174,207,255,.38);
+
+    box-shadow:
+        0 0 28px rgba(0,191,255,.14),
+        0 0 38px rgba(213,54,205,.12),
+        0 25px 65px rgba(0,0,0,.48),
+        inset 0 1px 1px rgba(255,255,255,.18);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #8eeeff,
+        #f29bff,
+        transparent
+    );
+}
+
+/* LOGO */
+
+.logo-box {
+    width: 68px;
+    height: 68px;
+    padding: 3px;
+    margin: 0 auto 11px;
+    border-radius: 50%;
+
+    background: #091426;
+    border: 2px solid rgba(90,224,255,.9);
+
+    box-shadow:
+        0 0 12px rgba(0,218,255,.65),
+        0 0 25px rgba(0,160,255,.30),
+        0 0 30px rgba(217,75,220,.15);
+
+    overflow: hidden;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+
+    background: linear-gradient(
+        90deg,
+        #d9fbff,
+        #55e4ff,
+        #d69aff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    margin-top: 6px;
+    color: #a9c4dc;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+/* DIVIDER */
+
+.divider {
+    width: 75px;
+    height: 3px;
+    margin: 15px auto 17px;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue),
+        var(--pink)
+    );
+
+    box-shadow:
+        0 0 10px rgba(50,215,255,.65),
+        0 0 15px rgba(217,70,220,.25);
+}
+
+/* HEADING */
+
+.heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #e5f8ff;
+}
+
+.description {
+    margin-top: 7px;
+    color: #a8b9ce;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* TIMER */
+
+.timer-wrap {
+    width: 130px;
+    height: 130px;
+    margin: 25px auto 20px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+/* DOTTED RING */
+
+.dotted-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    border: 2px dashed rgba(84,210,255,.55);
+
+    animation: rotateRing 15s linear infinite;
+}
+
+@keyframes rotateRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* TRACK */
+
+.ring-track {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+
+    border: 3px solid rgba(70,177,222,.18);
+
+    box-shadow:
+        0 0 12px rgba(0,190,255,.12),
+        inset 0 0 10px rgba(0,190,255,.08);
+}
+
+/* SVG PROGRESS */
+
+.progress-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 4;
+    overflow: visible;
+}
+
+.progress-bg,
+.progress-bar {
+    fill: none;
+    stroke-width: 4;
+}
+
+.progress-bg {
+    stroke: rgba(95,190,235,.14);
+}
+
+.progress-bar {
+    stroke: url(#progressGradient);
+    stroke-linecap: round;
+    stroke-dasharray: 414.69;
+    stroke-dashoffset: 0;
+
+    filter:
+        drop-shadow(0 0 5px rgba(50,210,255,.85));
+
+    transition: stroke-dashoffset .08s linear;
+}
+
+/* INNER 3D CIRCLE */
+
+.circle {
+    width: 104px;
+    height: 104px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 32% 23%,
+            #64768b 0%,
+            #30445c 34%,
+            #142239 72%,
+            #070e1c 100%);
+
+    border: 2px solid rgba(130,210,245,.75);
+
+    box-shadow:
+        0 0 0 5px rgba(41,153,205,.12),
+        0 0 20px rgba(30,191,255,.25),
+        inset 0 6px 14px rgba(255,255,255,.16),
+        inset 0 -13px 20px rgba(0,0,0,.58);
+}
+
+/* GLASS REFLECTION */
+
+.circle::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 43px;
+    left: 10px;
+    top: 6px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.20),
+        transparent
+    );
+
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* 3D WATER */
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 0%;
+
+    background: linear-gradient(
+        180deg,
+        #9cf6ff 0%,
+        #37dfff 16%,
+        #168eea 52%,
+        #3547bd 78%,
+        #6936a8 100%
+    );
+
+    box-shadow:
+        inset 0 7px 13px rgba(255,255,255,.38),
+        inset 0 -12px 17px rgba(0,0,50,.35),
+        0 -3px 12px rgba(65,220,255,.35);
+}
+
+/* WATER SURFACE */
+
+.wave {
+    position: absolute;
+    top: -9px;
+    left: 0;
+
+    width: 200%;
+    height: 19px;
+
+    border-radius: 42%;
+
+    background: linear-gradient(
+        180deg,
+        rgba(245,255,255,.98),
+        rgba(126,239,255,.88) 45%,
+        rgba(35,177,245,.45)
+    );
+
+    box-shadow:
+        0 0 10px rgba(100,230,255,.65),
+        0 0 20px rgba(35,190,255,.25);
+
+    animation: waveMove 3.5s linear infinite;
+}
+
+.wave.two {
+    left: -50%;
+    top: -6px;
+    opacity: .40;
+    animation-duration: 5.5s;
+}
+
+@keyframes waveMove {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* WATER SHINE */
+
+.water-shine {
+    position: absolute;
+    top: 3px;
+    left: 10%;
+    width: 80%;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.35);
+    filter: blur(5px);
+
+    pointer-events: none;
+}
+
+/* TIMER TEXT */
+
+.timer-content {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    text-shadow: 0 3px 10px rgba(0,0,0,.75);
+}
+
+#timer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+    color: white;
+}
+
+.seconds {
+    margin-top: 6px;
+    font-size: 7px;
+    letter-spacing: 2.5px;
+    color: #e8f6ff;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 9px 17px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+
+    color: #82eaff;
+
+    background: rgba(20,157,206,.10);
+    border: 1px solid rgba(65,208,245,.35);
+
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    box-shadow: 0 0 12px rgba(0,190,255,.08);
+}
+
+/* BUTTONS */
+
+.action-btn {
+    display: flex;
+    width: 100%;
+    min-height: 43px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 10px;
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .8px;
+
+    color: #eafaff;
+
+    background: linear-gradient(
+        105deg,
+        #087fae,
+        #285fc0,
+        #7546b9
+    );
+
+    border: 1px solid rgba(126,206,255,.30);
+
+    box-shadow:
+        0 5px 16px rgba(0,0,0,.23),
+        inset 0 1px 1px rgba(255,255,255,.15);
+
+    transition: .3s;
+}
+
+.action-btn.disabled {
+    opacity: .55;
+    pointer-events: none;
+}
+
+.action-btn.ready {
+    opacity: 1;
+    pointer-events: auto;
+
+    background: linear-gradient(
+        100deg,
+        #16b9dc,
+        #427ee8,
+        #a24cce
+    );
+
+    box-shadow:
+        0 0 18px rgba(34,191,255,.30),
+        0 0 18px rgba(214,65,208,.18);
+}
+
+.action-btn.ready:hover {
+    transform: translateY(-2px);
+}
+
+.action-btn.secondary {
+    margin-top: 9px;
+
+    background: linear-gradient(
+        110deg,
+        rgba(60,185,225,.16),
+        rgba(175,66,185,.17)
+    );
+
+    border: 1px solid rgba(190,180,255,.25);
+}
+
+/* FOOTER */
+
+.note {
+    margin-top: 12px;
+    color: #aabbd0;
+    font-size: 8px;
+    letter-spacing: .5px;
+}
+
+.footer {
+    margin-top: 15px;
+    color: #8498b0;
+    font-size: 8px;
+    letter-spacing: 1.4px;
+}
+
+/* MOBILE */
+
+@media(max-width:380px) {
+    .card {
+        padding: 22px 16px 18px;
+    }
+
+    .timer-wrap {
+        width: 122px;
+        height: 122px;
+    }
+}
 </style>
 </head>
+
 <body>
-<main class="page">
-<section class="panel" aria-label="Rudra Movies link preparation">
- <div class="logo">RUDRA MOVIES<span>OFFICIAL</span></div>
- <div class="brand">RUDRA MOVIES</div>
- <div class="tagline">YOUR CINEMA DESTINATION</div>
- <div class="verified"><i class="dot"></i> LINK READY CHECK</div>
 
- <div class="timer-wrap">
-  <div class="dots"></div><div class="ring"></div>
-  <svg class="progress" viewBox="0 0 112 112" aria-hidden="true">
-   <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#37eaff"/><stop offset="52%" stop-color="#328aff"/><stop offset="100%" stop-color="#ed65d8"/>
-   </linearGradient></defs>
-   <circle class="track" cx="56" cy="56" r="52"/>
-   <circle class="bar" id="progress" cx="56" cy="56" r="52"/>
-  </svg>
-  <div class="core">
-   <div class="water" id="water"><div class="wave"></div><div class="wave alt"></div></div>
-   <div class="number" id="number">5</div>
-   <div class="sec">SECONDS</div>
-  </div>
- </div>
+<div class="glow cyan"></div>
+<div class="glow pink"></div>
 
- <div class="section-title">LINK PREPARATION</div>
- <div class="status-copy" id="status">Preparing your destination link...</div>
+<main class="card">
 
- <a class="action wait" id="mainAction" href="#" aria-disabled="true">
-  <span>◌</span> VERIFYING LINK...
- </a>
- <a class="action secondary" href="https://t.me/RudraMoviez" target="_blank" rel="noopener noreferrer">
-  <span>➤</span> JOIN RUDRA MAIN CHANNEL
- </a>
- <div class="small-note">Please use official links and authorized content.</div>
- <div class="footer">✦ <b>RUDRA MOVIES</b> SECURITY ✦</div>
-</section>
+    <!-- RUDRA MOVIES LOGO -->
+
+    <div class="logo-box">
+        <img
+            src="RudraMovies.png"
+            class="logo"
+            alt="Rudra Movies Logo">
+    </div>
+
+    <div class="brand">RUDRA MOVIES</div>
+
+    <div class="tagline">
+        YOUR CINEMA DESTINATION
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="heading">
+        LINK PREPARATION
+    </div>
+
+    <div class="description">
+        PREPARING YOUR DOWNLOAD LINK...
+    </div>
+
+    <!-- 3D WATER COUNTDOWN -->
+
+    <div class="timer-wrap">
+
+        <div class="dotted-ring"></div>
+        <div class="ring-track"></div>
+
+        <svg class="progress-svg" viewBox="0 0 146 146">
+
+            <defs>
+                <linearGradient
+                    id="progressGradient"
+                    x1="0%" y1="0%"
+                    x2="100%" y2="100%">
+
+                    <stop offset="0%" stop-color="#36e8ff"/>
+                    <stop offset="50%" stop-color="#398aff"/>
+                    <stop offset="100%" stop-color="#ef64d8"/>
+
+                </linearGradient>
+            </defs>
+
+            <circle
+                class="progress-bg"
+                cx="73" cy="73" r="66"/>
+
+            <circle
+                class="progress-bar"
+                id="progress"
+                cx="73" cy="73" r="66"/>
+
+        </svg>
+
+        <div class="circle">
+
+            <div class="water" id="water">
+
+                <div class="wave"></div>
+                <div class="wave two"></div>
+                <div class="water-shine"></div>
+
+            </div>
+
+            <div class="timer-content">
+
+                <div id="timer">5</div>
+
+                <div class="seconds">
+                    SECONDS
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="status" id="status">
+        PREPARING YOUR LINK...
+    </div>
+
+    <a
+        href="#"
+        class="action-btn disabled"
+        id="downloadBtn"
+        aria-disabled="true">
+
+        PLEASE WAIT...
+
+    </a>
+
+    <a
+        href="https://t.me/RudraMoviez"
+        class="action-btn secondary"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        ✦ JOIN RUDRA MAIN CHANNEL
+
+    </a>
+
+    <div class="note">
+        PLEASE WAIT WHILE WE PREPARE YOUR LINK
+    </div>
+
+    <div class="footer">
+        RUDRA MOVIES • FAST • SIMPLE • CINEMATIC
+    </div>
+
 </main>
+
 <script>
-(() => {
- const number=document.getElementById('number');
- const water=document.getElementById('water');
- const progress=document.getElementById('progress');
- const status=document.getElementById('status');
- const action=document.getElementById('mainAction');
- const total=5, circumference=2*Math.PI*52;
- let remaining=total, destination=null;
+const timer = document.getElementById("timer");
+const water = document.getElementById("water");
+const progress = document.getElementById("progress");
+const status = document.getElementById("status");
+const button = document.getElementById("downloadBtn");
 
- const params=new URLSearchParams(location.search);
- const raw=params.get('redirect');
- if(raw){
-  try{
-   const parsed=new URL(raw);
-   if(parsed.protocol==='https:') destination=parsed.href;
-  }catch(_){ destination=null; }
- }
+const params = new URLSearchParams(window.location.search);
+const redirect = params.get("redirect");
 
- progress.style.strokeDasharray=String(circumference);
- progress.style.strokeDashoffset='0';
+let safeLink = null;
 
- const startTime=performance.now();
- let lastShown=-1;
+if (redirect) {
+    try {
+        const parsed = new URL(redirect);
 
- function animate(now){
-  const elapsed=Math.min((now-startTime)/1000,total);
-  const done=elapsed/total;
+        if (parsed.protocol === "https:") {
+            safeLink = parsed.href;
+        }
 
-  // Smooth, continuous water rise and circular progress over the full countdown.
-  water.style.height=(done*100)+'%';
-  progress.style.strokeDashoffset=String(circumference*done);
+    } catch (error) {
+        safeLink = null;
+    }
+}
 
-  const secondsLeft=Math.max(0,Math.ceil(total-elapsed));
-  if(secondsLeft!==lastShown){
-   number.textContent=String(secondsLeft);
-   lastShown=secondsLeft;
-  }
+const totalSeconds = 5;
+const circumference = 2 * Math.PI * 66;
 
-  if(elapsed<total){
-   window.requestAnimationFrame(animate);
-  }else{
-   number.textContent='0';
-   water.style.height='100%';
-   if(destination){
-    status.textContent='Your destination link is ready.';
-    action.textContent='➜  PROCEED TO DESTINATION';
-    action.href=destination;
-    action.classList.remove('wait');
-    action.classList.add('ready');
-    action.setAttribute('aria-disabled','false');
-   }else{
-    status.textContent='No valid destination link was provided.';
-    action.textContent='LINK UNAVAILABLE';
-    action.removeAttribute('href');
-    action.setAttribute('aria-disabled','true');
-   }
-  }
- }
- window.requestAnimationFrame(animate);
-})();
+progress.style.strokeDasharray = circumference;
+progress.style.strokeDashoffset = 0;
+
+const startTime = performance.now();
+
+function animateCountdown(now) {
+
+    const elapsed = Math.min(
+        (now - startTime) / 1000,
+        totalSeconds
+    );
+
+    const completed = elapsed / totalSeconds;
+
+    // Smooth water filling
+
+    water.style.height =
+        (completed * 100) + "%";
+
+    // Smooth circular progress
+
+    progress.style.strokeDashoffset =
+        circumference * completed;
+
+    // Countdown number
+
+    const remaining = Math.max(
+        0,
+        Math.ceil(totalSeconds - elapsed)
+    );
+
+    timer.textContent = remaining;
+
+    if (elapsed < totalSeconds) {
+
+        requestAnimationFrame(animateCountdown);
+
+    } else {
+
+        finishCountdown();
+
+    }
+}
+
+function finishCountdown() {
+
+    timer.textContent = "✓";
+
+    water.style.height = "100%";
+
+    if (safeLink) {
+
+        status.textContent = "YOUR LINK IS READY";
+
+        button.textContent = "➜ CONTINUE TO LINK";
+
+        button.href = safeLink;
+
+        button.classList.remove("disabled");
+        button.classList.add("ready");
+
+        button.setAttribute("aria-disabled", "false");
+
+    } else {
+
+        status.textContent = "DIRECT LINK NOT FOUND";
+
+        button.textContent = "LINK UNAVAILABLE";
+
+        button.removeAttribute("href");
+
+        button.classList.add("disabled");
+
+        button.setAttribute("aria-disabled", "true");
+
+    }
+}
+
+requestAnimationFrame(animateCountdown);
 </script>
+
 </body>
 </html>
