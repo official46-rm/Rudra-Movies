@@ -3,98 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparing Your Download Link...</title>
+    <title>PREPARING YOUR DOWNLOAD LIN...</title>
     <style>
-        /* Modern Gradient Background & Reset */
+        /* CSS Reset & Background Color Matching */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #0e1e38 0%, #0a325c 50%, #4a154b 100%);
+            background: radial-gradient(circle at 10% 20%, rgba(0, 150, 255, 0.4) 0%, transparent 45%),
+                        radial-gradient(circle at 90% 80%, rgba(150, 0, 255, 0.4) 0%, transparent 45%),
+                        #0b111e;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 16px;
         }
 
-        /* Glassmorphism Main Card Container */
+        /* Same to Same Glassmorphism Container */
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
             width: 100%;
-            max-width: 420px;
-            padding: 40px 24px;
+            max-width: 380px;
+            padding: 40px 24px 30px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
             color: #ffffff;
         }
 
-        /* Top Circular Logo Styling */
-        .logo-container {
-            margin: 0 auto 20px;
-            width: 85px;
-            height: 85px;
+        /* 404 Free Image Host Black Circle */
+        .logo-placeholder {
+            width: 86px;
+            height: 86px;
+            background: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 0.5px;
         }
-        
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .logo-text-top {
+            font-size: 7px;
+            color: #778899;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .logo-404 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .logo-text-bottom {
+            font-size: 6.5px;
+            color: #778899;
+            font-weight: 500;
+            margin-top: 1px;
         }
 
-        /* Typography */
+        /* Branding Title (Capital Letter Mix) */
         h1 {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+            color: #ffffff;
             text-transform: uppercase;
         }
 
-        /* Secured Link Badge */
+        /* Secured & Verified Link Badge */
         .badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(0, 150, 136, 0.15);
-            border: 1px solid rgba(0, 150, 136, 0.3);
-            color: #00ffcc;
-            padding: 6px 14px;
+            background: rgba(0, 180, 140, 0.12);
+            border: 1px solid rgba(0, 200, 150, 0.2);
+            color: #12ebb2;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin-bottom: 30px;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin-bottom: 35px;
             text-transform: uppercase;
         }
         .badge::before {
             content: '';
             display: inline-block;
-            width: 6px;
-            height: 6px;
-            background-color: #00ffcc;
+            width: 5px;
+            height: 5px;
+            background-color: #12ebb2;
             border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 8px #00ffcc;
+            margin-right: 6px;
+            box-shadow: 0 0 6px #12ebb2;
         }
 
-        /* Circular Countdown Timer Styling */
+        /* Matching Cyan Circular Countdown Timer */
         .timer-container {
             position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 30px;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 35px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -105,7 +123,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.05);
+            border: 3.5px solid rgba(255, 255, 255, 0.06);
             box-sizing: border-box;
         }
 
@@ -114,196 +132,186 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 4px solid transparent;
+            border: 3.5px solid transparent;
             border-top-color: #00d2ff;
-            border-right-color: #00d2ff;
-            transform: rotate(-45deg);
+            border-right-color: #0084ff;
+            transform: rotate(-30deg);
             box-sizing: border-box;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        .timer-inner {
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, #1a3c6d 0%, #0c1a30 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
         }
 
         .timer-number {
-            font-size: 42px;
-            font-weight: bold;
-            background: linear-gradient(to bottom, #ffffff, #a5c7f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            z-index: 1;
+            font-size: 46px;
+            font-weight: 600;
+            color: #ffffff;
         }
 
-        /* Status Texts */
+        /* Status & Description (Normal caps text matching image) */
         .status-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
+            color: #ffffff;
         }
 
         .status-desc {
             font-size: 13px;
-            color: #b0c4de;
+            color: #a0aec0;
             margin-bottom: 25px;
         }
 
-        /* Action Buttons */
+        /* Button Main Styles */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 15px;
-            margin-bottom: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
             border-radius: 12px;
             border: none;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 700;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
-        /* Primary Dynamic Button (Verifying / Get Link) */
+        /* Verifying Button Loading State (Same to Same caps) */
         .btn-primary {
-            background: linear-gradient(90deg, #1d64b4, #1579d4);
-            color: #ffffff;
-            opacity: 0.8;
+            background: linear-gradient(90deg, rgba(20, 80, 160, 0.4), rgba(15, 60, 130, 0.4));
+            color: #637b9c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-transform: uppercase;
             cursor: not-allowed;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-primary.active {
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            opacity: 1;
+            background: linear-gradient(90deg, #0084ff, #00c6ff);
+            color: #ffffff;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 132, 255, 0.3);
         }
 
-        /* Channel Secondary Button */
+        /* Channel Secondary Button Layout */
         .btn-secondary {
-            background: linear-gradient(90deg, rgba(81, 45, 168, 0.3), rgba(49, 27, 146, 0.4));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .btn-secondary:hover {
-            background: linear-gradient(90deg, rgba(81, 45, 168, 0.5), rgba(49, 27, 146, 0.6));
-            box-shadow: 0 8px 20px rgba(81, 45, 168, 0.3);
+            background: rgba(255, 255, 255, 0.08);
         }
-        .btn-secondary span {
-            margin-right: 8px;
+        .btn-secondary .icon-arrow {
+            color: #00d2ff;
+            margin-right: 10px;
+            font-size: 11px;
         }
-
-        /* Live View Tracker Container */
-        .views-tracker {
-            font-size: 12px;
-            color: #00ffcc;
-            margin-top: 15px;
-            opacity: 0.85;
-            letter-spacing: 0.5px;
+        .btn-secondary .icon-lightning {
+            color: #ffcc00;
+            margin-right: 6px;
         }
-
-        /* Footer Branding */
-        .footer-brand {
-            font-size: 10px;
-            color: #647b9c;
-            letter-spacing: 1px;
+        .btn-secondary .btn-text-content {
             text-transform: uppercase;
-            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        /* Live View Tracker Style */
+        .views-tracker {
+            font-size: 11px;
+            color: #00ffcc;
+            margin-top: 12px;
+            opacity: 0.75;
+        }
+
+        /* Footer Security Label */
+        .footer-brand {
+            font-size: 9.5px;
+            color: #556b8f;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 25px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            font-weight: 600;
+        }
+        .footer-brand span {
+            color: #ffcc00;
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- New Top Dynamic Logo Area -->
-        <div class="logo-container">
-            <img src="RudraMovies.png" alt="Rudra Movies Logo">
+        <!-- 404 Free Image Host Logo matching image -->
+        <div class="logo-placeholder">
+            <div class="logo-text-top">FREE IMAGE HOST</div>
+            <div class="logo-404">404</div>
+            <div class="logo-text-bottom">NOT FOUND</div>
         </div>
 
-        <!-- Title & Verification Status -->
+        <!-- Heading Text -->
         <h1>Rudra Movies</h1>
         <div class="badge">Secured & Verified Link</div>
 
-        <!-- Progress Counter -->
+        <!-- Dynamic Timer Circle -->
         <div class="timer-container">
             <div class="circle-bg"></div>
             <div class="circle-progress"></div>
-            <div class="timer-number" id="countdown">5</div>
+            <div class="timer-inner">
+                <div class="timer-number" id="countdown">5</div>
+            </div>
         </div>
 
-        <!-- Informative status Text -->
+        <!-- Verification Status Labels (Mixed Text Caps) -->
         <div class="status-title">Security Verification</div>
         <div class="status-desc" id="status-text">Redirecting in progress...</div>
 
-        <!-- Action Button (changes when countdown finishes) -->
+        <!-- Verification Progress Button -->
         <button class="btn btn-primary" id="action-btn" disabled>
-            <span id="btn-text">Verifying...</span>
+            <span id="btn-text">◌ Verifying...</span>
         </button>
 
-        <!-- Official Telegram Channel Link Button -->
-        <a href="https://t.me/RudraMoviez" target="_blank" class="btn btn-secondary">
-            <span>➤ ⚡</span> Rudra Main Channel ✨
+        <!-- Official Channel Navigation Button -->
+        <a href="https://t.me" target="_blank" class="btn btn-secondary">
+            <span class="icon-arrow">➤</span>
+            <span class="icon-lightning">⚡</span>
+            <span class="btn-text-content">Rudra Main Channel ✨</span>
         </a>
 
-        <!-- Live View Counter Section -->
+        <!-- Counter View (Optional: remove if not wanted) -->
         <div class="views-tracker">
             👁️ Total Views: <span id="view-count">Loading...</span>
         </div>
 
-        <!-- Footer Text -->
+        <!-- Bottom Brand Footer Text -->
         <div class="footer-brand">
-            ⚡ Rudra Movies Security
+            <span>⚡</span> Rudra Movies Security
         </div>
     </div>
 
     <script>
-        // Set the countdown time in seconds
         let timeLeft = 5; 
         const countdownEl = document.getElementById('countdown');
         const actionBtn = document.getElementById('action-btn');
         const btnText = document.getElementById('btn-text');
         const statusText = document.getElementById('status-text');
 
-        // Destination link when verified - Change this to your final destination URL
+        // ನಿಮ್ಮ ಫೈನಲ್ ಮೂವಿ ಡೌನ್‌ಲೋಡ್ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿ ಹಾಕಿ
         const targetDestination = "https://example.com";
 
-        // Logic for tracking view counts dynamically based on hostname
-        const trackerNamespace = window.location.hostname.replace(/\./g, '-') || "rudra-movies-official-preview";
-        fetch(`https://countapi.xyz{trackerNamespace}/visits`)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('view-count').textContent = data.value.toLocaleString();
-            })
-            .catch(() => {
-                document.getElementById('view-count').textContent = "Live";
-            });
-
-        const timer = setInterval(() => {
-            timeLeft--;
-            countdownEl.textContent = timeLeft;
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                
-                // Update UI elements once done
-                statusText.textContent = "Verification Complete!";
-                btnText.textContent = "Get Link";
-                
-                // Activate the button
-                actionBtn.classList.add('active');
-                actionBtn.removeAttribute('disabled');
-                
-                // Add click function to redirect
-                actionBtn.addEventListener('click', () => {
-                    window.location.href = targetDestination;
-                });
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+        // View Tracker API Logic
