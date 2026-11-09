@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080710">
+<meta name="theme-color" content="#090711">
+<meta name="description" content="Rudra Movies Secure Download Portal">
 <title>RUDRA MOVIES | DOWNLOAD</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,22 +20,23 @@
 :root {
     --gold: #e8bd69;
     --gold-light: #ffe5a3;
-    --purple: #9b64ff;
+    --purple: #a66aff;
     --bg: #080710;
 }
 
 body {
     min-height: 100vh;
-    padding: 25px 15px;
+    padding: 24px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
     color: white;
     font-family: 'Poppins', sans-serif;
+
     background:
-        radial-gradient(ellipse at 10% 15%, rgba(126,72,180,.23), transparent 40%),
-        radial-gradient(ellipse at 90% 85%, rgba(207,151,66,.19), transparent 40%),
+        radial-gradient(ellipse at 10% 15%, rgba(126,72,180,.24), transparent 40%),
+        radial-gradient(ellipse at 90% 85%, rgba(207,151,66,.20), transparent 40%),
         linear-gradient(145deg,#080710,#151020 55%,#090710);
 }
 
@@ -69,17 +71,22 @@ body {
     padding: 27px 21px 23px;
     text-align: center;
     border-radius: 25px;
-    background:
-        linear-gradient(145deg,
+
+    background: linear-gradient(
+        145deg,
         rgba(57,42,77,.84),
         rgba(17,14,27,.97) 55%,
-        rgba(64,43,39,.75));
+        rgba(64,43,39,.75)
+    );
+
     border: 1px solid rgba(232,189,105,.45);
+
     box-shadow:
         0 0 30px rgba(170,110,255,.13),
         0 0 35px rgba(232,189,105,.12),
         0 25px 70px rgba(0,0,0,.65),
         inset 0 1px 1px rgba(255,255,255,.15);
+
     backdrop-filter: blur(20px);
 }
 
@@ -91,7 +98,11 @@ body {
     width: 84%;
     height: 2px;
     background: linear-gradient(
-        90deg,transparent,var(--gold-light),var(--purple),transparent
+        90deg,
+        transparent,
+        var(--gold-light),
+        var(--purple),
+        transparent
     );
 }
 
@@ -121,9 +132,11 @@ body {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: 2px;
+
     background: linear-gradient(
         90deg,#fff0bf,#dba94e,#fff1c4
     );
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -240,8 +253,16 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 20%,#54465e,#211b2d 65%,#0b0912);
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        #54465e,
+        #211b2d 65%,
+        #0b0912
+    );
+
     border: 2px solid rgba(232,189,105,.7);
+
     box-shadow:
         0 0 0 5px rgba(232,189,105,.08),
         0 0 22px rgba(232,189,105,.2),
@@ -318,7 +339,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* BUTTON */
+/* DOWNLOAD BUTTON */
 
 .download-btn {
     display: flex;
@@ -334,11 +355,12 @@ body {
     font-weight: 800;
     letter-spacing: 1px;
     color: #21170b;
-    background: linear-gradient(105deg,#ffe8ad,#d8a34b,#f5d28b);
+
+    background: linear-gradient(
+        105deg,#ffe8ad,#d8a34b,#f5d28b
+    );
+
     border: 1px solid rgba(255,235,181,.6);
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.3),
-        0 0 18px rgba(232,189,105,.15);
     opacity: .6;
     pointer-events: none;
     transition: .3s;
@@ -406,7 +428,9 @@ body {
 }
 
 @media(max-width:380px) {
-    .card { padding: 22px 17px 19px; }
+    .card {
+        padding: 22px 17px 19px;
+    }
 }
 </style>
 </head>
@@ -428,11 +452,14 @@ body {
     <div class="divider"></div>
 
     <div class="heading">SECURITY VERIFICATION</div>
-    <div class="description">PREPARING YOUR DOWNLOAD LINK...</div>
+
+    <div class="description">
+        PREPARING YOUR DOWNLOAD LINK...
+    </div>
 
     <div class="verified">
         <span class="verified-dot"></span>
-        SECURE LINK VERIFICATION
+        LINK VERIFICATION
     </div>
 
     <div class="timer-wrap">
@@ -450,11 +477,16 @@ body {
                 </linearGradient>
             </defs>
 
-            <circle class="progress-bg" cx="73" cy="73" r="66"/>
-            <circle class="progress-bar" id="progress" cx="73" cy="73" r="66"/>
+            <circle class="progress-bg"
+                cx="73" cy="73" r="66"/>
+
+            <circle class="progress-bar"
+                id="progress"
+                cx="73" cy="73" r="66"/>
         </svg>
 
         <div class="circle">
+
             <div class="water" id="water">
                 <div class="wave"></div>
             </div>
@@ -463,21 +495,29 @@ body {
                 <div id="timer">5</div>
                 <div class="seconds">SECONDS</div>
             </div>
+
         </div>
     </div>
 
-    <div class="status" id="status">PREPARING YOUR LINK...</div>
+    <div class="status" id="status">
+        PREPARING YOUR LINK...
+    </div>
 
-    <a href="#" class="download-btn" id="downloadBtn" aria-disabled="true">
+    <a href="#"
+       class="download-btn"
+       id="downloadBtn"
+       aria-disabled="true">
+
         <span class="spinner" id="spinner"></span>
         <span id="buttonText">VERIFYING...</span>
+
     </a>
 
     <a href="https://t.me/RudraMoviez"
        class="telegram"
        target="_blank"
        rel="noopener noreferrer">
-        ➤ &nbsp; RUDRA MAIN CHANNEL
+        ➤ &nbsp; RUDRA MAIN CHANNEL ✨
     </a>
 
     <div class="footer">
@@ -487,6 +527,8 @@ body {
 </main>
 
 <script>
+"use strict";
+
 const timer = document.getElementById("timer");
 const water = document.getElementById("water");
 const progress = document.getElementById("progress");
@@ -501,12 +543,40 @@ const circumference = 2 * Math.PI * 66;
 progress.style.strokeDasharray = circumference;
 progress.style.strokeDashoffset = circumference;
 
-const params = new URLSearchParams(window.location.search);
-const token = params.get("token");
+const params = new URLSearchParams(
+    window.location.search
+);
 
-const safeLink = token
-    ? "/api/verify?token=" + encodeURIComponent(token)
-    : null;
+const token = params.get("token");
+const legacyRedirect = params.get("redirect");
+
+let safeLink = null;
+let linkMode = null;
+
+/* NEW TOKEN ROUTE */
+
+if (token) {
+    safeLink =
+        "/api/verify?token=" +
+        encodeURIComponent(token);
+
+    linkMode = "token";
+}
+
+/* LEGACY COMPATIBILITY */
+
+else if (legacyRedirect) {
+    try {
+        const parsed = new URL(legacyRedirect);
+
+        if (parsed.protocol === "https:") {
+            safeLink = parsed.href;
+            linkMode = "legacy";
+        }
+    } catch (error) {
+        safeLink = null;
+    }
+}
 
 let seconds = TOTAL_SECONDS;
 
@@ -517,7 +587,8 @@ function countdown() {
     const completed =
         (TOTAL_SECONDS - seconds) / TOTAL_SECONDS;
 
-    water.style.height = (completed * 100) + "%";
+    water.style.height =
+        (completed * 100) + "%";
 
     progress.style.strokeDashoffset =
         circumference * (1 - completed);
@@ -533,7 +604,9 @@ function countdown() {
 function finishCountdown() {
 
     timer.textContent = "0";
+
     water.style.height = "100%";
+
     progress.style.strokeDashoffset = 0;
 
     if (safeLink) {
@@ -541,31 +614,47 @@ function finishCountdown() {
         status.textContent = "YOUR LINK IS READY";
 
         buttonText.textContent = "DOWNLOAD NOW";
+
         spinner.style.display = "none";
 
         button.href = safeLink;
+
         button.classList.add("ready");
-        button.setAttribute("aria-disabled", "false");
+
+        button.setAttribute(
+            "aria-disabled",
+            "false"
+        );
 
     } else {
 
-        status.textContent = "DIRECT LINK NOT FOUND";
+        status.textContent = "DOWNLOAD LINK NOT FOUND";
 
         buttonText.textContent = "LINK UNAVAILABLE";
+
         spinner.style.display = "none";
 
         button.removeAttribute("href");
-        button.setAttribute("aria-disabled", "true");
+
+        button.setAttribute(
+            "aria-disabled",
+            "true"
+        );
     }
 }
 
 button.addEventListener("click", function(event) {
-    if (!safeLink || !button.classList.contains("ready")) {
+
+    if (
+        !safeLink ||
+        !button.classList.contains("ready")
+    ) {
         event.preventDefault();
     }
 });
 
 countdown();
+
 </script>
 
 </body>
