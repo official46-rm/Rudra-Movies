@@ -193,8 +193,9 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    border: 2px dashed rgba(232,189,105,.45);
-    animation: rotate 18s linear infinite;
+    border: 1.5px dashed rgba(255,226,165,.72);
+    box-shadow: 0 0 14px rgba(232,189,105,.22);
+    animation: rotate 8s linear infinite;
 }
 
 @keyframes rotate {
@@ -205,7 +206,8 @@ body {
     position: absolute;
     inset: 7px;
     border-radius: 50%;
-    border: 3px solid rgba(232,189,105,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    box-shadow: inset 0 0 12px rgba(255,255,255,.06), 0 0 12px rgba(255,255,255,.06);
 }
 
 .progress-svg {
@@ -239,50 +241,95 @@ body {
     height: 120px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 20%,#54465e,#211b2d 65%,#0b0912);
-    border: 2px solid rgba(232,189,105,.7);
+    background:
+        radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
+        linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
+    border: 2px solid rgba(255,255,255,.72);
     box-shadow:
-        0 0 0 5px rgba(232,189,105,.08),
-        0 0 22px rgba(232,189,105,.2),
-        inset 0 5px 14px rgba(255,255,255,.1),
-        inset 0 -12px 18px rgba(0,0,0,.6);
+        0 0 0 5px rgba(232,189,105,.07),
+        0 0 28px rgba(143,111,255,.22),
+        inset 0 3px 12px rgba(255,255,255,.28),
+        inset 0 -8px 18px rgba(0,0,0,.22);
+    backdrop-filter: blur(5px);
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: 2;
+    border-radius: 50%;
+    border-top: 2px solid rgba(255,255,255,.72);
+    border-left: 1px solid rgba(255,255,255,.25);
+    pointer-events: none;
+}
+
+.circle::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 34px;
+    height: 12px;
+    top: 12px;
+    left: 17px;
+    border-radius: 50%;
+    transform: rotate(-38deg);
+    background: rgba(255,255,255,.28);
+    filter: blur(3px);
+    pointer-events: none;
 }
 
 .water {
     position: absolute;
+    z-index: 1;
     bottom: 0;
     left: -50%;
     width: 200%;
     height: 0%;
     background: linear-gradient(
         180deg,
-        rgba(255,218,133,.85),
-        rgba(183,119,62,.9),
-        rgba(111,57,160,.9)
+        rgba(177,145,255,.70) 0%,
+        rgba(113,91,226,.76) 42%,
+        rgba(54,45,145,.84) 100%
     );
+    box-shadow: 0 -4px 15px rgba(195,174,255,.28);
     transition: height 1s linear;
 }
 
 .wave {
     position: absolute;
     width: 200%;
-    height: 18px;
-    top: -10px;
+    height: 25px;
+    top: -15px;
+    left: -5%;
+    border-radius: 42%;
+    background: rgba(220,207,255,.62);
+    filter: blur(1px);
+    animation: wave 3.2s linear infinite;
+}
+
+.water::after {
+    content: "";
+    position: absolute;
+    top: 3px;
     left: 0;
-    border-radius: 40%;
-    background: rgba(255,229,163,.7);
-    animation: wave 4s linear infinite;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+    filter: blur(4px);
 }
 
 @keyframes wave {
-    to { transform: rotate(360deg); }
+    from { transform: translateX(0) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
 }
 
 .timer-content {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,6 +342,7 @@ body {
     font-size: 42px;
     font-weight: 800;
     color: #fff;
+    -webkit-text-stroke: .35px rgba(255,255,255,.28);
 }
 
 .seconds {
