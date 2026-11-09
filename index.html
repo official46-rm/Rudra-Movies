@@ -206,8 +206,7 @@ body {
     position: absolute;
     inset: 7px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.22);
-    box-shadow: inset 0 0 12px rgba(255,255,255,.06), 0 0 12px rgba(255,255,255,.06);
+    border: 3px solid rgba(232,189,105,.12);
 }
 
 .progress-svg {
@@ -243,88 +242,47 @@ body {
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-    background:
-        radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
-        linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
+    background: radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
+                linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
     border: 2px solid rgba(255,255,255,.72);
-    box-shadow:
-        0 0 0 5px rgba(232,189,105,.07),
-        0 0 28px rgba(143,111,255,.22),
-        inset 0 3px 12px rgba(255,255,255,.28),
-        inset 0 -8px 18px rgba(0,0,0,.22);
+    box-shadow: 0 0 0 5px rgba(232,189,105,.07), 0 0 28px rgba(143,111,255,.22),
+                inset 0 3px 12px rgba(255,255,255,.28), inset 0 -8px 18px rgba(0,0,0,.22);
     backdrop-filter: blur(5px);
 }
-
 .circle::before {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    z-index: 2;
-    border-radius: 50%;
-    border-top: 2px solid rgba(255,255,255,.72);
-    border-left: 1px solid rgba(255,255,255,.25);
+    content: ""; position: absolute; inset: 5px; z-index: 3; border-radius: 50%;
+    border-top: 2px solid rgba(255,255,255,.72); border-left: 1px solid rgba(255,255,255,.25);
     pointer-events: none;
 }
-
 .circle::after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    width: 34px;
-    height: 12px;
-    top: 12px;
-    left: 17px;
-    border-radius: 50%;
-    transform: rotate(-38deg);
-    background: rgba(255,255,255,.28);
-    filter: blur(3px);
-    pointer-events: none;
+    content: ""; position: absolute; z-index: 3; width: 34px; height: 12px; top: 12px; left: 17px;
+    border-radius: 50%; transform: rotate(-38deg); background: rgba(255,255,255,.28);
+    filter: blur(3px); pointer-events: none;
 }
-
 .water {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: -50%;
-    width: 200%;
-    height: 0%;
-    background: linear-gradient(
-        180deg,
-        rgba(177,145,255,.70) 0%,
-        rgba(113,91,226,.76) 42%,
-        rgba(54,45,145,.84) 100%
-    );
-    box-shadow: 0 -4px 15px rgba(195,174,255,.28);
-    transition: height 1s linear;
+    position: absolute; z-index: 1; bottom: 0; left: -50%; width: 200%; height: 0%;
+    background: linear-gradient(180deg, rgba(177,145,255,.70) 0%, rgba(113,91,226,.76) 42%, rgba(54,45,145,.84) 100%);
+    box-shadow: 0 -2px 8px rgba(195,174,255,.18); transition: height 1s linear;
 }
-
 .wave {
     position: absolute;
-    width: 200%;
-    height: 25px;
-    top: -15px;
+    width: 210%;
+    height: 20px;
+    top: -11px;
     left: -5%;
-    border-radius: 42%;
-    background: rgba(220,207,255,.62);
-    filter: blur(1px);
-    animation: wave 3.2s linear infinite;
+    border-radius: 44%;
+    background: rgba(220,207,255,.56);
+    filter: blur(.6px);
+    animation: waterBob 2.8s ease-in-out infinite alternate;
+    transform-origin: center;
 }
 
-.water::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
-    filter: blur(4px);
+@keyframes waterBob {
+    0%   { transform: translate3d(-2%, 2px, 0) rotate(-3deg) scaleY(.88); }
+    50%  { transform: translate3d(1%, -2px, 0) rotate(2deg) scaleY(1.08); }
+    100% { transform: translate3d(3%, 1px, 0) rotate(-1deg) scaleY(.94); }
 }
-
-@keyframes wave {
-    from { transform: translateX(0) rotate(0deg); }
-    to { transform: translateX(-50%) rotate(360deg); }
-}
+@keyframes wave { from { transform: translateX(0) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
 
 .timer-content {
     position: absolute;
@@ -342,7 +300,6 @@ body {
     font-size: 42px;
     font-weight: 800;
     color: #fff;
-    -webkit-text-stroke: .35px rgba(255,255,255,.28);
 }
 
 .seconds {
@@ -551,10 +508,21 @@ progress.style.strokeDashoffset = circumference;
 
 const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
+const redirect = params.get("redirect");
 
-const safeLink = token
-    ? "/api/verify?token=" + encodeURIComponent(token)
-    : null;
+// Backward compatibility: the existing Telegram bot generates ?redirect= links.
+// Keep those working while also allowing the newer signed-token route.
+let safeLink = null;
+if (redirect) {
+    try {
+        const parsed = new URL(redirect);
+        if (parsed.protocol === "https:") safeLink = parsed.href;
+    } catch (_) {
+        safeLink = null;
+    }
+} else if (token) {
+    safeLink = "/api/verify?token=" + encodeURIComponent(token);
+}
 
 let seconds = TOTAL_SECONDS;
 
