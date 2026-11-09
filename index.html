@@ -20,7 +20,6 @@
     --gold: #e8bd69;
     --gold-light: #ffe5a3;
     --purple: #9b64ff;
-    --bg: #080710;
 }
 
 body {
@@ -69,8 +68,7 @@ body {
     padding: 27px 21px 23px;
     text-align: center;
     border-radius: 25px;
-    background:
-        linear-gradient(145deg,
+    background: linear-gradient(145deg,
         rgba(57,42,77,.84),
         rgba(17,14,27,.97) 55%,
         rgba(64,43,39,.75));
@@ -121,9 +119,7 @@ body {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: 2px;
-    background: linear-gradient(
-        90deg,#fff0bf,#dba94e,#fff1c4
-    );
+    background: linear-gradient(90deg,#fff0bf,#dba94e,#fff1c4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -193,9 +189,9 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    border: 1.5px dashed rgba(255,226,165,.72);
-    box-shadow: 0 0 14px rgba(232,189,105,.22);
-    animation: rotate 8s linear infinite;
+    border: 2px dashed rgba(232,189,105,.62);
+    box-shadow: 0 0 12px rgba(232,189,105,.18);
+    animation: rotate 10s linear infinite;
 }
 
 @keyframes rotate {
@@ -235,7 +231,7 @@ body {
     transition: stroke-dashoffset 1s linear;
 }
 
-/* GLASS CIRCLE */
+/* TRANSPARENT 3D GLASS SPHERE */
 
 .circle {
     width: 120px;
@@ -244,45 +240,50 @@ body {
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-    background:
-        radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
-        linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
+
+    /* Transparent glass body */
+    background: rgba(255,255,255,.035);
+
+    /* Realistic glass edge */
     border: 2px solid rgba(255,255,255,.72);
+
     box-shadow:
-        0 0 0 5px rgba(232,189,105,.07),
-        0 0 28px rgba(143,111,255,.22),
-        inset 0 3px 12px rgba(255,255,255,.28),
-        inset 0 -8px 18px rgba(0,0,0,.22);
-    backdrop-filter: blur(5px);
+        0 0 0 2px rgba(255,255,255,.08),
+        0 0 22px rgba(180,150,255,.20),
+        inset 0 0 12px rgba(255,255,255,.12),
+        inset 0 0 25px rgba(255,255,255,.06);
+
+    backdrop-filter: blur(2px);
 }
 
+/* Only natural glass reflection on the outer surface */
 .circle::before {
     content: "";
     position: absolute;
-    inset: 5px;
+    inset: 2px;
     z-index: 3;
     border-radius: 50%;
-    border-top: 2px solid rgba(255,255,255,.72);
-    border-left: 1px solid rgba(255,255,255,.25);
+    border-top: 2px solid rgba(255,255,255,.68);
+    border-left: 1px solid rgba(255,255,255,.28);
     pointer-events: none;
 }
 
 .circle::after {
     content: "";
     position: absolute;
+    top: 10px;
+    left: 19px;
+    width: 30px;
+    height: 8px;
     z-index: 3;
-    width: 34px;
-    height: 12px;
-    top: 12px;
-    left: 17px;
     border-radius: 50%;
-    transform: rotate(-38deg);
-    background: rgba(255,255,255,.28);
+    transform: rotate(-35deg);
+    background: rgba(255,255,255,.32);
     filter: blur(3px);
     pointer-events: none;
 }
 
-/* LIQUID WATER */
+/* LIQUID INSIDE GLASS */
 
 .water {
     position: absolute;
@@ -291,40 +292,47 @@ body {
     left: -50%;
     width: 200%;
     height: 0%;
+
     background: linear-gradient(
         180deg,
-        rgba(190,170,255,.75) 0%,
-        rgba(125,100,230,.82) 45%,
-        rgba(65,50,165,.90) 100%
+        rgba(190,160,255,.88) 0%,
+        rgba(135,105,235,.91) 35%,
+        rgba(85,60,190,.96) 100%
     );
-    box-shadow: 0 -2px 8px rgba(195,174,255,.18);
+
     transition: height 1s linear;
 }
 
+/* Natural moving water surface */
 .wave {
     position: absolute;
-    width: 210%;
-    height: 20px;
     top: -11px;
-    left: -5%;
-    border-radius: 44%;
-    background: rgba(220,207,255,.62);
-    filter: blur(.6px);
-    animation: waterBob 2.2s ease-in-out infinite alternate;
+    left: 0;
+    width: 200%;
+    height: 22px;
+    border-radius: 45%;
+
+    background: rgba(220,205,255,.82);
+
+    animation: liquidMove 2.4s ease-in-out infinite alternate;
     transform-origin: center;
 }
 
-@keyframes waterBob {
+@keyframes liquidMove {
     0% {
-        transform: translateY(4px) rotate(-4deg) scaleY(.90);
+        transform: translateY(4px) rotate(-3deg) scaleY(.92);
     }
+
     50% {
         transform: translateY(-5px) rotate(3deg) scaleY(1.08);
     }
+
     100% {
-        transform: translateY(4px) rotate(-3deg) scaleY(.94);
+        transform: translateY(3px) rotate(-2deg) scaleY(.95);
     }
 }
+
+/* TIMER TEXT */
 
 .timer-content {
     position: absolute;
@@ -365,7 +373,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* BUTTON */
+/* DOWNLOAD BUTTON */
 
 .download-btn {
     display: flex;
@@ -395,10 +403,6 @@ body {
     opacity: 1;
     pointer-events: auto;
     box-shadow: 0 0 22px rgba(232,189,105,.35);
-}
-
-.download-btn.ready:hover {
-    transform: translateY(-2px);
 }
 
 .spinner {
@@ -513,6 +517,7 @@ body {
                 <div class="seconds">SECONDS</div>
             </div>
         </div>
+
     </div>
 
     <div class="status" id="status">PREPARING YOUR LINK...</div>
@@ -556,7 +561,7 @@ const redirect = params.get("redirect");
 
 let safeLink = null;
 
-/* OLD BOT LINK SUPPORT */
+/* EXISTING FILE STORE BOT LINK */
 if (redirect) {
     try {
         const parsed = new URL(redirect);
@@ -613,6 +618,11 @@ function finishCountdown() {
         button.classList.add("ready");
         button.setAttribute("aria-disabled", "false");
 
+        // Show Download Now briefly, then redirect automatically.
+        setTimeout(() => {
+            window.location.replace(safeLink);
+        }, 650);
+
     } else {
 
         status.textContent = "DIRECT LINK NOT FOUND";
@@ -626,11 +636,9 @@ function finishCountdown() {
 }
 
 button.addEventListener("click", function(event) {
-
     if (!safeLink || !button.classList.contains("ready")) {
         event.preventDefault();
     }
-
 });
 
 countdown();
