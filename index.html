@@ -12,9 +12,10 @@
 
 <style>
 :root {
-    --gold: #e8bd69;
-    --gold-light: #ffe9b2;
-    --purple: #9560e8;
+    --gold: #f2c66d;
+    --gold-light: #fff0bd;
+    --purple: #a77aff;
+    --bg: #080610;
 }
 
 * {
@@ -25,63 +26,61 @@
 
 body {
     min-height: 100vh;
-    padding: 24px 15px;
+    padding: 18px 12px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    overflow-x: hidden;
+    align-items: center;
     color: #fff;
     font-family: 'Plus Jakarta Sans', sans-serif;
     background:
-        radial-gradient(ellipse at 10% 15%, rgba(115,48,180,.25), transparent 42%),
-        radial-gradient(ellipse at 90% 85%, rgba(174,111,48,.17), transparent 42%),
-        linear-gradient(145deg,#090612,#171020 55%,#080610);
+        radial-gradient(ellipse at 10% 10%, rgba(116,40,190,.35), transparent 43%),
+        radial-gradient(ellipse at 90% 90%, rgba(180,115,45,.22), transparent 43%),
+        linear-gradient(145deg,#080610,#171020 55%,#080610);
 }
 
 .ambient {
     position: fixed;
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    filter: blur(105px);
-    opacity: .28;
+    filter: blur(100px);
+    opacity: .32;
     pointer-events: none;
 }
 
 .ambient.one {
-    background: #873ce5;
-    top: -110px;
-    left: -110px;
+    background: #863ce5;
+    top: -100px;
+    left: -100px;
 }
 
 .ambient.two {
-    background: #c18a3e;
-    bottom: -110px;
-    right: -110px;
+    background: #d99c43;
+    bottom: -100px;
+    right: -100px;
 }
 
-/* MAIN CARD */
+/* MAIN COMPACT CARD */
 
 .card {
     width: 100%;
-    max-width: 390px;
+    max-width: 345px;
+    padding: 22px 19px 19px;
     position: relative;
-    z-index: 1;
     overflow: hidden;
-    padding: 29px 23px 24px;
     text-align: center;
-    border-radius: 27px;
+    border-radius: 23px;
     background:
         linear-gradient(145deg,
-        rgba(55,39,75,.78),
-        rgba(15,12,25,.94) 55%,
-        rgba(53,35,36,.78));
-    border: 1px solid rgba(232,189,105,.42);
+        rgba(54,37,76,.91),
+        rgba(16,12,27,.97) 55%,
+        rgba(48,29,37,.92));
+    border: 1px solid rgba(255,218,145,.58);
     box-shadow:
-        0 0 35px rgba(145,89,220,.13),
-        0 0 35px rgba(232,189,105,.10),
-        0 25px 75px rgba(0,0,0,.65),
-        inset 0 1px 1px rgba(255,255,255,.15);
+        0 0 30px rgba(145,89,220,.17),
+        0 0 28px rgba(232,189,105,.10),
+        0 22px 55px rgba(0,0,0,.62),
+        inset 0 1px 1px rgba(255,255,255,.18);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
 }
@@ -90,116 +89,142 @@ body {
     content: "";
     position: absolute;
     top: 0;
-    left: 8%;
-    width: 84%;
+    left: 7%;
+    width: 86%;
     height: 2px;
     background: linear-gradient(
-        90deg, transparent, var(--gold-light),
-        var(--purple), transparent
+        90deg,
+        transparent,
+        #fff0bd,
+        #a77aff,
+        transparent
     );
 }
 
-/* BRAND */
+/* CINEMATIC LOGO */
 
 .logo-box {
-    width: 86px;
-    height: 86px;
+    width: 75px;
+    height: 75px;
     padding: 3px;
-    margin: 0 auto 14px;
+    margin: 0 auto 11px;
+    position: relative;
     border-radius: 50%;
-    background: #100d18;
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 24px rgba(232,189,105,.3);
-    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #fff0bd,
+        #d49b43,
+        #fff0bd,
+        #8d5be5
+    );
+    box-shadow:
+        0 0 0 3px rgba(232,189,105,.12),
+        0 0 19px rgba(232,189,105,.45),
+        0 0 32px rgba(153,101,255,.20);
+}
+
+.logo-box::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,226,165,.38);
+    box-shadow: 0 0 12px rgba(232,189,105,.18);
 }
 
 .logo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     border-radius: 50%;
+    border: 2px solid #171020;
+    background: #fff;
 }
 
 .brand {
     font-family: 'Cinzel', serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 1.7px;
     background: linear-gradient(
-        90deg,#fff0c4,#dba94e,#fff1c7
+        90deg,
+        #fff3cf,
+        #e8b957,
+        #fff0bd
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(232,189,105,.23));
 }
 
 .divider {
-    width: 82px;
+    width: 68px;
     height: 3px;
-    margin: 15px auto 20px;
+    margin: 12px auto 16px;
     border-radius: 20px;
     background: linear-gradient(90deg,var(--gold),var(--purple));
-    box-shadow: 0 0 14px rgba(232,189,105,.35);
+    box-shadow: 0 0 13px rgba(232,189,105,.45);
 }
 
 .heading {
     font-family: 'Cinzel', serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     color: var(--gold-light);
 }
 
 .description {
-    margin-top: 8px;
-    color: #c0b7cb;
-    font-size: 11px;
-    letter-spacing: 1px;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: .8px;
+    color: #d1c5df;
 }
 
-/* VERIFIED BADGE */
+/* VERIFICATION BADGE */
 
 .verified {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    margin: 17px auto 0;
-    padding: 9px 15px;
+    gap: 8px;
+    margin: 13px auto 0;
+    padding: 8px 13px;
     border-radius: 30px;
-    color: #e8ce91;
-    background: rgba(211,166,87,.08);
-    border: 1px solid rgba(232,189,105,.32);
+    color: #ffe6a6;
+    background: rgba(232,189,105,.09);
+    border: 1px solid rgba(232,189,105,.42);
     font-size: 9px;
     font-weight: 800;
-    letter-spacing: .8px;
+    letter-spacing: .6px;
 }
 
 .verified-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: #48e3a3;
-    box-shadow: 0 0 10px #48e3a3;
+    box-shadow: 0 0 9px #48e3a3;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0%,100% { box-shadow: 0 0 4px #48e3a3; }
-    50% { box-shadow: 0 0 12px #48e3a3; }
+    50% { box-shadow: 0 0 13px #48e3a3; }
 }
 
-/* COUNTDOWN AREA */
+/* SMALLER COUNTDOWN AREA */
 
 .timer-wrap {
-    width: 190px;
-    height: 190px;
-    margin: 27px auto 22px;
+    width: 158px;
+    height: 158px;
+    margin: 23px auto 17px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* OUTER ROTATING RINGS */
+/* OUTER RINGS */
 
 .orbit {
     position: absolute;
@@ -209,60 +234,65 @@ body {
 
 .orbit-one {
     inset: 0;
-    border: 2px dashed rgba(232,189,105,.58);
-    animation: orbitSpin 12s linear infinite;
+    border: 1.5px dashed rgba(255,218,130,.78);
+    animation: spin 12s linear infinite;
 }
 
 .orbit-two {
-    inset: 9px;
+    inset: 7px;
     border: 2px solid transparent;
-    border-top-color: rgba(157,104,239,.95);
-    border-bottom-color: rgba(232,189,105,.75);
-    animation: orbitReverse 5s linear infinite;
+    border-top-color: #b68aff;
+    border-bottom-color: #f1c46c;
+    animation: reverseSpin 5s linear infinite;
 }
 
 .orbit-three {
-    inset: 17px;
-    border: 1px solid rgba(255,255,255,.12);
+    inset: 13px;
+    border: 1px solid rgba(255,255,255,.14);
 }
 
-@keyframes orbitSpin {
+@keyframes spin {
     to { transform: rotate(360deg); }
 }
 
-@keyframes orbitReverse {
+@keyframes reverseSpin {
     to { transform: rotate(-360deg); }
 }
 
-/* TRANSPARENT GLASS SPHERE */
+/* 3D GLASS SPHERE */
 
 .sphere {
-    width: 146px;
-    height: 146px;
+    width: 119px;
+    height: 119px;
     position: relative;
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-    background: rgba(255,255,255,.025);
-    border: 2px solid rgba(255,255,255,.66);
-
+    background:
+        radial-gradient(
+            circle at 30% 18%,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.025) 48%,
+            rgba(8,5,18,.14)
+        );
+    border: 2px solid rgba(255,255,255,.77);
     box-shadow:
-        0 0 0 2px rgba(255,255,255,.06),
-        0 0 25px rgba(159,110,255,.18),
-        inset 0 0 18px rgba(255,255,255,.15),
-        inset 0 0 35px rgba(255,255,255,.055);
+        0 0 0 2px rgba(255,255,255,.07),
+        0 0 22px rgba(164,116,255,.23),
+        inset 0 0 13px rgba(255,255,255,.20),
+        inset 0 -8px 23px rgba(255,255,255,.08);
 }
 
-/* NATURAL OUTER GLASS REFLECTION */
+/* OUTER GLASS EDGE */
 
 .sphere::before {
     content: "";
     position: absolute;
-    inset: 2px;
     z-index: 5;
+    inset: 2px;
     border-radius: 50%;
-    border-top: 2px solid rgba(255,255,255,.75);
-    border-left: 1px solid rgba(255,255,255,.3);
+    border-top: 2px solid rgba(255,255,255,.78);
+    border-left: 1px solid rgba(255,255,255,.32);
     pointer-events: none;
 }
 
@@ -270,83 +300,78 @@ body {
     content: "";
     position: absolute;
     z-index: 5;
-    top: 12px;
-    left: 23px;
-    width: 37px;
-    height: 9px;
+    top: 10px;
+    left: 18px;
+    width: 33px;
+    height: 8px;
     border-radius: 50%;
     transform: rotate(-35deg);
-    background: rgba(255,255,255,.32);
+    background: rgba(255,255,255,.40);
     filter: blur(3px);
     pointer-events: none;
 }
 
-/* PURPLE LIQUID */
+/* LIQUID */
 
 .liquid {
     position: absolute;
     z-index: 1;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 0%;
-    overflow: visible;
     background: linear-gradient(
         180deg,
-        rgba(191,163,255,.90) 0%,
-        rgba(137,100,235,.94) 35%,
-        rgba(91,61,187,.97) 100%
+        #cbb1ff 0%,
+        #a178f2 23%,
+        #8553df 62%,
+        #5832ad 100%
     );
     transition: height 5s linear;
 }
 
-/* MOVING WATER SURFACE */
+/* WATER SURFACE */
 
 .wave {
     position: absolute;
+    top: -10px;
     left: -50%;
-    top: -12px;
     width: 200%;
-    height: 25px;
-    border-radius: 43%;
-    background: rgba(222,208,255,.78);
-    animation: waterWave 2.8s ease-in-out infinite alternate;
-    transform-origin: center;
+    height: 22px;
+    border-radius: 44%;
+    background: rgba(241,229,255,.88);
+    animation: waveMove 2.5s ease-in-out infinite alternate;
 }
 
 .wave-back {
     position: absolute;
-    top: -9px;
+    top: -8px;
     left: -45%;
     width: 200%;
-    height: 20px;
-    border-radius: 43%;
-    background: rgba(183,153,255,.36);
-    animation: waterWaveBack 3.7s ease-in-out infinite alternate;
+    height: 18px;
+    border-radius: 44%;
+    background: rgba(197,170,255,.48);
+    animation: waveMoveBack 3.4s ease-in-out infinite alternate;
 }
 
-@keyframes waterWave {
+@keyframes waveMove {
     0% {
-        transform: translateY(4px) rotate(-4deg) scaleY(.92);
+        transform: translateY(4px) rotate(-4deg) scaleY(.9);
     }
     50% {
-        transform: translateY(-4px) rotate(3deg) scaleY(1.08);
+        transform: translateY(-4px) rotate(3deg) scaleY(1.1);
     }
     100% {
-        transform: translateY(3px) rotate(-2deg) scaleY(.95);
+        transform: translateY(3px) rotate(-3deg) scaleY(.94);
     }
 }
 
-@keyframes waterWaveBack {
-    0% {
-        transform: translateY(-2px) rotate(3deg);
-    }
-    100% {
-        transform: translateY(3px) rotate(-4deg);
-    }
+@keyframes waveMoveBack {
+    0% { transform: translateY(-2px) rotate(3deg); }
+    100% { transform: translateY(3px) rotate(-4deg); }
 }
 
-/* COUNTDOWN TEXT */
+/* COUNTDOWN */
 
 .timer-content {
     position: absolute;
@@ -356,157 +381,129 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 3px 12px rgba(0,0,0,.75);
+    text-shadow: 0 3px 12px rgba(0,0,0,.8);
     pointer-events: none;
 }
 
 #countdown {
     font-family: 'Cinzel', serif;
-    font-size: 54px;
+    font-size: 47px;
     font-weight: 800;
     line-height: 1;
     color: #fff;
-    transition: transform .2s ease;
-}
-
-#countdown.tick {
-    transform: scale(1.12);
 }
 
 .seconds {
-    margin-top: 8px;
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: #fff0ca;
+    margin-top: 7px;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #fff0c8;
 }
 
 /* STATUS */
 
 .status-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .status-title {
     font-family: 'Cinzel', serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     color: #fff0c7;
 }
 
 .status-subtext {
-    margin-top: 7px;
-    font-size: 12px;
-    color: #c0b7cb;
+    margin-top: 6px;
+    font-size: 11px;
+    color: #d0c5dc;
 }
 
 /* DOWNLOAD BUTTON */
 
 .primary-btn {
     width: 100%;
-    min-height: 55px;
-    padding: 15px;
-    border-radius: 13px;
+    min-height: 49px;
+    padding: 13px;
+    border-radius: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 9px;
     border: 1px solid rgba(255,255,255,.12);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1px;
-    transition: all .3s ease;
-    margin-bottom: 13px;
+    letter-spacing: .8px;
+    margin-bottom: 11px;
+    transition: .3s;
 }
 
 .btn-verifying {
-    color: #c6bccc;
-    background: rgba(255,255,255,.045);
+    color: #d1c6dc;
+    background: rgba(255,255,255,.06);
     cursor: wait;
 }
 
 .btn-ready {
     color: #21170b;
     background: linear-gradient(
-        100deg,#ffe8ad,#d8a34b,#f5d28b
+        100deg,#fff0bd,#e5b451,#fff0bd
     );
-    border-color: rgba(255,235,181,.7);
-    box-shadow: 0 5px 22px rgba(232,189,105,.32);
+    border-color: rgba(255,235,181,.8);
+    box-shadow: 0 5px 20px rgba(232,189,105,.35);
     cursor: pointer;
 }
 
-.btn-ready:active {
-    transform: scale(.98);
-}
-
 .spinner {
-    width: 17px;
-    height: 17px;
-    border: 2px solid rgba(255,255,255,.2);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,.22);
     border-top-color: var(--gold-light);
     border-radius: 50%;
     animation: spin .8s linear infinite;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* TELEGRAM BUTTON */
+/* TELEGRAM */
 
 .secondary-btn {
     display: block;
     width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    background: rgba(147,100,190,.10);
-    border: 1px solid rgba(190,150,220,.25);
-    color: #f6e7c5;
+    padding: 12px;
+    border-radius: 11px;
+    background: rgba(147,100,190,.12);
+    border: 1px solid rgba(190,150,220,.30);
+    color: #fff0ce;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: .7px;
-    transition: .3s;
-    margin-bottom: 22px;
-}
-
-.secondary-btn:active {
-    background: rgba(147,100,190,.2);
+    letter-spacing: .6px;
+    margin-bottom: 17px;
 }
 
 .footer-text {
-    color: rgba(232,189,105,.58);
-    font-size: 9px;
+    color: rgba(255,220,145,.68);
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.4px;
 }
 
-@media(max-width:380px) {
+@media(max-width:360px) {
     .card {
-        padding: 23px 17px 20px;
+        max-width: 330px;
+        padding: 19px 15px 17px;
     }
 
     .timer-wrap {
-        width: 175px;
-        height: 175px;
+        width: 146px;
+        height: 146px;
     }
 
     .sphere {
-        width: 136px;
-        height: 136px;
-    }
-}
-
-@media(prefers-reduced-motion: reduce) {
-    .orbit-one,
-    .orbit-two,
-    .wave,
-    .wave-back,
-    .verified-dot,
-    .spinner {
-        animation-duration: 10s;
+        width: 110px;
+        height: 110px;
     }
 }
 </style>
@@ -538,16 +535,12 @@ body {
         SECURED &amp; VERIFIED LINK
     </div>
 
-    <!-- GLASS LIQUID COUNTDOWN -->
-
     <div class="timer-wrap">
-
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
         <div class="orbit orbit-three"></div>
 
         <div class="sphere">
-
             <div class="liquid" id="liquid">
                 <div class="wave"></div>
                 <div class="wave-back"></div>
@@ -557,11 +550,8 @@ body {
                 <div id="countdown">5</div>
                 <div class="seconds">SECONDS</div>
             </div>
-
         </div>
     </div>
-
-    <!-- STATUS -->
 
     <div class="status-container">
         <div class="status-title">SECURITY VERIFICATION</div>
@@ -569,8 +559,6 @@ body {
             Preparing your download link...
         </div>
     </div>
-
-    <!-- DOWNLOAD BUTTON -->
 
     <button
         class="primary-btn btn-verifying"
@@ -615,11 +603,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let destination = null;
 
-    /*
-      EXISTING BOT LINKS:
-      ?redirect=https%3A%2F%2F...
-    */
-
+    // Existing File Store Bot links
     if (redirectParam) {
         try {
             const parsed = new URL(redirectParam);
@@ -632,11 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /*
-      TOKEN LINKS:
-      Existing API endpoint support.
-    */
-
+    // Existing token API support
     else if (token) {
         destination = "/api/verify?token=" +
             encodeURIComponent(token);
@@ -652,10 +632,16 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.replace(destination);
     }
 
+    // Start water filling
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            liquid.style.height = "100%";
+        });
+    });
+
     function finishCountdown() {
 
         countdownEl.textContent = "0";
-        liquid.style.height = "100%";
 
         if (!destination) {
             statusSubtext.textContent = "Download link unavailable.";
@@ -673,44 +659,16 @@ document.addEventListener("DOMContentLoaded", () => {
         primaryBtn.classList.add("btn-ready");
         primaryBtn.disabled = false;
 
-        /*
-          Manual fallback if automatic navigation is blocked.
-        */
-
         primaryBtn.addEventListener("click", goToDestination);
 
-        /*
-          Show the button briefly, then redirect automatically.
-        */
-
+        // Automatic redirect after short button preview
         setTimeout(goToDestination, 900);
     }
-
-    /*
-      Start gradual water filling.
-    */
-
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            liquid.style.height = "100%";
-        });
-    });
-
-    /*
-      Countdown.
-    */
 
     const timer = setInterval(() => {
 
         timeLeft--;
-
         countdownEl.textContent = timeLeft;
-
-        countdownEl.classList.add("tick");
-
-        setTimeout(() => {
-            countdownEl.classList.remove("tick");
-        }, 180);
 
         if (timeLeft === 2) {
             statusSubtext.textContent = "Redirecting in progress...";
