@@ -235,6 +235,8 @@ body {
     transition: stroke-dashoffset 1s linear;
 }
 
+/* GLASS CIRCLE */
+
 .circle {
     width: 120px;
     height: 120px;
@@ -242,28 +244,63 @@ body {
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-    background: radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
-                linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
+    background:
+        radial-gradient(circle at 27% 17%, rgba(255,255,255,.30), transparent 27%),
+        linear-gradient(145deg, rgba(255,255,255,.13), rgba(166,140,210,.08) 55%, rgba(8,8,20,.24));
     border: 2px solid rgba(255,255,255,.72);
-    box-shadow: 0 0 0 5px rgba(232,189,105,.07), 0 0 28px rgba(143,111,255,.22),
-                inset 0 3px 12px rgba(255,255,255,.28), inset 0 -8px 18px rgba(0,0,0,.22);
+    box-shadow:
+        0 0 0 5px rgba(232,189,105,.07),
+        0 0 28px rgba(143,111,255,.22),
+        inset 0 3px 12px rgba(255,255,255,.28),
+        inset 0 -8px 18px rgba(0,0,0,.22);
     backdrop-filter: blur(5px);
 }
+
 .circle::before {
-    content: ""; position: absolute; inset: 5px; z-index: 3; border-radius: 50%;
-    border-top: 2px solid rgba(255,255,255,.72); border-left: 1px solid rgba(255,255,255,.25);
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: 3;
+    border-radius: 50%;
+    border-top: 2px solid rgba(255,255,255,.72);
+    border-left: 1px solid rgba(255,255,255,.25);
     pointer-events: none;
 }
+
 .circle::after {
-    content: ""; position: absolute; z-index: 3; width: 34px; height: 12px; top: 12px; left: 17px;
-    border-radius: 50%; transform: rotate(-38deg); background: rgba(255,255,255,.28);
-    filter: blur(3px); pointer-events: none;
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 34px;
+    height: 12px;
+    top: 12px;
+    left: 17px;
+    border-radius: 50%;
+    transform: rotate(-38deg);
+    background: rgba(255,255,255,.28);
+    filter: blur(3px);
+    pointer-events: none;
 }
+
+/* LIQUID WATER */
+
 .water {
-    position: absolute; z-index: 1; bottom: 0; left: -50%; width: 200%; height: 0%;
-    background: linear-gradient(180deg, rgba(177,145,255,.70) 0%, rgba(113,91,226,.76) 42%, rgba(54,45,145,.84) 100%);
-    box-shadow: 0 -2px 8px rgba(195,174,255,.18); transition: height 1s linear;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 0%;
+    background: linear-gradient(
+        180deg,
+        rgba(190,170,255,.75) 0%,
+        rgba(125,100,230,.82) 45%,
+        rgba(65,50,165,.90) 100%
+    );
+    box-shadow: 0 -2px 8px rgba(195,174,255,.18);
+    transition: height 1s linear;
 }
+
 .wave {
     position: absolute;
     width: 210%;
@@ -271,18 +308,23 @@ body {
     top: -11px;
     left: -5%;
     border-radius: 44%;
-    background: rgba(220,207,255,.56);
+    background: rgba(220,207,255,.62);
     filter: blur(.6px);
-    animation: waterBob 2.8s ease-in-out infinite alternate;
+    animation: waterBob 2.2s ease-in-out infinite alternate;
     transform-origin: center;
 }
 
 @keyframes waterBob {
-    0%   { transform: translate3d(-2%, 2px, 0) rotate(-3deg) scaleY(.88); }
-    50%  { transform: translate3d(1%, -2px, 0) rotate(2deg) scaleY(1.08); }
-    100% { transform: translate3d(3%, 1px, 0) rotate(-1deg) scaleY(.94); }
+    0% {
+        transform: translateY(4px) rotate(-4deg) scaleY(.90);
+    }
+    50% {
+        transform: translateY(-5px) rotate(3deg) scaleY(1.08);
+    }
+    100% {
+        transform: translateY(4px) rotate(-3deg) scaleY(.94);
+    }
 }
-@keyframes wave { from { transform: translateX(0) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
 
 .timer-content {
     position: absolute;
@@ -411,7 +453,9 @@ body {
 }
 
 @media(max-width:380px) {
-    .card { padding: 22px 17px 19px; }
+    .card {
+        padding: 22px 17px 19px;
+    }
 }
 </style>
 </head>
@@ -510,17 +554,23 @@ const params = new URLSearchParams(window.location.search);
 const token = params.get("token");
 const redirect = params.get("redirect");
 
-// Backward compatibility: the existing Telegram bot generates ?redirect= links.
-// Keep those working while also allowing the newer signed-token route.
 let safeLink = null;
+
+/* OLD BOT LINK SUPPORT */
 if (redirect) {
     try {
         const parsed = new URL(redirect);
-        if (parsed.protocol === "https:") safeLink = parsed.href;
-    } catch (_) {
+
+        if (parsed.protocol === "https:") {
+            safeLink = parsed.href;
+        }
+    } catch (error) {
         safeLink = null;
     }
-} else if (token) {
+}
+
+/* TOKEN LINK SUPPORT */
+else if (token) {
     safeLink = "/api/verify?token=" + encodeURIComponent(token);
 }
 
@@ -576,9 +626,11 @@ function finishCountdown() {
 }
 
 button.addEventListener("click", function(event) {
+
     if (!safeLink || !button.classList.contains("ready")) {
         event.preventDefault();
     }
+
 });
 
 countdown();
