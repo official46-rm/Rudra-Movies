@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10182c">
-<title>PREPARING YOUR DOWNLOAD LINK...</title>
+<meta name="theme-color" content="#080710">
+<title>RUDRA MOVIES | DOWNLOAD</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -17,15 +17,15 @@
 }
 
 :root {
-    --cyan: #45dcff;
-    --blue: #398cff;
-    --pink: #e34bca;
-    --purple: #974bff;
+    --gold: #e8bd69;
+    --gold-light: #ffe5a3;
+    --purple: #9b64ff;
+    --bg: #080710;
 }
 
 body {
     min-height: 100vh;
-    padding: 24px 15px;
+    padding: 25px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,164 +33,155 @@ body {
     color: white;
     font-family: 'Poppins', sans-serif;
     background:
-        radial-gradient(ellipse at 8% 25%, rgba(0,205,255,.38), transparent 34%),
-        radial-gradient(ellipse at 95% 75%, rgba(205,35,220,.36), transparent 37%),
-        radial-gradient(ellipse at 85% 12%, rgba(90,65,190,.20), transparent 35%),
-        linear-gradient(145deg, #071426 0%, #11182d 55%, #090d20 100%);
+        radial-gradient(ellipse at 10% 15%, rgba(126,72,180,.23), transparent 40%),
+        radial-gradient(ellipse at 90% 85%, rgba(207,151,66,.19), transparent 40%),
+        linear-gradient(145deg,#080710,#151020 55%,#090710);
 }
 
 .glow {
     position: fixed;
-    width: 210px;
-    height: 210px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
-    filter: blur(85px);
-    opacity: .35;
+    filter: blur(100px);
+    opacity: .3;
     pointer-events: none;
-    z-index: 0;
 }
 
-.glow.cyan {
-    top: 10%;
-    left: -110px;
-    background: #00d9ff;
+.glow.one {
+    background: #914aff;
+    top: -100px;
+    left: -100px;
 }
 
-.glow.pink {
-    right: -110px;
-    bottom: 10%;
-    background: #ec36d0;
+.glow.two {
+    background: #e9ae4d;
+    bottom: -100px;
+    right: -100px;
 }
 
 .card {
     width: 100%;
-    max-width: 365px;
+    max-width: 375px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    padding: 25px 20px 21px;
+    padding: 27px 21px 23px;
     text-align: center;
-    border-radius: 27px;
+    border-radius: 25px;
     background:
-        linear-gradient(135deg,
-            rgba(42,80,112,.43),
-            rgba(22,31,57,.88) 48%,
-            rgba(86,35,100,.37));
-    border: 1px solid rgba(174,207,255,.35);
+        linear-gradient(145deg,
+        rgba(57,42,77,.84),
+        rgba(17,14,27,.97) 55%,
+        rgba(64,43,39,.75));
+    border: 1px solid rgba(232,189,105,.45);
     box-shadow:
-        0 0 25px rgba(0,191,255,.12),
-        0 0 35px rgba(213,54,205,.10),
-        0 25px 65px rgba(0,0,0,.45),
+        0 0 30px rgba(170,110,255,.13),
+        0 0 35px rgba(232,189,105,.12),
+        0 25px 70px rgba(0,0,0,.65),
         inset 0 1px 1px rgba(255,255,255,.15);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(20px);
 }
 
 .card::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 10%;
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #8eeeff, #f29bff, transparent);
-    opacity: .7;
+    left: 8%;
+    width: 84%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,transparent,var(--gold-light),var(--purple),transparent
+    );
 }
 
 /* LOGO */
 
 .logo-box {
-    width: 76px;
-    height: 76px;
+    width: 82px;
+    height: 82px;
     padding: 3px;
-    margin: 0 auto 12px;
+    margin: 0 auto 13px;
     border-radius: 50%;
-    background: #091426;
-    border: 2px solid rgba(90,224,255,.9);
-    box-shadow:
-        0 0 10px rgba(0,218,255,.65),
-        0 0 24px rgba(0,160,255,.30),
-        0 0 30px rgba(217,75,220,.12);
+    background: #100d18;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 22px rgba(232,189,105,.35);
     overflow: hidden;
 }
 
 .logo {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
     border-radius: 50%;
 }
 
 .brand {
     font-family: 'Orbitron', sans-serif;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: 1.8px;
-    background: linear-gradient(90deg, #d9fbff, #55e4ff, #d69aff);
+    letter-spacing: 2px;
+    background: linear-gradient(
+        90deg,#fff0bf,#dba94e,#fff1c4
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .divider {
-    width: 72px;
+    width: 75px;
     height: 3px;
-    margin: 15px auto 18px;
+    margin: 15px auto 19px;
     border-radius: 20px;
-    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--pink));
-    box-shadow:
-        0 0 9px rgba(50,215,255,.65),
-        0 0 15px rgba(217,70,220,.25);
+    background: linear-gradient(90deg,var(--gold),var(--purple));
+    box-shadow: 0 0 12px rgba(232,189,105,.4);
 }
 
 .heading {
     font-family: 'Orbitron', sans-serif;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #e5f8ff;
+    letter-spacing: 1.4px;
+    color: var(--gold-light);
 }
 
 .description {
-    margin-top: 7px;
-    color: #a8b9ce;
-    font-size: 9px;
-    letter-spacing: 1.2px;
+    margin-top: 8px;
+    color: #c2b8d1;
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
-/* VERIFIED BADGE */
+/* VERIFICATION */
 
 .verified {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin: 15px auto 0;
-    padding: 8px 13px;
+    margin: 16px auto 0;
+    padding: 8px 14px;
     border-radius: 30px;
-    color: #58caff;
-    background: rgba(20,157,206,.10);
-    border: 1px solid rgba(65,208,245,.35);
+    color: #e8ce91;
+    background: rgba(211,166,87,.09);
+    border: 1px solid rgba(232,189,105,.35);
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: .5px;
-    box-shadow: 0 0 12px rgba(0,190,255,.08);
 }
 
 .verified-dot {
     width: 8px;
     height: 8px;
-    flex: 0 0 8px;
     border-radius: 50%;
-    background: #36e7ae;
-    box-shadow: 0 0 9px #36e7ae;
+    background: #48e3a3;
+    box-shadow: 0 0 9px #48e3a3;
 }
 
-/* 3D COUNTDOWN */
+/* COUNTDOWN */
 
 .timer-wrap {
-    width: 158px;
-    height: 158px;
-    margin: 23px auto 20px;
+    width: 160px;
+    height: 160px;
+    margin: 24px auto 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -202,11 +193,11 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    border: 2px dashed rgba(84,210,255,.48);
-    animation: rotateRing 18s linear infinite;
+    border: 2px dashed rgba(232,189,105,.45);
+    animation: rotate 18s linear infinite;
 }
 
-@keyframes rotateRing {
+@keyframes rotate {
     to { transform: rotate(360deg); }
 }
 
@@ -214,10 +205,7 @@ body {
     position: absolute;
     inset: 7px;
     border-radius: 50%;
-    border: 3px solid rgba(70,177,222,.17);
-    box-shadow:
-        0 0 10px rgba(0,190,255,.10),
-        inset 0 0 10px rgba(0,190,255,.06);
+    border: 3px solid rgba(232,189,105,.12);
 }
 
 .progress-svg {
@@ -227,7 +215,6 @@ body {
     height: 100%;
     transform: rotate(-90deg);
     z-index: 4;
-    overflow: visible;
 }
 
 .progress-bg,
@@ -237,54 +224,30 @@ body {
 }
 
 .progress-bg {
-    stroke: rgba(95,190,235,.13);
+    stroke: rgba(232,189,105,.12);
 }
 
 .progress-bar {
-    stroke: url(#progressGradient);
+    stroke: url(#goldGradient);
     stroke-linecap: round;
-    stroke-dasharray: 414.69;
-    stroke-dashoffset: 414.69;
-    filter: drop-shadow(0 0 5px rgba(50,210,255,.85));
+    filter: drop-shadow(0 0 5px rgba(232,189,105,.8));
     transition: stroke-dashoffset 1s linear;
 }
 
-/* 3D INNER CIRCLE */
-
 .circle {
-    width: 119px;
-    height: 119px;
+    width: 120px;
+    height: 120px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
-    background:
-        radial-gradient(circle at 32% 23%,
-            #52647a 0%,
-            #28394f 34%,
-            #121d31 72%,
-            #070e1c 100%);
-    border: 2px solid rgba(107,196,239,.65);
+    background: radial-gradient(circle at 30% 20%,#54465e,#211b2d 65%,#0b0912);
+    border: 2px solid rgba(232,189,105,.7);
     box-shadow:
-        0 0 0 5px rgba(41,153,205,.10),
-        0 0 18px rgba(30,191,255,.22),
-        inset 0 5px 13px rgba(255,255,255,.12),
-        inset 0 -12px 18px rgba(0,0,0,.55);
+        0 0 0 5px rgba(232,189,105,.08),
+        0 0 22px rgba(232,189,105,.2),
+        inset 0 5px 14px rgba(255,255,255,.1),
+        inset 0 -12px 18px rgba(0,0,0,.6);
 }
-
-.circle::before {
-    content: "";
-    position: absolute;
-    width: 95px;
-    height: 55px;
-    left: 10px;
-    top: 7px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, rgba(255,255,255,.13), transparent);
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* LIQUID WATER */
 
 .water {
     position: absolute;
@@ -294,11 +257,11 @@ body {
     height: 0%;
     background: linear-gradient(
         180deg,
-        rgba(48,218,239,.78),
-        rgba(32,126,208,.80) 55%,
-        rgba(119,55,174,.86)
+        rgba(255,218,133,.85),
+        rgba(183,119,62,.9),
+        rgba(111,57,160,.9)
     );
-    transition: height 1s ease;
+    transition: height 1s linear;
 }
 
 .wave {
@@ -308,18 +271,11 @@ body {
     top: -10px;
     left: 0;
     border-radius: 40%;
-    background: rgba(104,232,255,.70);
-    animation: waveMove 4s linear infinite;
+    background: rgba(255,229,163,.7);
+    animation: wave 4s linear infinite;
 }
 
-.wave.two {
-    left: -50%;
-    top: -7px;
-    opacity: .32;
-    animation-duration: 6s;
-}
-
-@keyframes waveMove {
+@keyframes wave {
     to { transform: rotate(360deg); }
 }
 
@@ -331,22 +287,21 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-shadow: 0 3px 10px rgba(0,0,0,.65);
+    text-shadow: 0 3px 10px rgba(0,0,0,.7);
 }
 
 #timer {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron',sans-serif;
     font-size: 42px;
     font-weight: 800;
-    line-height: 1;
     color: #fff;
 }
 
 .seconds {
-    margin-top: 7px;
+    margin-top: 5px;
     font-size: 8px;
     letter-spacing: 3px;
-    color: #e8f6ff;
+    color: #fff0c8;
 }
 
 /* STATUS */
@@ -356,12 +311,11 @@ body {
     padding: 9px 17px;
     margin-bottom: 17px;
     border-radius: 30px;
-    color: #82eaff;
-    background: rgba(20,157,206,.10);
-    border: 1px solid rgba(65,208,245,.35);
+    color: #f0d49b;
+    background: rgba(232,189,105,.08);
+    border: 1px solid rgba(232,189,105,.3);
     font-size: 9px;
-    letter-spacing: 1.2px;
-    box-shadow: 0 0 12px rgba(0,190,255,.08);
+    letter-spacing: 1px;
 }
 
 /* BUTTON */
@@ -372,48 +326,45 @@ body {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    padding: 14px 10px;
+    padding: 15px 10px;
     border-radius: 13px;
     text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron',sans-serif;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 1px;
-    color: #eafaff;
-    background: linear-gradient(105deg, #087fae, #285fc0, #7546b9);
-    border: 1px solid rgba(126,206,255,.27);
+    color: #21170b;
+    background: linear-gradient(105deg,#ffe8ad,#d8a34b,#f5d28b);
+    border: 1px solid rgba(255,235,181,.6);
     box-shadow:
-        0 5px 16px rgba(0,0,0,.23),
-        inset 0 1px 1px rgba(255,255,255,.15);
-    opacity: .72;
+        0 5px 20px rgba(0,0,0,.3),
+        0 0 18px rgba(232,189,105,.15);
+    opacity: .6;
     pointer-events: none;
     transition: .3s;
+}
+
+.download-btn.ready {
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 0 22px rgba(232,189,105,.35);
+}
+
+.download-btn.ready:hover {
+    transform: translateY(-2px);
 }
 
 .spinner {
     width: 17px;
     height: 17px;
-    border: 2px solid rgba(220,240,255,.35);
-    border-top-color: #75eaff;
+    border: 2px solid rgba(50,30,10,.25);
+    border-top-color: #37220b;
     border-radius: 50%;
     animation: spin .8s linear infinite;
 }
 
 @keyframes spin {
     to { transform: rotate(360deg); }
-}
-
-.download-btn.ready {
-    opacity: 1;
-    pointer-events: auto;
-    background: linear-gradient(100deg, #16b9dc, #427ee8, #a24cce);
-    box-shadow:
-        0 0 18px rgba(34,191,255,.25),
-        0 0 18px rgba(214,65,208,.15);
-}
-
-.download-btn.ready:hover {
-    transform: translateY(-2px);
 }
 
 /* TELEGRAM */
@@ -423,22 +374,18 @@ body {
     margin-top: 12px;
     padding: 12px 8px;
     border-radius: 11px;
-    color: #edf8ff;
+    color: #f6e7c5;
     text-decoration: none;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: .7px;
-    background: linear-gradient(
-        110deg,
-        rgba(60,185,225,.13),
-        rgba(175,66,185,.15)
-    );
-    border: 1px solid rgba(190,180,255,.22);
+    background: rgba(147,100,190,.12);
+    border: 1px solid rgba(190,150,220,.25);
 }
 
 .footer {
-    margin-top: 17px;
-    color: #8498b0;
+    margin-top: 18px;
+    color: #b2a4bb;
     font-size: 8px;
     font-weight: 600;
     letter-spacing: 1.4px;
@@ -459,22 +406,20 @@ body {
 }
 
 @media(max-width:380px) {
-    .card {
-        padding: 22px 17px 19px;
-    }
+    .card { padding: 22px 17px 19px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="glow cyan"></div>
-<div class="glow pink"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
 
 <main class="card">
 
     <div class="logo-box">
-        <img src="RudraMovies.png"
+        <img src="/RudraMovies.png"
              class="logo"
              alt="Rudra Movies Logo">
     </div>
@@ -483,14 +428,12 @@ body {
     <div class="divider"></div>
 
     <div class="heading">SECURITY VERIFICATION</div>
-    <div class="description">REDIRECTING IN PROGRESS...</div>
+    <div class="description">PREPARING YOUR DOWNLOAD LINK...</div>
 
     <div class="verified">
         <span class="verified-dot"></span>
-        SECURED &amp; VERIFIED LINK
+        SECURE LINK VERIFICATION
     </div>
-
-    <!-- 3D LIQUID COUNTDOWN -->
 
     <div class="timer-wrap">
 
@@ -499,11 +442,11 @@ body {
 
         <svg class="progress-svg" viewBox="0 0 146 146">
             <defs>
-                <linearGradient id="progressGradient"
+                <linearGradient id="goldGradient"
                     x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#36e8ff"/>
-                    <stop offset="50%" stop-color="#398aff"/>
-                    <stop offset="100%" stop-color="#ef64d8"/>
+                    <stop offset="0%" stop-color="#fff0bd"/>
+                    <stop offset="50%" stop-color="#dba94e"/>
+                    <stop offset="100%" stop-color="#a66aff"/>
                 </linearGradient>
             </defs>
 
@@ -514,7 +457,6 @@ body {
         <div class="circle">
             <div class="water" id="water">
                 <div class="wave"></div>
-                <div class="wave two"></div>
             </div>
 
             <div class="timer-content">
@@ -535,11 +477,11 @@ body {
        class="telegram"
        target="_blank"
        rel="noopener noreferrer">
-        ➤ &nbsp; ⚡ RUDRA MAIN CHANNEL ✨
+        ➤ &nbsp; RUDRA MAIN CHANNEL
     </a>
 
     <div class="footer">
-        ⚡ RUDRA MOVIES SECURITY
+        RUDRA MOVIES SECURITY
     </div>
 
 </main>
@@ -559,24 +501,12 @@ const circumference = 2 * Math.PI * 66;
 progress.style.strokeDasharray = circumference;
 progress.style.strokeDashoffset = circumference;
 
-/* GET DOWNLOAD LINK */
-
 const params = new URLSearchParams(window.location.search);
-const redirect = params.get("redirect");
+const token = params.get("token");
 
-let safeLink = null;
-
-if (redirect) {
-    try {
-        const parsed = new URL(redirect);
-
-        if (parsed.protocol === "https:") {
-            safeLink = parsed.href;
-        }
-    } catch (error) {
-        safeLink = null;
-    }
-}
+const safeLink = token
+    ? "/api/verify?token=" + encodeURIComponent(token)
+    : null;
 
 let seconds = TOTAL_SECONDS;
 
