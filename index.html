@@ -4,81 +4,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080710">
+<meta name="theme-color" content="#090612">
 <title>RUDRA MOVIES | DOWNLOAD</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --gold: #e8bd69;
+    --gold-light: #ffe9b2;
+    --purple: #9560e8;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --gold: #e8bd69;
-    --gold-light: #ffe5a3;
-    --purple: #9b64ff;
-}
-
 body {
     min-height: 100vh;
-    padding: 25px 15px;
+    padding: 24px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background:
-        radial-gradient(ellipse at 10% 15%, rgba(126,72,180,.23), transparent 40%),
-        radial-gradient(ellipse at 90% 85%, rgba(207,151,66,.19), transparent 40%),
-        linear-gradient(145deg,#080710,#151020 55%,#090710);
+        radial-gradient(ellipse at 10% 15%, rgba(115,48,180,.25), transparent 42%),
+        radial-gradient(ellipse at 90% 85%, rgba(174,111,48,.17), transparent 42%),
+        linear-gradient(145deg,#090612,#171020 55%,#080610);
 }
 
-.glow {
+.ambient {
     position: fixed;
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: .3;
+    filter: blur(105px);
+    opacity: .28;
     pointer-events: none;
 }
 
-.glow.one {
-    background: #914aff;
-    top: -100px;
-    left: -100px;
+.ambient.one {
+    background: #873ce5;
+    top: -110px;
+    left: -110px;
 }
 
-.glow.two {
-    background: #e9ae4d;
-    bottom: -100px;
-    right: -100px;
+.ambient.two {
+    background: #c18a3e;
+    bottom: -110px;
+    right: -110px;
 }
+
+/* MAIN CARD */
 
 .card {
     width: 100%;
-    max-width: 375px;
+    max-width: 390px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    padding: 27px 21px 23px;
+    padding: 29px 23px 24px;
     text-align: center;
-    border-radius: 25px;
-    background: linear-gradient(145deg,
-        rgba(57,42,77,.84),
-        rgba(17,14,27,.97) 55%,
-        rgba(64,43,39,.75));
-    border: 1px solid rgba(232,189,105,.45);
+    border-radius: 27px;
+    background:
+        linear-gradient(145deg,
+        rgba(55,39,75,.78),
+        rgba(15,12,25,.94) 55%,
+        rgba(53,35,36,.78));
+    border: 1px solid rgba(232,189,105,.42);
     box-shadow:
-        0 0 30px rgba(170,110,255,.13),
-        0 0 35px rgba(232,189,105,.12),
-        0 25px 70px rgba(0,0,0,.65),
+        0 0 35px rgba(145,89,220,.13),
+        0 0 35px rgba(232,189,105,.10),
+        0 25px 75px rgba(0,0,0,.65),
         inset 0 1px 1px rgba(255,255,255,.15);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 }
 
 .card::before {
@@ -89,21 +94,22 @@ body {
     width: 84%;
     height: 2px;
     background: linear-gradient(
-        90deg,transparent,var(--gold-light),var(--purple),transparent
+        90deg, transparent, var(--gold-light),
+        var(--purple), transparent
     );
 }
 
-/* LOGO */
+/* BRAND */
 
 .logo-box {
-    width: 82px;
-    height: 82px;
+    width: 86px;
+    height: 86px;
     padding: 3px;
-    margin: 0 auto 13px;
+    margin: 0 auto 14px;
     border-radius: 50%;
     background: #100d18;
     border: 2px solid var(--gold);
-    box-shadow: 0 0 22px rgba(232,189,105,.35);
+    box-shadow: 0 0 24px rgba(232,189,105,.3);
     overflow: hidden;
 }
 
@@ -115,53 +121,56 @@ body {
 }
 
 .brand {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: 2px;
-    background: linear-gradient(90deg,#fff0bf,#dba94e,#fff1c4);
+    background: linear-gradient(
+        90deg,#fff0c4,#dba94e,#fff1c7
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .divider {
-    width: 75px;
+    width: 82px;
     height: 3px;
-    margin: 15px auto 19px;
+    margin: 15px auto 20px;
     border-radius: 20px;
     background: linear-gradient(90deg,var(--gold),var(--purple));
-    box-shadow: 0 0 12px rgba(232,189,105,.4);
+    box-shadow: 0 0 14px rgba(232,189,105,.35);
 }
 
 .heading {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
     color: var(--gold-light);
 }
 
 .description {
     margin-top: 8px;
-    color: #c2b8d1;
-    font-size: 10px;
+    color: #c0b7cb;
+    font-size: 11px;
     letter-spacing: 1px;
 }
 
-/* VERIFICATION */
+/* VERIFIED BADGE */
 
 .verified {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin: 16px auto 0;
-    padding: 8px 14px;
+    gap: 9px;
+    margin: 17px auto 0;
+    padding: 9px 15px;
     border-radius: 30px;
     color: #e8ce91;
-    background: rgba(211,166,87,.09);
-    border: 1px solid rgba(232,189,105,.35);
+    background: rgba(211,166,87,.08);
+    border: 1px solid rgba(232,189,105,.32);
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: .8px;
 }
 
 .verified-dot {
@@ -169,113 +178,102 @@ body {
     height: 8px;
     border-radius: 50%;
     background: #48e3a3;
-    box-shadow: 0 0 9px #48e3a3;
+    box-shadow: 0 0 10px #48e3a3;
+    animation: pulse 2s infinite;
 }
 
-/* COUNTDOWN */
+@keyframes pulse {
+    0%,100% { box-shadow: 0 0 4px #48e3a3; }
+    50% { box-shadow: 0 0 12px #48e3a3; }
+}
+
+/* COUNTDOWN AREA */
 
 .timer-wrap {
-    width: 160px;
-    height: 160px;
-    margin: 24px auto 20px;
+    width: 190px;
+    height: 190px;
+    margin: 27px auto 22px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
 }
 
-.dotted-ring {
+/* OUTER ROTATING RINGS */
+
+.orbit {
     position: absolute;
-    inset: 0;
     border-radius: 50%;
-    border: 2px dashed rgba(232,189,105,.62);
-    box-shadow: 0 0 12px rgba(232,189,105,.18);
-    animation: rotate 10s linear infinite;
+    pointer-events: none;
 }
 
-@keyframes rotate {
+.orbit-one {
+    inset: 0;
+    border: 2px dashed rgba(232,189,105,.58);
+    animation: orbitSpin 12s linear infinite;
+}
+
+.orbit-two {
+    inset: 9px;
+    border: 2px solid transparent;
+    border-top-color: rgba(157,104,239,.95);
+    border-bottom-color: rgba(232,189,105,.75);
+    animation: orbitReverse 5s linear infinite;
+}
+
+.orbit-three {
+    inset: 17px;
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+@keyframes orbitSpin {
     to { transform: rotate(360deg); }
 }
 
-.ring-track {
-    position: absolute;
-    inset: 7px;
-    border-radius: 50%;
-    border: 3px solid rgba(232,189,105,.12);
+@keyframes orbitReverse {
+    to { transform: rotate(-360deg); }
 }
 
-.progress-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotate(-90deg);
-    z-index: 4;
-}
+/* TRANSPARENT GLASS SPHERE */
 
-.progress-bg,
-.progress-bar {
-    fill: none;
-    stroke-width: 4;
-}
-
-.progress-bg {
-    stroke: rgba(232,189,105,.12);
-}
-
-.progress-bar {
-    stroke: url(#goldGradient);
-    stroke-linecap: round;
-    filter: drop-shadow(0 0 5px rgba(232,189,105,.8));
-    transition: stroke-dashoffset 1s linear;
-}
-
-/* TRANSPARENT 3D GLASS SPHERE */
-
-.circle {
-    width: 120px;
-    height: 120px;
+.sphere {
+    width: 146px;
+    height: 146px;
     position: relative;
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-
-    /* Transparent glass body */
-    background: rgba(255,255,255,.035);
-
-    /* Realistic glass edge */
-    border: 2px solid rgba(255,255,255,.72);
+    background: rgba(255,255,255,.025);
+    border: 2px solid rgba(255,255,255,.66);
 
     box-shadow:
-        0 0 0 2px rgba(255,255,255,.08),
-        0 0 22px rgba(180,150,255,.20),
-        inset 0 0 12px rgba(255,255,255,.12),
-        inset 0 0 25px rgba(255,255,255,.06);
-
-    backdrop-filter: blur(2px);
+        0 0 0 2px rgba(255,255,255,.06),
+        0 0 25px rgba(159,110,255,.18),
+        inset 0 0 18px rgba(255,255,255,.15),
+        inset 0 0 35px rgba(255,255,255,.055);
 }
 
-/* Only natural glass reflection on the outer surface */
-.circle::before {
+/* NATURAL OUTER GLASS REFLECTION */
+
+.sphere::before {
     content: "";
     position: absolute;
     inset: 2px;
-    z-index: 3;
+    z-index: 5;
     border-radius: 50%;
-    border-top: 2px solid rgba(255,255,255,.68);
-    border-left: 1px solid rgba(255,255,255,.28);
+    border-top: 2px solid rgba(255,255,255,.75);
+    border-left: 1px solid rgba(255,255,255,.3);
     pointer-events: none;
 }
 
-.circle::after {
+.sphere::after {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 19px;
-    width: 30px;
-    height: 8px;
-    z-index: 3;
+    z-index: 5;
+    top: 12px;
+    left: 23px;
+    width: 37px;
+    height: 9px;
     border-radius: 50%;
     transform: rotate(-35deg);
     background: rgba(255,255,255,.32);
@@ -283,133 +281,171 @@ body {
     pointer-events: none;
 }
 
-/* LIQUID INSIDE GLASS */
+/* PURPLE LIQUID */
 
-.water {
+.liquid {
     position: absolute;
     z-index: 1;
     bottom: 0;
-    left: -50%;
-    width: 200%;
+    left: 0;
+    width: 100%;
     height: 0%;
-
+    overflow: visible;
     background: linear-gradient(
         180deg,
-        rgba(190,160,255,.88) 0%,
-        rgba(135,105,235,.91) 35%,
-        rgba(85,60,190,.96) 100%
+        rgba(191,163,255,.90) 0%,
+        rgba(137,100,235,.94) 35%,
+        rgba(91,61,187,.97) 100%
     );
-
-    transition: height 1s linear;
+    transition: height 5s linear;
 }
 
-/* Natural moving water surface */
+/* MOVING WATER SURFACE */
+
 .wave {
     position: absolute;
-    top: -11px;
-    left: 0;
+    left: -50%;
+    top: -12px;
     width: 200%;
-    height: 22px;
-    border-radius: 45%;
-
-    background: rgba(220,205,255,.82);
-
-    animation: liquidMove 2.4s ease-in-out infinite alternate;
+    height: 25px;
+    border-radius: 43%;
+    background: rgba(222,208,255,.78);
+    animation: waterWave 2.8s ease-in-out infinite alternate;
     transform-origin: center;
 }
 
-@keyframes liquidMove {
+.wave-back {
+    position: absolute;
+    top: -9px;
+    left: -45%;
+    width: 200%;
+    height: 20px;
+    border-radius: 43%;
+    background: rgba(183,153,255,.36);
+    animation: waterWaveBack 3.7s ease-in-out infinite alternate;
+}
+
+@keyframes waterWave {
     0% {
-        transform: translateY(4px) rotate(-3deg) scaleY(.92);
+        transform: translateY(4px) rotate(-4deg) scaleY(.92);
     }
-
     50% {
-        transform: translateY(-5px) rotate(3deg) scaleY(1.08);
+        transform: translateY(-4px) rotate(3deg) scaleY(1.08);
     }
-
     100% {
         transform: translateY(3px) rotate(-2deg) scaleY(.95);
     }
 }
 
-/* TIMER TEXT */
+@keyframes waterWaveBack {
+    0% {
+        transform: translateY(-2px) rotate(3deg);
+    }
+    100% {
+        transform: translateY(3px) rotate(-4deg);
+    }
+}
+
+/* COUNTDOWN TEXT */
 
 .timer-content {
     position: absolute;
     inset: 0;
-    z-index: 4;
+    z-index: 7;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    text-shadow: 0 3px 10px rgba(0,0,0,.7);
+    text-shadow: 0 3px 12px rgba(0,0,0,.75);
+    pointer-events: none;
 }
 
-#timer {
-    font-family: 'Orbitron',sans-serif;
-    font-size: 42px;
+#countdown {
+    font-family: 'Cinzel', serif;
+    font-size: 54px;
     font-weight: 800;
+    line-height: 1;
     color: #fff;
+    transition: transform .2s ease;
+}
+
+#countdown.tick {
+    transform: scale(1.12);
 }
 
 .seconds {
-    margin-top: 5px;
-    font-size: 8px;
-    letter-spacing: 3px;
-    color: #fff0c8;
+    margin-top: 8px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #fff0ca;
 }
 
 /* STATUS */
 
-.status {
-    display: inline-block;
-    padding: 9px 17px;
-    margin-bottom: 17px;
-    border-radius: 30px;
-    color: #f0d49b;
-    background: rgba(232,189,105,.08);
-    border: 1px solid rgba(232,189,105,.3);
-    font-size: 9px;
+.status-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.status-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 800;
     letter-spacing: 1px;
+    color: #fff0c7;
+}
+
+.status-subtext {
+    margin-top: 7px;
+    font-size: 12px;
+    color: #c0b7cb;
 }
 
 /* DOWNLOAD BUTTON */
 
-.download-btn {
+.primary-btn {
+    width: 100%;
+    min-height: 55px;
+    padding: 15px;
+    border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    width: 100%;
-    padding: 15px 10px;
-    border-radius: 13px;
-    text-decoration: none;
-    font-family: 'Orbitron',sans-serif;
-    font-size: 10px;
+    border: 1px solid rgba(255,255,255,.12);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 1px;
-    color: #21170b;
-    background: linear-gradient(105deg,#ffe8ad,#d8a34b,#f5d28b);
-    border: 1px solid rgba(255,235,181,.6);
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.3),
-        0 0 18px rgba(232,189,105,.15);
-    opacity: .6;
-    pointer-events: none;
-    transition: .3s;
+    transition: all .3s ease;
+    margin-bottom: 13px;
 }
 
-.download-btn.ready {
-    opacity: 1;
-    pointer-events: auto;
-    box-shadow: 0 0 22px rgba(232,189,105,.35);
+.btn-verifying {
+    color: #c6bccc;
+    background: rgba(255,255,255,.045);
+    cursor: wait;
+}
+
+.btn-ready {
+    color: #21170b;
+    background: linear-gradient(
+        100deg,#ffe8ad,#d8a34b,#f5d28b
+    );
+    border-color: rgba(255,235,181,.7);
+    box-shadow: 0 5px 22px rgba(232,189,105,.32);
+    cursor: pointer;
+}
+
+.btn-ready:active {
+    transform: scale(.98);
 }
 
 .spinner {
     width: 17px;
     height: 17px;
-    border: 2px solid rgba(50,30,10,.25);
-    border-top-color: #37220b;
+    border: 2px solid rgba(255,255,255,.2);
+    border-top-color: var(--gold-light);
     border-radius: 50%;
     animation: spin .8s linear infinite;
 }
@@ -418,47 +454,59 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* TELEGRAM */
+/* TELEGRAM BUTTON */
 
-.telegram {
+.secondary-btn {
     display: block;
-    margin-top: 12px;
-    padding: 12px 8px;
-    border-radius: 11px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(147,100,190,.10);
+    border: 1px solid rgba(190,150,220,.25);
     color: #f6e7c5;
     text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    transition: .3s;
+    margin-bottom: 22px;
+}
+
+.secondary-btn:active {
+    background: rgba(147,100,190,.2);
+}
+
+.footer-text {
+    color: rgba(232,189,105,.58);
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: .7px;
-    background: rgba(147,100,190,.12);
-    border: 1px solid rgba(190,150,220,.25);
-}
-
-.footer {
-    margin-top: 18px;
-    color: #b2a4bb;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1.4px;
-}
-
-/* SMALL CAPS */
-
-.brand,
-.heading,
-.description,
-.verified,
-.seconds,
-.status,
-.download-btn,
-.telegram,
-.footer {
-    font-variant: small-caps;
+    letter-spacing: 1.5px;
 }
 
 @media(max-width:380px) {
     .card {
-        padding: 22px 17px 19px;
+        padding: 23px 17px 20px;
+    }
+
+    .timer-wrap {
+        width: 175px;
+        height: 175px;
+    }
+
+    .sphere {
+        width: 136px;
+        height: 136px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .orbit-one,
+    .orbit-two,
+    .wave,
+    .wave-back,
+    .verified-dot,
+    .spinner {
+        animation-duration: 10s;
     }
 }
 </style>
@@ -466,8 +514,8 @@ body {
 
 <body>
 
-<div class="glow one"></div>
-<div class="glow two"></div>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
 
 <main class="card">
 
@@ -477,171 +525,205 @@ body {
              alt="Rudra Movies Logo">
     </div>
 
-    <div class="brand">RUDRA MOVIES</div>
+    <h1 class="brand">RUDRA MOVIES</h1>
     <div class="divider"></div>
 
     <div class="heading">SECURITY VERIFICATION</div>
-    <div class="description">PREPARING YOUR DOWNLOAD LINK...</div>
+    <div class="description">
+        PREPARING YOUR DOWNLOAD LINK...
+    </div>
 
     <div class="verified">
         <span class="verified-dot"></span>
-        SECURE LINK VERIFICATION
+        SECURED &amp; VERIFIED LINK
     </div>
+
+    <!-- GLASS LIQUID COUNTDOWN -->
 
     <div class="timer-wrap">
 
-        <div class="dotted-ring"></div>
-        <div class="ring-track"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
 
-        <svg class="progress-svg" viewBox="0 0 146 146">
-            <defs>
-                <linearGradient id="goldGradient"
-                    x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fff0bd"/>
-                    <stop offset="50%" stop-color="#dba94e"/>
-                    <stop offset="100%" stop-color="#a66aff"/>
-                </linearGradient>
-            </defs>
+        <div class="sphere">
 
-            <circle class="progress-bg" cx="73" cy="73" r="66"/>
-            <circle class="progress-bar" id="progress" cx="73" cy="73" r="66"/>
-        </svg>
-
-        <div class="circle">
-            <div class="water" id="water">
+            <div class="liquid" id="liquid">
                 <div class="wave"></div>
+                <div class="wave-back"></div>
             </div>
 
             <div class="timer-content">
-                <div id="timer">5</div>
+                <div id="countdown">5</div>
                 <div class="seconds">SECONDS</div>
             </div>
-        </div>
 
+        </div>
     </div>
 
-    <div class="status" id="status">PREPARING YOUR LINK...</div>
+    <!-- STATUS -->
 
-    <a href="#" class="download-btn" id="downloadBtn" aria-disabled="true">
-        <span class="spinner" id="spinner"></span>
-        <span id="buttonText">VERIFYING...</span>
+    <div class="status-container">
+        <div class="status-title">SECURITY VERIFICATION</div>
+        <div class="status-subtext" id="status-subtext">
+            Preparing your download link...
+        </div>
+    </div>
+
+    <!-- DOWNLOAD BUTTON -->
+
+    <button
+        class="primary-btn btn-verifying"
+        id="primary-btn"
+        type="button"
+        disabled
+    >
+        <span class="spinner" id="btn-spinner"></span>
+        <span id="btn-text">VERIFYING...</span>
+    </button>
+
+    <a
+        href="https://t.me/RudraMoviez"
+        class="secondary-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ➤ &nbsp; RUDRA MAIN CHANNEL ✨
     </a>
 
-    <a href="https://t.me/RudraMoviez"
-       class="telegram"
-       target="_blank"
-       rel="noopener noreferrer">
-        ➤ &nbsp; RUDRA MAIN CHANNEL
-    </a>
-
-    <div class="footer">
+    <div class="footer-text">
         RUDRA MOVIES SECURITY
     </div>
 
 </main>
 
 <script>
-const timer = document.getElementById("timer");
-const water = document.getElementById("water");
-const progress = document.getElementById("progress");
-const status = document.getElementById("status");
-const button = document.getElementById("downloadBtn");
-const buttonText = document.getElementById("buttonText");
-const spinner = document.getElementById("spinner");
+document.addEventListener("DOMContentLoaded", () => {
 
-const TOTAL_SECONDS = 5;
-const circumference = 2 * Math.PI * 66;
+    const liquid = document.getElementById("liquid");
+    const countdownEl = document.getElementById("countdown");
+    const statusSubtext = document.getElementById("status-subtext");
+    const primaryBtn = document.getElementById("primary-btn");
+    const btnText = document.getElementById("btn-text");
+    const btnSpinner = document.getElementById("btn-spinner");
 
-progress.style.strokeDasharray = circumference;
-progress.style.strokeDashoffset = circumference;
+    const TOTAL_SECONDS = 5;
 
-const params = new URLSearchParams(window.location.search);
-const token = params.get("token");
-const redirect = params.get("redirect");
+    const params = new URLSearchParams(window.location.search);
+    const redirectParam = params.get("redirect");
+    const token = params.get("token");
 
-let safeLink = null;
+    let destination = null;
 
-/* EXISTING FILE STORE BOT LINK */
-if (redirect) {
-    try {
-        const parsed = new URL(redirect);
+    /*
+      EXISTING BOT LINKS:
+      ?redirect=https%3A%2F%2F...
+    */
 
-        if (parsed.protocol === "https:") {
-            safeLink = parsed.href;
+    if (redirectParam) {
+        try {
+            const parsed = new URL(redirectParam);
+
+            if (parsed.protocol === "https:") {
+                destination = parsed.href;
+            }
+        } catch (error) {
+            destination = null;
         }
-    } catch (error) {
-        safeLink = null;
     }
-}
 
-/* TOKEN LINK SUPPORT */
-else if (token) {
-    safeLink = "/api/verify?token=" + encodeURIComponent(token);
-}
+    /*
+      TOKEN LINKS:
+      Existing API endpoint support.
+    */
 
-let seconds = TOTAL_SECONDS;
-
-function countdown() {
-
-    timer.textContent = seconds;
-
-    const completed =
-        (TOTAL_SECONDS - seconds) / TOTAL_SECONDS;
-
-    water.style.height = (completed * 100) + "%";
-
-    progress.style.strokeDashoffset =
-        circumference * (1 - completed);
-
-    if (seconds > 0) {
-        seconds--;
-        setTimeout(countdown, 1000);
-    } else {
-        finishCountdown();
+    else if (token) {
+        destination = "/api/verify?token=" +
+            encodeURIComponent(token);
     }
-}
 
-function finishCountdown() {
+    let timeLeft = TOTAL_SECONDS;
+    let redirectStarted = false;
 
-    timer.textContent = "0";
-    water.style.height = "100%";
-    progress.style.strokeDashoffset = 0;
+    function goToDestination() {
+        if (!destination || redirectStarted) return;
 
-    if (safeLink) {
+        redirectStarted = true;
+        window.location.replace(destination);
+    }
 
-        status.textContent = "YOUR LINK IS READY";
+    function finishCountdown() {
 
-        buttonText.textContent = "DOWNLOAD NOW";
-        spinner.style.display = "none";
+        countdownEl.textContent = "0";
+        liquid.style.height = "100%";
 
-        button.href = safeLink;
-        button.classList.add("ready");
-        button.setAttribute("aria-disabled", "false");
+        if (!destination) {
+            statusSubtext.textContent = "Download link unavailable.";
+            btnSpinner.style.display = "none";
+            btnText.textContent = "LINK NOT FOUND";
+            return;
+        }
 
-        // Show Download Now briefly, then redirect automatically.
+        statusSubtext.textContent = "Redirecting in progress...";
+
+        btnSpinner.style.display = "none";
+        btnText.textContent = "DOWNLOAD NOW";
+
+        primaryBtn.classList.remove("btn-verifying");
+        primaryBtn.classList.add("btn-ready");
+        primaryBtn.disabled = false;
+
+        /*
+          Manual fallback if automatic navigation is blocked.
+        */
+
+        primaryBtn.addEventListener("click", goToDestination);
+
+        /*
+          Show the button briefly, then redirect automatically.
+        */
+
+        setTimeout(goToDestination, 900);
+    }
+
+    /*
+      Start gradual water filling.
+    */
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            liquid.style.height = "100%";
+        });
+    });
+
+    /*
+      Countdown.
+    */
+
+    const timer = setInterval(() => {
+
+        timeLeft--;
+
+        countdownEl.textContent = timeLeft;
+
+        countdownEl.classList.add("tick");
+
         setTimeout(() => {
-            window.location.replace(safeLink);
-        }, 650);
+            countdownEl.classList.remove("tick");
+        }, 180);
 
-    } else {
+        if (timeLeft === 2) {
+            statusSubtext.textContent = "Redirecting in progress...";
+        }
 
-        status.textContent = "DIRECT LINK NOT FOUND";
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            finishCountdown();
+        }
 
-        buttonText.textContent = "LINK UNAVAILABLE";
-        spinner.style.display = "none";
+    }, 1000);
 
-        button.removeAttribute("href");
-        button.setAttribute("aria-disabled", "true");
-    }
-}
-
-button.addEventListener("click", function(event) {
-    if (!safeLink || !button.classList.contains("ready")) {
-        event.preventDefault();
-    }
 });
-
-countdown();
 </script>
 
 </body>
