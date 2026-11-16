@@ -1,788 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080b16">
-    <title>RUDRA MOVIES | DOWNLOAD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>RUDRA MOVIES | DOWNLOAD</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            color-scheme: dark;
-            --gold: #f2c66d;
-            --gold-light: #fff0bd;
-            --purple: #a77aff;
-            --blue: #58b9ff;
-            --bg: #080b16;
-            --text: #f8f5ff;
-            --muted: #b7b5c8;
-            --card-width: 370px;
-        }
+<style>
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F5E6B3;
+    --purple: #D4AF37;
+    --bg: #080808;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            position: relative;
-            display: flex;
-            min-height: 100vh;
-            min-height: 100svh;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            padding: 24px 14px;
-            color: var(--text);
-            background:
-                radial-gradient(ellipse at 8% 12%, rgba(79, 57, 174, .25), transparent 38%),
-                radial-gradient(ellipse at 92% 82%, rgba(169, 111, 43, .19), transparent 39%),
-                radial-gradient(ellipse at 78% 12%, rgba(33, 126, 186, .14), transparent 34%),
-                linear-gradient(145deg, #070913 0%, #111020 53%, #080a13 100%);
-            font-family: "Plus Jakarta Sans", sans-serif;
-        }
+body {
+    min-height: 100vh;
+    padding: 18px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F5E6B3;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 10%, rgba(212,175,55,.13), transparent 43%),
+        radial-gradient(ellipse at 90% 90%, rgba(212,175,55,.10), transparent 43%),
+        linear-gradient(145deg,#080808,#100E0A 55%,#080808);
+}
 
-        body::before,
-        body::after {
-            position: fixed;
-            z-index: 0;
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            content: "";
-            filter: blur(105px);
-            opacity: .31;
-            pointer-events: none;
-        }
+.ambient {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .22;
+    pointer-events: none;
+}
 
-        body::before {
-            top: -130px;
-            left: -115px;
-            background: #7548e8;
-        }
+.ambient.one {
+    background: #D4AF37;
+    top: -100px;
+    left: -100px;
+}
 
-        body::after {
-            right: -130px;
-            bottom: -140px;
-            background: #d7963e;
-        }
+.ambient.two {
+    background: #F5E6B3;
+    bottom: -100px;
+    right: -100px;
+}
 
-        .ambient {
-            position: fixed;
-            z-index: 0;
-            width: 210px;
-            height: 210px;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: .22;
-            pointer-events: none;
-        }
+/* MAIN COMPACT CARD */
 
-        .ambient-blue {
-            top: 38%;
-            right: -150px;
-            background: #329be6;
-        }
+.card {
+    width: 100%;
+    max-width: 345px;
+    padding: 22px 19px 19px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 23px;
+    background:
+        linear-gradient(145deg,
+        rgba(37,32,25,.95),
+        rgba(12,11,9,.98) 55%,
+        rgba(37,32,25,.93));
+    border: 1px solid rgba(212,175,55,.45);
+    box-shadow:
+        0 0 30px rgba(212,175,55,.09),
+        0 0 28px rgba(212,175,55,.06),
+        0 22px 55px rgba(0,0,0,.72),
+        inset 0 1px 1px rgba(245,230,179,.10);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
 
-        .card {
-            position: relative;
-            z-index: 1;
-            width: min(100%, var(--card-width));
-            overflow: hidden;
-            padding: 27px 23px 22px;
-            text-align: center;
-            border: 1px solid rgba(255, 224, 166, .38);
-            border-radius: 27px;
-            background:
-                linear-gradient(145deg, rgba(35, 35, 62, .91), rgba(15, 15, 29, .96) 53%, rgba(39, 28, 37, .93));
-            box-shadow:
-                0 0 38px rgba(117, 83, 213, .17),
-                0 0 35px rgba(79, 174, 235, .08),
-                0 24px 70px rgba(0, 0, 0, .58),
-                inset 0 1px 1px rgba(255, 255, 255, .15);
-            -webkit-backdrop-filter: blur(24px);
-            backdrop-filter: blur(24px);
-            animation: cardEnter .7s cubic-bezier(.2, .8, .2, 1) both;
-        }
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    width: 86%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #F5E6B3,
+        #D4AF37,
+        transparent
+    );
+}
 
-        .card::before {
-            position: absolute;
-            top: 0;
-            left: 8%;
-            width: 84%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #fff0bd, #a77aff, #58b9ff, transparent);
-            content: "";
-            opacity: .9;
-        }
+/* CINEMATIC LOGO */
 
-        .card::after {
-            position: absolute;
-            top: -90px;
-            left: 50%;
-            width: 210px;
-            height: 120px;
-            border-radius: 50%;
-            background: rgba(148, 114, 255, .09);
-            content: "";
-            filter: blur(30px);
-            pointer-events: none;
-            transform: translateX(-50%);
-        }
+.logo-box {
+    width: 75px;
+    height: 75px;
+    padding: 3px;
+    margin: 0 auto 11px;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #F5E6B3,
+        #D4AF37,
+        #F5E6B3,
+        #B08D2D
+    );
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.12),
+        0 0 19px rgba(212,175,55,.28),
+        0 0 32px rgba(245,230,179,.12);
+}
 
-        @keyframes cardEnter {
-            from {
-                opacity: 0;
-                transform: translateY(14px) scale(.985);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+.logo-box::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,230,179,.36);
+    box-shadow: 0 0 12px rgba(212,175,55,.15);
+}
 
-        .logo-box {
-            position: relative;
-            width: 78px;
-            height: 78px;
-            margin: 0 auto 13px;
-            padding: 3px;
-            border-radius: 50%;
-            background: conic-gradient(from 20deg, #fff0bd, #c98d3d, #a77aff, #58b9ff, #fff0bd);
-            box-shadow:
-                0 0 0 4px rgba(242, 198, 109, .08),
-                0 0 25px rgba(242, 198, 109, .27),
-                0 0 34px rgba(128, 102, 238, .18);
-        }
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #100E0A;
+    background: #fff;
+}
 
-        .logo-box::before {
-            position: absolute;
-            inset: -6px;
-            border: 1px solid rgba(255, 226, 165, .27);
-            border-radius: 50%;
-            content: "";
-        }
+.brand {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    background: linear-gradient(
+        90deg,
+        #F5E6B3,
+        #D4AF37,
+        #F5E6B3
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(212,175,55,.19));
+}
 
-        .logo {
-            display: block;
-            width: 100%;
-            height: 100%;
-            border: 2px solid #171525;
-            border-radius: 50%;
-            background: #fff;
-            object-fit: cover;
-        }
+.divider {
+    width: 68px;
+    height: 3px;
+    margin: 12px auto 16px;
+    border-radius: 20px;
+    background: linear-gradient(90deg,var(--gold),var(--gold-light));
+    box-shadow: 0 0 13px rgba(212,175,55,.28);
+}
 
-        .brand {
-            position: relative;
-            z-index: 1;
-            color: var(--gold-light);
-            font-family: "Cinzel", serif;
-            font-size: clamp(20px, 6vw, 24px);
-            font-weight: 800;
-            letter-spacing: 1.8px;
-            line-height: 1.25;
-            text-shadow: 0 2px 13px rgba(242, 198, 109, .2);
-        }
+.heading {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--gold-light);
+}
 
-        .tagline {
-            margin-top: 5px;
-            color: #c8c1db;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 2.3px;
-        }
+.description {
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: .8px;
+    color: #B8AA8A;
+}
 
-        .divider {
-            width: 72px;
-            height: 3px;
-            margin: 15px auto 19px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, var(--blue), var(--purple), var(--gold));
-            box-shadow: 0 0 13px rgba(167, 122, 255, .36);
-        }
+/* VERIFICATION BADGE */
 
-        .section-label {
-            color: #eee5ff;
-            font-family: "Cinzel", serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.3px;
-        }
+.verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 13px auto 0;
+    padding: 8px 13px;
+    border-radius: 30px;
+    color: #F5E6B3;
+    background: rgba(212,175,55,.07);
+    border: 1px solid rgba(212,175,55,.36);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .6px;
+}
 
-        .description {
-            margin-top: 7px;
-            color: var(--muted);
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.05px;
-        }
+.verified-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #D4AF37;
+    box-shadow: 0 0 9px rgba(212,175,55,.75);
+    animation: pulse 2s infinite;
+}
 
-        .loading-line {
-            display: inline-flex;
-            min-height: 30px;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            margin-top: 12px;
-            padding: 6px 12px;
-            border: 1px solid rgba(139, 155, 255, .23);
-            border-radius: 30px;
-            background: rgba(119, 112, 190, .09);
-            color: #ded9ed;
-            font-size: 8px;
-            font-weight: 800;
-            letter-spacing: .9px;
-        }
+@keyframes pulse {
+    50% { box-shadow: 0 0 13px rgba(212,175,55,.85); }
+}
 
-        .loading-indicator {
-            width: 13px;
-            height: 13px;
-            flex: 0 0 auto;
-            border: 2px solid rgba(255, 255, 255, .19);
-            border-top-color: var(--gold-light);
-            border-right-color: var(--blue);
-            border-radius: 50%;
-            animation: spin .85s linear infinite;
-        }
+/* SMALLER COUNTDOWN AREA */
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+.timer-wrap {
+    width: 158px;
+    height: 158px;
+    margin: 23px auto 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .timer-wrap {
-            position: relative;
-            display: flex;
-            width: 178px;
-            height: 178px;
-            align-items: center;
-            justify-content: center;
-            margin: 23px auto 19px;
-        }
+/* OUTER RINGS */
 
-        .orbit {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-        }
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
 
-        .orbit-one {
-            inset: 0;
-            border: 1px dashed rgba(255, 221, 155, .58);
-            animation: spin 17s linear infinite;
-        }
+.orbit-one {
+    inset: 0;
+    border: 1.5px dashed rgba(212,175,55,.68);
+    animation: spin 12s linear infinite;
+}
 
-        .orbit-two {
-            inset: 8px;
-            border: 1.5px solid transparent;
-            border-top-color: var(--blue);
-            border-right-color: rgba(167, 122, 255, .65);
-            border-bottom-color: var(--gold);
-            animation: spinReverse 7s linear infinite;
-        }
+.orbit-two {
+    inset: 7px;
+    border: 2px solid transparent;
+    border-top-color: #F5E6B3;
+    border-bottom-color: #D4AF37;
+    animation: reverseSpin 5s linear infinite;
+}
 
-        .orbit-three {
-            inset: 16px;
-            border: 1px solid rgba(255, 255, 255, .12);
-        }
+.orbit-three {
+    inset: 13px;
+    border: 1px solid rgba(245,230,179,.14);
+}
 
-        .orbit-dot {
-            position: absolute;
-            top: 13px;
-            left: 50%;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold-light);
-            box-shadow: 0 0 11px var(--gold);
-            transform: translateX(-50%);
-        }
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
 
-        @keyframes spinReverse {
-            to { transform: rotate(-360deg); }
-        }
+@keyframes reverseSpin {
+    to { transform: rotate(-360deg); }
+}
 
-        .sphere {
-            position: relative;
-            width: 132px;
-            height: 132px;
-            overflow: hidden;
-            isolation: isolate;
-            border: 2px solid rgba(255, 255, 255, .73);
-            border-radius: 50%;
-            background:
-                radial-gradient(circle at 30% 18%, rgba(255, 255, 255, .12), rgba(255, 255, 255, .025) 48%, rgba(7, 8, 19, .32));
-            box-shadow:
-                0 0 0 3px rgba(255, 255, 255, .055),
-                0 0 27px rgba(101, 158, 255, .17),
-                inset 0 0 18px rgba(255, 255, 255, .17),
-                inset 0 -10px 25px rgba(255, 255, 255, .07);
-        }
+/* 3D GLASS SPHERE */
 
-        .sphere::before {
-            position: absolute;
-            z-index: 5;
-            inset: 2px;
-            border: 1px solid transparent;
-            border-top: 2px solid rgba(255, 255, 255, .78);
-            border-left-color: rgba(255, 255, 255, .24);
-            border-radius: 50%;
-            content: "";
-            pointer-events: none;
-        }
+.sphere {
+    width: 119px;
+    height: 119px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 30% 18%,
+            rgba(245,230,179,.10),
+            rgba(245,230,179,.025) 48%,
+            rgba(8,8,8,.18)
+        );
+    border: 2px solid rgba(245,230,179,.77);
+    box-shadow:
+        0 0 0 2px rgba(245,230,179,.06),
+        0 0 22px rgba(212,175,55,.16),
+        inset 0 0 13px rgba(245,230,179,.17),
+        inset 0 -8px 23px rgba(245,230,179,.06);
+}
 
-        .sphere::after {
-            position: absolute;
-            z-index: 5;
-            top: 12px;
-            left: 22px;
-            width: 36px;
-            height: 9px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .44);
-            content: "";
-            filter: blur(3px);
-            transform: rotate(-35deg);
-            pointer-events: none;
-        }
+/* OUTER GLASS EDGE */
 
-        .liquid {
-            position: absolute;
-            z-index: 1;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            height: 0%;
-            background: linear-gradient(180deg, #a9dcff 0%, #8ab5ff 20%, #9a78f4 58%, #633bc5 100%);
-            transition: height 5s linear;
-        }
+.sphere::before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    inset: 2px;
+    border-radius: 50%;
+    border-top: 2px solid rgba(245,230,179,.78);
+    border-left: 1px solid rgba(245,230,179,.32);
+    pointer-events: none;
+}
 
-        .wave,
-        .wave-back {
-            position: absolute;
-            left: -50%;
-            width: 200%;
-            border-radius: 44%;
-            pointer-events: none;
-        }
+.sphere::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 18px;
+    width: 33px;
+    height: 8px;
+    border-radius: 50%;
+    transform: rotate(-35deg);
+    background: rgba(245,230,179,.35);
+    filter: blur(3px);
+    pointer-events: none;
+}
 
-        .wave {
-            top: -10px;
-            height: 22px;
-            background: rgba(232, 241, 255, .86);
-            animation: waveMove 2.6s ease-in-out infinite alternate;
-        }
+/* LIQUID */
 
-        .wave-back {
-            top: -8px;
-            height: 19px;
-            background: rgba(197, 180, 255, .53);
-            animation: waveMoveBack 3.3s ease-in-out infinite alternate;
-        }
+.liquid {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(
+        180deg,
+        #F5E6B3 0%,
+        #E5CC78 23%,
+        #D4AF37 62%,
+        #8E6F1E 100%
+    );
+    transition: height 5s linear;
+}
 
-        @keyframes waveMove {
-            0% { transform: translateY(4px) rotate(-4deg) scaleY(.9); }
-            50% { transform: translateY(-4px) rotate(3deg) scaleY(1.1); }
-            100% { transform: translateY(3px) rotate(-3deg) scaleY(.94); }
-        }
+/* WATER SURFACE */
 
-        @keyframes waveMoveBack {
-            from { transform: translateY(-2px) rotate(3deg); }
-            to { transform: translateY(3px) rotate(-4deg); }
-        }
+.wave {
+    position: absolute;
+    top: -10px;
+    left: -50%;
+    width: 200%;
+    height: 22px;
+    border-radius: 44%;
+    background: rgba(255,246,215,.88);
+    animation: waveMove 2.5s ease-in-out infinite alternate;
+}
 
-        .timer-content {
-            position: absolute;
-            z-index: 7;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-shadow: 0 3px 12px rgba(0, 0, 0, .8);
-            pointer-events: none;
-        }
+.wave-back {
+    position: absolute;
+    top: -8px;
+    left: -45%;
+    width: 200%;
+    height: 18px;
+    border-radius: 44%;
+    background: rgba(245,230,179,.48);
+    animation: waveMoveBack 3.4s ease-in-out infinite alternate;
+}
 
-        #countdown {
-            color: #fff;
-            font-family: "Cinzel", serif;
-            font-size: 49px;
-            font-weight: 800;
-            line-height: 1;
-        }
+@keyframes waveMove {
+    0% {
+        transform: translateY(4px) rotate(-4deg) scaleY(.9);
+    }
+    50% {
+        transform: translateY(-4px) rotate(3deg) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(3px) rotate(-3deg) scaleY(.94);
+    }
+}
 
-        .seconds {
-            margin-top: 7px;
-            color: #fff0ce;
-            font-size: 8px;
-            font-weight: 800;
-            letter-spacing: 3px;
-        }
+@keyframes waveMoveBack {
+    0% { transform: translateY(-2px) rotate(3deg); }
+    100% { transform: translateY(3px) rotate(-4deg); }
+}
 
-        .status-container {
-            min-height: 48px;
-            margin-bottom: 14px;
-        }
+/* COUNTDOWN */
 
-        .status-title {
-            color: var(--gold-light);
-            font-family: "Cinzel", serif;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
+.timer-content {
+    position: absolute;
+    inset: 0;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 3px 12px rgba(0,0,0,.8);
+    pointer-events: none;
+}
 
-        .status-subtext {
-            margin-top: 6px;
-            color: #c4bfd1;
-            font-size: 10px;
-            line-height: 1.5;
-        }
+#countdown {
+    font-family: 'Cinzel', serif;
+    font-size: 47px;
+    font-weight: 800;
+    line-height: 1;
+    color: #F5E6B3;
+    text-shadow: 0 0 12px rgba(212,175,55,.38), 0 3px 12px rgba(0,0,0,.8);
+}
 
-        .status-subtext.error {
-            color: #ffaaa9;
-        }
+.seconds {
+    margin-top: 7px;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #F5E6B3;
+}
 
-        .primary-btn {
-            display: flex;
-            width: 100%;
-            min-height: 50px;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 11px;
-            padding: 13px;
-            border: 1px solid rgba(255, 255, 255, .13);
-            border-radius: 12px;
-            font-family: "Plus Jakarta Sans", sans-serif;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            transition: transform .2s ease, box-shadow .25s ease, background .25s ease;
-        }
+/* STATUS */
 
-        .primary-btn:disabled {
-            color: #bab5c8;
-            background: rgba(255, 255, 255, .055);
-            cursor: wait;
-        }
+.status-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
 
-        .primary-btn.ready {
-            border-color: rgba(255, 235, 181, .82);
-            background: linear-gradient(100deg, #fff0bd, #e5b451, #fff0bd);
-            box-shadow: 0 5px 22px rgba(232, 189, 105, .28);
-            color: #21170b;
-            cursor: pointer;
-        }
+.status-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    color: #F5E6B3;
+}
 
-        .primary-btn.ready:hover {
-            box-shadow: 0 7px 28px rgba(232, 189, 105, .42);
-            transform: translateY(-1px);
-        }
+.status-subtext {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #B8AA8A;
+}
 
-        .primary-btn:focus-visible,
-        .secondary-btn:focus-visible {
-            outline: 2px solid var(--blue);
-            outline-offset: 3px;
-        }
+/* DOWNLOAD BUTTON */
 
-        .button-icon {
-            display: inline-flex;
-            width: 17px;
-            height: 17px;
-            align-items: center;
-            justify-content: center;
-        }
+.primary-btn {
+    width: 100%;
+    min-height: 49px;
+    padding: 13px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid rgba(212,175,55,.38);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    margin-bottom: 11px;
+    transition: .3s;
+}
 
-        .button-icon svg {
-            width: 17px;
-            height: 17px;
-        }
+.btn-verifying {
+    color: #B8AA8A;
+    background: rgba(16,14,10,.86);
+    cursor: wait;
+}
 
-        .secondary-btn {
-            display: flex;
-            width: 100%;
-            min-height: 44px;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 17px;
-            padding: 11px;
-            border: 1px solid rgba(154, 151, 215, .27);
-            border-radius: 11px;
-            background: rgba(125, 107, 183, .10);
-            color: #e5def3;
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: .8px;
-            text-decoration: none;
-            transition: border-color .2s ease, background .2s ease, transform .2s ease;
-        }
+.btn-ready {
+    color: #F5E6B3;
+    background: linear-gradient(145deg, #100E0A, #1A1710);
+    border-color: rgba(212,175,55,.72);
+    box-shadow:
+        0 5px 20px rgba(212,175,55,.12),
+        inset 0 1px 1px rgba(245,230,179,.07);
+    cursor: pointer;
+}
 
-        .secondary-btn:hover {
-            border-color: rgba(167, 122, 255, .58);
-            background: rgba(125, 107, 183, .17);
-            transform: translateY(-1px);
-        }
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(212,175,55,.20);
+    border-top-color: var(--gold-light);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
 
-        .telegram-icon {
-            color: #71c8ff;
-            font-size: 14px;
-        }
+/* TELEGRAM */
 
-        .footer-text {
-            color: rgba(210, 195, 232, .61);
-            font-size: 8px;
-            font-weight: 700;
-            letter-spacing: 1.8px;
-        }
+.secondary-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 11px;
+    background: linear-gradient(145deg, rgba(37,32,25,.76), rgba(16,14,10,.90));
+    border: 1px solid rgba(212,175,55,.34);
+    color: #F5E6B3;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .6px;
+    margin-bottom: 17px;
+}
 
-        @media (max-width: 360px) {
-            .card {
-                padding: 23px 18px 19px;
-            }
+.footer-text {
+    color: rgba(212,175,55,.66);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
 
-            .timer-wrap {
-                width: 164px;
-                height: 164px;
-            }
+@media(max-width:360px) {
+    .card {
+        max-width: 330px;
+        padding: 19px 15px 17px;
+    }
 
-            .sphere {
-                width: 122px;
-                height: 122px;
-            }
-        }
+    .timer-wrap {
+        width: 146px;
+        height: 146px;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-            }
-
-            .liquid {
-                transition-duration: .01ms;
-            }
-        }
-    </style>
+    .sphere {
+        width: 110px;
+        height: 110px;
+    }
+}
+</style>
 </head>
 
 <body>
-    <div class="ambient ambient-blue" aria-hidden="true"></div>
 
-    <main class="card">
-        <div class="logo-box">
-            <img
-                src="/RudraMovies.png"
-                class="logo"
-                alt="Rudra Movies logo"
-            >
-        </div>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
 
-        <h1 class="brand">RUDRA MOVIES</h1>
-        <p class="tagline">YOUR CINEMATIC UNIVERSE</p>
+<main class="card">
 
-        <div class="divider" aria-hidden="true"></div>
+    <div class="logo-box">
+        <img src="/RudraMovies.png"
+             class="logo"
+             alt="Rudra Movies Logo">
+    </div>
 
-        <h2 class="section-label">DOWNLOAD PREPARATION</h2>
-        <p class="description">PREPARING YOUR DOWNLOAD LINK...</p>
+    <h1 class="brand">RUDRA MOVIES</h1>
+    <div class="divider"></div>
 
-        <div class="loading-line" id="loading-line">
-            <span class="loading-indicator" id="loading-indicator" aria-hidden="true"></span>
-            <span id="loading-label">PREPARING YOUR DOWNLOAD LINK...</span>
-        </div>
+    <div class="heading">SECURITY VERIFICATION</div>
+    <div class="description">
+        PREPARING YOUR DOWNLOAD LINK...
+    </div>
 
-        <div class="timer-wrap" aria-label="Download countdown">
-            <div class="orbit orbit-one" aria-hidden="true"></div>
-            <div class="orbit orbit-two" aria-hidden="true"></div>
-            <div class="orbit orbit-three" aria-hidden="true"></div>
-            <div class="orbit-dot" aria-hidden="true"></div>
+    <div class="verified">
+        <span class="verified-dot"></span>
+        SECURED &amp; VERIFIED LINK
+    </div>
 
-            <div class="sphere">
-                <div class="liquid" id="liquid" aria-hidden="true">
-                    <div class="wave"></div>
-                    <div class="wave-back"></div>
-                </div>
+    <div class="timer-wrap">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
 
-                <div class="timer-content" aria-live="polite" aria-atomic="true">
-                    <div id="countdown">5</div>
-                    <div class="seconds">SECONDS</div>
-                </div>
+        <div class="sphere">
+            <div class="liquid" id="liquid">
+                <div class="wave"></div>
+                <div class="wave-back"></div>
+            </div>
+
+            <div class="timer-content">
+                <div id="countdown">5</div>
+                <div class="seconds">SECONDS</div>
             </div>
         </div>
+    </div>
 
-        <div class="status-container" aria-live="polite">
-            <div class="status-title" id="status-title">GETTING YOUR LINK READY</div>
-            <div class="status-subtext" id="status-subtext">
-                Please wait while your download link is prepared.
-            </div>
+    <div class="status-container">
+        <div class="status-title">SECURITY VERIFICATION</div>
+        <div class="status-subtext" id="status-subtext">
+            Preparing your download link...
         </div>
+    </div>
 
-        <button
-            class="primary-btn"
-            id="primary-btn"
-            type="button"
-            disabled
-        >
-            <span class="loading-indicator" id="button-spinner" aria-hidden="true"></span>
-            <span class="button-icon" id="button-icon" aria-hidden="true" hidden>
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 17v3h14v-3"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </span>
-            <span id="button-text">PLEASE WAIT...</span>
-        </button>
+    <button
+        class="primary-btn btn-verifying"
+        id="primary-btn"
+        type="button"
+        disabled
+    >
+        <span class="spinner" id="btn-spinner"></span>
+        <span id="btn-text">VERIFYING...</span>
+    </button>
 
-        <a
-            href="https://t.me/RudraMoviez"
-            class="secondary-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <span class="telegram-icon" aria-hidden="true">➤</span>
-            <span>RUDRA MAIN CHANNEL</span>
-        </a>
+    <a
+        href="https://t.me/RudraMoviez"
+        class="secondary-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ➤ &nbsp; RUDRA MAIN CHANNEL ✨
+    </a>
 
-        <div class="footer-text">RUDRA MOVIES</div>
-    </main>
+    <div class="footer-text">
+        RUDRA MOVIES SECURITY
+    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const liquid = document.getElementById("liquid");
-            const countdownEl = document.getElementById("countdown");
-            const statusTitle = document.getElementById("status-title");
-            const statusSubtext = document.getElementById("status-subtext");
-            const primaryBtn = document.getElementById("primary-btn");
-            const buttonText = document.getElementById("button-text");
-            const buttonSpinner = document.getElementById("button-spinner");
-            const buttonIcon = document.getElementById("button-icon");
-            const loadingIndicator = document.getElementById("loading-indicator");
-            const loadingLabel = document.getElementById("loading-label");
+</main>
 
-            const TOTAL_SECONDS = 5;
-            const params = new URLSearchParams(window.location.search);
-            const redirectParam = params.get("redirect");
-            const token = params.get("token");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-            let destination = null;
-            let redirectStarted = false;
-            let redirectTimer = null;
+    const liquid = document.getElementById("liquid");
+    const countdownEl = document.getElementById("countdown");
+    const statusSubtext = document.getElementById("status-subtext");
+    const primaryBtn = document.getElementById("primary-btn");
+    const btnText = document.getElementById("btn-text");
+    const btnSpinner = document.getElementById("btn-spinner");
 
-            /*
-             * Keep existing behavior:
-             * - A valid HTTPS redirect parameter takes precedence.
-             * - If there is no redirect parameter, token links use /api/verify.
-             */
-            if (redirectParam) {
-                try {
-                    const parsedRedirect = new URL(redirectParam);
+    const TOTAL_SECONDS = 5;
 
-                    if (
-                        parsedRedirect.protocol === "https:" &&
-                        parsedRedirect.hostname
-                    ) {
-                        destination = parsedRedirect.href;
-                    }
-                } catch (error) {
-                    destination = null;
-                }
-            } else if (token) {
-                const apiParams = new URLSearchParams({ token });
-                destination = "/api/verify?" + apiParams.toString();
+    const params = new URLSearchParams(window.location.search);
+    const redirectParam = params.get("redirect");
+    const token = params.get("token");
+
+    let destination = null;
+
+    // Existing File Store Bot links
+    if (redirectParam) {
+        try {
+            const parsed = new URL(redirectParam);
+
+            if (parsed.protocol === "https:") {
+                destination = parsed.href;
             }
+        } catch (error) {
+            destination = null;
+        }
+    }
 
-            function goToDestination() {
-                if (!destination || redirectStarted) return;
+    // Existing token API support
+    else if (token) {
+        destination = "/api/verify?" +
+            "token=" + encodeURIComponent(token);
+    }
 
-                redirectStarted = true;
-                window.location.replace(destination);
-            }
+    let timeLeft = TOTAL_SECONDS;
+    let redirectStarted = false;
 
-            function showError() {
-                statusTitle.textContent = "DOWNLOAD LINK UNAVAILABLE";
-                statusSubtext.textContent =
-                    "This download link is missing or invalid. Please check the link and try again.";
-                statusSubtext.classList.add("error");
+    function goToDestination() {
+        if (!destination || redirectStarted) return;
 
-                loadingIndicator.style.display = "none";
-                loadingLabel.textContent = "LINK UNAVAILABLE";
+        redirectStarted = true;
+        window.location.replace(destination);
+    }
 
-                buttonSpinner.style.display = "none";
-                buttonIcon.hidden = true;
-                buttonText.textContent = "LINK NOT FOUND";
-                primaryBtn.disabled = true;
-                primaryBtn.setAttribute("aria-label", "Download link unavailable");
-            }
-
-            function finishCountdown() {
-                if (!destination) {
-                    showError();
-                    return;
-                }
-
-                statusTitle.textContent = "YOUR DOWNLOAD IS READY";
-                statusSubtext.textContent = "Choose DOWNLOAD NOW if you are not redirected automatically.";
-                loadingIndicator.style.display = "none";
-                loadingLabel.textContent = "DOWNLOAD LINK READY";
-
-                buttonSpinner.style.display = "none";
-                buttonIcon.hidden = false;
-                buttonText.textContent = "DOWNLOAD NOW";
-                primaryBtn.disabled = false;
-                primaryBtn.classList.add("ready");
-
-                primaryBtn.addEventListener("click", goToDestination, { once: true });
-
-                // Keep the automatic redirect, while leaving a brief opportunity
-                // for the user to use the manual button.
-                redirectTimer = window.setTimeout(goToDestination, 900);
-            }
-
-            primaryBtn.addEventListener("click", () => {
-                if (!primaryBtn.disabled && redirectTimer !== null) {
-                    window.clearTimeout(redirectTimer);
-                    redirectTimer = null;
-                }
-            });
-
-            // Start the liquid animation after layout has been painted.
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    liquid.style.height = "100%";
-                });
-            });
-
-            const startTime = Date.now();
-            const timer = window.setInterval(() => {
-                const elapsed = Math.floor((Date.now() - startTime) / 1000);
-
-                if (elapsed >= TOTAL_SECONDS) {
-                    window.clearInterval(timer);
-                    // Keep "1" as the final displayed countdown value.
-                    countdownEl.textContent = "1";
-                    finishCountdown();
-                    return;
-                }
-
-                // Displays the requested sequence: 5, 4, 3, 2, 1.
-                countdownEl.textContent = String(TOTAL_SECONDS - elapsed);
-
-                if (elapsed >= 2) {
-                    statusSubtext.textContent = "Your download link will be ready shortly.";
-                }
-            }, 200);
+    // Start water filling
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            liquid.style.height = "100%";
         });
-    </script>
+    });
+
+    function finishCountdown() {
+
+        countdownEl.textContent = "0";
+
+        if (!destination) {
+            statusSubtext.textContent = "Download link unavailable.";
+            btnSpinner.style.display = "none";
+            btnText.textContent = "LINK NOT FOUND";
+            return;
+        }
+
+        statusSubtext.textContent = "Redirecting in progress...";
+
+        btnSpinner.style.display = "none";
+        btnText.textContent = "DOWNLOAD NOW";
+
+        primaryBtn.classList.remove("btn-verifying");
+        primaryBtn.classList.add("btn-ready");
+        primaryBtn.disabled = false;
+
+        primaryBtn.addEventListener("click", goToDestination);
+
+        // Automatic redirect after short button preview
+        setTimeout(goToDestination, 900);
+    }
+
+    const timer = setInterval(() => {
+
+        timeLeft--;
+        countdownEl.textContent = timeLeft;
+
+        if (timeLeft === 2) {
+            statusSubtext.textContent = "Redirecting in progress...";
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            finishCountdown();
+        }
+
+    }, 1000);
+
+});
+</script>
+
 </body>
 </html>
