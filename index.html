@@ -5,11 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#10132b">
-<title>RUDRA MOVIES | DOWNLOAD</title>
+
+<title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -36,12 +37,27 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
+
   background:
     radial-gradient(circle at 10% 15%, rgba(0,174,255,.48), transparent 38%),
     radial-gradient(circle at 95% 85%, rgba(174,24,255,.48), transparent 40%),
     linear-gradient(145deg,#10152c,#111027,#17102c);
+
   color: var(--white);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Orbitron', sans-serif;
+  font-variant-caps: all-small-caps;
+}
+
+/* FULL SMALL CAPS */
+
+body,
+body * {
+  font-family: 'Orbitron', sans-serif;
+  font-variant-caps: all-small-caps;
+}
+
+.countdown-num {
+  font-variant-caps: normal;
 }
 
 /* BACKGROUND LIGHTS */
@@ -99,17 +115,22 @@ body {
   padding: 27px 20px 19px;
   text-align: center;
   border-radius: 24px;
+
   background:
     radial-gradient(circle at 0% 0%,rgba(0,160,255,.22),transparent 50%),
     radial-gradient(circle at 100% 100%,rgba(160,30,255,.25),transparent 50%),
     linear-gradient(145deg,rgba(35,43,78,.88),rgba(19,19,43,.94));
+
   border: 1px solid rgba(190,190,255,.28);
+
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
+
   box-shadow:
     0 25px 65px rgba(0,0,0,.55),
     0 0 35px rgba(48,137,255,.12),
     inset 0 1px 1px rgba(255,255,255,.18);
+
   overflow: hidden;
 }
 
@@ -126,14 +147,14 @@ body {
 /* LOGO */
 
 .logo-ring {
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   padding: 3px;
-  margin: 0 auto 11px;
+  margin: 0 auto 12px;
   border-radius: 50%;
   background: #05050b;
   border: 1px solid rgba(255,255,255,.6);
-  box-shadow: 0 0 15px rgba(0,174,255,.45);
+  box-shadow: 0 0 18px rgba(0,174,255,.5);
   overflow: hidden;
 }
 
@@ -148,13 +169,21 @@ body {
 /* BRAND */
 
 .brand-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 900;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: 0 0 14px rgba(0,170,255,.25);
-  margin-bottom: 9px;
+  text-shadow: 0 0 14px rgba(0,170,255,.35);
+  margin-bottom: 8px;
+}
+
+.tagline {
+  color: #b8c9ff;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
 }
 
 /* VERIFIED BADGE */
@@ -163,12 +192,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 7px;
+  padding: 7px 13px;
   border-radius: 30px;
   background: rgba(16,185,129,.12);
   border: 1px solid rgba(52,211,153,.3);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .verified-dot {
@@ -183,8 +212,7 @@ body {
   color: #8df5c6;
   font-size: .58rem;
   font-weight: 800;
-  letter-spacing: .8px;
-  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* COUNTDOWN */
@@ -196,8 +224,51 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 19px;
+  margin: 0 auto 24px;
+  isolation: isolate;
 }
+
+/* OUTER ROTATING RING */
+
+.orb-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(90,190,255,.55);
+  border-top-color: #35d8ff;
+  border-right-color: #a52cff;
+  animation: outerRotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* INNER ROTATING RING */
+
+.orb-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(53,216,255,.8);
+  border-left-color: rgba(165,44,255,.6);
+  animation: innerRotate 6s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes outerRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes innerRotate {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* SVG RINGS */
 
 .orb-svg {
   position: absolute;
@@ -227,8 +298,8 @@ body {
   stroke: url(#blueGradient);
   stroke-width: 4;
   stroke-linecap: round;
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
+  stroke-dasharray: 308;
+  stroke-dashoffset: 308;
   filter: drop-shadow(0 0 6px #24bfff);
 }
 
@@ -242,10 +313,12 @@ body {
   border-radius: 50%;
   background: radial-gradient(circle at 50% 20%,#263b67,#10162d 80%);
   border: 2px solid rgba(95,195,255,.45);
+
   box-shadow:
     inset 0 5px 15px rgba(0,0,0,.7),
     inset 0 -5px 12px rgba(0,155,255,.3),
     0 0 20px rgba(0,170,255,.25);
+
   z-index: 2;
 }
 
@@ -289,7 +362,7 @@ body {
 
 .countdown-num {
   position: absolute;
-  z-index: 4;
+  z-index: 6;
   font-size: 2.3rem;
   font-weight: 900;
   color: #fff;
@@ -304,22 +377,23 @@ body {
 /* STATUS */
 
 .status-block {
-  margin-bottom: 16px;
+  margin-bottom: 17px;
 }
 
 .status-heading {
-  font-size: .72rem;
+  font-size: .76rem;
   font-weight: 900;
-  letter-spacing: .8px;
+  letter-spacing: 1.2px;
   color: #fff;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   text-transform: uppercase;
 }
 
 .status-sub {
-  font-size: .69rem;
+  font-size: .65rem;
   color: #c0c5dc;
   font-weight: 500;
+  letter-spacing: .8px;
 }
 
 /* ERROR */
@@ -332,9 +406,9 @@ body {
   background: rgba(239,68,68,.15);
   border: 1px solid rgba(248,113,113,.4);
   color: #fecaca;
-  font-size: .72rem;
+  font-size: .7rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* BUTTONS */
@@ -357,7 +431,7 @@ body {
   text-decoration: none;
   font-size: .69rem;
   font-weight: 800;
-  letter-spacing: .6px;
+  letter-spacing: .8px;
   text-transform: uppercase;
   transition: .25s ease;
   position: relative;
@@ -365,7 +439,7 @@ body {
   cursor: pointer;
 }
 
-/* VERIFY / DOWNLOAD BUTTON */
+/* DOWNLOAD BUTTON */
 
 .btn-primary {
   background: linear-gradient(100deg,#1479df,#168cff 55%,#8537ed);
@@ -402,7 +476,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* TELEGRAM */
+/* TELEGRAM BUTTON */
 
 .btn-channel {
   background: linear-gradient(100deg,rgba(49,54,100,.75),rgba(102,43,150,.65));
@@ -427,7 +501,7 @@ body {
 .card-footer {
   font-size: .55rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.5px;
   color: rgba(210,210,240,.6);
   text-transform: uppercase;
 }
@@ -450,25 +524,42 @@ body {
 
 <body>
 
+<!-- BACKGROUND -->
+
 <div class="ambient">
   <div class="glow glow-one"></div>
   <div class="glow glow-two"></div>
   <div class="glow glow-three"></div>
 </div>
 
+<!-- MAIN CARD -->
+
 <main class="card">
 
+  <!-- LOGO -->
+
   <div class="logo-ring">
-    <img src="RudraMovies.png" alt="RUDRA MOVIES"
+    <img src="RudraMovies.png"
+         alt="RUDRA MOVIES"
          onerror="this.style.opacity='.25'">
   </div>
 
+  <!-- BRAND -->
+
   <h1 class="brand-title">RUDRA MOVIES</h1>
+
+  <div class="tagline">
+    YOUR CINEMATIC UNIVERSE
+  </div>
+
+  <!-- STATUS BADGE -->
 
   <div class="verified-pill">
     <span class="verified-dot"></span>
     <span class="verified-text">LINK SYSTEM ACTIVE</span>
   </div>
+
+  <!-- COUNTDOWN -->
 
   <div class="orb-wrapper">
 
@@ -495,26 +586,36 @@ body {
 
   </div>
 
+  <!-- STATUS -->
+
   <div class="status-block">
+
     <div class="status-heading" id="statusHeading">
-      LINK VERIFICATION
+      PREPARING YOUR DOWNLOAD LINK...
     </div>
+
     <div class="status-sub" id="statusSub">
-      Preparing your download link...
+      PLEASE WAIT WHILE WE PREPARE YOUR LINK
     </div>
+
   </div>
+
+  <!-- ERROR -->
 
   <div class="error-banner" id="errorBanner"></div>
 
+  <!-- BUTTONS -->
+
   <div class="btn-group">
 
-    <a href="#" id="downloadBtn"
+    <a href="#"
+       id="downloadBtn"
        class="btn btn-primary"
        role="button"
        aria-disabled="true">
 
       <span class="btn-spinner" id="btnSpinner"></span>
-      <span id="downloadBtnText">VERIFYING...</span>
+      <span id="downloadBtnText">PREPARING...</span>
 
     </a>
 
@@ -528,14 +629,16 @@ body {
         <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
       </svg>
 
-      <span>✦ RUDRA MAIN CHANNEL ✦</span>
+      <span>RUDRA MAIN CHANNEL</span>
 
     </a>
 
   </div>
 
+  <!-- FOOTER -->
+
   <div class="card-footer">
-    ✦ RUDRA MOVIES ✦
+    RUDRA MOVIES
   </div>
 
 </main>
@@ -562,11 +665,14 @@ body {
   let finalRedirectUrl = null;
   let hasError = false;
 
+  // URL VALIDATION
+
   function parseValidUrl(input) {
 
     if (!input || typeof input !== 'string') return null;
 
     const raw = input.trim();
+
     if (!raw) return null;
 
     if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
@@ -574,6 +680,7 @@ body {
     }
 
     try {
+
       const decoded = atob(raw).trim();
 
       if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
@@ -585,17 +692,20 @@ body {
     return null;
   }
 
+  // ERROR HANDLING
+
   function displayError(msg) {
 
     hasError = true;
 
     btnSpinner.style.display = 'none';
+
     downloadBtnText.textContent = 'LINK ERROR';
 
     statusHeading.textContent = 'LINK VERIFICATION FAILED';
     statusHeading.style.color = '#ff7777';
 
-    statusSub.textContent = 'Unable to prepare your download link.';
+    statusSub.textContent = 'UNABLE TO PREPARE YOUR DOWNLOAD LINK';
 
     countdownNum.textContent = '!';
 
@@ -605,6 +715,8 @@ body {
     downloadBtn.classList.remove('ready');
     downloadBtn.removeAttribute('href');
   }
+
+  // TOKEN AND REDIRECT VERIFICATION
 
   async function resolveDestination() {
 
@@ -621,7 +733,9 @@ body {
           `/api/verify?token=${encodeURIComponent(token)}`,
           {
             method: 'GET',
-            headers: { 'Accept': 'application/json' }
+            headers: {
+              'Accept': 'application/json'
+            }
           }
         );
 
@@ -629,11 +743,16 @@ body {
 
           res = await fetch('/api/verify', {
             method: 'POST',
+
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
-            body: JSON.stringify({ token, redirect })
+
+            body: JSON.stringify({
+              token,
+              redirect
+            })
           });
 
         }
@@ -646,11 +765,13 @@ body {
           data.valid === false ||
           data.success === false
         ) {
+
           throw new Error(
             data.message ||
             data.error ||
             'This download token is invalid or has expired.'
           );
+
         }
 
         const target =
@@ -683,21 +804,28 @@ body {
 
       const validTarget = parseValidUrl(redirect);
 
-      if (validTarget) return validTarget;
+      if (validTarget) {
+        return validTarget;
+      }
 
       displayError('The provided redirect URL is invalid.');
+
       return null;
     }
 
     displayError('No download link or token was found in the URL.');
+
     return null;
   }
+
+  // COUNTDOWN ANIMATION
 
   function startCountdown() {
 
     const destinationPromise = resolveDestination();
 
     const startTime = performance.now();
+
     const totalDuration = COUNTDOWN_SECONDS * 1000;
 
     let currentDisplayed = COUNTDOWN_SECONDS;
@@ -723,7 +851,8 @@ body {
       const dashOffset =
         ARC_CIRCUMFERENCE * (1 - progress);
 
-      ringProgress.style.strokeDashoffset = `${dashOffset}`;
+      ringProgress.style.strokeDashoffset =
+        `${dashOffset}`;
 
       const fillPercent = 20 + progress * 68;
 
@@ -762,6 +891,8 @@ body {
     requestAnimationFrame(tick);
   }
 
+  // DOWNLOAD READY
+
   async function completeCountdown(destinationPromise) {
 
     finalRedirectUrl = await destinationPromise;
@@ -769,20 +900,21 @@ body {
     if (hasError || !finalRedirectUrl) return;
 
     ringProgress.style.strokeDashoffset = '0';
+
     liquidFill.style.height = '90%';
 
     countdownNum.textContent = '0';
 
-    statusHeading.textContent = 'LINK READY';
+    statusHeading.textContent = 'DOWNLOAD LINK READY';
     statusHeading.style.color = '#8df5c6';
 
     statusSub.textContent =
-      'Your download link is ready!';
+      'YOUR DOWNLOAD LINK IS READY';
 
     btnSpinner.style.display = 'none';
 
     downloadBtnText.textContent =
-      'PROCEED TO DESTINATION →';
+      'PROCEED TO DESTINATION';
 
     downloadBtn.href = finalRedirectUrl;
 
@@ -793,23 +925,30 @@ body {
       'false'
     );
 
-    // Automatic redirect
+    // AUTOMATIC REDIRECT
+
     setTimeout(() => {
       window.location.href = finalRedirectUrl;
     }, 300);
 
   }
 
+  // MANUAL DOWNLOAD
+
   downloadBtn.addEventListener('click', function (e) {
 
     if (!finalRedirectUrl || hasError) {
+
       e.preventDefault();
+
       return;
     }
 
     window.location.href = finalRedirectUrl;
 
   });
+
+  // START
 
   startCountdown();
 
