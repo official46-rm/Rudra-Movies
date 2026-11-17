@@ -1,21 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#080808" />
   <title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-dark: #070b14;
-      --cyan-glow: #00d2ff;
-      --blue-deep: #1e62d0;
-      --purple-glow: #a82ffc;
-      --gold-accent: #f5b942;
-      --text-white: #ffffff;
-      --text-dim: #94a3b8;
+      --bg-dark: #080808;
+      --gold: #D4AF37;
+      --gold-light: #F5E6B3;
+      --gold-dark: #8C681C;
+      --text-white: #FFF8E7;
+      --text-dim: #B8AA8A;
     }
 
     * {
@@ -28,18 +31,22 @@
     body {
       min-height: 100vh;
       min-height: 100dvh;
-      background-color: var(--bg-dark);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(ellipse at 10% 5%, rgba(140,104,28,.18), transparent 45%),
+        radial-gradient(ellipse at 95% 95%, rgba(212,175,55,.13), transparent 45%),
+        linear-gradient(145deg,#050505,#151109 55%,#080808);
+      font-family: 'Inter', sans-serif;
       color: var(--text-white);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      overflow: hidden;
+      overflow-x: hidden;
       position: relative;
     }
 
-    /* Ambient Background Lighting matching reference */
+    /* AMBIENT LIGHTING */
+
     .ambient-stage {
       position: fixed;
       inset: 0;
@@ -52,54 +59,51 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(90px);
-      opacity: 0.65;
+      opacity: .4;
       animation: ambientPulse 10s ease-in-out infinite alternate;
     }
 
-    /* Top-left cyan/blue illumination */
     .blob-tl {
       width: 380px;
       height: 380px;
-      background: radial-gradient(circle, #00b4d8 0%, #0077b6 50%, transparent 75%);
+      background: radial-gradient(circle,#A67C22 0%,#493614 50%,transparent 75%);
       top: 2%;
       left: -18%;
     }
 
-    /* Top-right purple/magenta illumination */
     .blob-tr {
       width: 360px;
       height: 360px;
-      background: radial-gradient(circle, #9d4edd 0%, #5a189a 55%, transparent 75%);
+      background: radial-gradient(circle,#D4AF37 0%,#70551A 55%,transparent 75%);
       top: 5%;
       right: -18%;
       animation-delay: -3s;
     }
 
-    /* Bottom-right vibrant purple/pink illumination */
     .blob-br {
       width: 360px;
       height: 360px;
-      background: radial-gradient(circle, #b5179e 0%, #7209b7 55%, transparent 75%);
+      background: radial-gradient(circle,#8C681C 0%,#38290D 55%,transparent 75%);
       bottom: 4%;
       right: -12%;
       animation-delay: -6s;
     }
 
-    /* Subtle center-gold warmth */
     .blob-gold {
       width: 240px;
       height: 240px;
-      background: radial-gradient(circle, rgba(245, 185, 66, 0.22) 0%, transparent 70%);
+      background: radial-gradient(circle,rgba(212,175,55,.28),transparent 70%);
       bottom: 15%;
       left: 10%;
     }
 
     @keyframes ambientPulse {
-      0% { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.08) translate(12px, -12px); }
+      0% { transform: scale(1) translate(0,0); }
+      100% { transform: scale(1.08) translate(12px,-12px); }
     }
 
-    /* Main Glassmorphism Card */
+    /* MAIN CARD */
+
     .card {
       position: relative;
       z-index: 1;
@@ -108,32 +112,44 @@
       border-radius: 26px;
       padding: 30px 22px 22px;
       text-align: center;
-      background: 
-        radial-gradient(circle at 0% 0%, rgba(0, 195, 255, 0.28) 0%, transparent 50%),
-        radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(192, 38, 211, 0.38) 0%, transparent 55%),
-        linear-gradient(165deg, rgba(20, 29, 49, 0.88) 0%, rgba(13, 18, 32, 0.94) 100%);
+      background:
+        radial-gradient(circle at 0% 0%,rgba(212,175,55,.15),transparent 50%),
+        radial-gradient(circle at 100% 0%,rgba(166,124,34,.12),transparent 50%),
+        radial-gradient(circle at 100% 100%,rgba(140,104,28,.16),transparent 55%),
+        linear-gradient(165deg,rgba(28,24,15,.96),rgba(8,8,8,.98));
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
-      border: 1.5px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 
-        0 25px 60px rgba(0, 0, 0, 0.75),
-        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      border: 1.5px solid rgba(212,175,55,.55);
+      box-shadow:
+        0 25px 60px rgba(0,0,0,.85),
+        0 0 25px rgba(212,175,55,.12),
+        inset 0 1px 1px rgba(255,248,220,.15);
       overflow: hidden;
     }
 
-    /* Circular Logo Frame */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8%;
+      width: 84%;
+      height: 1px;
+      background: linear-gradient(90deg,transparent,#FFF0BD,#D4AF37,transparent);
+    }
+
+    /* LOGO */
+
     .logo-ring {
       width: 74px;
       height: 74px;
       margin: 0 auto 14px;
       border-radius: 50%;
       padding: 4px;
-      background: rgba(10, 15, 28, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 
-        0 8px 20px rgba(0, 0, 0, 0.6),
-        0 0 18px rgba(0, 210, 255, 0.2);
+      background: #100D07;
+      border: 2px solid rgba(212,175,55,.85);
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.6),
+        0 0 18px rgba(212,175,55,.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -148,18 +164,23 @@
       display: block;
     }
 
-    /* Title */
+    /* BRAND TITLE */
+
     .brand-title {
       font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #ffffff;
+      background: linear-gradient(135deg,#FFF4C4,#D4AF37,#A67C22);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       margin-bottom: 12px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      filter: drop-shadow(0 2px 8px rgba(212,175,55,.25));
     }
 
-    /* Pill Tagline Badge */
+    /* TAGLINE */
+
     .tagline-pill {
       display: inline-flex;
       align-items: center;
@@ -167,9 +188,9 @@
       gap: 8px;
       padding: 6px 16px;
       border-radius: 999px;
-      background: rgba(16, 34, 62, 0.75);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.25);
+      background: rgba(65,49,17,.45);
+      border: 1px solid rgba(212,175,55,.4);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,.06),0 4px 12px rgba(0,0,0,.25);
       margin-bottom: 26px;
     }
 
@@ -177,25 +198,26 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981, 0 0 14px rgba(16, 185, 129, 0.8);
+      background: #D4AF37;
+      box-shadow: 0 0 8px #D4AF37,0 0 14px rgba(212,175,55,.7);
       animation: dotBlink 2s infinite ease-in-out;
     }
 
     @keyframes dotBlink {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(0.85); }
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .55; transform: scale(.85); }
     }
 
     .tagline-text {
-      font-size: 0.68rem;
+      font-size: .68rem;
       font-weight: 700;
       letter-spacing: 1.1px;
       text-transform: uppercase;
-      color: #67e8f9;
+      color: #E8D59B;
     }
 
-    /* Circular Countdown & Liquid Orb */
+    /* COUNTDOWN */
+
     .orb-wrapper {
       position: relative;
       width: 146px;
@@ -206,7 +228,6 @@
       justify-content: center;
     }
 
-    /* Outer SVG Rings (Dashed + Solid Progress Arc) */
     .orb-svg {
       position: absolute;
       inset: 0;
@@ -219,14 +240,14 @@
 
     .ring-dashed {
       fill: none;
-      stroke: rgba(56, 189, 248, 0.32);
+      stroke: rgba(212,175,55,.5);
       stroke-width: 2;
       stroke-dasharray: 4 5;
     }
 
     .ring-track {
       fill: none;
-      stroke: rgba(255, 255, 255, 0.07);
+      stroke: rgba(212,175,55,.16);
       stroke-width: 4.5;
     }
 
@@ -237,38 +258,37 @@
       stroke-linecap: round;
       stroke-dasharray: 408;
       stroke-dashoffset: 408;
-      filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.85));
+      filter: drop-shadow(0 0 6px rgba(212,175,55,.85));
     }
 
-    /* Inner 3D Glass Sphere */
+    /* GOLD LIQUID SPHERE */
+
     .liquid-sphere {
       position: relative;
       width: 114px;
       height: 114px;
       border-radius: 50%;
-      background: radial-gradient(circle at 50% 25%, #162642 0%, #091122 80%);
-      border: 2px solid rgba(56, 189, 248, 0.45);
-      box-shadow: 
-        inset 0 8px 18px rgba(0, 0, 0, 0.85),
-        inset 0 -6px 14px rgba(0, 180, 255, 0.35),
-        0 0 25px rgba(0, 180, 255, 0.25);
+      background: radial-gradient(circle at 50% 25%,#403218 0%,#100D07 80%);
+      border: 2px solid rgba(212,175,55,.7);
+      box-shadow:
+        inset 0 8px 18px rgba(0,0,0,.85),
+        inset 0 -6px 14px rgba(212,175,55,.3),
+        0 0 25px rgba(212,175,55,.3);
       overflow: hidden;
       z-index: 2;
     }
 
-    /* Rising Liquid Body */
     .liquid-fill {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
       height: 0%;
-      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 55%, #0369a1 100%);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
-      transition: height 0.08s linear;
+      background: linear-gradient(180deg,#FFF0BD 0%,#D4AF37 55%,#8C681C 100%);
+      box-shadow: 0 0 20px rgba(212,175,55,.65);
+      transition: height .08s linear;
     }
 
-    /* 3D Meniscus Surface Rim on Top of Liquid */
     .liquid-fill::before {
       content: '';
       position: absolute;
@@ -277,77 +297,78 @@
       width: 116%;
       height: 12px;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center, #bae6fd 0%, #38bdf8 60%, rgba(2, 132, 199, 0) 100%);
-      box-shadow: 0 0 10px rgba(186, 230, 253, 0.85);
+      background: radial-gradient(ellipse at center,#FFF4C4 0%,#D4AF37 60%,rgba(140,104,28,0) 100%);
+      box-shadow: 0 0 10px rgba(255,231,160,.85);
       animation: liquidSlosh 2.4s ease-in-out infinite alternate;
     }
 
     @keyframes liquidSlosh {
-      0% { transform: translateY(0px) scaleY(1); }
+      0% { transform: translateY(0) scaleY(1); }
       100% { transform: translateY(2px) scaleY(1.25); }
     }
 
-    /* Glossy 3D Sphere Highlight Overlay */
     .sphere-gloss {
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 22%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 35%, transparent 60%);
+      background: radial-gradient(circle at 35% 22%,rgba(255,255,255,.24) 0%,rgba(255,255,255,.04) 35%,transparent 60%);
       z-index: 3;
       pointer-events: none;
     }
 
-    /* Countdown Number */
     .countdown-num {
       position: absolute;
       z-index: 4;
       font-size: 2.65rem;
-      font-weight: 800;
-      color: #ffffff;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.65);
+      font-weight: 900;
+      color: #FFF3C4;
+      text-shadow: 0 3px 10px rgba(0,0,0,.65),0 0 15px rgba(212,175,55,.35);
       user-select: none;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1);
     }
 
     .countdown-num.pop {
       transform: scale(1.16);
     }
 
-    /* Status Text Block */
+    /* STATUS TEXT */
+
     .status-block {
       margin-bottom: 20px;
     }
 
     .status-heading {
-      font-size: 0.82rem;
+      font-size: .82rem;
       font-weight: 800;
-      letter-spacing: 0.8px;
+      letter-spacing: .8px;
       text-transform: uppercase;
-      color: #ffffff;
+      color: #F5E6B3;
       margin-bottom: 5px;
     }
 
     .status-sub {
-      font-size: 0.78rem;
+      font-size: .78rem;
       font-weight: 500;
-      color: #cbd5e1;
+      color: #B8AA8A;
     }
 
-    /* Error Box */
+    /* ERROR MESSAGE */
+
     .error-banner {
       display: none;
       padding: 12px 14px;
       border-radius: 12px;
-      background: rgba(239, 68, 68, 0.16);
-      border: 1px solid rgba(239, 68, 68, 0.45);
+      background: rgba(239,68,68,.16);
+      border: 1px solid rgba(239,68,68,.45);
       color: #fecaca;
-      font-size: 0.78rem;
+      font-size: .78rem;
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: 16px;
     }
 
-    /* Buttons Stack */
+    /* BUTTONS */
+
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -357,99 +378,121 @@
 
     .btn {
       width: 100%;
-      height: 50px;
+      min-height: 50px;
       border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: .8rem;
       font-weight: 800;
-      letter-spacing: 0.9px;
+      letter-spacing: .9px;
       text-transform: uppercase;
-      transition: all 0.25s ease;
+      transition: all .25s ease;
       position: relative;
       overflow: hidden;
       cursor: pointer;
     }
 
-    /* Primary Action Button (Teal -> Blue gradient like screenshot) */
+    /* DOWNLOAD BUTTON */
+
     .btn-primary {
-      background: linear-gradient(90deg, #1b6ca8 0%, #2563eb 55%, #3b4cca 100%);
-      border: 1px solid rgba(96, 165, 250, 0.35);
-      color: rgba(255, 255, 255, 0.75);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+      background: linear-gradient(90deg,#17140C,#30250E,#17140C);
+      border: 1px solid rgba(212,175,55,.45);
+      color: #D4AF37;
+      box-shadow: 0 6px 20px rgba(212,175,55,.1);
       pointer-events: none;
     }
 
     .btn-primary.ready {
-      background: linear-gradient(90deg, #0ea5e9 0%, #2563eb 50%, #4f46e5 100%);
-      border-color: rgba(125, 211, 252, 0.65);
-      color: #ffffff;
+      background: linear-gradient(90deg,#8C681C,#D4AF37,#F5E6B3);
+      border-color: #F5E6B3;
+      color: #080808;
       pointer-events: auto;
-      box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+      box-shadow: 0 8px 25px rgba(212,175,55,.4);
     }
 
     .btn-primary.ready:hover,
     .btn-primary.ready:active {
       transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(14, 165, 233, 0.7);
+      box-shadow: 0 10px 28px rgba(212,175,55,.55);
     }
 
-    /* Circular Spinner inside Primary Button during countdown */
+    /* SPINNER */
+
     .btn-spinner {
       width: 17px;
       height: 17px;
       border-radius: 50%;
-      border: 2.2px solid rgba(125, 211, 252, 0.3);
-      border-top-color: #38bdf8;
-      animation: spin 0.85s linear infinite;
+      border: 2.2px solid rgba(212,175,55,.25);
+      border-top-color: #D4AF37;
+      animation: spin .85s linear infinite;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    /* Secondary Telegram Channel Button */
+    /* TELEGRAM BUTTON */
+
     .btn-channel {
-      background: linear-gradient(90deg, rgba(45, 55, 85, 0.6) 0%, rgba(88, 52, 125, 0.65) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #ffffff;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg,rgba(36,29,15,.9),rgba(62,46,18,.9));
+      border: 1px solid rgba(212,175,55,.45);
+      color: #F5E6B3;
+      box-shadow: 0 4px 15px rgba(0,0,0,.3);
     }
 
     .btn-channel:hover,
     .btn-channel:active {
-      background: linear-gradient(90deg, rgba(55, 68, 105, 0.75) 0%, rgba(108, 62, 150, 0.8) 100%);
-      border-color: rgba(255, 255, 255, 0.32);
+      background: linear-gradient(90deg,#493614,#70551A);
+      border-color: #F5E6B3;
       transform: translateY(-1px);
     }
 
     .tg-send-icon {
       width: 16px;
       height: 16px;
-      color: #38bdf8;
+      color: #D4AF37;
       flex-shrink: 0;
     }
 
-    /* Bottom Footer Caption */
+    /* FOOTER */
+
     .card-footer {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
-      font-size: 0.65rem;
+      font-size: .65rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: rgba(203, 213, 225, 0.65);
+      color: rgba(212,175,55,.75);
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 12px;
+      }
+
+      .card {
+        padding: 25px 16px 18px;
+      }
+    }
+
+    @media (max-height: 700px) {
+      body {
+        align-items: flex-start;
+        overflow-y: auto;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Ambient Background Glows -->
+  <!-- AMBIENT BACKGROUND -->
   <div class="ambient-stage">
     <div class="ambient-blob blob-tl"></div>
     <div class="ambient-blob blob-tr"></div>
@@ -457,61 +500,59 @@
     <div class="ambient-blob blob-gold"></div>
   </div>
 
-  <!-- Main UI Card -->
+  <!-- MAIN CARD -->
   <main class="card">
-    <!-- Logo -->
+
+    <!-- LOGO -->
     <div class="logo-ring">
       <img src="RudraMovies.png" alt="RUDRA MOVIES" onerror="this.style.opacity='0.25'" />
     </div>
 
-    <!-- Brand Name -->
+    <!-- BRAND -->
     <h1 class="brand-title">RUDRA MOVIES</h1>
 
-    <!-- Tagline Pill -->
+    <!-- TAGLINE -->
     <div class="tagline-pill">
       <span class="status-dot" id="statusDot"></span>
       <span class="tagline-text">YOUR CINEMATIC UNIVERSE</span>
     </div>
 
-    <!-- Animated Circular Liquid Countdown -->
+    <!-- COUNTDOWN -->
     <div class="orb-wrapper">
       <svg class="orb-svg" viewBox="0 0 146 146">
         <defs>
           <linearGradient id="cyanArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" />
-            <stop offset="60%" stop-color="#0ea5e9" />
-            <stop offset="100%" stop-color="#a855f7" />
+            <stop offset="0%" stop-color="#FFF0BD" />
+            <stop offset="60%" stop-color="#D4AF37" />
+            <stop offset="100%" stop-color="#8C681C" />
           </linearGradient>
         </defs>
-        <!-- Outer Dashed Ring -->
+
         <circle class="ring-dashed" cx="73" cy="73" r="69" />
-        <!-- Solid Ring Track -->
         <circle class="ring-track" cx="73" cy="73" r="65" />
-        <!-- Animated Progress Arc -->
         <circle class="ring-progress" id="ringProgress" cx="73" cy="73" r="65" />
       </svg>
 
-      <!-- Inner Liquid Sphere -->
       <div class="liquid-sphere">
         <div class="liquid-fill" id="liquidFill"></div>
         <div class="sphere-gloss"></div>
       </div>
 
-      <!-- Countdown Digit -->
       <div class="countdown-num" id="countdownNum">5</div>
     </div>
 
-    <!-- Loading Status Text -->
+    <!-- STATUS -->
     <div class="status-block">
       <div class="status-heading" id="statusHeading">PREPARING YOUR DOWNLOAD LINK...</div>
       <div class="status-sub" id="statusSub">Redirecting in progress...</div>
     </div>
 
-    <!-- Error Message Box (Hidden unless invalid/missing link) -->
+    <!-- ERROR -->
     <div class="error-banner" id="errorBanner"></div>
 
-    <!-- Action Buttons -->
+    <!-- ACTION BUTTONS -->
     <div class="btn-group">
+
       <a href="#" id="downloadBtn" class="btn btn-primary" role="button" aria-disabled="true">
         <span class="btn-spinner" id="btnSpinner"></span>
         <span id="downloadBtnText">PREPARING...</span>
@@ -523,18 +564,20 @@
         </svg>
         <span>⚡ RUDRA MAIN CHANNEL ✨</span>
       </a>
+
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <div class="card-footer">
       <span>⚡ RUDRA MOVIES</span>
     </div>
+
   </main>
 
   <script>
     (function () {
       const COUNTDOWN_SECONDS = 5;
-      const ARC_CIRCUMFERENCE = 2 * Math.PI * 65; // ~408.4
+      const ARC_CIRCUMFERENCE = 2 * Math.PI * 65;
 
       const countdownNum = document.getElementById('countdownNum');
       const ringProgress = document.getElementById('ringProgress');
@@ -556,6 +599,7 @@
       // Validate and sanitize target URL
       function parseValidUrl(input) {
         if (!input || typeof input !== 'string') return null;
+
         const raw = input.trim();
         if (!raw) return null;
 
@@ -563,7 +607,7 @@
           return raw;
         }
 
-        // Support Base64-encoded redirect URLs if passed
+        // Support Base64-encoded redirect URLs
         try {
           const decoded = atob(raw).trim();
           if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
@@ -590,7 +634,7 @@
         downloadBtn.removeAttribute('href');
       }
 
-      // Preserve ?token= (/api/verify) and ?redirect= parameters
+      // Preserve token verification and redirect parameters
       async function resolveDestination() {
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token');
@@ -628,6 +672,7 @@
             }
 
             return validTarget;
+
           } catch (err) {
             displayError(err.message || 'Failed to verify download token. Please try again from the channel.');
             return null;
@@ -636,9 +681,11 @@
 
         if (redirect) {
           const validTarget = parseValidUrl(redirect);
+
           if (validTarget) {
             return validTarget;
           }
+
           displayError('The provided redirect URL is invalid.');
           return null;
         }
@@ -653,29 +700,26 @@
         const totalDuration = COUNTDOWN_SECONDS * 1000;
         let currentDisplayed = COUNTDOWN_SECONDS;
 
-        // Start liquid at 20% height so it looks full & lively from 5 down to 1
         liquidFill.style.height = '20%';
 
         function tick(now) {
           if (hasError) return;
 
           const elapsed = Math.min(now - startTime, totalDuration);
-          const progress = elapsed / totalDuration; // 0.0 -> 1.0
+          const progress = elapsed / totalDuration;
           const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
 
-          // Update circular progress arc
           const dashOffset = ARC_CIRCUMFERENCE * (1 - progress);
           ringProgress.style.strokeDashoffset = `${dashOffset}`;
 
-          // Smoothly fill liquid sphere from 20% to 88%
           const fillPercent = 20 + progress * 68;
           liquidFill.style.height = `${fillPercent.toFixed(1)}%`;
 
-          // Update number 5, 4, 3, 2, 1
           if (secondsLeft !== currentDisplayed && elapsed < totalDuration) {
             currentDisplayed = secondsLeft;
             countdownNum.textContent = String(secondsLeft);
             countdownNum.classList.add('pop');
+
             setTimeout(() => countdownNum.classList.remove('pop'), 180);
           }
 
@@ -691,6 +735,7 @@
 
       async function completeCountdown(destinationPromise) {
         finalRedirectUrl = await destinationPromise;
+
         if (hasError || !finalRedirectUrl) return;
 
         ringProgress.style.strokeDashoffset = '0';
@@ -715,11 +760,13 @@
           e.preventDefault();
           return;
         }
+
         window.location.href = finalRedirectUrl;
       });
 
       startCountdown();
     })();
   </script>
+
 </body>
 </html>
