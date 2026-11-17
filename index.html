@@ -2,771 +2,819 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#080808" />
-  <title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-dark: #080808;
-      --gold: #D4AF37;
-      --gold-light: #F5E6B3;
-      --gold-dark: #8C681C;
-      --text-white: #FFF8E7;
-      --text-dim: #B8AA8A;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      background:
-        radial-gradient(ellipse at 10% 5%, rgba(140,104,28,.18), transparent 45%),
-        radial-gradient(ellipse at 95% 95%, rgba(212,175,55,.13), transparent 45%),
-        linear-gradient(145deg,#050505,#151109 55%,#080808);
-      font-family: 'Inter', sans-serif;
-      color: var(--text-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* AMBIENT LIGHTING */
-
-    .ambient-stage {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .ambient-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: .4;
-      animation: ambientPulse 10s ease-in-out infinite alternate;
-    }
-
-    .blob-tl {
-      width: 380px;
-      height: 380px;
-      background: radial-gradient(circle,#A67C22 0%,#493614 50%,transparent 75%);
-      top: 2%;
-      left: -18%;
-    }
-
-    .blob-tr {
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle,#D4AF37 0%,#70551A 55%,transparent 75%);
-      top: 5%;
-      right: -18%;
-      animation-delay: -3s;
-    }
-
-    .blob-br {
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle,#8C681C 0%,#38290D 55%,transparent 75%);
-      bottom: 4%;
-      right: -12%;
-      animation-delay: -6s;
-    }
-
-    .blob-gold {
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle,rgba(212,175,55,.28),transparent 70%);
-      bottom: 15%;
-      left: 10%;
-    }
-
-    @keyframes ambientPulse {
-      0% { transform: scale(1) translate(0,0); }
-      100% { transform: scale(1.08) translate(12px,-12px); }
-    }
-
-    /* MAIN CARD */
-
-    .card {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 380px;
-      border-radius: 26px;
-      padding: 30px 22px 22px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 0% 0%,rgba(212,175,55,.15),transparent 50%),
-        radial-gradient(circle at 100% 0%,rgba(166,124,34,.12),transparent 50%),
-        radial-gradient(circle at 100% 100%,rgba(140,104,28,.16),transparent 55%),
-        linear-gradient(165deg,rgba(28,24,15,.96),rgba(8,8,8,.98));
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1.5px solid rgba(212,175,55,.55);
-      box-shadow:
-        0 25px 60px rgba(0,0,0,.85),
-        0 0 25px rgba(212,175,55,.12),
-        inset 0 1px 1px rgba(255,248,220,.15);
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 8%;
-      width: 84%;
-      height: 1px;
-      background: linear-gradient(90deg,transparent,#FFF0BD,#D4AF37,transparent);
-    }
-
-    /* LOGO */
-
-    .logo-ring {
-      width: 74px;
-      height: 74px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      padding: 4px;
-      background: #100D07;
-      border: 2px solid rgba(212,175,55,.85);
-      box-shadow:
-        0 8px 20px rgba(0,0,0,.6),
-        0 0 18px rgba(212,175,55,.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .logo-ring img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* BRAND TITLE */
-
-    .brand-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      background: linear-gradient(135deg,#FFF4C4,#D4AF37,#A67C22);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 2px 8px rgba(212,175,55,.25));
-    }
-
-    /* TAGLINE */
-
-    .tagline-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: rgba(65,49,17,.45);
-      border: 1px solid rgba(212,175,55,.4);
-      box-shadow: inset 0 1px 1px rgba(255,255,255,.06),0 4px 12px rgba(0,0,0,.25);
-      margin-bottom: 26px;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #D4AF37;
-      box-shadow: 0 0 8px #D4AF37,0 0 14px rgba(212,175,55,.7);
-      animation: dotBlink 2s infinite ease-in-out;
-    }
-
-    @keyframes dotBlink {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .55; transform: scale(.85); }
-    }
-
-    .tagline-text {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
-      color: #E8D59B;
-    }
-
-    /* COUNTDOWN */
-
-    .orb-wrapper {
-      position: relative;
-      width: 146px;
-      height: 146px;
-      margin: 0 auto 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .orb-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      transform: rotate(-90deg);
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .ring-dashed {
-      fill: none;
-      stroke: rgba(212,175,55,.5);
-      stroke-width: 2;
-      stroke-dasharray: 4 5;
-    }
-
-    .ring-track {
-      fill: none;
-      stroke: rgba(212,175,55,.16);
-      stroke-width: 4.5;
-    }
-
-    .ring-progress {
-      fill: none;
-      stroke: url(#cyanArcGrad);
-      stroke-width: 4.5;
-      stroke-linecap: round;
-      stroke-dasharray: 408;
-      stroke-dashoffset: 408;
-      filter: drop-shadow(0 0 6px rgba(212,175,55,.85));
-    }
-
-    /* GOLD LIQUID SPHERE */
-
-    .liquid-sphere {
-      position: relative;
-      width: 114px;
-      height: 114px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 25%,#403218 0%,#100D07 80%);
-      border: 2px solid rgba(212,175,55,.7);
-      box-shadow:
-        inset 0 8px 18px rgba(0,0,0,.85),
-        inset 0 -6px 14px rgba(212,175,55,.3),
-        0 0 25px rgba(212,175,55,.3);
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    .liquid-fill {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 0%;
-      background: linear-gradient(180deg,#FFF0BD 0%,#D4AF37 55%,#8C681C 100%);
-      box-shadow: 0 0 20px rgba(212,175,55,.65);
-      transition: height .08s linear;
-    }
-
-    .liquid-fill::before {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: -8%;
-      width: 116%;
-      height: 12px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center,#FFF4C4 0%,#D4AF37 60%,rgba(140,104,28,0) 100%);
-      box-shadow: 0 0 10px rgba(255,231,160,.85);
-      animation: liquidSlosh 2.4s ease-in-out infinite alternate;
-    }
-
-    @keyframes liquidSlosh {
-      0% { transform: translateY(0) scaleY(1); }
-      100% { transform: translateY(2px) scaleY(1.25); }
-    }
-
-    .sphere-gloss {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 22%,rgba(255,255,255,.24) 0%,rgba(255,255,255,.04) 35%,transparent 60%);
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .countdown-num {
-      position: absolute;
-      z-index: 4;
-      font-size: 2.65rem;
-      font-weight: 900;
-      color: #FFF3C4;
-      text-shadow: 0 3px 10px rgba(0,0,0,.65),0 0 15px rgba(212,175,55,.35);
-      user-select: none;
-      transition: transform .2s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    .countdown-num.pop {
-      transform: scale(1.16);
-    }
-
-    /* STATUS TEXT */
-
-    .status-block {
-      margin-bottom: 20px;
-    }
-
-    .status-heading {
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: #F5E6B3;
-      margin-bottom: 5px;
-    }
-
-    .status-sub {
-      font-size: .78rem;
-      font-weight: 500;
-      color: #B8AA8A;
-    }
-
-    /* ERROR MESSAGE */
-
-    .error-banner {
-      display: none;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(239,68,68,.16);
-      border: 1px solid rgba(239,68,68,.45);
-      color: #fecaca;
-      font-size: .78rem;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 16px;
-    }
-
-    /* BUTTONS */
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      width: 100%;
-      min-height: 50px;
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: .9px;
-      text-transform: uppercase;
-      transition: all .25s ease;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    /* DOWNLOAD BUTTON */
-
-    .btn-primary {
-      background: linear-gradient(90deg,#17140C,#30250E,#17140C);
-      border: 1px solid rgba(212,175,55,.45);
-      color: #D4AF37;
-      box-shadow: 0 6px 20px rgba(212,175,55,.1);
-      pointer-events: none;
-    }
-
-    .btn-primary.ready {
-      background: linear-gradient(90deg,#8C681C,#D4AF37,#F5E6B3);
-      border-color: #F5E6B3;
-      color: #080808;
-      pointer-events: auto;
-      box-shadow: 0 8px 25px rgba(212,175,55,.4);
-    }
-
-    .btn-primary.ready:hover,
-    .btn-primary.ready:active {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(212,175,55,.55);
-    }
-
-    /* SPINNER */
-
-    .btn-spinner {
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      border: 2.2px solid rgba(212,175,55,.25);
-      border-top-color: #D4AF37;
-      animation: spin .85s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* TELEGRAM BUTTON */
-
-    .btn-channel {
-      background: linear-gradient(90deg,rgba(36,29,15,.9),rgba(62,46,18,.9));
-      border: 1px solid rgba(212,175,55,.45);
-      color: #F5E6B3;
-      box-shadow: 0 4px 15px rgba(0,0,0,.3);
-    }
-
-    .btn-channel:hover,
-    .btn-channel:active {
-      background: linear-gradient(90deg,#493614,#70551A);
-      border-color: #F5E6B3;
-      transform: translateY(-1px);
-    }
-
-    .tg-send-icon {
-      width: 16px;
-      height: 16px;
-      color: #D4AF37;
-      flex-shrink: 0;
-    }
-
-    /* FOOTER */
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(212,175,55,.75);
-    }
-
-    @media (max-width: 360px) {
-      body {
-        padding: 12px;
-      }
-
-      .card {
-        padding: 25px 16px 18px;
-      }
-    }
-
-    @media (max-height: 700px) {
-      body {
-        align-items: flex-start;
-        overflow-y: auto;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#10132b">
+<title>RUDRA MOVIES | DOWNLOAD</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue: #168cff;
+  --cyan: #35d8ff;
+  --purple: #a52cff;
+  --bg: #10132b;
+  --white: #ffffff;
+  --muted: #c2c5df;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(0,174,255,.48), transparent 38%),
+    radial-gradient(circle at 95% 85%, rgba(174,24,255,.48), transparent 40%),
+    linear-gradient(145deg,#10152c,#111027,#17102c);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+
+/* BACKGROUND LIGHTS */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .65;
+  animation: glowMove 9s ease-in-out infinite alternate;
+}
+
+.glow-one {
+  background: #008cff;
+  top: 0;
+  left: -150px;
+}
+
+.glow-two {
+  background: #9b20ff;
+  right: -140px;
+  bottom: 0;
+  animation-delay: -4s;
+}
+
+.glow-three {
+  background: #00c9ff;
+  right: -160px;
+  top: 20%;
+  opacity: .25;
+}
+
+@keyframes glowMove {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.2) translateY(-20px); }
+}
+
+/* MAIN CARD */
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  padding: 27px 20px 19px;
+  text-align: center;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(0,160,255,.22),transparent 50%),
+    radial-gradient(circle at 100% 100%,rgba(160,30,255,.25),transparent 50%),
+    linear-gradient(145deg,rgba(35,43,78,.88),rgba(19,19,43,.94));
+  border: 1px solid rgba(190,190,255,.28);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow:
+    0 25px 65px rgba(0,0,0,.55),
+    0 0 35px rgba(48,137,255,.12),
+    inset 0 1px 1px rgba(255,255,255,.18);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg,transparent,#8bdcff,transparent);
+}
+
+/* LOGO */
+
+.logo-ring {
+  width: 58px;
+  height: 58px;
+  padding: 3px;
+  margin: 0 auto 11px;
+  border-radius: 50%;
+  background: #05050b;
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 0 15px rgba(0,174,255,.45);
+  overflow: hidden;
+}
+
+.logo-ring img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* BRAND */
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(0,170,255,.25);
+  margin-bottom: 9px;
+}
+
+/* VERIFIED BADGE */
+
+.verified-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 30px;
+  background: rgba(16,185,129,.12);
+  border: 1px solid rgba(52,211,153,.3);
+  margin-bottom: 24px;
+}
+
+.verified-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 9px #34d399;
+}
+
+.verified-text {
+  color: #8df5c6;
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+
+/* COUNTDOWN */
+
+.orb-wrapper {
+  width: 112px;
+  height: 112px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 19px;
+}
+
+.orb-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ring-dashed {
+  fill: none;
+  stroke: rgba(75,190,255,.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(255,255,255,.13);
+  stroke-width: 4;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: url(#blueGradient);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  filter: drop-shadow(0 0 6px #24bfff);
+}
+
+/* LIQUID SPHERE */
+
+.liquid-sphere {
+  width: 88px;
+  height: 88px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 20%,#263b67,#10162d 80%);
+  border: 2px solid rgba(95,195,255,.45);
+  box-shadow:
+    inset 0 5px 15px rgba(0,0,0,.7),
+    inset 0 -5px 12px rgba(0,155,255,.3),
+    0 0 20px rgba(0,170,255,.25);
+  z-index: 2;
+}
+
+.liquid-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg,#6ce6ff,#248cff 55%,#7134e9);
+  box-shadow: 0 0 15px rgba(0,170,255,.65);
+  transition: height .08s linear;
+}
+
+.liquid-fill::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -8%;
+  width: 116%;
+  height: 10px;
+  border-radius: 50%;
+  background: #8ceaff;
+  box-shadow: 0 0 12px #4bcfff;
+  animation: liquidWave 2s ease-in-out infinite alternate;
+}
+
+@keyframes liquidWave {
+  from { transform: translateY(0) scaleY(1); }
+  to { transform: translateY(2px) scaleY(1.3); }
+}
+
+.sphere-gloss {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 20%,rgba(255,255,255,.2),transparent 60%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.countdown-num {
+  position: absolute;
+  z-index: 4;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(0,0,0,.5);
+  transition: transform .2s ease;
+}
+
+.countdown-num.pop {
+  transform: scale(1.18);
+}
+
+/* STATUS */
+
+.status-block {
+  margin-bottom: 16px;
+}
+
+.status-heading {
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .8px;
+  color: #fff;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.status-sub {
+  font-size: .69rem;
+  color: #c0c5dc;
+  font-weight: 500;
+}
+
+/* ERROR */
+
+.error-banner {
+  display: none;
+  padding: 11px;
+  margin-bottom: 14px;
+  border-radius: 11px;
+  background: rgba(239,68,68,.15);
+  border: 1px solid rgba(248,113,113,.4);
+  color: #fecaca;
+  font-size: .72rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* BUTTONS */
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 13px;
+}
+
+.btn {
+  min-height: 43px;
+  width: 100%;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  transition: .25s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* VERIFY / DOWNLOAD BUTTON */
+
+.btn-primary {
+  background: linear-gradient(100deg,#1479df,#168cff 55%,#8537ed);
+  border: 1px solid rgba(130,205,255,.5);
+  color: rgba(255,255,255,.8);
+  box-shadow: 0 5px 18px rgba(0,125,255,.25);
+  pointer-events: none;
+}
+
+.btn-primary.ready {
+  background: linear-gradient(100deg,#087ce8,#13b9ee,#7539e9);
+  border-color: rgba(160,225,255,.7);
+  color: #fff;
+  pointer-events: auto;
+  box-shadow: 0 7px 22px rgba(0,150,255,.45);
+}
+
+.btn-primary.ready:active {
+  transform: scale(.98);
+}
+
+/* SPINNER */
+
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.25);
+  border-top-color: #fff;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* TELEGRAM */
+
+.btn-channel {
+  background: linear-gradient(100deg,rgba(49,54,100,.75),rgba(102,43,150,.65));
+  border: 1px solid rgba(190,175,255,.28);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,.25);
+}
+
+.btn-channel:active {
+  transform: scale(.98);
+}
+
+.tg-send-icon {
+  width: 15px;
+  height: 15px;
+  color: #54c9ff;
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+
+.card-footer {
+  font-size: .55rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: rgba(210,210,240,.6);
+  text-transform: uppercase;
+}
+
+/* MOBILE */
+
+@media(max-width:360px) {
+  body { padding: 12px; }
+  .card { padding: 23px 16px 17px; }
+}
+
+@media(max-height:600px) {
+  body {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- AMBIENT BACKGROUND -->
-  <div class="ambient-stage">
-    <div class="ambient-blob blob-tl"></div>
-    <div class="ambient-blob blob-tr"></div>
-    <div class="ambient-blob blob-br"></div>
-    <div class="ambient-blob blob-gold"></div>
+<div class="ambient">
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+  <div class="glow glow-three"></div>
+</div>
+
+<main class="card">
+
+  <div class="logo-ring">
+    <img src="RudraMovies.png" alt="RUDRA MOVIES"
+         onerror="this.style.opacity='.25'">
   </div>
 
-  <!-- MAIN CARD -->
-  <main class="card">
+  <h1 class="brand-title">RUDRA MOVIES</h1>
 
-    <!-- LOGO -->
-    <div class="logo-ring">
-      <img src="RudraMovies.png" alt="RUDRA MOVIES" onerror="this.style.opacity='0.25'" />
+  <div class="verified-pill">
+    <span class="verified-dot"></span>
+    <span class="verified-text">LINK SYSTEM ACTIVE</span>
+  </div>
+
+  <div class="orb-wrapper">
+
+    <svg class="orb-svg" viewBox="0 0 112 112">
+      <defs>
+        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#49dfff"/>
+          <stop offset="55%" stop-color="#168cff"/>
+          <stop offset="100%" stop-color="#a52cff"/>
+        </linearGradient>
+      </defs>
+
+      <circle class="ring-dashed" cx="56" cy="56" r="53"/>
+      <circle class="ring-track" cx="56" cy="56" r="49"/>
+      <circle class="ring-progress" id="ringProgress" cx="56" cy="56" r="49"/>
+    </svg>
+
+    <div class="liquid-sphere">
+      <div class="liquid-fill" id="liquidFill"></div>
+      <div class="sphere-gloss"></div>
     </div>
 
-    <!-- BRAND -->
-    <h1 class="brand-title">RUDRA MOVIES</h1>
+    <div class="countdown-num" id="countdownNum">5</div>
 
-    <!-- TAGLINE -->
-    <div class="tagline-pill">
-      <span class="status-dot" id="statusDot"></span>
-      <span class="tagline-text">YOUR CINEMATIC UNIVERSE</span>
+  </div>
+
+  <div class="status-block">
+    <div class="status-heading" id="statusHeading">
+      LINK VERIFICATION
     </div>
+    <div class="status-sub" id="statusSub">
+      Preparing your download link...
+    </div>
+  </div>
 
-    <!-- COUNTDOWN -->
-    <div class="orb-wrapper">
-      <svg class="orb-svg" viewBox="0 0 146 146">
-        <defs>
-          <linearGradient id="cyanArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFF0BD" />
-            <stop offset="60%" stop-color="#D4AF37" />
-            <stop offset="100%" stop-color="#8C681C" />
-          </linearGradient>
-        </defs>
+  <div class="error-banner" id="errorBanner"></div>
 
-        <circle class="ring-dashed" cx="73" cy="73" r="69" />
-        <circle class="ring-track" cx="73" cy="73" r="65" />
-        <circle class="ring-progress" id="ringProgress" cx="73" cy="73" r="65" />
+  <div class="btn-group">
+
+    <a href="#" id="downloadBtn"
+       class="btn btn-primary"
+       role="button"
+       aria-disabled="true">
+
+      <span class="btn-spinner" id="btnSpinner"></span>
+      <span id="downloadBtnText">VERIFYING...</span>
+
+    </a>
+
+    <a href="https://t.me/RudraMovies"
+       id="telegramBtn"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn-channel">
+
+      <svg class="tg-send-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
       </svg>
 
-      <div class="liquid-sphere">
-        <div class="liquid-fill" id="liquidFill"></div>
-        <div class="sphere-gloss"></div>
-      </div>
+      <span>✦ RUDRA MAIN CHANNEL ✦</span>
 
-      <div class="countdown-num" id="countdownNum">5</div>
-    </div>
+    </a>
 
-    <!-- STATUS -->
-    <div class="status-block">
-      <div class="status-heading" id="statusHeading">PREPARING YOUR DOWNLOAD LINK...</div>
-      <div class="status-sub" id="statusSub">Redirecting in progress...</div>
-    </div>
+  </div>
 
-    <!-- ERROR -->
-    <div class="error-banner" id="errorBanner"></div>
+  <div class="card-footer">
+    ✦ RUDRA MOVIES ✦
+  </div>
 
-    <!-- ACTION BUTTONS -->
-    <div class="btn-group">
+</main>
 
-      <a href="#" id="downloadBtn" class="btn btn-primary" role="button" aria-disabled="true">
-        <span class="btn-spinner" id="btnSpinner"></span>
-        <span id="downloadBtnText">PREPARING...</span>
-      </a>
+<script>
+(function () {
 
-      <a href="https://t.me/RudraMovies" id="telegramBtn" target="_blank" rel="noopener noreferrer" class="btn btn-channel">
-        <svg class="tg-send-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
-        </svg>
-        <span>⚡ RUDRA MAIN CHANNEL ✨</span>
-      </a>
+  const COUNTDOWN_SECONDS = 5;
+  const ARC_CIRCUMFERENCE = 2 * Math.PI * 49;
 
-    </div>
+  const countdownNum = document.getElementById('countdownNum');
+  const ringProgress = document.getElementById('ringProgress');
+  const liquidFill = document.getElementById('liquidFill');
+  const statusHeading = document.getElementById('statusHeading');
+  const statusSub = document.getElementById('statusSub');
+  const errorBanner = document.getElementById('errorBanner');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const downloadBtnText = document.getElementById('downloadBtnText');
+  const btnSpinner = document.getElementById('btnSpinner');
 
-    <!-- FOOTER -->
-    <div class="card-footer">
-      <span>⚡ RUDRA MOVIES</span>
-    </div>
+  ringProgress.style.strokeDasharray = `${ARC_CIRCUMFERENCE}`;
+  ringProgress.style.strokeDashoffset = `${ARC_CIRCUMFERENCE}`;
 
-  </main>
+  let finalRedirectUrl = null;
+  let hasError = false;
 
-  <script>
-    (function () {
-      const COUNTDOWN_SECONDS = 5;
-      const ARC_CIRCUMFERENCE = 2 * Math.PI * 65;
+  function parseValidUrl(input) {
 
-      const countdownNum = document.getElementById('countdownNum');
-      const ringProgress = document.getElementById('ringProgress');
-      const liquidFill = document.getElementById('liquidFill');
-      const statusHeading = document.getElementById('statusHeading');
-      const statusSub = document.getElementById('statusSub');
-      const statusDot = document.getElementById('statusDot');
-      const errorBanner = document.getElementById('errorBanner');
-      const downloadBtn = document.getElementById('downloadBtn');
-      const downloadBtnText = document.getElementById('downloadBtnText');
-      const btnSpinner = document.getElementById('btnSpinner');
+    if (!input || typeof input !== 'string') return null;
 
-      ringProgress.style.strokeDasharray = `${ARC_CIRCUMFERENCE}`;
-      ringProgress.style.strokeDashoffset = `${ARC_CIRCUMFERENCE}`;
+    const raw = input.trim();
+    if (!raw) return null;
 
-      let finalRedirectUrl = null;
-      let hasError = false;
+    if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
+      return raw;
+    }
 
-      // Validate and sanitize target URL
-      function parseValidUrl(input) {
-        if (!input || typeof input !== 'string') return null;
+    try {
+      const decoded = atob(raw).trim();
 
-        const raw = input.trim();
-        if (!raw) return null;
+      if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
+        return decoded;
+      }
 
-        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
-          return raw;
+    } catch (_) {}
+
+    return null;
+  }
+
+  function displayError(msg) {
+
+    hasError = true;
+
+    btnSpinner.style.display = 'none';
+    downloadBtnText.textContent = 'LINK ERROR';
+
+    statusHeading.textContent = 'LINK VERIFICATION FAILED';
+    statusHeading.style.color = '#ff7777';
+
+    statusSub.textContent = 'Unable to prepare your download link.';
+
+    countdownNum.textContent = '!';
+
+    errorBanner.textContent = msg;
+    errorBanner.style.display = 'block';
+
+    downloadBtn.classList.remove('ready');
+    downloadBtn.removeAttribute('href');
+  }
+
+  async function resolveDestination() {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const token = params.get('token');
+    const redirect = params.get('redirect');
+
+    if (token) {
+
+      try {
+
+        let res = await fetch(
+          `/api/verify?token=${encodeURIComponent(token)}`,
+          {
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+          }
+        );
+
+        if (res.status === 405) {
+
+          res = await fetch('/api/verify', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({ token, redirect })
+          });
+
         }
 
-        // Support Base64-encoded redirect URLs
-        try {
-          const decoded = atob(raw).trim();
-          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
-            return decoded;
-          }
-        } catch (_) {}
+        const data = await res.json().catch(() => ({}));
+
+        if (
+          !res.ok ||
+          data.error ||
+          data.valid === false ||
+          data.success === false
+        ) {
+          throw new Error(
+            data.message ||
+            data.error ||
+            'This download token is invalid or has expired.'
+          );
+        }
+
+        const target =
+          data.redirect ||
+          data.url ||
+          data.target ||
+          data.link ||
+          redirect;
+
+        const validTarget = parseValidUrl(target);
+
+        if (!validTarget) {
+          throw new Error('Destination download link is missing or invalid.');
+        }
+
+        return validTarget;
+
+      } catch (err) {
+
+        displayError(
+          err.message ||
+          'Failed to verify download token. Please try again from the channel.'
+        );
 
         return null;
       }
+    }
 
-      function displayError(msg) {
-        hasError = true;
-        btnSpinner.style.display = 'none';
-        downloadBtnText.textContent = 'LINK ERROR';
-        statusHeading.textContent = 'INVALID OR MISSING LINK';
-        statusHeading.style.color = '#f87171';
-        statusSub.textContent = 'Unable to proceed with redirect.';
-        statusDot.style.background = '#ef4444';
-        statusDot.style.boxShadow = '0 0 8px #ef4444';
-        countdownNum.textContent = '!';
-        errorBanner.textContent = msg;
-        errorBanner.style.display = 'block';
-        downloadBtn.classList.remove('ready');
-        downloadBtn.removeAttribute('href');
+    if (redirect) {
+
+      const validTarget = parseValidUrl(redirect);
+
+      if (validTarget) return validTarget;
+
+      displayError('The provided redirect URL is invalid.');
+      return null;
+    }
+
+    displayError('No download link or token was found in the URL.');
+    return null;
+  }
+
+  function startCountdown() {
+
+    const destinationPromise = resolveDestination();
+
+    const startTime = performance.now();
+    const totalDuration = COUNTDOWN_SECONDS * 1000;
+
+    let currentDisplayed = COUNTDOWN_SECONDS;
+
+    liquidFill.style.height = '20%';
+
+    function tick(now) {
+
+      if (hasError) return;
+
+      const elapsed = Math.min(
+        now - startTime,
+        totalDuration
+      );
+
+      const progress = elapsed / totalDuration;
+
+      const secondsLeft = Math.max(
+        1,
+        Math.ceil((totalDuration - elapsed) / 1000)
+      );
+
+      const dashOffset =
+        ARC_CIRCUMFERENCE * (1 - progress);
+
+      ringProgress.style.strokeDashoffset = `${dashOffset}`;
+
+      const fillPercent = 20 + progress * 68;
+
+      liquidFill.style.height =
+        `${fillPercent.toFixed(1)}%`;
+
+      if (
+        secondsLeft !== currentDisplayed &&
+        elapsed < totalDuration
+      ) {
+
+        currentDisplayed = secondsLeft;
+
+        countdownNum.textContent =
+          String(secondsLeft);
+
+        countdownNum.classList.add('pop');
+
+        setTimeout(() => {
+          countdownNum.classList.remove('pop');
+        }, 180);
+
       }
 
-      // Preserve token verification and redirect parameters
-      async function resolveDestination() {
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get('token');
-        const redirect = params.get('redirect');
-
-        if (token) {
-          try {
-            let res = await fetch(`/api/verify?token=${encodeURIComponent(token)}`, {
-              method: 'GET',
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (res.status === 405) {
-              res = await fetch('/api/verify', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
-                },
-                body: JSON.stringify({ token, redirect })
-              });
-            }
-
-            const data = await res.json().catch(() => ({}));
-
-            if (!res.ok || data.error || data.valid === false || data.success === false) {
-              throw new Error(data.message || data.error || 'This download token is invalid or has expired.');
-            }
-
-            const target = data.redirect || data.url || data.target || data.link || redirect;
-            const validTarget = parseValidUrl(target);
-
-            if (!validTarget) {
-              throw new Error('Destination download link is missing or invalid.');
-            }
-
-            return validTarget;
-
-          } catch (err) {
-            displayError(err.message || 'Failed to verify download token. Please try again from the channel.');
-            return null;
-          }
-        }
-
-        if (redirect) {
-          const validTarget = parseValidUrl(redirect);
-
-          if (validTarget) {
-            return validTarget;
-          }
-
-          displayError('The provided redirect URL is invalid.');
-          return null;
-        }
-
-        displayError('No download link or token was found in the URL.');
-        return null;
-      }
-
-      function startCountdown() {
-        const destinationPromise = resolveDestination();
-        const startTime = performance.now();
-        const totalDuration = COUNTDOWN_SECONDS * 1000;
-        let currentDisplayed = COUNTDOWN_SECONDS;
-
-        liquidFill.style.height = '20%';
-
-        function tick(now) {
-          if (hasError) return;
-
-          const elapsed = Math.min(now - startTime, totalDuration);
-          const progress = elapsed / totalDuration;
-          const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
-
-          const dashOffset = ARC_CIRCUMFERENCE * (1 - progress);
-          ringProgress.style.strokeDashoffset = `${dashOffset}`;
-
-          const fillPercent = 20 + progress * 68;
-          liquidFill.style.height = `${fillPercent.toFixed(1)}%`;
-
-          if (secondsLeft !== currentDisplayed && elapsed < totalDuration) {
-            currentDisplayed = secondsLeft;
-            countdownNum.textContent = String(secondsLeft);
-            countdownNum.classList.add('pop');
-
-            setTimeout(() => countdownNum.classList.remove('pop'), 180);
-          }
-
-          if (elapsed < totalDuration) {
-            requestAnimationFrame(tick);
-          } else {
-            completeCountdown(destinationPromise);
-          }
-        }
+      if (elapsed < totalDuration) {
 
         requestAnimationFrame(tick);
+
+      } else {
+
+        completeCountdown(destinationPromise);
+
       }
+    }
 
-      async function completeCountdown(destinationPromise) {
-        finalRedirectUrl = await destinationPromise;
+    requestAnimationFrame(tick);
+  }
 
-        if (hasError || !finalRedirectUrl) return;
+  async function completeCountdown(destinationPromise) {
 
-        ringProgress.style.strokeDashoffset = '0';
-        liquidFill.style.height = '90%';
-        countdownNum.textContent = '1';
+    finalRedirectUrl = await destinationPromise;
 
-        statusSub.textContent = 'Your download link is ready!';
-        btnSpinner.style.display = 'none';
-        downloadBtnText.textContent = 'DOWNLOAD NOW';
-        downloadBtn.href = finalRedirectUrl;
-        downloadBtn.classList.add('ready');
-        downloadBtn.setAttribute('aria-disabled', 'false');
+    if (hasError || !finalRedirectUrl) return;
 
-        // Automatic redirect
-        setTimeout(() => {
-          window.location.href = finalRedirectUrl;
-        }, 300);
-      }
+    ringProgress.style.strokeDashoffset = '0';
+    liquidFill.style.height = '90%';
 
-      downloadBtn.addEventListener('click', function (e) {
-        if (!finalRedirectUrl || hasError) {
-          e.preventDefault();
-          return;
-        }
+    countdownNum.textContent = '0';
 
-        window.location.href = finalRedirectUrl;
-      });
+    statusHeading.textContent = 'LINK READY';
+    statusHeading.style.color = '#8df5c6';
 
-      startCountdown();
-    })();
-  </script>
+    statusSub.textContent =
+      'Your download link is ready!';
+
+    btnSpinner.style.display = 'none';
+
+    downloadBtnText.textContent =
+      'PROCEED TO DESTINATION →';
+
+    downloadBtn.href = finalRedirectUrl;
+
+    downloadBtn.classList.add('ready');
+
+    downloadBtn.setAttribute(
+      'aria-disabled',
+      'false'
+    );
+
+    // Automatic redirect
+    setTimeout(() => {
+      window.location.href = finalRedirectUrl;
+    }, 300);
+
+  }
+
+  downloadBtn.addEventListener('click', function (e) {
+
+    if (!finalRedirectUrl || hasError) {
+      e.preventDefault();
+      return;
+    }
+
+    window.location.href = finalRedirectUrl;
+
+  });
+
+  startCountdown();
+
+})();
+</script>
 
 </body>
 </html>
