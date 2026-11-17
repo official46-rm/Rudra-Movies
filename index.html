@@ -6,11 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#10132b">
 
-<title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
+<title>ᴘʀᴇᴘᴀʀɪɴɢ ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ... | ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -44,20 +45,26 @@ body {
     linear-gradient(145deg,#10152c,#111027,#17102c);
 
   color: var(--white);
-  font-family: 'Orbitron', sans-serif;
-  font-variant-caps: all-small-caps;
+  font-family: 'Inter', sans-serif;
 }
 
-/* FULL SMALL CAPS */
+/* UNICODE SMALL CAPS STYLE */
 
 body,
 body * {
-  font-family: 'Orbitron', sans-serif;
-  font-variant-caps: all-small-caps;
+  font-family: 'Inter', sans-serif;
+  font-variant-caps: normal;
 }
 
-.countdown-num {
-  font-variant-caps: normal;
+.brand-title,
+.tagline,
+.verified-text,
+.status-heading,
+.status-sub,
+.btn,
+.card-footer,
+.error-banner {
+  letter-spacing: 1.2px;
 }
 
 /* BACKGROUND LIGHTS */
@@ -172,11 +179,12 @@ body * {
   font-size: 1.15rem;
   font-weight: 900;
   letter-spacing: 2px;
-  text-transform: uppercase;
   color: #fff;
-  text-shadow: 0 0 14px rgba(0,170,255,.35);
   margin-bottom: 8px;
+  text-shadow: 0 0 14px rgba(0,170,255,.35);
 }
+
+/* TAGLINE */
 
 .tagline {
   color: #b8c9ff;
@@ -386,7 +394,6 @@ body * {
   letter-spacing: 1.2px;
   color: #fff;
   margin-bottom: 7px;
-  text-transform: uppercase;
 }
 
 .status-sub {
@@ -432,7 +439,6 @@ body * {
   font-size: .69rem;
   font-weight: 800;
   letter-spacing: .8px;
-  text-transform: uppercase;
   transition: .25s ease;
   position: relative;
   overflow: hidden;
@@ -476,7 +482,7 @@ body * {
   to { transform: rotate(360deg); }
 }
 
-/* TELEGRAM BUTTON */
+/* TELEGRAM */
 
 .btn-channel {
   background: linear-gradient(100deg,rgba(49,54,100,.75),rgba(102,43,150,.65));
@@ -503,7 +509,6 @@ body * {
   font-weight: 800;
   letter-spacing: 1.5px;
   color: rgba(210,210,240,.6);
-  text-transform: uppercase;
 }
 
 /* MOBILE */
@@ -524,42 +529,29 @@ body * {
 
 <body>
 
-<!-- BACKGROUND -->
-
 <div class="ambient">
   <div class="glow glow-one"></div>
   <div class="glow glow-two"></div>
   <div class="glow glow-three"></div>
 </div>
 
-<!-- MAIN CARD -->
-
 <main class="card">
 
-  <!-- LOGO -->
-
   <div class="logo-ring">
-    <img src="RudraMovies.png"
-         alt="RUDRA MOVIES"
+    <img src="RudraMovies.png" alt="ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ"
          onerror="this.style.opacity='.25'">
   </div>
 
-  <!-- BRAND -->
-
-  <h1 class="brand-title">RUDRA MOVIES</h1>
+  <h1 class="brand-title">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
 
   <div class="tagline">
-    YOUR CINEMATIC UNIVERSE
+    ʏᴏᴜʀ ᴄɪɴᴇᴍᴀᴛɪᴄ ᴜɴɪᴠᴇʀꜱᴇ
   </div>
-
-  <!-- STATUS BADGE -->
 
   <div class="verified-pill">
     <span class="verified-dot"></span>
-    <span class="verified-text">LINK SYSTEM ACTIVE</span>
+    <span class="verified-text">ʟɪɴᴋ ꜱʏꜱᴛᴇᴍ ᴀᴄᴛɪᴠᴇ</span>
   </div>
-
-  <!-- COUNTDOWN -->
 
   <div class="orb-wrapper">
 
@@ -586,36 +578,29 @@ body * {
 
   </div>
 
-  <!-- STATUS -->
-
   <div class="status-block">
 
     <div class="status-heading" id="statusHeading">
-      PREPARING YOUR DOWNLOAD LINK...
+      ᴘʀᴇᴘᴀʀɪɴɢ ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ...
     </div>
 
     <div class="status-sub" id="statusSub">
-      PLEASE WAIT WHILE WE PREPARE YOUR LINK
+      ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ᴡʜɪʟᴇ ᴡᴇ ᴘʀᴇᴘᴀʀᴇ ʏᴏᴜʀ ʟɪɴᴋ
     </div>
 
   </div>
 
-  <!-- ERROR -->
-
   <div class="error-banner" id="errorBanner"></div>
-
-  <!-- BUTTONS -->
 
   <div class="btn-group">
 
-    <a href="#"
-       id="downloadBtn"
+    <a href="#" id="downloadBtn"
        class="btn btn-primary"
        role="button"
        aria-disabled="true">
 
       <span class="btn-spinner" id="btnSpinner"></span>
-      <span id="downloadBtnText">PREPARING...</span>
+      <span id="downloadBtnText">ᴘʀᴇᴘᴀʀɪɴɢ...</span>
 
     </a>
 
@@ -629,16 +614,14 @@ body * {
         <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
       </svg>
 
-      <span>RUDRA MAIN CHANNEL</span>
+      <span>ʀᴜᴅʀᴀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ</span>
 
     </a>
 
   </div>
 
-  <!-- FOOTER -->
-
   <div class="card-footer">
-    RUDRA MOVIES
+    ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ
   </div>
 
 </main>
@@ -665,14 +648,11 @@ body * {
   let finalRedirectUrl = null;
   let hasError = false;
 
-  // URL VALIDATION
-
   function parseValidUrl(input) {
 
     if (!input || typeof input !== 'string') return null;
 
     const raw = input.trim();
-
     if (!raw) return null;
 
     if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
@@ -680,32 +660,27 @@ body * {
     }
 
     try {
-
       const decoded = atob(raw).trim();
 
       if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
         return decoded;
       }
-
     } catch (_) {}
 
     return null;
   }
-
-  // ERROR HANDLING
 
   function displayError(msg) {
 
     hasError = true;
 
     btnSpinner.style.display = 'none';
+    downloadBtnText.textContent = 'ʟɪɴᴋ ᴇʀʀᴏʀ';
 
-    downloadBtnText.textContent = 'LINK ERROR';
-
-    statusHeading.textContent = 'LINK VERIFICATION FAILED';
+    statusHeading.textContent = 'ʟɪɴᴋ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ ꜰᴀɪʟᴇᴅ';
     statusHeading.style.color = '#ff7777';
 
-    statusSub.textContent = 'UNABLE TO PREPARE YOUR DOWNLOAD LINK';
+    statusSub.textContent = 'ᴜɴᴀʙʟᴇ ᴛᴏ ᴘʀᴇᴘᴀʀᴇ ʏᴏᴜʀ ʟɪɴᴋ';
 
     countdownNum.textContent = '!';
 
@@ -715,8 +690,6 @@ body * {
     downloadBtn.classList.remove('ready');
     downloadBtn.removeAttribute('href');
   }
-
-  // TOKEN AND REDIRECT VERIFICATION
 
   async function resolveDestination() {
 
@@ -733,9 +706,7 @@ body * {
           `/api/verify?token=${encodeURIComponent(token)}`,
           {
             method: 'GET',
-            headers: {
-              'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
           }
         );
 
@@ -743,16 +714,11 @@ body * {
 
           res = await fetch('/api/verify', {
             method: 'POST',
-
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
-
-            body: JSON.stringify({
-              token,
-              redirect
-            })
+            body: JSON.stringify({ token, redirect })
           });
 
         }
@@ -765,13 +731,11 @@ body * {
           data.valid === false ||
           data.success === false
         ) {
-
           throw new Error(
             data.message ||
             data.error ||
             'This download token is invalid or has expired.'
           );
-
         }
 
         const target =
@@ -804,12 +768,9 @@ body * {
 
       const validTarget = parseValidUrl(redirect);
 
-      if (validTarget) {
-        return validTarget;
-      }
+      if (validTarget) return validTarget;
 
       displayError('The provided redirect URL is invalid.');
-
       return null;
     }
 
@@ -818,14 +779,11 @@ body * {
     return null;
   }
 
-  // COUNTDOWN ANIMATION
-
   function startCountdown() {
 
     const destinationPromise = resolveDestination();
 
     const startTime = performance.now();
-
     const totalDuration = COUNTDOWN_SECONDS * 1000;
 
     let currentDisplayed = COUNTDOWN_SECONDS;
@@ -851,8 +809,7 @@ body * {
       const dashOffset =
         ARC_CIRCUMFERENCE * (1 - progress);
 
-      ringProgress.style.strokeDashoffset =
-        `${dashOffset}`;
+      ringProgress.style.strokeDashoffset = `${dashOffset}`;
 
       const fillPercent = 20 + progress * 68;
 
@@ -866,32 +823,24 @@ body * {
 
         currentDisplayed = secondsLeft;
 
-        countdownNum.textContent =
-          String(secondsLeft);
+        countdownNum.textContent = String(secondsLeft);
 
         countdownNum.classList.add('pop');
 
         setTimeout(() => {
           countdownNum.classList.remove('pop');
         }, 180);
-
       }
 
       if (elapsed < totalDuration) {
-
         requestAnimationFrame(tick);
-
       } else {
-
         completeCountdown(destinationPromise);
-
       }
     }
 
     requestAnimationFrame(tick);
   }
-
-  // DOWNLOAD READY
 
   async function completeCountdown(destinationPromise) {
 
@@ -900,55 +849,39 @@ body * {
     if (hasError || !finalRedirectUrl) return;
 
     ringProgress.style.strokeDashoffset = '0';
-
     liquidFill.style.height = '90%';
 
     countdownNum.textContent = '0';
 
-    statusHeading.textContent = 'DOWNLOAD LINK READY';
+    statusHeading.textContent = 'ʟɪɴᴋ ʀᴇᴀᴅʏ';
     statusHeading.style.color = '#8df5c6';
 
-    statusSub.textContent =
-      'YOUR DOWNLOAD LINK IS READY';
+    statusSub.textContent = 'ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ɪꜱ ʀᴇᴀᴅʏ';
 
     btnSpinner.style.display = 'none';
 
-    downloadBtnText.textContent =
-      'PROCEED TO DESTINATION';
+    downloadBtnText.textContent = 'ᴘʀᴏᴄᴇᴇᴅ ᴛᴏ ᴅᴇꜱᴛɪɴᴀᴛɪᴏɴ';
 
     downloadBtn.href = finalRedirectUrl;
 
     downloadBtn.classList.add('ready');
 
-    downloadBtn.setAttribute(
-      'aria-disabled',
-      'false'
-    );
-
-    // AUTOMATIC REDIRECT
+    downloadBtn.setAttribute('aria-disabled', 'false');
 
     setTimeout(() => {
       window.location.href = finalRedirectUrl;
     }, 300);
-
   }
-
-  // MANUAL DOWNLOAD
 
   downloadBtn.addEventListener('click', function (e) {
 
     if (!finalRedirectUrl || hasError) {
-
       e.preventDefault();
-
       return;
     }
 
     window.location.href = finalRedirectUrl;
-
   });
-
-  // START
 
   startCountdown();
 
