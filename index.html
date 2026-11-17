@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="theme-color" content="#080b1c">
+  <meta name="theme-color" content="#070b18">
+  <meta name="description" content="Rudra Movies secure download gateway.">
   <title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +14,15 @@
 
   <style>
     :root {
-      --blue: #168eea;
-      --cyan: #22d3ee;
-      --purple: #a52be8;
-      --white: #f5f7ff;
-      --muted: #b9c5df;
+      --bg: #070b18;
+      --panel: #101a32;
+      --blue: #168bff;
+      --cyan: #20d9ef;
+      --purple: #9747ff;
+      --pink: #db42ce;
+      --white: #f5f8ff;
+      --muted: #9eacc9;
+      --green: #31e6a0;
     }
 
     * {
@@ -27,264 +32,360 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
     body {
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px 16px;
+      padding: 22px 16px;
       overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 8% 18%, rgba(0,151,255,.19), transparent 35%),
+        radial-gradient(ellipse at 92% 14%, rgba(205,44,180,.15), transparent 35%),
+        radial-gradient(ellipse at 80% 95%, rgba(116,53,255,.18), transparent 36%),
+        linear-gradient(145deg,#080f20,#080b18 52%,#100b22);
       color: var(--white);
       font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(ellipse at 0% 20%, rgba(0,160,220,.65), transparent 38%),
-        radial-gradient(ellipse at 100% 5%, rgba(170,35,115,.48), transparent 40%),
-        radial-gradient(ellipse at 100% 100%, rgba(150,25,230,.72), transparent 40%),
-        linear-gradient(145deg,#071b2a,#0b1025 55%,#130b28);
     }
 
-    .ambient {
+    /* BACKGROUND EFFECTS */
+
+    .background-effects {
       position: fixed;
       inset: 0;
+      z-index: -1;
       overflow: hidden;
       pointer-events: none;
     }
 
-    .blob {
+    .glow {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 330px;
+      height: 330px;
       border-radius: 50%;
-      filter: blur(85px);
-      opacity: .45;
-      animation: float 9s ease-in-out infinite alternate;
+      filter: blur(95px);
+      opacity: .38;
+      animation: glowMove 12s ease-in-out infinite alternate;
     }
 
-    .blob.one {
-      background: #078ac9;
-      top: 5%;
-      left: -160px;
+    .glow-blue {
+      top: -120px;
+      left: -150px;
+      background: #087fe8;
     }
 
-    .blob.two {
-      background: #a52b91;
-      top: 5%;
-      right: -170px;
-      animation-delay: -3s;
+    .glow-purple {
+      top: 12%;
+      right: -180px;
+      background: #a22ee8;
+      animation-delay: -4s;
     }
 
-    .blob.three {
-      background: #8d27e9;
-      bottom: -140px;
-      right: -100px;
-      animation-delay: -5s;
+    .glow-pink {
+      bottom: -180px;
+      left: 25%;
+      background: #7e32d8;
+      animation-delay: -7s;
     }
 
-    @keyframes float {
-      to { transform: translate(20px,-18px) scale(1.12); }
+    @keyframes glowMove {
+      from { transform: translate(0,0) scale(1); }
+      to { transform: translate(30px,-25px) scale(1.16); }
     }
 
-    .scene {
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: .10;
+      background-image:
+        linear-gradient(rgba(90,150,255,.15) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(90,150,255,.15) 1px,transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom,black,transparent 85%);
+    }
+
+    /* MAIN LAYOUT */
+
+    .page-shell {
       width: 100%;
-      max-width: 390px;
+      max-width: 405px;
       position: relative;
       z-index: 1;
       perspective: 1000px;
     }
 
     .card {
-      position: relative;
       width: 100%;
-      padding: 25px 17px 19px;
-      text-align: center;
+      position: relative;
       overflow: hidden;
-      border-radius: 27px;
-      border: 1.5px solid rgba(210,220,255,.38);
+      isolation: isolate;
+      padding: 30px 21px 21px;
+      border-radius: 29px;
+      text-align: center;
       background:
-        radial-gradient(circle at 0% 0%,rgba(0,139,255,.67),transparent 48%),
-        radial-gradient(circle at 100% 0%,rgba(190,45,130,.42),transparent 48%),
-        radial-gradient(circle at 100% 100%,rgba(155,35,230,.85),transparent 48%),
-        linear-gradient(155deg,rgba(37,54,83,.88),rgba(18,25,53,.96) 60%,rgba(42,25,76,.9));
-      backdrop-filter: blur(22px) saturate(150%);
-      -webkit-backdrop-filter: blur(22px) saturate(150%);
+        radial-gradient(circle at 0% 0%,rgba(13,125,255,.22),transparent 48%),
+        radial-gradient(circle at 100% 100%,rgba(139,57,255,.22),transparent 45%),
+        linear-gradient(155deg,rgba(24,38,67,.96),rgba(10,17,37,.97) 60%,rgba(24,17,48,.97));
+      border: 1px solid rgba(135,175,255,.24);
       box-shadow:
-        0 25px 65px rgba(0,0,0,.55),
-        0 0 30px rgba(50,130,255,.17),
-        inset 0 1px 1px rgba(255,255,255,.2);
-      animation: cardIn .7s ease both, glow 4s ease-in-out infinite alternate;
+        0 30px 80px rgba(0,0,0,.55),
+        0 0 35px rgba(24,116,255,.12),
+        inset 0 1px 0 rgba(255,255,255,.12);
+      animation: cardEnter .8s cubic-bezier(.2,.8,.2,1) both;
     }
 
-    @keyframes cardIn {
-      from { opacity: 0; transform: translateY(20px) scale(.97); }
-      to { opacity: 1; transform: none; }
-    }
-
-    @keyframes glow {
-      to {
-        box-shadow: 0 25px 65px rgba(0,0,0,.6),
-        0 0 42px rgba(55,130,255,.3),
-        0 0 45px rgba(155,45,220,.2);
-      }
-    }
-
-    .card::after {
+    .card::before {
       content: "";
       position: absolute;
       inset: 0;
       padding: 1.5px;
       border-radius: inherit;
       background: conic-gradient(
-        from var(--angle,0deg),
-        transparent,
-        #27d9ff,
-        #398bff,
-        transparent 45%,
-        #d13bdc,
-        #8e40ff,
-        transparent
+        from var(--edge-angle,0deg),
+        transparent 0deg,
+        #23d9f5 55deg,
+        #168bff 110deg,
+        transparent 165deg,
+        #c344ed 230deg,
+        #8b50ff 295deg,
+        transparent 360deg
       );
       -webkit-mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
-      animation: borderSpin 7s linear infinite;
+      opacity: .85;
+      animation: edgeRotate 9s linear infinite;
     }
 
-    @property --angle {
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 12%;
+      width: 76%;
+      height: 1px;
+      background: linear-gradient(90deg,transparent,#8eeaff,#b4a4ff,transparent);
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    @property --edge-angle {
       syntax: "<angle>";
       inherits: false;
       initial-value: 0deg;
     }
 
-    @keyframes borderSpin {
-      to { --angle: 360deg; }
+    @keyframes edgeRotate {
+      to { --edge-angle: 360deg; }
     }
 
-    .logo-ring {
-      width: 66px;
-      height: 66px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #000;
-      border: 2px solid rgba(110,180,255,.5);
-      box-shadow: 0 0 20px rgba(50,150,255,.55);
-      animation: logoGlow 3s ease-in-out infinite alternate;
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(25px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    .logo-ring img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    /* TOP LABEL */
 
-    @keyframes logoGlow {
-      to { box-shadow: 0 0 30px rgba(160,80,255,.8); }
-    }
-
-    .brand-title {
-      font-size: 1.05rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 11px;
-      text-shadow: 0 0 14px rgba(80,170,255,.75);
-    }
-
-    .tagline-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 5px 12px;
-      border-radius: 30px;
-      margin-bottom: 19px;
-      background: rgba(20,110,150,.23);
-      border: 1px solid rgba(75,190,235,.38);
-      box-shadow: inset 0 1px 2px rgba(255,255,255,.08);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22e08a;
-      box-shadow: 0 0 9px #22e08a;
-      animation: blink 1.8s infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: .45; transform: scale(.8); }
-    }
-
-    .tagline-text {
-      color: #51c9ff;
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: .6px;
-    }
-
-    .orb-wrapper {
-      position: relative;
-      width: 126px;
-      height: 126px;
-      margin: 0 auto 23px;
+    .top-label {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 7px;
+      margin-bottom: 19px;
+      color: rgba(180,203,245,.6);
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
-    .orb-svg {
+    .top-label-line {
+      width: 23px;
+      height: 1px;
+      background: linear-gradient(90deg,transparent,#4b9cff);
+    }
+
+    /* LOGO */
+
+    .logo-wrap {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 13px;
+      padding: 3px;
+      border-radius: 24px;
+      background: linear-gradient(140deg,#3cdcff,#347bff 48%,#b34cff);
+      box-shadow:
+        0 0 24px rgba(44,147,255,.34),
+        0 0 40px rgba(151,71,255,.15);
+      transform: rotate(-4deg);
+      animation: logoFloat 4s ease-in-out infinite;
+    }
+
+    .logo-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 21px;
+      background: #060a16;
+      transform: rotate(4deg);
+    }
+
+    .logo-inner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    @keyframes logoFloat {
+      50% { transform: translateY(-5px) rotate(-2deg); }
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #fff;
+      text-shadow:
+        0 0 10px rgba(42,157,255,.5),
+        0 0 25px rgba(151,71,255,.28);
+      margin-bottom: 7px;
+    }
+
+    .brand-subtitle {
+      font-size: .57rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #8da6ce;
+      margin-bottom: 19px;
+    }
+
+    /* VERIFIED STATUS */
+
+    .verified-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(42,195,255,.27);
+      background: rgba(24,125,180,.10);
+      box-shadow: inset 0 0 15px rgba(34,180,255,.06);
+      margin-bottom: 24px;
+    }
+
+    .verified-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: statusBlink 1.8s ease-in-out infinite;
+    }
+
+    .verified-text {
+      color: #5bd2ff;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    @keyframes statusBlink {
+      50% { opacity: .45; transform: scale(.8); }
+    }
+
+    /* COUNTDOWN */
+
+    .countdown-area {
+      margin: 0 auto 24px;
+      width: 156px;
+      height: 156px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 0;
+      border: 1px dashed rgba(75,168,255,.55);
+      border-radius: 50%;
+      animation: orbitSpin 25s linear infinite;
+    }
+
+    .orbit::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      top: 12px;
+      left: 20px;
+      border-radius: 50%;
+      background: #3dd9ff;
+      box-shadow: 0 0 12px #3dd9ff;
+    }
+
+    .orbit-inner {
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(103,160,255,.22);
+      border-radius: 50%;
+      animation: orbitSpin 16s linear infinite reverse;
+    }
+
+    @keyframes orbitSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-svg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       transform: rotate(-90deg);
-      overflow: visible;
+      z-index: 3;
+      pointer-events: none;
     }
 
-    .ring-dashed {
+    .progress-track {
       fill: none;
-      stroke: rgba(105,190,255,.65);
-      stroke-width: 1.4;
-      stroke-dasharray: 4 5;
-      transform-origin: 63px 63px;
-      animation: ringSpin 25s linear infinite;
-    }
-
-    @keyframes ringSpin {
-      to { transform: rotate(360deg); }
-    }
-
-    .ring-track {
-      fill: none;
-      stroke: rgba(100,165,255,.16);
+      stroke: rgba(83,143,255,.13);
       stroke-width: 4;
     }
 
-    .ring-progress {
+    .progress-ring {
       fill: none;
-      stroke: url(#arcGrad);
+      stroke: url(#progressGradient);
       stroke-width: 4;
       stroke-linecap: round;
-      stroke-dasharray: 408.41;
-      stroke-dashoffset: 408.41;
-      filter: drop-shadow(0 0 5px #28baff);
+      stroke-dasharray: 339.29;
+      stroke-dashoffset: 339.29;
+      filter: drop-shadow(0 0 7px #1bbaff);
     }
 
-    .liquid-sphere {
+    .liquid-ball {
+      width: 116px;
+      height: 116px;
       position: relative;
-      width: 96px;
-      height: 96px;
       overflow: hidden;
       border-radius: 50%;
-      background: radial-gradient(circle at 40% 25%,#606c86,#1c2947 80%);
-      border: 4px solid #243c65;
+      border: 5px solid rgba(38,75,126,.85);
+      background: radial-gradient(circle at 40% 20%,#485c80,#14233e 80%);
       box-shadow:
-        inset 0 7px 15px rgba(0,0,0,.65),
-        inset 0 -5px 12px rgba(35,200,255,.3),
-        0 0 23px rgba(35,155,255,.6);
+        inset 0 8px 18px rgba(0,0,0,.55),
+        inset 0 -5px 15px rgba(34,190,255,.2),
+        0 0 25px rgba(30,146,255,.28);
       z-index: 2;
     }
 
@@ -294,131 +395,165 @@
       left: 0;
       width: 100%;
       height: 0%;
-      background: linear-gradient(180deg,#24d7ef,#10a9d6 65%,#087ad7);
+      background: linear-gradient(180deg,#36e4f1,#11a8e2 60%,#176be8);
       transition: height .08s linear;
     }
 
     .liquid-fill::before {
       content: "";
       position: absolute;
-      top: -5px;
-      left: -8%;
-      width: 116%;
-      height: 11px;
+      left: -10%;
+      top: -6px;
+      width: 120%;
+      height: 13px;
       border-radius: 50%;
-      background: #75edff;
-      box-shadow: 0 0 12px rgba(100,235,255,.8);
-      animation: slosh 2s ease-in-out infinite alternate;
+      background: #9cf7ff;
+      box-shadow: 0 0 13px rgba(75,227,255,.8);
+      animation: liquidWave 2s ease-in-out infinite alternate;
     }
 
-    @keyframes slosh {
-      to { transform: translateY(2px) scaleY(1.2); }
+    @keyframes liquidWave {
+      to { transform: translateY(3px) scaleY(1.3); }
     }
 
-    .sphere-gloss {
+    .ball-shine {
       position: absolute;
       inset: 0;
       z-index: 3;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 20%,rgba(255,255,255,.3),transparent 58%);
       pointer-events: none;
+      background: radial-gradient(circle at 32% 20%,rgba(255,255,255,.3),transparent 57%);
     }
 
-    .countdown-num {
+    .count-number {
       position: absolute;
       z-index: 4;
-      font-size: 2.3rem;
+      font-size: 2.65rem;
       font-weight: 900;
-      color: #fff;
-      text-shadow: 0 2px 5px #06345d,0 0 14px rgba(130,220,255,.9);
-      user-select: none;
-      transition: transform .2s;
+      color: white;
+      text-shadow: 0 2px 5px #06365c,0 0 17px rgba(125,230,255,.8);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1);
     }
 
-    .countdown-num.pop {
-      transform: scale(1.15);
+    .count-number.pop {
+      transform: scale(1.18);
     }
 
-    .status-block {
-      margin-bottom: 17px;
+    /* STATUS */
+
+    .status-section {
+      margin-bottom: 20px;
     }
 
-    .status-heading {
-      font-size: .78rem;
+    .status-title {
+      font-size: .85rem;
       font-weight: 900;
-      letter-spacing: .5px;
-      margin-bottom: 5px;
+      letter-spacing: .8px;
+      margin-bottom: 7px;
     }
 
-    .status-sub {
-      color: var(--muted);
+    .status-description {
       font-size: .76rem;
+      color: var(--muted);
       font-weight: 500;
     }
 
-    .error-banner {
-      display: none;
-      padding: 11px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      color: #fecaca;
-      background: rgba(239,68,68,.16);
-      border: 1px solid rgba(239,68,68,.4);
-      font-size: .75rem;
-      line-height: 1.4;
+    .status-progress {
+      width: 100%;
+      max-width: 180px;
+      height: 3px;
+      margin: 12px auto 0;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(255,255,255,.08);
     }
 
-    .btn-group {
+    .status-progress span {
+      display: block;
+      width: 35%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg,#1a8fff,#2be2ed,#a64cff);
+      animation: loadingBar 1.8s ease-in-out infinite;
+    }
+
+    @keyframes loadingBar {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(350%); }
+    }
+
+    .error-box {
+      display: none;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      text-align: left;
+      color: #ffd0d0;
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.35);
+      font-size: .75rem;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    /* BUTTONS */
+
+    .buttons {
       display: flex;
       flex-direction: column;
-      gap: 9px;
-      margin-bottom: 15px;
+      gap: 11px;
+      margin-bottom: 19px;
     }
 
-    .btn {
+    .button {
       width: 100%;
-      min-height: 44px;
-      padding: 10px;
-      border-radius: 13px;
+      min-height: 49px;
+      padding: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 10px;
+      border-radius: 14px;
       text-decoration: none;
-      font-size: .73rem;
+      font-family: inherit;
+      font-size: .76rem;
       font-weight: 800;
-      letter-spacing: .3px;
-      cursor: pointer;
+      letter-spacing: .4px;
       transition: .25s ease;
-      position: relative;
-      overflow: hidden;
+      cursor: pointer;
     }
 
-    .btn-primary {
-      color: rgba(220,235,255,.65);
-      background: linear-gradient(180deg,#2376bd,#2058a8);
-      border: 1px solid rgba(110,190,255,.4);
-      box-shadow: 0 4px 0 #153b75,0 8px 18px rgba(20,100,220,.25);
+    .download-button {
+      color: rgba(220,236,255,.58);
+      background: linear-gradient(110deg,#18599d,#174b9b);
+      border: 1px solid rgba(92,172,255,.28);
+      box-shadow: 0 4px 0 #10356c,0 9px 20px rgba(0,100,255,.15);
       pointer-events: none;
     }
 
-    .btn-primary.ready {
+    .download-button.ready {
       color: #fff;
+      background: linear-gradient(110deg,#08a9df,#1677f5 55%,#5c53ef);
+      border-color: rgba(123,223,255,.55);
+      box-shadow: 0 4px 0 #124a9d,0 9px 25px rgba(23,142,255,.35);
       pointer-events: auto;
-      background: linear-gradient(180deg,#19b8e8,#1478ed 65%,#205ee0);
-      border-color: rgba(150,225,255,.7);
-      box-shadow: 0 4px 0 #10458e,0 9px 22px rgba(20,140,255,.45);
-      animation: readyPulse 1.6s ease-in-out infinite;
+      animation: buttonGlow 1.8s ease-in-out infinite;
     }
 
-    @keyframes readyPulse {
-      50% { box-shadow: 0 4px 0 #10458e,0 10px 30px rgba(20,150,255,.8); }
+    @keyframes buttonGlow {
+      50% {
+        box-shadow: 0 4px 0 #124a9d,0 10px 30px rgba(23,142,255,.65);
+      }
     }
 
-    .btn-spinner {
-      width: 14px;
-      height: 14px;
-      border: 2px solid rgba(220,240,255,.3);
+    .download-button.ready:hover {
+      transform: translateY(-2px);
+    }
+
+    .spinner {
+      width: 15px;
+      height: 15px;
+      border: 2px solid rgba(255,255,255,.25);
       border-top-color: #fff;
       border-radius: 50%;
       animation: spin .8s linear infinite;
@@ -428,44 +563,63 @@
       to { transform: rotate(360deg); }
     }
 
-    .btn-channel {
+    .telegram-button {
       color: #fff;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(195,210,255,.32);
-      box-shadow: 0 4px 0 rgba(15,20,50,.65),0 7px 14px rgba(0,0,0,.25);
-      backdrop-filter: blur(8px);
+      background: linear-gradient(110deg,rgba(255,255,255,.09),rgba(120,120,255,.09));
+      border: 1px solid rgba(168,190,255,.27);
+      box-shadow: 0 4px 0 rgba(5,10,25,.6),0 8px 18px rgba(0,0,0,.2);
     }
 
-    .btn-channel:hover {
-      background: rgba(255,255,255,.17);
+    .telegram-button:hover {
+      background: rgba(255,255,255,.15);
+      border-color: rgba(80,190,255,.5);
+      transform: translateY(-2px);
     }
 
-    .tg-icon {
-      width: 15px;
-      height: 15px;
-      color: #36baff;
+    .telegram-icon {
+      width: 17px;
+      height: 17px;
       flex-shrink: 0;
+      color: #39c7ff;
     }
 
-    .card-footer {
-      color: rgba(210,220,245,.72);
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .7px;
+    /* FOOTER */
+
+    .footer {
+      padding-top: 15px;
+      border-top: 1px solid rgba(150,180,255,.12);
     }
 
-    @media (min-width: 768px) {
-      .scene { max-width: 410px; }
-      .card { padding: 30px 22px 21px; }
+    .footer-brand {
+      color: #a8b9da;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
     }
+
+    .footer-caption {
+      margin-top: 6px;
+      color: rgba(153,174,212,.5);
+      font-size: .55rem;
+      letter-spacing: 1px;
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 360px) {
       body { padding: 12px; }
-      .card { padding: 23px 14px 17px; }
+      .card { padding: 25px 15px 18px; }
+      .countdown-area { transform: scale(.94); margin-bottom: 18px; }
+      .brand-title { font-size: 1.12rem; }
     }
 
-    @media (max-height: 680px) {
+    @media (max-height: 690px) {
       body { align-items: flex-start; }
+    }
+
+    @media (min-width: 768px) {
+      .page-shell { max-width: 420px; }
+      .card { padding: 34px 25px 23px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -479,224 +633,317 @@
 </head>
 
 <body>
-  <div class="ambient">
-    <div class="blob one"></div>
-    <div class="blob two"></div>
-    <div class="blob three"></div>
+
+  <div class="background-effects">
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-pink"></div>
+    <div class="grid-overlay"></div>
   </div>
 
-  <div class="scene">
-    <main class="card">
+  <main class="page-shell">
+    <section class="card">
 
-      <div class="logo-ring">
-        <img src="RudraMovies.png" alt="RUDRA MOVIES"
-             onerror="this.style.opacity='.25'">
+      <div class="top-label">
+        <span class="top-label-line"></span>
+        RUDRA DIGITAL GATEWAY
+        <span class="top-label-line"></span>
+      </div>
+
+      <div class="logo-wrap">
+        <div class="logo-inner">
+          <img src="RudraMovies.png" alt="RUDRA MOVIES"
+               onerror="this.style.opacity='.2'">
+        </div>
       </div>
 
       <h1 class="brand-title">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
+      <p class="brand-subtitle">PREMIUM DOWNLOAD EXPERIENCE</p>
 
-      <div class="tagline-pill">
-        <span class="status-dot" id="statusDot"></span>
-        <span class="tagline-text">ꜱᴇᴄᴜʀᴇᴅ &amp; ᴠᴇʀɪꜰɪᴇᴅ ʟɪɴᴋ</span>
+      <div class="verified-pill">
+        <span class="verified-dot" id="statusDot"></span>
+        <span class="verified-text">SECURED &amp; VERIFIED LINK</span>
       </div>
 
-      <div class="orb-wrapper">
-        <svg class="orb-svg" viewBox="0 0 126 126">
+      <div class="countdown-area">
+
+        <div class="orbit"></div>
+        <div class="orbit-inner"></div>
+
+        <svg class="progress-svg" viewBox="0 0 156 156">
           <defs>
-            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#72e4ff"/>
-              <stop offset="55%" stop-color="#2f8cff"/>
-              <stop offset="100%" stop-color="#2460e8"/>
+            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#65eaff"/>
+              <stop offset="55%" stop-color="#168bff"/>
+              <stop offset="100%" stop-color="#9747ff"/>
             </linearGradient>
           </defs>
 
-          <circle class="ring-dashed" cx="63" cy="63" r="60"/>
-          <circle class="ring-track" cx="63" cy="63" r="56"/>
-          <circle class="ring-progress" id="ringProgress" cx="63" cy="63" r="56"/>
+          <circle class="progress-track" cx="78" cy="78" r="54"/>
+          <circle class="progress-ring" id="progressRing" cx="78" cy="78" r="54"/>
         </svg>
 
-        <div class="liquid-sphere">
+        <div class="liquid-ball">
           <div class="liquid-fill" id="liquidFill"></div>
-          <div class="sphere-gloss"></div>
+          <div class="ball-shine"></div>
         </div>
 
-        <div class="countdown-num" id="countdownNum">5</div>
+        <div class="count-number" id="countdownNumber">5</div>
       </div>
 
-      <div class="status-block">
-        <div class="status-heading" id="statusHeading">ꜱᴇᴄᴜʀɪᴛʏ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</div>
-        <div class="status-sub" id="statusSub">ꜱᴄᴀɴɴɪɴɢ ʟɪɴᴋ...</div>
+      <div class="status-section">
+        <div class="status-title" id="statusTitle">
+          SECURE LINK VERIFICATION
+        </div>
+
+        <div class="status-description" id="statusDescription">
+          Scanning your download link...
+        </div>
+
+        <div class="status-progress" id="loadingBar">
+          <span></span>
+        </div>
       </div>
 
-      <div class="error-banner" id="errorBanner"></div>
+      <div class="error-box" id="errorBox"></div>
 
-      <div class="btn-group">
-        <a href="#" id="downloadBtn" class="btn btn-primary"
-           role="button" aria-disabled="true">
-          <span class="btn-spinner" id="btnSpinner"></span>
-          <span id="downloadBtnText">ᴠᴇʀɪꜰʏɪɴɢ...</span>
+      <div class="buttons">
+
+        <a href="#"
+           class="button download-button"
+           id="downloadButton"
+           role="button"
+           aria-disabled="true">
+
+          <span class="spinner" id="buttonSpinner"></span>
+          <span id="downloadButtonText">VERIFYING LINK...</span>
         </a>
 
         <a href="https://t.me/RudraMovies"
-           id="telegramBtn"
+           class="button telegram-button"
            target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-channel">
-          <svg class="tg-icon" viewBox="0 0 24 24" fill="currentColor">
+           rel="noopener noreferrer">
+
+          <svg class="telegram-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
           </svg>
-          <span>⚡ ʀᴜᴅʀᴀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ ✨</span>
+
+          <span>⚡ ʀᴜᴅʀᴀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ ✦</span>
         </a>
+
       </div>
 
-      <div class="card-footer">
-        ⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ ꜱᴇᴄᴜʀɪᴛʏ
-      </div>
+      <footer class="footer">
+        <div class="footer-brand">⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ ꜱᴇᴄᴜʀɪᴛʏ</div>
+        <div class="footer-caption">POWERED BY RUDRA DIGITAL SYSTEM</div>
+      </footer>
 
-    </main>
-  </div>
+    </section>
+  </main>
 
   <script>
     (function () {
+      "use strict";
+
       const COUNTDOWN_SECONDS = 5;
-      const ARC_CIRCUMFERENCE = 2 * Math.PI * 56;
+      const ARC_CIRCUMFERENCE = 2 * Math.PI * 54;
 
-      const countdownNum = document.getElementById('countdownNum');
-      const ringProgress = document.getElementById('ringProgress');
-      const liquidFill = document.getElementById('liquidFill');
-      const statusHeading = document.getElementById('statusHeading');
-      const statusSub = document.getElementById('statusSub');
-      const statusDot = document.getElementById('statusDot');
-      const errorBanner = document.getElementById('errorBanner');
-      const downloadBtn = document.getElementById('downloadBtn');
-      const downloadBtnText = document.getElementById('downloadBtnText');
-      const btnSpinner = document.getElementById('btnSpinner');
+      const countdownNumber = document.getElementById("countdownNumber");
+      const progressRing = document.getElementById("progressRing");
+      const liquidFill = document.getElementById("liquidFill");
+      const statusTitle = document.getElementById("statusTitle");
+      const statusDescription = document.getElementById("statusDescription");
+      const statusDot = document.getElementById("statusDot");
+      const loadingBar = document.getElementById("loadingBar");
+      const errorBox = document.getElementById("errorBox");
+      const downloadButton = document.getElementById("downloadButton");
+      const downloadButtonText = document.getElementById("downloadButtonText");
+      const buttonSpinner = document.getElementById("buttonSpinner");
 
-      ringProgress.style.strokeDasharray = `${ARC_CIRCUMFERENCE}`;
-      ringProgress.style.strokeDashoffset = `${ARC_CIRCUMFERENCE}`;
+      progressRing.style.strokeDasharray = String(ARC_CIRCUMFERENCE);
+      progressRing.style.strokeDashoffset = String(ARC_CIRCUMFERENCE);
 
       let finalRedirectUrl = null;
       let hasError = false;
 
       function parseValidUrl(input) {
-        if (!input || typeof input !== 'string') return null;
+        if (!input || typeof input !== "string") return null;
 
         const raw = input.trim();
         if (!raw) return null;
 
-        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) return raw;
+        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
+          return raw;
+        }
 
         try {
           const decoded = atob(raw).trim();
-          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) return decoded;
+
+          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
+            return decoded;
+          }
         } catch (_) {}
 
         return null;
       }
 
-      function displayError(msg) {
+      function displayError(message) {
+        if (hasError) return;
+
         hasError = true;
-        btnSpinner.style.display = 'none';
-        downloadBtnText.textContent = 'ʟɪɴᴋ ᴇʀʀᴏʀ';
-        statusHeading.textContent = 'ɪɴᴠᴀʟɪᴅ ᴏʀ ᴍɪꜱꜱɪɴɢ ʟɪɴᴋ';
-        statusHeading.style.color = '#f87171';
-        statusSub.textContent = 'ᴜɴᴀʙʟᴇ ᴛᴏ ᴘʀᴏᴄᴇᴇᴅ ᴡɪᴛʜ ʀᴇᴅɪʀᴇᴄᴛ.';
-        statusDot.style.background = '#ef4444';
-        statusDot.style.boxShadow = '0 0 8px #ef4444';
-        countdownNum.textContent = '!';
-        errorBanner.textContent = msg;
-        errorBanner.style.display = 'block';
-        downloadBtn.classList.remove('ready');
-        downloadBtn.removeAttribute('href');
-        downloadBtn.setAttribute('aria-disabled', 'true');
+
+        buttonSpinner.style.display = "none";
+        downloadButtonText.textContent = "LINK ERROR";
+
+        statusTitle.textContent = "VERIFICATION FAILED";
+        statusTitle.style.color = "#ff7777";
+
+        statusDescription.textContent = "Unable to continue with redirect.";
+        statusDot.style.background = "#ef4444";
+        statusDot.style.boxShadow = "0 0 9px #ef4444";
+
+        countdownNumber.textContent = "!";
+        liquidFill.style.height = "0%";
+
+        loadingBar.style.display = "none";
+
+        errorBox.textContent = message;
+        errorBox.style.display = "block";
+
+        downloadButton.classList.remove("ready");
+        downloadButton.removeAttribute("href");
+        downloadButton.setAttribute("aria-disabled", "true");
       }
 
       async function resolveDestination() {
         const params = new URLSearchParams(window.location.search);
-        const token = params.get('token');
-        const redirect = params.get('redirect');
+
+        const token = params.get("token");
+        const redirect = params.get("redirect");
 
         if (token) {
           try {
-            let res = await fetch(`/api/verify?token=${encodeURIComponent(token)}`, {
-              method: 'GET',
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (res.status === 405) {
-              res = await fetch('/api/verify', {
-                method: 'POST',
+            let response = await fetch(
+              `/api/verify?token=${encodeURIComponent(token)}`,
+              {
+                method: "GET",
                 headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
+                  "Accept": "application/json"
+                }
+              }
+            );
+
+            if (response.status === 405) {
+              response = await fetch("/api/verify", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Accept": "application/json"
                 },
                 body: JSON.stringify({ token, redirect })
               });
             }
 
-            const data = await res.json().catch(() => ({}));
+            const data = await response.json().catch(() => ({}));
 
-            if (!res.ok || data.error || data.valid === false || data.success === false) {
-              throw new Error(data.message || data.error || 'This download token is invalid or has expired.');
+            if (
+              !response.ok ||
+              data.error ||
+              data.valid === false ||
+              data.success === false
+            ) {
+              throw new Error(
+                data.message ||
+                data.error ||
+                "This download token is invalid or has expired."
+              );
             }
 
-            const target = data.redirect || data.url || data.target || data.link || redirect;
+            const target =
+              data.redirect ||
+              data.url ||
+              data.target ||
+              data.link ||
+              redirect;
+
             const validTarget = parseValidUrl(target);
 
             if (!validTarget) {
-              throw new Error('Destination download link is missing or invalid.');
+              throw new Error("Destination download link is missing or invalid.");
             }
 
             return validTarget;
-          } catch (err) {
-            displayError(err.message || 'Failed to verify download token. Please try again from the channel.');
+
+          } catch (error) {
+            displayError(
+              error.message ||
+              "Failed to verify download token. Please try again."
+            );
+
             return null;
           }
         }
 
         if (redirect) {
           const validTarget = parseValidUrl(redirect);
-          if (validTarget) return validTarget;
 
-          displayError('The provided redirect URL is invalid.');
+          if (validTarget) {
+            return validTarget;
+          }
+
+          displayError("The provided redirect URL is invalid.");
           return null;
         }
 
-        displayError('No download link or token was found in the URL.');
+        displayError("No download link or token was found in the URL.");
         return null;
       }
 
       function startCountdown() {
         const destinationPromise = resolveDestination();
+
         const startTime = performance.now();
         const totalDuration = COUNTDOWN_SECONDS * 1000;
-        let currentDisplayed = COUNTDOWN_SECONDS;
 
-        liquidFill.style.height = '20%';
+        let previousSecond = COUNTDOWN_SECONDS;
 
-        setTimeout(() => {
+        liquidFill.style.height = "15%";
+
+        const statusTimer = setTimeout(() => {
           if (!hasError && !finalRedirectUrl) {
-            statusSub.textContent = 'ʀᴇᴅɪʀᴇᴄᴛɪɴɢ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ...';
+            statusDescription.textContent = "Preparing secure destination...";
           }
         }, 1200);
 
         function tick(now) {
-          if (hasError) return;
+          if (hasError) {
+            clearTimeout(statusTimer);
+            return;
+          }
 
           const elapsed = Math.min(now - startTime, totalDuration);
           const progress = elapsed / totalDuration;
-          const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
 
-          ringProgress.style.strokeDashoffset =
-            `${ARC_CIRCUMFERENCE * (1 - progress)}`;
+          const remaining = Math.max(
+            1,
+            Math.ceil((totalDuration - elapsed) / 1000)
+          );
 
-          liquidFill.style.height = `${20 + progress * 68}%`;
+          progressRing.style.strokeDashoffset =
+            String(ARC_CIRCUMFERENCE * (1 - progress));
 
-          if (secondsLeft !== currentDisplayed && elapsed < totalDuration) {
-            currentDisplayed = secondsLeft;
-            countdownNum.textContent = String(secondsLeft);
-            countdownNum.classList.add('pop');
-            setTimeout(() => countdownNum.classList.remove('pop'), 180);
+          liquidFill.style.height =
+            `${15 + progress * 80}%`;
+
+          if (remaining !== previousSecond && elapsed < totalDuration) {
+            previousSecond = remaining;
+
+            countdownNumber.textContent = String(remaining);
+            countdownNumber.classList.add("pop");
+
+            setTimeout(() => {
+              countdownNumber.classList.remove("pop");
+            }, 180);
           }
 
           if (elapsed < totalDuration) {
@@ -714,33 +961,49 @@
 
         if (hasError || !finalRedirectUrl) return;
 
-        ringProgress.style.strokeDashoffset = '0';
-        liquidFill.style.height = '100%';
-        countdownNum.textContent = '0';
-        countdownNum.classList.add('pop');
+        progressRing.style.strokeDashoffset = "0";
+        liquidFill.style.height = "100%";
 
-        statusSub.textContent = 'ʀᴇᴅɪʀᴇᴄᴛɪɴɢ...';
-        btnSpinner.style.display = 'none';
-        downloadBtnText.textContent = 'ᴘʀᴏᴄᴇᴇᴅ ᴛᴏ ᴅᴇꜱᴛɪɴᴀᴛɪᴏɴ →';
-        downloadBtn.href = finalRedirectUrl;
-        downloadBtn.classList.add('ready');
-        downloadBtn.setAttribute('aria-disabled', 'false');
+        countdownNumber.textContent = "0";
+        countdownNumber.classList.add("pop");
+
+        statusTitle.textContent = "YOUR DESTINATION IS READY";
+        statusDescription.textContent = "Secure verification completed.";
+
+        statusDot.style.background = "#31e6a0";
+        statusDot.style.boxShadow = "0 0 10px #31e6a0";
+
+        loadingBar.style.display = "none";
+
+        buttonSpinner.style.display = "none";
+
+        downloadButtonText.textContent =
+          "PROCEED TO DESTINATION →";
+
+        downloadButton.href = finalRedirectUrl;
+        downloadButton.classList.add("ready");
+        downloadButton.setAttribute("aria-disabled", "false");
 
         setTimeout(() => {
-          window.location.href = finalRedirectUrl;
+          if (finalRedirectUrl && !hasError) {
+            window.location.href = finalRedirectUrl;
+          }
         }, 300);
       }
 
-      downloadBtn.addEventListener('click', function (e) {
+      downloadButton.addEventListener("click", function (event) {
         if (!finalRedirectUrl || hasError) {
-          e.preventDefault();
+          event.preventDefault();
           return;
         }
+
+        event.preventDefault();
         window.location.href = finalRedirectUrl;
       });
 
       startCountdown();
     })();
   </script>
+
 </body>
 </html>
