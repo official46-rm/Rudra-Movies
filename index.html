@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#080b1c" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="#080b1c">
   <title>PREPARING YOUR DOWNLOAD LINK... | RUDRA MOVIES</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +13,11 @@
 
   <style>
     :root {
-      --bg-dark: #070a1a;
-      --blue: #2f8cff;
+      --blue: #168eea;
       --cyan: #22d3ee;
-      --purple: #9b3cf0;
-      --magenta: #c13fd6;
-      --text-white: #f4f7ff;
-      --text-dim: #aab6dc;
+      --purple: #a52be8;
+      --white: #f5f7ff;
+      --muted: #b9c5df;
     }
 
     * {
@@ -31,577 +30,536 @@
     body {
       min-height: 100vh;
       min-height: 100dvh;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(60,40,90,.35), transparent 55%),
-        linear-gradient(170deg,#0a1220,#0b0d1e 45%,#0d0a1f);
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      color: var(--text-white);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 20px 16px;
       overflow-x: hidden;
-      position: relative;
+      color: var(--white);
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at 0% 20%, rgba(0,160,220,.65), transparent 38%),
+        radial-gradient(ellipse at 100% 5%, rgba(170,35,115,.48), transparent 40%),
+        radial-gradient(ellipse at 100% 100%, rgba(150,25,230,.72), transparent 40%),
+        linear-gradient(145deg,#071b2a,#0b1025 55%,#130b28);
     }
 
-    /* ===== AMBIENT NEON BLOBS ===== */
-
-    .ambient-stage {
+    .ambient {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      z-index: 0;
       overflow: hidden;
+      pointer-events: none;
     }
 
-    .ambient-blob {
+    .blob {
       position: absolute;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: .6;
-      animation: ambientPulse 10s ease-in-out infinite alternate;
+      filter: blur(85px);
+      opacity: .45;
+      animation: float 9s ease-in-out infinite alternate;
     }
 
-    .blob-tl {
-      width: 380px; height: 380px;
-      background: radial-gradient(circle,#1d94c4 0%,#14587a 50%,transparent 75%);
-      top: 4%; left: -20%;
+    .blob.one {
+      background: #078ac9;
+      top: 5%;
+      left: -160px;
     }
 
-    .blob-tr {
-      width: 340px; height: 340px;
-      background: radial-gradient(circle,#a2306f 0%,#5a1f4e 55%,transparent 75%);
-      top: 0%; right: -22%;
+    .blob.two {
+      background: #a52b91;
+      top: 5%;
+      right: -170px;
       animation-delay: -3s;
-      opacity: .5;
     }
 
-    .blob-br {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle,#6a56d8 0%,#3b2a8a 55%,transparent 75%);
-      bottom: -4%; right: -22%;
-      animation-delay: -6s;
+    .blob.three {
+      background: #8d27e9;
+      bottom: -140px;
+      right: -100px;
+      animation-delay: -5s;
     }
 
-    .blob-cyan {
-      width: 240px; height: 240px;
-      background: radial-gradient(circle,rgba(34,211,238,.3),transparent 70%);
-      bottom: 14%; left: 8%;
+    @keyframes float {
+      to { transform: translate(20px,-18px) scale(1.12); }
     }
 
-    @keyframes ambientPulse {
-      0%   { transform: scale(1) translate(0,0); }
-      100% { transform: scale(1.1) translate(14px,-14px); }
+    .scene {
+      width: 100%;
+      max-width: 390px;
+      position: relative;
+      z-index: 1;
+      perspective: 1000px;
     }
-
-    /* ===== GLASS CARD ===== */
 
     .card {
       position: relative;
-      z-index: 1;
       width: 100%;
-      max-width: 400px;
-      border-radius: 34px;
-      padding: 28px 20px 20px;
+      padding: 25px 17px 19px;
       text-align: center;
+      overflow: hidden;
+      border-radius: 27px;
+      border: 1.5px solid rgba(210,220,255,.38);
       background:
-        radial-gradient(circle at 0% 0%,rgba(10,132,255,.95) 0%,rgba(10,132,255,.35) 28%,transparent 58%),
-        radial-gradient(circle at 100% 0%,rgba(170,60,140,.55),transparent 55%),
-        radial-gradient(circle at 100% 100%,rgba(155,48,232,.95) 0%,rgba(155,48,232,.4) 28%,transparent 58%),
-        linear-gradient(180deg,rgba(40,48,90,.55),rgba(20,26,56,.78) 55%,rgba(30,22,70,.7));
+        radial-gradient(circle at 0% 0%,rgba(0,139,255,.67),transparent 48%),
+        radial-gradient(circle at 100% 0%,rgba(190,45,130,.42),transparent 48%),
+        radial-gradient(circle at 100% 100%,rgba(155,35,230,.85),transparent 48%),
+        linear-gradient(155deg,rgba(37,54,83,.88),rgba(18,25,53,.96) 60%,rgba(42,25,76,.9));
       backdrop-filter: blur(22px) saturate(150%);
       -webkit-backdrop-filter: blur(22px) saturate(150%);
-      border: 1.5px solid rgba(200,210,255,.35);
       box-shadow:
-        0 25px 60px rgba(0,0,0,.6),
-        0 0 30px rgba(70,120,255,.15),
-        inset 0 1px 1px rgba(255,255,255,.25);
-      overflow: hidden;
-      animation: cardIn .7s cubic-bezier(.2,.8,.2,1) both, cardGlow 4s ease-in-out infinite alternate;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-
-    .scene { perspective: 1000px; width: 100%; max-width: 400px; position: relative; z-index: 1; }
-    .scene .card { max-width: none; }
-
-    @keyframes cardGlow {
-      0%   { box-shadow: 0 25px 60px rgba(0,0,0,.6), 0 0 28px rgba(47,140,255,.35), 0 0 50px rgba(155,60,240,.2), inset 0 1px 1px rgba(255,255,255,.25); }
-      100% { box-shadow: 0 30px 70px rgba(0,0,0,.65), 0 0 44px rgba(47,140,255,.55), 0 0 80px rgba(155,60,240,.4), inset 0 1px 1px rgba(255,255,255,.3); }
+        0 25px 65px rgba(0,0,0,.55),
+        0 0 30px rgba(50,130,255,.17),
+        inset 0 1px 1px rgba(255,255,255,.2);
+      animation: cardIn .7s ease both, glow 4s ease-in-out infinite alternate;
     }
 
     @keyframes cardIn {
-      from { opacity: 0; transform: translateY(22px) scale(.97); }
-      to   { opacity: 1; transform: none; }
+      from { opacity: 0; transform: translateY(20px) scale(.97); }
+      to { opacity: 1; transform: none; }
     }
 
-    /* rotating neon edge */
+    @keyframes glow {
+      to {
+        box-shadow: 0 25px 65px rgba(0,0,0,.6),
+        0 0 42px rgba(55,130,255,.3),
+        0 0 45px rgba(155,45,220,.2);
+      }
+    }
+
     .card::after {
       content: "";
       position: absolute;
       inset: 0;
+      padding: 1.5px;
       border-radius: inherit;
-      padding: 2px;
-      background: conic-gradient(from var(--ang,0deg), transparent 0deg, #22d3ee 50deg, #2f8cff 110deg, transparent 170deg, #c13fd6 230deg, #9b3cf0 290deg, transparent 360deg);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      background: conic-gradient(
+        from var(--angle,0deg),
+        transparent,
+        #27d9ff,
+        #398bff,
+        transparent 45%,
+        #d13bdc,
+        #8e40ff,
+        transparent
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
-      mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-      opacity: .85;
+      mask-composite: exclude;
       pointer-events: none;
-      animation: edgeSpin 6s linear infinite;
+      animation: borderSpin 7s linear infinite;
     }
 
-    @property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-    @keyframes edgeSpin { to { --ang: 360deg; } }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 8%;
-      width: 84%; height: 1px;
-      background: linear-gradient(90deg,transparent,#bfe4ff,#5aa8ff,transparent);
+    @property --angle {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
     }
 
-    /* ===== LOGO ===== */
+    @keyframes borderSpin {
+      to { --angle: 360deg; }
+    }
 
     .logo-ring {
-      width: 84px;
-      height: 84px;
-      margin: 0 auto 14px;
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 12px;
       border-radius: 50%;
-      padding: 0;
-      background: #000;
-      border: 3px solid rgba(110,100,170,.8);
-      box-shadow: 0 10px 22px rgba(0,0,0,.6), 0 0 22px rgba(80,140,255,.55), inset 0 -4px 8px rgba(0,0,0,.6);
-      transform: translateZ(40px);
-      animation: logoGlow 3s ease-in-out infinite alternate;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
+      background: #000;
+      border: 2px solid rgba(110,180,255,.5);
+      box-shadow: 0 0 20px rgba(50,150,255,.55);
+      animation: logoGlow 3s ease-in-out infinite alternate;
     }
 
     .logo-ring img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
       display: block;
     }
 
     @keyframes logoGlow {
-      0% { box-shadow: 0 10px 22px rgba(0,0,0,.6), 0 0 16px rgba(80,140,255,.45), inset 0 -4px 8px rgba(0,0,0,.6); }
-      100% { box-shadow: 0 10px 22px rgba(0,0,0,.6), 0 0 32px rgba(150,90,255,.8), inset 0 -4px 8px rgba(0,0,0,.6); }
+      to { box-shadow: 0 0 30px rgba(160,80,255,.8); }
     }
-
-    /* ===== BRAND TITLE (small caps) ===== */
 
     .brand-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #ffffff;
-      margin-bottom: 12px;
-      text-shadow: 0 1px 0 #3b6fd8, 0 2px 0 #2f56b0, 0 3px 0 #243f88, 0 4px 6px rgba(0,0,0,.5), 0 0 18px rgba(80,170,255,.85), 0 0 36px rgba(155,60,240,.55);
-      transform: translateZ(30px);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 11px;
+      text-shadow: 0 0 14px rgba(80,170,255,.75);
     }
-
-    /* ===== STATUS PILL ===== */
 
     .tagline-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: rgba(20,110,140,.3);
-      border: 1px solid rgba(80,180,230,.45);
-      box-shadow: inset 0 1px 1px rgba(255,255,255,.08), 0 4px 12px rgba(0,0,0,.25);
-      margin-bottom: 26px;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: 30px;
+      margin-bottom: 19px;
+      background: rgba(20,110,150,.23);
+      border: 1px solid rgba(75,190,235,.38);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,.08);
     }
 
     .status-dot {
-      width: 8px; height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #22e08a;
-      box-shadow: 0 0 8px #22e08a, 0 0 14px rgba(34,224,138,.7);
-      animation: dotBlink 2s infinite ease-in-out;
+      box-shadow: 0 0 9px #22e08a;
+      animation: blink 1.8s infinite;
     }
 
-    @keyframes dotBlink {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50%     { opacity: .55; transform: scale(.85); }
+    @keyframes blink {
+      50% { opacity: .45; transform: scale(.8); }
     }
 
     .tagline-text {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #38bdf8;
+      color: #51c9ff;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .6px;
     }
-
-    /* ===== COUNTDOWN ORB ===== */
 
     .orb-wrapper {
       position: relative;
-      width: 146px;
-      height: 146px;
-      margin: 0 auto 26px;
+      width: 126px;
+      height: 126px;
+      margin: 0 auto 23px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: translateZ(55px);
     }
 
     .orb-svg {
       position: absolute;
       inset: 0;
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       transform: rotate(-90deg);
-      z-index: 3;
-      pointer-events: none;
-      filter: drop-shadow(0 0 8px rgba(47,140,255,.7));
+      overflow: visible;
     }
 
     .ring-dashed {
       fill: none;
-      stroke: rgba(110,180,255,.55);
-      stroke-width: 1.5;
+      stroke: rgba(105,190,255,.65);
+      stroke-width: 1.4;
       stroke-dasharray: 4 5;
-      transform-origin: 73px 73px;
-      animation: ringSpin 30s linear infinite;
+      transform-origin: 63px 63px;
+      animation: ringSpin 25s linear infinite;
     }
 
-    @keyframes ringSpin { to { transform: rotate(360deg); } }
+    @keyframes ringSpin {
+      to { transform: rotate(360deg); }
+    }
 
     .ring-track {
       fill: none;
-      stroke: rgba(90,160,255,.1);
-      stroke-width: 4.5;
+      stroke: rgba(100,165,255,.16);
+      stroke-width: 4;
     }
 
     .ring-progress {
       fill: none;
       stroke: url(#arcGrad);
-      stroke-width: 4.5;
+      stroke-width: 4;
       stroke-linecap: round;
-      stroke-dasharray: 408;
-      stroke-dashoffset: 408;
-      filter: drop-shadow(0 0 6px rgba(47,160,255,.9));
+      stroke-dasharray: 408.41;
+      stroke-dashoffset: 408.41;
+      filter: drop-shadow(0 0 5px #28baff);
     }
 
     .liquid-sphere {
       position: relative;
-      width: 114px;
-      height: 114px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 25%,#5a5f80 0%,#2a3050 80%);
-      border: 5px solid #1b2a4e;
-      box-shadow:
-        inset 0 8px 18px rgba(0,0,0,.8),
-        inset 0 -6px 14px rgba(34,211,238,.3),
-        inset 0 0 22px rgba(0,0,0,.45),
-        0 12px 24px rgba(0,0,0,.55),
-        0 0 34px rgba(47,160,255,.6);
+      width: 96px;
+      height: 96px;
       overflow: hidden;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 25%,#606c86,#1c2947 80%);
+      border: 4px solid #243c65;
+      box-shadow:
+        inset 0 7px 15px rgba(0,0,0,.65),
+        inset 0 -5px 12px rgba(35,200,255,.3),
+        0 0 23px rgba(35,155,255,.6);
       z-index: 2;
     }
 
     .liquid-fill {
       position: absolute;
-      bottom: 0; left: 0;
+      bottom: 0;
+      left: 0;
       width: 100%;
       height: 0%;
-      background: linear-gradient(180deg,#14bcdc 0%,#10b0d8 55%,#1590e0 100%);
-      box-shadow: 0 0 16px rgba(34,211,238,.35);
+      background: linear-gradient(180deg,#24d7ef,#10a9d6 65%,#087ad7);
       transition: height .08s linear;
     }
 
     .liquid-fill::before {
-      content: '';
+      content: "";
       position: absolute;
-      top: -6px; left: -8%;
-      width: 116%; height: 12px;
+      top: -5px;
+      left: -8%;
+      width: 116%;
+      height: 11px;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center,#8defff 0%,#2fc8ea 60%,rgba(20,176,216,0) 100%);
-      box-shadow: 0 0 10px rgba(150,240,255,.85);
-      animation: liquidSlosh 2.4s ease-in-out infinite alternate;
+      background: #75edff;
+      box-shadow: 0 0 12px rgba(100,235,255,.8);
+      animation: slosh 2s ease-in-out infinite alternate;
     }
 
-    @keyframes liquidSlosh {
-      0%   { transform: translateY(0) scaleY(1); }
-      100% { transform: translateY(2px) scaleY(1.25); }
+    @keyframes slosh {
+      to { transform: translateY(2px) scaleY(1.2); }
     }
 
     .sphere-gloss {
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 22%,rgba(255,255,255,.26) 0%,rgba(255,255,255,.04) 35%,transparent 60%);
       z-index: 3;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 20%,rgba(255,255,255,.3),transparent 58%);
       pointer-events: none;
     }
 
     .countdown-num {
       position: absolute;
       z-index: 4;
-      font-size: 2.65rem;
+      font-size: 2.3rem;
       font-weight: 900;
-      color: #ffffff;
-      text-shadow: 0 2px 0 rgba(0,40,90,.7), 0 4px 10px rgba(0,0,0,.6), 0 0 18px rgba(120,200,255,.8);
+      color: #fff;
+      text-shadow: 0 2px 5px #06345d,0 0 14px rgba(130,220,255,.9);
       user-select: none;
-      transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+      transition: transform .2s;
     }
 
-    .countdown-num.pop { transform: scale(1.16); }
+    .countdown-num.pop {
+      transform: scale(1.15);
+    }
 
-    /* ===== STATUS TEXT (small caps) ===== */
-
-    .status-block { margin-bottom: 20px; }
+    .status-block {
+      margin-bottom: 17px;
+    }
 
     .status-heading {
-      font-size: .95rem;
-      font-weight: 800;
-      letter-spacing: .8px;
-      color: #ffffff;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .5px;
       margin-bottom: 5px;
     }
 
     .status-sub {
-      font-size: .85rem;
+      color: var(--muted);
+      font-size: .76rem;
       font-weight: 500;
-      color: var(--text-dim);
     }
-
-    /* ===== ERROR ===== */
 
     .error-banner {
       display: none;
-      padding: 12px 14px;
+      padding: 11px;
       border-radius: 12px;
-      background: rgba(239,68,68,.16);
-      border: 1px solid rgba(239,68,68,.45);
+      margin-bottom: 14px;
       color: #fecaca;
-      font-size: .78rem;
-      font-weight: 600;
+      background: rgba(239,68,68,.16);
+      border: 1px solid rgba(239,68,68,.4);
+      font-size: .75rem;
       line-height: 1.4;
-      margin-bottom: 16px;
     }
-
-    /* ===== BUTTONS ===== */
 
     .btn-group {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 9px;
+      margin-bottom: 15px;
     }
 
     .btn {
       width: 100%;
-      min-height: 50px;
-      border-radius: 16px;
+      min-height: 44px;
+      padding: 10px;
+      border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 9px;
       text-decoration: none;
-      font-size: .85rem;
+      font-size: .73rem;
       font-weight: 800;
-      letter-spacing: .8px;
-      transition: all .25s ease;
+      letter-spacing: .3px;
+      cursor: pointer;
+      transition: .25s ease;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
     }
 
     .btn-primary {
-      background: linear-gradient(180deg,#2273c8,#1f56b4);
-      border: 1px solid rgba(110,180,240,.4);
-      color: rgba(215,225,245,.65);
-      box-shadow: 0 5px 0 #153c82, 0 10px 20px rgba(30,90,220,.3), inset 0 1px 1px rgba(255,255,255,.25);
-      transform: translateZ(25px);
+      color: rgba(220,235,255,.65);
+      background: linear-gradient(180deg,#2376bd,#2058a8);
+      border: 1px solid rgba(110,190,255,.4);
+      box-shadow: 0 4px 0 #153b75,0 8px 18px rgba(20,100,220,.25);
       pointer-events: none;
     }
 
     .btn-primary.ready {
-      background: linear-gradient(180deg,#12b4e6,#1a78ec 60%,#1c64e8);
-      border-color: rgba(160,225,255,.7);
-      color: #ffffff;
+      color: #fff;
       pointer-events: auto;
-      box-shadow: 0 5px 0 #0f4aa8, 0 10px 26px rgba(30,150,255,.5), 0 0 20px rgba(34,211,238,.25);
+      background: linear-gradient(180deg,#19b8e8,#1478ed 65%,#205ee0);
+      border-color: rgba(150,225,255,.7);
+      box-shadow: 0 4px 0 #10458e,0 9px 22px rgba(20,140,255,.45);
       animation: readyPulse 1.6s ease-in-out infinite;
     }
 
     @keyframes readyPulse {
-      0%,100% { box-shadow: 0 5px 0 #0f4aa8, 0 10px 26px rgba(30,150,255,.5), 0 0 20px rgba(34,211,238,.25); }
-      50%     { box-shadow: 0 5px 0 #0f4aa8, 0 12px 34px rgba(30,150,255,.8), 0 0 32px rgba(34,211,238,.55); }
+      50% { box-shadow: 0 4px 0 #10458e,0 10px 30px rgba(20,150,255,.8); }
     }
-
-    .btn-primary.ready:hover,
-    .btn-primary.ready:active { transform: translateY(4px); box-shadow: 0 1px 0 #0f4aa8, 0 4px 14px rgba(30,150,255,.5); }
 
     .btn-spinner {
-      width: 17px; height: 17px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(220,240,255,.3);
+      border-top-color: #fff;
       border-radius: 50%;
-      border: 2.2px solid rgba(190,215,255,.25);
-      border-top-color: #cfe4ff;
-      animation: spin .85s linear infinite;
+      animation: spin .8s linear infinite;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
     .btn-channel {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(200,210,255,.35);
-      color: #ffffff;
-      box-shadow: 0 4px 0 rgba(20,24,60,.7), 0 8px 16px rgba(0,0,0,.3), inset 0 1px 1px rgba(255,255,255,.15);
-      transform: translateZ(25px);
+      color: #fff;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(195,210,255,.32);
+      box-shadow: 0 4px 0 rgba(15,20,50,.65),0 7px 14px rgba(0,0,0,.25);
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
 
-    .btn-channel:hover,
-    .btn-channel:active {
-      background: rgba(255,255,255,.15);
-      border-color: rgba(190,215,255,.6);
-      transform: translateZ(25px) translateY(-1px);
+    .btn-channel:hover {
+      background: rgba(255,255,255,.17);
     }
 
-    .tg-send-icon {
-      width: 16px; height: 16px;
-      color: #38b6ff;
+    .tg-icon {
+      width: 15px;
+      height: 15px;
+      color: #36baff;
       flex-shrink: 0;
     }
 
-    /* ===== FOOTER ===== */
-
     .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      font-size: .72rem;
+      color: rgba(210,220,245,.72);
+      font-size: .62rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      color: rgba(205,215,240,.7);
+      letter-spacing: .7px;
     }
 
-    /* ===== RESPONSIVE ===== */
-
     @media (min-width: 768px) {
-      .scene { max-width: 430px; }
-      .card { padding: 36px 30px 26px; }
-      .brand-title { font-size: 1.45rem; }
+      .scene { max-width: 410px; }
+      .card { padding: 30px 22px 21px; }
     }
 
     @media (max-width: 360px) {
       body { padding: 12px; }
-      .card { padding: 25px 16px 18px; }
-      .brand-title { font-size: 1.15rem; }
+      .card { padding: 23px 14px 17px; }
     }
 
-    @media (max-height: 700px) {
-      body { align-items: flex-start; overflow-y: auto; }
+    @media (max-height: 680px) {
+      body { align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .ambient-blob, .ring-dashed, .btn-primary.ready, .card, .card::after, .logo-ring { animation: none; }
+      *,*::before,*::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- AMBIENT BACKGROUND -->
-  <div class="ambient-stage">
-    <div class="ambient-blob blob-tl"></div>
-    <div class="ambient-blob blob-tr"></div>
-    <div class="ambient-blob blob-br"></div>
-    <div class="ambient-blob blob-cyan"></div>
+  <div class="ambient">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
   </div>
 
-  <!-- MAIN CARD -->
-  <div class="scene" id="scene">
-  <main class="card" id="card">
+  <div class="scene">
+    <main class="card">
 
-    <!-- LOGO -->
-    <div class="logo-ring">
-      <img src="RudraMovies.png" alt="RUDRA MOVIES" onerror="this.style.opacity='0.25'" />
-    </div>
-
-    <!-- BRAND -->
-    <h1 class="brand-title">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
-
-    <!-- STATUS PILL -->
-    <div class="tagline-pill">
-      <span class="status-dot" id="statusDot"></span>
-      <span class="tagline-text">ꜱᴇᴄᴜʀᴇᴅ &amp; ᴠᴇʀɪꜰɪᴇᴅ ʟɪɴᴋ</span>
-    </div>
-
-    <!-- COUNTDOWN -->
-    <div class="orb-wrapper">
-      <svg class="orb-svg" viewBox="0 0 146 146">
-        <defs>
-          <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#6fd2ff" />
-            <stop offset="55%" stop-color="#2f8cff" />
-            <stop offset="100%" stop-color="#2a62e8" />
-          </linearGradient>
-        </defs>
-
-        <circle class="ring-dashed" cx="73" cy="73" r="69" />
-        <circle class="ring-track" cx="73" cy="73" r="65" />
-        <circle class="ring-progress" id="ringProgress" cx="73" cy="73" r="65" />
-      </svg>
-
-      <div class="liquid-sphere">
-        <div class="liquid-fill" id="liquidFill"></div>
-        <div class="sphere-gloss"></div>
+      <div class="logo-ring">
+        <img src="RudraMovies.png" alt="RUDRA MOVIES"
+             onerror="this.style.opacity='.25'">
       </div>
 
-      <div class="countdown-num" id="countdownNum">5</div>
-    </div>
+      <h1 class="brand-title">ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ</h1>
 
-    <!-- STATUS -->
-    <div class="status-block">
-      <div class="status-heading" id="statusHeading">ꜱᴇᴄᴜʀɪᴛʏ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</div>
-      <div class="status-sub" id="statusSub">ꜱᴄᴀɴɴɪɴɢ ʟɪɴᴋ...</div>
-    </div>
+      <div class="tagline-pill">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="tagline-text">ꜱᴇᴄᴜʀᴇᴅ &amp; ᴠᴇʀɪꜰɪᴇᴅ ʟɪɴᴋ</span>
+      </div>
 
-    <!-- ERROR -->
-    <div class="error-banner" id="errorBanner"></div>
+      <div class="orb-wrapper">
+        <svg class="orb-svg" viewBox="0 0 126 126">
+          <defs>
+            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#72e4ff"/>
+              <stop offset="55%" stop-color="#2f8cff"/>
+              <stop offset="100%" stop-color="#2460e8"/>
+            </linearGradient>
+          </defs>
 
-    <!-- ACTION BUTTONS -->
-    <div class="btn-group">
-
-      <a href="#" id="downloadBtn" class="btn btn-primary" role="button" aria-disabled="true">
-        <span class="btn-spinner" id="btnSpinner"></span>
-        <span id="downloadBtnText">ᴠᴇʀɪꜰʏɪɴɢ...</span>
-      </a>
-
-      <a href="https://t.me/RudraMovies" id="telegramBtn" target="_blank" rel="noopener noreferrer" class="btn btn-channel">
-        <svg class="tg-send-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
+          <circle class="ring-dashed" cx="63" cy="63" r="60"/>
+          <circle class="ring-track" cx="63" cy="63" r="56"/>
+          <circle class="ring-progress" id="ringProgress" cx="63" cy="63" r="56"/>
         </svg>
-        <span>⚡ ʀᴜᴅʀᴀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ ✨</span>
-      </a>
 
-    </div>
+        <div class="liquid-sphere">
+          <div class="liquid-fill" id="liquidFill"></div>
+          <div class="sphere-gloss"></div>
+        </div>
 
-    <!-- FOOTER -->
-    <div class="card-footer">
-      <span>⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ ꜱᴇᴄᴜʀɪᴛʏ</span>
-    </div>
+        <div class="countdown-num" id="countdownNum">5</div>
+      </div>
 
-  </main>
+      <div class="status-block">
+        <div class="status-heading" id="statusHeading">ꜱᴇᴄᴜʀɪᴛʏ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ</div>
+        <div class="status-sub" id="statusSub">ꜱᴄᴀɴɴɪɴɢ ʟɪɴᴋ...</div>
+      </div>
+
+      <div class="error-banner" id="errorBanner"></div>
+
+      <div class="btn-group">
+        <a href="#" id="downloadBtn" class="btn btn-primary"
+           role="button" aria-disabled="true">
+          <span class="btn-spinner" id="btnSpinner"></span>
+          <span id="downloadBtnText">ᴠᴇʀɪꜰʏɪɴɢ...</span>
+        </a>
+
+        <a href="https://t.me/RudraMovies"
+           id="telegramBtn"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-channel">
+          <svg class="tg-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.4 20.4l17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"/>
+          </svg>
+          <span>⚡ ʀᴜᴅʀᴀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ ✨</span>
+        </a>
+      </div>
+
+      <div class="card-footer">
+        ⚡ ʀᴜᴅʀᴀ ᴍᴏᴠɪᴇꜱ ꜱᴇᴄᴜʀɪᴛʏ
+      </div>
+
+    </main>
   </div>
 
   <script>
     (function () {
       const COUNTDOWN_SECONDS = 5;
-      const ARC_CIRCUMFERENCE = 2 * Math.PI * 65;
+      const ARC_CIRCUMFERENCE = 2 * Math.PI * 56;
 
       const countdownNum = document.getElementById('countdownNum');
       const ringProgress = document.getElementById('ringProgress');
@@ -620,23 +578,17 @@
       let finalRedirectUrl = null;
       let hasError = false;
 
-      // Validate and sanitize target URL
       function parseValidUrl(input) {
         if (!input || typeof input !== 'string') return null;
 
         const raw = input.trim();
         if (!raw) return null;
 
-        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
-          return raw;
-        }
+        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) return raw;
 
-        // Support Base64-encoded redirect URLs
         try {
           const decoded = atob(raw).trim();
-          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
-            return decoded;
-          }
+          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) return decoded;
         } catch (_) {}
 
         return null;
@@ -656,9 +608,9 @@
         errorBanner.style.display = 'block';
         downloadBtn.classList.remove('ready');
         downloadBtn.removeAttribute('href');
+        downloadBtn.setAttribute('aria-disabled', 'true');
       }
 
-      // Preserve token verification and redirect parameters
       async function resolveDestination() {
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token');
@@ -696,7 +648,6 @@
             }
 
             return validTarget;
-
           } catch (err) {
             displayError(err.message || 'Failed to verify download token. Please try again from the channel.');
             return null;
@@ -705,10 +656,7 @@
 
         if (redirect) {
           const validTarget = parseValidUrl(redirect);
-
-          if (validTarget) {
-            return validTarget;
-          }
+          if (validTarget) return validTarget;
 
           displayError('The provided redirect URL is invalid.');
           return null;
@@ -726,7 +674,6 @@
 
         liquidFill.style.height = '20%';
 
-        // Status text change, as in the reference design
         setTimeout(() => {
           if (!hasError && !finalRedirectUrl) {
             statusSub.textContent = 'ʀᴇᴅɪʀᴇᴄᴛɪɴɢ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ...';
@@ -740,17 +687,15 @@
           const progress = elapsed / totalDuration;
           const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
 
-          const dashOffset = ARC_CIRCUMFERENCE * (1 - progress);
-          ringProgress.style.strokeDashoffset = `${dashOffset}`;
+          ringProgress.style.strokeDashoffset =
+            `${ARC_CIRCUMFERENCE * (1 - progress)}`;
 
-          const fillPercent = 20 + progress * 68;
-          liquidFill.style.height = `${fillPercent.toFixed(1)}%`;
+          liquidFill.style.height = `${20 + progress * 68}%`;
 
           if (secondsLeft !== currentDisplayed && elapsed < totalDuration) {
             currentDisplayed = secondsLeft;
             countdownNum.textContent = String(secondsLeft);
             countdownNum.classList.add('pop');
-
             setTimeout(() => countdownNum.classList.remove('pop'), 180);
           }
 
@@ -781,7 +726,6 @@
         downloadBtn.classList.add('ready');
         downloadBtn.setAttribute('aria-disabled', 'false');
 
-        // Automatic redirect
         setTimeout(() => {
           window.location.href = finalRedirectUrl;
         }, 300);
@@ -792,34 +736,11 @@
           e.preventDefault();
           return;
         }
-
         window.location.href = finalRedirectUrl;
       });
 
       startCountdown();
     })();
-
-    // Cosmetic 3D tilt (no effect on verification / redirect logic)
-    (function () {
-      const scene = document.getElementById('scene');
-      const card = document.getElementById('card');
-      if (!scene || !card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      let raf = null;
-      function tilt(x, y) {
-        const r = scene.getBoundingClientRect();
-        const px = (x - r.left) / r.width - 0.5;
-        const py = (y - r.top) / r.height - 0.5;
-        card.style.transform = `rotateY(${(px * 14).toFixed(2)}deg) rotateX(${(-py * 14).toFixed(2)}deg)`;
-      }
-      scene.addEventListener('pointermove', e => {
-        if (raf) cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => tilt(e.clientX, e.clientY));
-      });
-      scene.addEventListener('pointerleave', () => { card.style.transform = ''; });
-      // Gentle float-in when the page loads
-      card.style.transition = 'transform .25s ease-out';
-    })();
   </script>
-
 </body>
 </html>
