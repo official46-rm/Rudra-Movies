@@ -576,107 +576,192 @@
 
   <script>
     (function () {
-      'use strict';
-
       const COUNTDOWN_SECONDS = 5;
-      const CIRCUMFERENCE = 2 * Math.PI * 65;
-      const $ = (id) => document.getElementById(id);
+      const ARC_CIRCUMFERENCE = 2 * Math.PI * 65;
 
-      const countdownNum = $('countdownNum');
-      const ringProgress = $('ringProgress');
-      const liquidFill = $('liquidFill');
-      const statusHeading = $('statusHeading');
-      const statusSub = $('statusSub');
-      const statusDot = $('statusDot');
-      const errorBanner = $('errorBanner');
-      const downloadBtn = $('downloadBtn');
-      const downloadBtnText = $('downloadBtnText');
-      const btnSpinner = $('btnSpinner');
+      const countdownNum = document.getElementById('countdownNum');
+      const ringProgress = document.getElementById('ringProgress');
+      const liquidFill = document.getElementById('liquidFill');
+      const statusHeading = document.getElementById('statusHeading');
+      const statusSub = document.getElementById('statusSub');
+      const statusDot = document.getElementById('statusDot');
+      const errorBanner = document.getElementById('errorBanner');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const downloadBtnText = document.getElementById('downloadBtnText');
+      const btnSpinner = document.getElementById('btnSpinner');
 
-      let ready = false;
-      let failed = false;
-      let verificationUrl = null;
+      ringProgress.style.strokeDasharray = `${ARC_CIRCUMFERENCE}`;
+      ringProgress.style.strokeDashoffset = `${ARC_CIRCUMFERENCE}`;
 
-      ringProgress.style.strokeDasharray = String(CIRCUMFERENCE);
-      ringProgress.style.strokeDashoffset = String(CIRCUMFERENCE);
+      let finalRedirectUrl = null;
+      let hasError = false;
 
-      function showError(message) {
-        failed = true;
-        ready = false;
+      // Validate and sanitize target URL
+      function parseValidUrl(input) {
+        if (!input || typeof input !== 'string') return null;
+
+        const raw = input.trim();
+        if (!raw) return null;
+
+        if (/^(https?:\/\/|tg:\/\/)/i.test(raw)) {
+          return raw;
+        }
+
+        // Support Base64-encoded redirect URLs
+        try {
+          const decoded = atob(raw).trim();
+          if (/^(https?:\/\/|tg:\/\/)/i.test(decoded)) {
+            return decoded;
+          }
+        } catch (_) {}
+
+        return null;
+      }
+
+      function displayError(msg) {
+        hasError = true;
         btnSpinner.style.display = 'none';
         downloadBtnText.textContent = 'LINK ERROR';
         statusHeading.textContent = 'INVALID OR MISSING LINK';
         statusHeading.style.color = '#f87171';
-        statusSub.textContent = 'Please request a fresh download link.';
+        statusSub.textContent = 'Unable to proceed with redirect.';
         statusDot.style.background = '#ef4444';
         statusDot.style.boxShadow = '0 0 8px #ef4444';
         countdownNum.textContent = '!';
-        errorBanner.textContent = message;
+        errorBanner.textContent = msg;
         errorBanner.style.display = 'block';
         downloadBtn.classList.remove('ready');
         downloadBtn.removeAttribute('href');
-        downloadBtn.setAttribute('aria-disabled', 'true');
       }
 
-      // Only accept a signed token. Never accept a client-supplied redirect URL.
-      const params = new URLSearchParams(window.location.search);
-      const token = params.get('token');
+      // Preserve token verification and redirect parameters
+      async function resolveDestination() {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+        const redirect = params.get('redirect');
 
-      if (!token || token.length > 4096) {
-        showError('A valid download token is missing. Please return to the official channel.');
-        return;
+        if (token) {
+          try {
+            let res = await fetch(`/api/verify?token=${encodeURIComponent(token)}`, {
+              method: 'GET',
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.status === 405) {
+              res = await fetch('/api/verify', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                },
+                body: JSON.stringify({ token, redirect })
+              });
+            }
+
+            const data = await res.json().catch(() => ({}));
+
+            if (!res.ok || data.error || data.valid === false || data.success === false) {
+              throw new Error(data.message || data.error || 'This download token is invalid or has expired.');
+            }
+
+            const target = data.redirect || data.url || data.target || data.link || redirect;
+            const validTarget = parseValidUrl(target);
+
+            if (!validTarget) {
+              throw new Error('Destination download link is missing or invalid.');
+            }
+
+            return validTarget;
+
+          } catch (err) {
+            displayError(err.message || 'Failed to verify download token. Please try again from the channel.');
+            return null;
+          }
+        }
+
+        if (redirect) {
+          const validTarget = parseValidUrl(redirect);
+
+          if (validTarget) {
+            return validTarget;
+          }
+
+          displayError('The provided redirect URL is invalid.');
+          return null;
+        }
+
+        displayError('No download link or token was found in the URL.');
+        return null;
       }
-
-      // The API endpoint responds with HTTP 302 after successful verification.
-      // Do not fetch it as JSON: navigate to it only after the countdown.
-      verificationUrl = '/api/verify?token=' + encodeURIComponent(token);
 
       function startCountdown() {
-        const startedAt = performance.now();
-        let lastShown = COUNTDOWN_SECONDS;
+        const destinationPromise = resolveDestination();
+        const startTime = performance.now();
+        const totalDuration = COUNTDOWN_SECONDS * 1000;
+        let currentDisplayed = COUNTDOWN_SECONDS;
 
         liquidFill.style.height = '20%';
 
         function tick(now) {
-          if (failed) return;
+          if (hasError) return;
 
-          const elapsed = Math.min(now - startedAt, COUNTDOWN_SECONDS * 1000);
-          const progress = elapsed / (COUNTDOWN_SECONDS * 1000);
-          const secondsLeft = Math.max(0, Math.ceil((COUNTDOWN_SECONDS * 1000 - elapsed) / 1000));
+          const elapsed = Math.min(now - startTime, totalDuration);
+          const progress = elapsed / totalDuration;
+          const secondsLeft = Math.max(1, Math.ceil((totalDuration - elapsed) / 1000));
 
-          ringProgress.style.strokeDashoffset = String(CIRCUMFERENCE * (1 - progress));
-          liquidFill.style.height = (20 + progress * 68).toFixed(1) + '%';
+          const dashOffset = ARC_CIRCUMFERENCE * (1 - progress);
+          ringProgress.style.strokeDashoffset = `${dashOffset}`;
 
-          if (secondsLeft !== lastShown && secondsLeft > 0) {
-            lastShown = secondsLeft;
+          const fillPercent = 20 + progress * 68;
+          liquidFill.style.height = `${fillPercent.toFixed(1)}%`;
+
+          if (secondsLeft !== currentDisplayed && elapsed < totalDuration) {
+            currentDisplayed = secondsLeft;
             countdownNum.textContent = String(secondsLeft);
             countdownNum.classList.add('pop');
+
             setTimeout(() => countdownNum.classList.remove('pop'), 180);
           }
 
-          if (elapsed < COUNTDOWN_SECONDS * 1000) {
+          if (elapsed < totalDuration) {
             requestAnimationFrame(tick);
           } else {
-            ready = true;
-            countdownNum.textContent = '✓';
-            ringProgress.style.strokeDashoffset = '0';
-            liquidFill.style.height = '90%';
-            statusSub.textContent = 'Your secure link is ready. Tap below to verify.';
-            btnSpinner.style.display = 'none';
-            downloadBtnText.textContent = 'VERIFY & DOWNLOAD';
-            downloadBtn.href = verificationUrl;
-            downloadBtn.classList.add('ready');
-            downloadBtn.setAttribute('aria-disabled', 'false');
+            completeCountdown(destinationPromise);
           }
         }
 
         requestAnimationFrame(tick);
       }
 
-      downloadBtn.addEventListener('click', function (event) {
-        if (!ready || failed || !verificationUrl) {
-          event.preventDefault();
+      async function completeCountdown(destinationPromise) {
+        finalRedirectUrl = await destinationPromise;
+
+        if (hasError || !finalRedirectUrl) return;
+
+        ringProgress.style.strokeDashoffset = '0';
+        liquidFill.style.height = '90%';
+        countdownNum.textContent = '1';
+
+        statusSub.textContent = 'Your download link is ready!';
+        btnSpinner.style.display = 'none';
+        downloadBtnText.textContent = 'DOWNLOAD NOW';
+        downloadBtn.href = finalRedirectUrl;
+        downloadBtn.classList.add('ready');
+        downloadBtn.setAttribute('aria-disabled', 'false');
+
+        // Automatic redirect
+        setTimeout(() => {
+          window.location.href = finalRedirectUrl;
+        }, 300);
+      }
+
+      downloadBtn.addEventListener('click', function (e) {
+        if (!finalRedirectUrl || hasError) {
+          e.preventDefault();
+          return;
         }
+
+        window.location.href = finalRedirectUrl;
       });
 
       startCountdown();
